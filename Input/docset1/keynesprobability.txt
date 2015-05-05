@@ -1,0 +1,4512 @@
+Project Gutenberg’s A Treatise of Probability, by John Maynard Keynes
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.
+You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+Title: A Treatise of Probability
+
+Author: John Maynard Keynes
+
+Release Date: February 9, 2014 [EBook #32625]
+
+Language: English
+
+Character set encoding: ISO-8859-1
+
+*** START OF THIS PROJECT GUTENBERG EBOOK A TREATISE OF PROBABILITY ***
+
+Produced by Ralph Janke, Andrew D. Hwang, and the Online
+Distributed Proofreading Team at http://www.pgdp.net. (This
+file was produced from images generously made available
+by The Internet Archive.)
+
+transcriber’s note
+
+Minor typographical corrections and presentational changes
+have been made without comment. Typographical corrections
+and regularizations of hyphenation are documented in the
+LATEXsource ﬁle.
+PDF bookmarks are provided for navigation to individual
+sections.
+This PDF ﬁle is formatted for screen viewing, but may be easily
+formatted for printing. Please consult the preamble of the
+LATEX source ﬁle for instructions.
+
+BY THE SAME AUTHOR
+
+INDIAN CURRENCY AND FINANCE
+
+8vo. Pp. viii + 263. 1913.
+
+7s. 6d. net.
+
+THE ECONOMIC CONSEQUENCES
+
+OF THE PEACE
+
+8vo. Pp. vii + 279. 1919.
+
+8s. 6d. net.
+
+A TREATISE ON PROBABILITY
+
+MACMILLAN AND CO., Limited
+
+LONDON · BOMBAY · CALCUTTA · MADRAS
+
+MELBOURNE
+
+THE MACMILLAN COMPANY
+NEW YORK · BOSTON · CHICAGO
+
+DALLAS · SAN FRANCISCO
+
+THE MACMILLAN CO. OF CANADA, Ltd.
+
+TORONTO
+
+A TREATISE
+
+ON PROBABILITY
+
+BY
+
+JOHN MAYNARD KEYNES
+
+FELLOW OF KING’S COLLEGE, CAMBRIDGE
+
+MACMILLAN AND CO., LIMITED
+ST. MARTIN’S STREET, LONDON
+
+
+
+PREFACE
+
+The subject matter of this book was ﬁrst broached in the brain
+of Leibniz, who, in the dissertation, written in his twenty-third year,
+on the mode of electing the kings of Poland, conceived of Probability
+as a branch of Logic. A few years before, “un problème,”
+in the
+words of Poisson, “proposé à un austère janséniste par un homme du
+monde, a été l’origine du calcul des probabilitiés.” In the intervening
+centuries the algebraical exercises, in which the Chevalier de la Méré
+interested Pascal, have so far predominated in the learned world over
+the profounder enquiries of the philosopher into those processes of
+human faculty which, by determining reasonable preference, guide our
+choice, that Probability is oftener reckoned with Mathematics than
+with Logic. There is much here, therefore, which is novel and, being
+novel, unsifted, inaccurate, or deﬁcient.
+I propound my systematic
+conception of this subject for criticism and enlargement at the hand
+of others, doubtful whether I myself am likely to get much further,
+by waiting longer, with a work, which, beginning as a Fellowship
+Dissertation, and interrupted by the war, has already extended over
+many years.
+
+It may be perceived that I have been much inﬂuenced by W. E.
+Johnson, G. E. Moore, and Bertrand Russell, that is to say by
+Cambridge, which, with great debts to the writers of Continental
+Europe, yet continues in direct succession the English tradition of
+Locke and Berkeley and Hume, of Mill and Sidgwick, who, in spite of
+their divergences of doctrine, are united in a preference for what is
+matter of fact, and have conceived their subject as a branch rather of
+science than of the creative imagination, prose writers, hoping to be
+understood.
+
+J. M. KEYNES.
+
+King’s College, Cambridge,
+
+May 1, 1920.
+
+v
+
+CONTENTS
+
+PART I
+
+fundamental ideas
+
+CHAPTER I
+
+The Meaning of Probability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+page
+2
+
+CHAPTER II
+
+Probability in Relation to the Theory of Knowledge
+
+9
+
+The Measurement of Probabilities . . . . . . . . . . . . . . . . . . . . . .
+
+20
+
+CHAPTER III
+
+The Principle of Indifference. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+44
+
+CHAPTER IV
+
+Other Methods of Determining Probabilities . . . . . . . . .
+
+71
+
+CHAPTER V
+
+vi
+
+CONTENTS
+
+CHAPTER VI
+
+The Weight of Arguments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+vii
+
+page
+78
+
+CHAPTER VII
+
+Historical Retrospect . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+87
+
+The Frequency Theory of Probability . . . . . . . . . . . . . . . . . 102
+
+CHAPTER VIII
+
+The Constructive Theory of Part I. Summarized. . . . . . 123
+
+CHAPTER IX
+
+PART II
+
+fundamental theorems
+
+CHAPTER X
+
+Introductory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+
+CHAPTER XI
+
+The Theory of Groups, with special reference to
+Logical Consistence, Inference, and Logical Pri-
+ority . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 135
+
+CHAPTER XII
+
+The Definitions and Axioms of Inference and Proba-
+
+bility . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 146
+
+A TREATISE ON PROBABILITY
+
+viii
+
+CHAPTER XIII
+
+page
+The Fundamental Theorems of Necessary Inference . 153
+
+CHAPTER XIV
+
+The Fundamental Theorems of Probable Inference . . 161
+
+CHAPTER XV
+
+Numerical Measurement and Approximation of Prob-
+
+abilities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 180
+
+CHAPTER XVI
+
+Observations on the Theorems of Chapter XIV. and
+
+their Developments, including Testimony . . . . . . . . . 188
+
+CHAPTER XVII
+
+Some Problems in Inverse Probability,
+
+including
+
+Averages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 214
+
+PART III
+
+induction and analogy
+
+CHAPTER XVIII
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 250
+
+The Nature of Argument by Analogy . . . . . . . . . . . . . . . . . . 256
+
+CHAPTER XIX
+
+CONTENTS
+
+CHAPTER XX
+
+ix
+
+page
+
+The Value of Multiplication of Instances, or Pure
+
+Induction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 269
+
+CHAPTER XXI
+
+The Nature of Inductive Argument Continued. . . . . . . . 279
+
+CHAPTER XXII
+
+The Justification of these Methods. . . . . . . . . . . . . . . . . . . . . 289
+
+CHAPTER XXIII
+
+Some Historical Notes on Induction . . . . . . . . . . . . . . . . . . . . 305
+
+Notes on Part III . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 315
+
+PART IV
+
+some philosophical applications of probability
+
+CHAPTER XXIV
+
+The Meanings of Objective Chance, and of Random-
+
+ness . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 321
+
+CHAPTER XXV
+
+Some Problems arising out of the Discussion of
+
+Chance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 335
+
+A TREATISE ON PROBABILITY
+
+x
+
+CHAPTER XXVI
+
+page
+The Application of Probability to Conduct . . . . . . . . . . . 351
+
+PART V
+
+the foundations of statistical inference
+
+CHAPTER XXVII
+
+The Nature of Statistical Inference. . . . . . . . . . . . . . . . . . . . 371
+
+CHAPTER XXVIII
+
+The Law of Great Numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 376
+
+CHAPTER XXIX
+
+The Use of à priori Probabilities for the Predic-
+tion of Statistical Frequency—the Theorems of
+Bernoulli, Poisson, and Tchebycheff. . . . . . . . . . . . . . . 382
+
+CHAPTER XXX
+
+The Mathematical use of Statistical Frequencies for
+the Determination of Probability à posteriori—the
+Methods of Laplace . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 418
+
+The Inversion of Bernoulli’s Theorem. . . . . . . . . . . . . . . . . . 438
+
+CHAPTER XXXI
+
+CONTENTS
+
+xi
+
+CHAPTER XXXII
+
+The Inductive use of Statistical Frequencies for
+the Determination of Probability à posteriori—the
+Methods of Lexis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 446
+
+page
+
+CHAPTER XXXIII
+
+Outline of a Constructive Theory . . . . . . . . . . . . . . . . . . . . . . 464
+
+PART I
+
+fundamental ideas
+
+CHAPTER I
+
+the meaning of probability
+
+“J’ai dit plus d’une fois qu’il faudrait une nouvelle espèce de logique, qui
+
+traiteroit des degrés de Probabilité.”—Leibniz.
+
+1.
+
+Part of our knowledge we obtain direct; and part by
+argument. The Theory of Probability is concerned with that part
+which we obtain by argument, and it treats of the diﬀerent degrees in
+which the results so obtained are conclusive or inconclusive.
+
+In most branches of academic logic, such as the theory of the
+syllogism or the geometry of ideal space, all the arguments aim at
+demonstrative certainty. They claim to be conclusive. But many other
+arguments are rational and claim some weight without pretending to
+be certain. In Metaphysics, in Science, and in Conduct, most of the
+arguments, upon which we habitually base our rational beliefs, are
+admitted to be inconclusive in a greater or less degree. Thus for a
+philosophical treatment of these branches of knowledge, the study of
+probability is required.
+
+The course which the history of thought has led Logic to follow
+has encouraged the view that doubtful arguments are not within
+its scope. But in the actual exercise of reason we do not wait on
+certainty, or doom it irrational to depend on a doubtful argument. If
+logic investigates the general principles of valid thought, the study of
+arguments, to which it is rational to attach some weight, is as much
+a part of it as the study of those which are demonstrative.
+
+2. The terms certain and probable describe the various degrees
+of rational belief about a proposition which diﬀerent amounts of
+knowledge authorise us to entertain. All propositions are true or false,
+but the knowledge we have of them depends on our circumstances;
+and while it is often convenient to speak of propositions as certain or
+probable, this expresses strictly a relationship in which they stand to
+a corpus of knowledge, actual or hypothetical, and not a characteristic
+
+2
+
+ch. i
+
+FUNDAMENTAL IDEAS
+
+3
+
+of the propositions in themselves. A proposition is capable at the
+same time of varying degrees of this relationship, depending upon the
+knowledge to which it is related, so that it is without signiﬁcance to
+call a proposition probable unless we specify the knowledge to which
+we are relating it.
+
+To this extent, therefore, probability may be called subjective.
+But in the sense important to logic, probability is not subjective. It
+is not, that is to say, subject to human caprice. A proposition is not
+probable because we think it so. When once the facts are given which
+determine our knowledge, what is probable or improbable in these
+circumstances has been ﬁxed objectively, and is independent of our
+opinion. The Theory of Probability is logical, therefore, because it is
+concerned with the degree of belief which it is rational to entertain in
+given conditions, and not merely with the actual beliefs of particular
+individuals, which may or may not be rational.
+
+Given the body of direct knowledge which constitutes our ultimate
+premisses, this theory tells us what further rational beliefs, certain or
+probable, can be derived by valid argument from our direct knowledge.
+This involves purely logical relations between the propositions which
+embody our direct knowledge and the propositions about which we
+seek indirect knowledge. What particular propositions we select as
+the premisses of our argument naturally depends on subjective factors
+peculiar to ourselves; but the relations, in which other propositions
+stand to these, and which entitle us to probable beliefs, are objective
+and logical.
+
+3. Let our premisses consist of any set of propositions h, and our
+conclusion consist of any set of propositions a, then, if a knowledge
+of h justiﬁes a rational belief in a of degree α, we say that there is a
+probability-relation of degree α between a and h.∗
+
+In ordinary speech we often describe the conclusion as being
+doubtful, uncertain, or only probable. But, strictly, these terms
+
+∗This will be written a/h = α.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+4
+
+ought to be applied, either to the degree of our rational belief
+in
+the conclusion, or to the relation or argument between two sets
+of propositions, knowledge of which would aﬀord grounds for a
+corresponding degree of rational belief.∗
+
+4. With the term “event,” which has taken hitherto so important
+a place in the phraseology of the subject, I shall dispense altogether.†
+Writers on Probability have generally dealt with what they term the
+“happening” of “events.”
+In the problems which they ﬁrst studied
+this did not involve much departure from common usage. But these
+expressions are now used in a way which is vague and ambiguous;
+and it will be more than a verbal improvement to discuss the truth
+and the probability of propositions instead of the occurrence and the
+probability of events.‡
+
+5. These general ideas are not likely to provoke much criticism.
+In the ordinary course of thought and argument, we are constantly
+assuming that knowledge of one statement, while not proving the
+truth of a second, yields nevertheless some ground for believing it.
+We assert that we ought on the evidence to prefer such and such
+a belief. We claim rational grounds for assertions which are not
+conclusively demonstrated. We allow, in fact, that statements may
+be unproved, without,
+for that reason, being unfounded. And it
+does not seem on reﬂection that the information we convey by these
+expressions is wholly subjective. When we argue that Darwin gives
+valid grounds for our accepting his theory of natural selection, we do
+not simply mean that we are psychologically inclined to agree with
+
+∗See also Chapter II. § 5.
+†Except in those chapters (Chap. XVII., for example) where I am dealing
+
+chieﬂy with the work of others.
+
+‡The ﬁrst writer I know of to notice this was Ancillon in Doutes sur les
+bases du calcul des probabilités (1794):
+“Dire qu’un fait passé, présent ou à
+venir est probable, c’est dire qu’une proposition est probable.” The point was
+emphasised by Boole, Laws of Thought, pp. 7 and 167.
+See also Czuber,
+i. p. 5, and Stumpf, Über den Begriﬀ der
+Wahrscheinlichkeitsrechnung, vol.
+mathematischen Wahrscheinlichkeit.
+
+ch. i
+
+FUNDAMENTAL IDEAS
+
+5
+
+6.
+
+him; it is certain that we also intend to convey our belief that we are
+acting rationally in regarding his theory as probable. We believe that
+there is some real objective relation between Darwin’s evidence and
+his conclusions, which is independent of the mere fact of our belief,
+and which is just as real and objective, though of a diﬀerent degree,
+as that which would exist if the argument were as demonstrative as
+a syllogism. We are claiming, in fact, to cognise correctly a logical
+connection between one set of propositions which we call our evidence
+and which we suppose ourselves to know, and another set which we
+call our conclusions, and to which we attach more or less weight
+according to the grounds supplied by the ﬁrst.
+It is this type of
+objective relation between sets of propositions—the type which we
+claim to be correctly perceiving when we make such assertions as
+these—to which the reader’s attention must be directed.
+
+It is not straining the use of words to speak of this as the
+relation of probability. It is true that mathematicians have employed
+the term in a narrower sense;
+for they have often conﬁned it to
+the limited class of instances in which the relation is adapted to an
+algebraical treatment. But in common usage the word has never
+received this limitation.
+
+Students of probability in the sense which is meant by the authors
+of typical treatises on Wahrscheinlichkeitsrechnung or Calcul des
+probabilités, will ﬁnd that I do eventually reach topics with which
+they are familiar. But in making a serious attempt to deal with
+the fundamental diﬃculties with which all students of mathematical
+probabilities have met and which are notoriously unsolved, we must
+begin at the beginning (or almost at the beginning) and treat our
+subject widely. As soon as mathematical probability ceases to be
+the merest algebra or pretends to guide our decisions, it immediately
+meets with problems against which its own weapons are quite
+powerless. And even if we wish later on to use probability in a narrow
+sense, it will be well to know ﬁrst what it means in the widest.
+
+7.
+
+Between two sets of propositions, therefore, there exists
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+6
+
+a relation, in virtue of which, if we know the ﬁrst, we can attach
+to the latter some degree of rational belief. This relation is the
+subject-matter of the logic of probability.
+
+A great deal of confusion and error has arisen out of a failure to
+take due account of this relational aspect of probability. From the
+premisses “a implies b” and “a is true,” we can conclude something
+about b—namely that b is true—which does not involve a. But, if a
+is so related to b, that a knowledge of it renders a probable belief in b
+rational, we cannot conclude anything whatever about b which has
+not reference to a; and it is not true that every set of self-consistent
+premisses which includes a has this same relation to b. It is as useless,
+therefore, to say “b is probable” as it would be to say “b is equal,”
+or “b is greater than,” and as unwarranted to conclude that, because
+a makes b probable, therefore a and c together make b probable, as
+to argue that because a is less than b, therefore a and c together are
+less than b.
+
+Thus, when in ordinary speech we name some opinion as probable
+without further qualiﬁcation, the phrase is generally elliptical. We
+mean that it is probable when certain considerations,
+implicitly or
+explicitly present to our minds at the moment, are taken into account.
+We use the word for the sake of shortness, just as we speak of a place
+as being three miles distant, when we mean three miles distant from
+where we are then situated, or from some starting-point to which we
+tacitly refer. No proposition is in itself either probable or improbable,
+just as no place can be intrinsically distant; and the probability of
+the same statement varies with the evidence presented, which is, as
+it were, its origin of reference. We may ﬁx our attention on our own
+knowledge and, treating this as our origin, consider the probabilities
+of all other suppositions,—according to the usual practice which leads
+to the elliptical form of common speech; or we may, equally well, ﬁx it
+on a proposed conclusion and consider what degree of probability this
+would derive from various sets of assumptions, which might constitute
+the corpus of knowledge of ourselves or others, or which are merely
+
+ch. i
+
+FUNDAMENTAL IDEAS
+
+7
+
+hypotheses.
+
+Reﬂection will show that this account harmonises with familiar
+experience. There is nothing novel
+in the supposition that the
+probability of a theory turns upon the evidence by which it is
+supported; and it is common to assert that an opinion was probable
+on the evidence at ﬁrst to hand, but on further information was
+untenable.
+As our knowledge or our hypothesis changes, our
+conclusions have new probabilities, not in themselves, but relatively
+to these new premisses. New logical relations have now become
+important, namely those between the conclusions which we are
+investigating and our new assumptions; but the old relations between
+the conclusions and the former assumptions still exist and are just
+as real as these new ones.
+It would be as absurd to deny that an
+opinion was probable, when at a later stage certain objections have
+come to light, as to deny, when we have reached our destination, that
+it was ever three miles distant; and the opinion still is probable in
+relation to the old hypotheses, just as the destination is still three
+miles distant from our starting-point.
+
+8. A deﬁnition of probability is not possible, unless it contents us
+to deﬁne degrees of the probability-relation by reference to degrees of
+rational belief. We cannot analyse the probability-relation in terms of
+simpler ideas. As soon as we have passed from the logic of implication
+and the categories of truth and falsehood to the logic of probability
+and the categories of knowledge, ignorance, and rational belief, we
+are paying attention to a new logical relation in which, although it
+is logical, we were not previously interested, and which cannot be
+explained or deﬁned in terms of our previous notions.
+
+This opinion is, from the nature of the case, incapable of positive
+proof. The presumption in its favour must arise partly out of our
+failure to ﬁnd a deﬁnition, and partly because the notion presents
+itself to the mind as something new and independent. If the statement
+that an opinion was probable on the evidence at ﬁrst to hand, but
+became untenable on further information, is not solely concerned with
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+8
+
+psychological belief, I do not know how the element of logical doubt
+is to be deﬁned, or how its substance is to be stated, in terms of the
+other indeﬁnables of formal logic. The attempts at deﬁnition, which
+have been made hitherto, will be criticised in later chapters. I do not
+believe that any of them accurately represent that particular logical
+relation which we have in our minds when we speak of the probability
+of an argument.
+
+logic can easily be carried too far.
+
+In the great majority of cases the term “probable” seems to be
+used consistently by diﬀerent persons to describe the same concept.
+Diﬀerences of opinion have not been due,
+I think, to a radical
+ambiguity of language. In any case a desire to reduce the indeﬁnables
+of
+Even if a deﬁnition is
+discoverable in the end, there is no harm in postponing it until our
+enquiry into the object of deﬁnition is far advanced.
+In the case of
+“probability” the object before the mind is so familiar that the danger
+of misdescribing its qualities through lack of a deﬁnition is less than if
+it were a highly abstract entity far removed from the normal channels
+of thought.
+
+9.
+
+This chapter has served brieﬂy to indicate, though not
+to deﬁne, the subject matter of the book.
+Its object has been
+to emphasise the existence of a logical relation between two sets of
+propositions in cases where it is not possible to argue demonstratively
+from one to the other. This is a contention of a most fundamental
+character.
+It is not entirely novel, but has seldom received due
+emphasis, is often overlooked, and sometimes denied. The view, that
+probability arises out of the existence of a speciﬁc relation between
+premiss and conclusion, depends for its acceptance upon a reﬂective
+judgment on the true character of the concept. It will be our object
+to discuss, under the title of Probability, the principal properties of
+this relation. First, however, we must digress in order to consider
+brieﬂy what we mean by knowledge, rational belief, and argument.
+
+CHAPTER II
+
+probability in relation to the theory of
+
+knowledge
+
+1.
+
+I do not wish to become involved in questions of epistemology
+to which I do not know the answer; and I am anxious to reach as
+soon as possible the particular part of philosophy or logic which is the
+subject of this book. But some explanation is necessary if the reader
+is to be put in a position to understand the point of view from which
+the author sets out; I will, therefore, expand some part of what has
+been outlined or assumed in the ﬁrst chapter.
+
+2.
+
+There is, ﬁrst of all, the distinction between that part of
+our belief which is rational and that part which is not.
+If a man
+believes something for a reason which is preposterous or for no reason
+at all, and what he believes turns out to be true for some reason not
+known to him, he cannot be said to believe it rationally, although he
+believes it and it is in fact true. On the other hand, a man may
+rationally believe a proposition to be probable, when it is in fact false.
+The distinction between rational belief and mere belief, therefore, is
+not the same as the distinction between true beliefs and false beliefs.
+The highest degree of rational belief, which is termed certain rational
+belief, corresponds to knowledge. We may be said to know a thing
+when we have a certain rational belief in it, and vice versa. For
+reasons which will appear from our account of probable degrees of
+rational belief in the following paragraph, it is preferable to regard
+knowledge as fundamental and to deﬁne rational belief by reference
+to it.
+
+3. We come next to the distinction between that part of our
+rational belief which is certain and that part which is only probable.
+Belief, whether rational or not,
+is capable of degree. The highest
+degree of rational belief, or rational certainty of belief, and its relation
+to knowledge have been introduced above. What, however,
+is the
+
+9
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+10
+
+4.
+
+relation to knowledge of probable degrees of rational belief?
+
+The proposition (say, q) that we know in this case is not the
+same as the proposition (say, p) in which we have a probable degree
+(say, α) of rational belief.
+If the evidence upon which we base our
+belief is h, then what we know, namely q, is that the proposition p
+bears the probability-relation of degree α to the set of propositions h;
+and this knowledge of ours justiﬁes us in a rational belief of degree α
+in the proposition p.
+It will be convenient to call propositions such
+as p, which do not contain assertions about probability-relations,
+“primary propositions”; and propositions such as q, which assert the
+existence of a probability-relation, “secondary propositions.”∗
+
+Thus knowledge of a proposition always corresponds to
+certainty of rational belief in it and at the same time to actual truth
+in the proposition itself. We cannot know a proposition unless it is
+in fact true. A probable degree of rational belief in a proposition,
+on the other hand, arises out of knowledge of some corresponding
+secondary proposition. A man may rationally believe a proposition to
+be probable when it is in fact false, if the secondary proposition on
+which he depends is true and certain; while a man cannot rationally
+believe a proposition to be probable even when it is in fact true, if
+the secondary proposition on which he depends is not true. Thus
+rational belief of whatever degree can only arise out of knowledge,
+although the knowledge may be of a proposition secondary, in the
+above sense, to the proposition in which the rational degree of belief
+is entertained.
+
+5.
+
+At this point it is desirable to colligate the three senses in
+which the term probability has been so far employed.
+In its most
+fundamental sense, I think, it refers to the logical relation between
+two sets of propositions, which in § 4 of Chapter I. I have termed the
+probability-relation. It is with this that I shall be mainly concerned
+in the greater part of this Treatise. Derivative from this sense, we
+
+∗This classiﬁcation of “primary” and “secondary” propositions was suggested
+
+to me by Mr. W. E. Johnson.
+
+ch. ii
+
+FUNDAMENTAL IDEAS
+
+11
+
+have the sense in which, as above, the term probable is applied to
+the degrees of rational belief arising out of knowledge of secondary
+propositions which assert the existence of probability-relations in the
+fundamental logical sense. Further it is often convenient, and not
+necessarily misleading, to apply the term probable to the proposition
+which is the object of the probable degree of rational belief, and
+which bears the probability-relation in question to the propositions
+comprising the evidence.
+
+6.
+
+I turn now to the distinction between direct and indirect
+knowledge—between that part of our rational belief which we know
+directly and that part which we know by argument.
+
+We start from things, of various classes, with which we have,
+what I choose to call without reference to other uses of this term,
+direct acquaintance. Acquaintance with such things does not in itself
+constitute knowledge, although knowledge arises out of acquaintance
+with them. The most important classes of things with which we
+have direct acquaintance are our own sensations, which we may be
+said to experience, the ideas or meanings, about which we have
+thoughts and which we may be said to understand, and facts or
+characteristics or relations of sense-data or meanings, which we may
+be said to perceive;—experience, understanding, and perception being
+three forms of direct acquaintance.
+
+The objects of knowledge and belief—as opposed to the objects
+of direct acquaintance which I term sensations, meanings, and
+perceptions—I shall term propositions.
+
+Now our knowledge of propositions seems to be obtained in
+two ways:
+directly, as the result of contemplating the objects
+of acquaintance; and indirectly, by argument, through perceiving
+the probability-relation of the proposition, about which we seek
+knowledge, to other propositions.
+In the second case, at any rate
+at ﬁrst, what we know is not the proposition itself but a secondary
+proposition involving it. When we know a secondary proposition
+involving the proposition p as subject, we may be said to have indirect
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+12
+
+knowledge about p.
+
+Indirect knowledge about p may in suitable conditions lead to
+rational belief in p of an appropriate degree. If this degree is that of
+certainty, then we have not merely indirect knowledge about p, but
+indirect knowledge of p.
+
+7. Let us take examples of direct knowledge. From acquaintance
+with a sensation of yellow I can pass directly to a knowledge of the
+proposition “I have a sensation of yellow.” From acquaintance with
+a sensation of yellow and with the meanings of “yellow,”
+“colour,”
+“existence,”
+I may be able to pass to a direct knowledge of the
+propositions “I understand the meaning of yellow,” “my sensation of
+yellow exists,” “yellow is a colour.” Thus, by some mental process
+of which it is diﬃcult to give an account, we are able to pass from
+direct acquaintance with things to a knowledge of propositions about
+the things of which we have sensations or understand the meaning.
+
+Next, by the contemplation of propositions of which we have direct
+knowledge, we are able to pass indirectly to knowledge of or about
+other propositions. The mental process by which we pass from direct
+knowledge to indirect knowledge is in some cases and in some degree
+capable of analysis. We pass from a knowledge of the proposition a to
+a knowledge about the proposition b by perceiving a logical relation
+between them. With this logical relation we have direct acquaintance.
+The logic of knowledge is mainly occupied with a study of the logical
+relations, direct acquaintance with which permits direct knowledge
+of the secondary proposition asserting the probability-relation, and
+so to indirect knowledge about, and in some cases of, the primary
+proposition.
+
+It is not always possible, however, to analyse the mental process
+in the case of indirect knowledge, or to say by the perception of what
+logical relation we have passed from the knowledge of one proposition
+to knowledge about another. But although in some cases we seem to
+pass directly from one proposition to another, I am inclined to believe
+that in all legitimate transitions of this kind some logical relation
+
+ch. ii
+
+FUNDAMENTAL IDEAS
+
+13
+
+of the proper kind must exist between the propositions, even when
+we are not explicitly aware of it. In any case, whenever we pass to
+knowledge about one proposition by the contemplation of it in relation
+to another proposition of which we have knowledge—even when the
+process is unanalysable—I call it an argument. The knowledge, such
+as we have in ordinary thought by passing from one proposition to
+another without being able to say what logical relations, if any, we
+have perceived between them, may be termed uncompleted knowledge.
+And knowledge, which results from a distinct apprehension of the
+relevant logical relations, may be termed knowledge proper.
+
+8.
+
+In this way, therefore, I distinguish between direct and
+indirect knowledge, between that part of our rational belief which is
+based on direct knowledge and that part which is based on argument.
+About what kinds of things we are capable of knowing propositions
+directly,
+it is not easy to say. About our own existence, our own
+sense-data, some logical ideas, and some logical relations, it is usually
+agreed that we have direct knowledge. Of the law of gravity, of the
+appearance of the other side of the moon, of the cure for phthisis,
+of the contents of Bradshaw,
+it is usually agreed that we do not
+have direct knowledge. But many questions are in doubt. Of which
+logical ideas and relations we have direct acquaintance, as to whether
+we can ever know directly the existence of other people, and as
+to when we are knowing propositions about sense-data directly and
+when we are interpreting them—it is not possible to give a clear
+answer. Moreover, there is another and peculiar kind of derivative
+knowledge—by memory.
+
+At a given moment there is a great deal of our knowledge which
+we know neither directly nor by argument—we remember it. We
+may remember it as knowledge, but forget how we originally knew
+it. What we once knew and now consciously remember, can fairly
+be called knowledge. But it is not easy to draw the line between
+conscious memory, unconscious memory or habit, and pure instinct
+or irrational associations of ideas (acquired or inherited)—the last of
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+14
+
+which cannot fairly be called knowledge, for unlike the ﬁrst two it did
+not even arise (in us at least) out of knowledge. Especially in such
+a case as that of what our eyes tell us, it is diﬃcult to distinguish
+between the diﬀerent ways in which our beliefs have arisen. We
+cannot always tell, therefore, what is remembered knowledge and
+what is not knowledge at all; and when knowledge is remembered, we
+do not always remember at the same time whether, originally, it was
+direct or indirect.
+
+Although it is with knowledge by argument that I shall be mainly
+concerned in this book there is one kind of direct knowledge, namely
+of secondary propositions, with which I cannot help but be involved.
+In the case of every argument, it is only directly that we can know
+the secondary proposition which makes the argument itself valid and
+rational. When we know something by argument this must be through
+direct acquaintance with some logical relation between the conclusion
+and the premiss.
+In all knowledge, therefore, there is some direct
+element; and logic can never be made purely mechanical. All it can
+do is so to arrange the reasoning that the logical relations, which have
+to be perceived directly, are made explicit and are of a simple kind.
+It must be added that the term certainty is sometimes used
+in a merely psychological sense to describe a state of mind without
+reference to the logical grounds of the belief. With this sense I am not
+concerned. It is also used to describe the highest degree of rational
+belief; and this is the sense relevant to our present purpose. The
+peculiarity of certainty is that knowledge of a secondary proposition
+involving certainty, together with knowledge of what stands in this
+secondary proposition in the position of evidence, leads to knowledge
+of, and not merely about, the corresponding primary proposition.
+Knowledge, on the other hand, of a secondary proposition involving
+a degree of probability lower than certainty, together with knowledge
+of the premiss of the secondary proposition, leads only to a rational
+belief of the appropriate degree in the primary proposition. The
+knowledge present in this latter case I have called knowledge about
+
+9.
+
+ch. ii
+
+FUNDAMENTAL IDEAS
+
+15
+
+the primary proposition or conclusion of the argument, as distinct
+from knowledge of it.
+
+Of probability we can say no more than that it is a lower degree
+of rational belief than certainty; and we may say,
+if we like, that
+it deals with degrees of certainty.∗ Or we may make probability
+the more fundamental of the two and regard certainty as a special
+case of probability, as being,
+the maximum probability.
+Speaking somewhat loosely we may say that, if our premisses make
+the conclusion certain, then it follows from the premisses; and if they
+make it very probable, then it very nearly follows from them.
+
+in fact,
+
+It is sometimes useful to use the term “impossibility” as the
+negative correlative of “certainty,” although the former sometimes has
+a diﬀerent set of associations. If a is certain, then the contradictory
+of a is impossible.
+If a knowledge of a makes b certain, then a
+knowledge of a makes the contradictory of b impossible. Thus a
+proposition is impossible with respect to a given premiss,
+if it is
+disproved by the premiss; and the relation of impossibility is the
+relation of minimum probability.†
+
+10. We have distinguished between rational belief and irrational
+belief and also between rational beliefs which are certain in degree
+and those which are only probable. Knowledge has been distinguished
+according as it is direct or indirect, according as it is of primary or
+
+∗This view has often been taken, e.g., by Bernoulli and,
+
+incidentally, by
+Laplace; also by Fries (see Czuber, Entwicklung, p. 12). The view, occasionally
+held,
+that probability is concerned with degrees of truth, arises out of a
+confusion between certainty and truth. Perhaps the Aristotelian doctrine that
+future events are neither true nor false arose in this way.
+
+†Necessity and Impossibility, in the senses in which these terms are used in
+the theory of Modality, seem to correspond to the relations of Certainty and
+Impossibility in the theory of probability, the other modals, which comprise the
+intermediate degrees of possibility, corresponding to the intermediate degrees of
+probability. Almost up to the end of the seventeenth century the traditional
+treatment of modals is,
+in fact, a primitive attempt to bring the relations of
+probability within the scope of formal logic.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+16
+
+secondary propositions, and according as it is of or merely about its
+object.
+
+In order that we may have a rational belief in a proposition p
+of the degree of certainty, it is necessary that one of two conditions
+should be fulﬁlled—(i.) that we know p directly; or (ii.) that we know
+a set of propositions h, and also know some secondary proposition q
+asserting a certainty-relation between p and h.
+In the latter case
+h may include secondary as well as primary propositions, but it is
+a necessary condition that all the propositions h should be known.
+In order that we may have rational belief in p of a lower degree
+of probability than certainty, it is necessary that we know a set of
+propositions h, and also know some secondary proposition q asserting
+a probability-relation between p and h.
+
+In the above account one possibility has been ruled out.
+
+It is
+assumed that we cannot have a rational belief in p of a degree less
+than certainty except through knowing a secondary proposition of the
+prescribed type. Such belief can only arise, that is to say, by means of
+the perception of some probability-relation. To employ a common use
+of terms (though one inconsistent with the use adopted above), I have
+assumed that all direct knowledge is certain. All knowledge, that is
+to say, which is obtained in a manner strictly direct by contemplation
+of the objects of acquaintance and without any admixture whatever
+of argument and the contemplation of the logical bearing of any other
+knowledge on this, corresponds to certain rational belief and not to
+a merely probable degree of rational belief. It is true that there do
+seem to be degrees of knowledge and rational belief, when the source
+of the belief is solely in acquaintance, as there are when its source is
+in argument. But I think that this appearance arises partly out of the
+diﬃculty of distinguishing direct from indirect knowledge, and partly
+out of a confusion between probable knowledge and vague knowledge.
+I cannot attempt here to analyse the meaning of vague knowledge. It
+is certainly not the same thing as knowledge proper, whether certain
+or probable, and it does not seem likely that it is susceptible of strict
+
+ch. ii
+
+FUNDAMENTAL IDEAS
+
+17
+
+logical treatment. At any rate I do not know how to deal with it, and
+in spite of its importance I will not complicate a diﬃcult subject by
+endeavouring to treat adequately the theory of vague knowledge.
+
+I assume then that only true propositions can be known, that the
+term “probable knowledge” ought to be replaced by the term “probable
+degree of rational belief,” and that a probable degree of rational belief
+cannot arise directly but only as the result of an argument, out of
+the knowledge, that is to say, of a secondary proposition asserting
+some logical probability-relation in which the object of the belief
+stands to some known proposition. With arguments, if they exist, the
+ultimate premisses of which are known in some other manner than
+that described above, such as might be called “probable knowledge,”
+my theory is not adequate to deal without modiﬁcation.∗
+
+11.
+
+For
+
+the objects of certain belief which is based on direct
+knowledge, as opposed to certain belief arising indirectly, there is a
+well-established expression; propositions, in which our rational belief
+is both certain and direct, are said to be self-evident.
+
+In conclusion, the relativity of knowledge to the individual
+may be brieﬂy touched on. Some part of knowledge—knowledge of
+our own existence or of our own sensations—is clearly relative to
+individual experience. We cannot speak of knowledge absolutely—
+only of the knowledge of a particular person. Other parts of
+knowledge—knowledge of the axioms of logic, for example—may seem
+more objective. But we must admit, I think, that this too is relative
+to the constitution of the human mind, and that the constitution
+of the human mind may vary in some degree from man to man.
+What is self-evident to me and what I really know, may be only a
+probable belief to you, or may form no part of your rational beliefs
+at all. And this may be true not only of such things as my existence,
+but of some logical axioms also. Some men—indeed it is obviously
+the case—may have a greater power of logical intuition than others.
+
+∗I do not mean to imply, however, at any rate at present, that the ultimate
+
+premisses of an argument need always be primary propositions.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+18
+
+Further, the diﬀerence between some kinds of propositions over which
+human intuition seems to have power, and some over which it has
+none, may depend wholly upon the constitution of our minds and
+have no signiﬁcance for a perfectly objective logic. We can no
+more assume that all true secondary propositions are or ought to be
+universally known than that all true primary propositions are known.
+The perceptions of some relations of probability may be outside the
+powers of some or all of us.
+
+What we know and what probability we can attribute to our
+rational beliefs is, therefore, subjective in the sense of being relative to
+the individual. But given the body of premisses which our subjective
+powers and circumstances supply to us, and given the kinds of logical
+relations, upon which arguments can be based and which we have
+the capacity to perceive, the conclusions, which it is rational for us
+to draw, stand to these premisses in an objective and wholly logical
+relation. Our logic is concerned with drawing conclusions by a series
+of steps of certain speciﬁed kinds from a limited body of premisses.
+
+With these brief indications as to the relation of Probability, as I
+understand it, to the Theory of Knowledge, I pass from problems of
+ultimate analysis and deﬁnition, which are not the primary subject
+matter of this book, to the logical theory and superstructure, which
+occupies an intermediate position between the ultimate problems
+and the applications of the theory, whether such applications take a
+generalised mathematical form or a concrete and particular one. For
+this purpose it would only encumber the exposition, without adding
+to its clearness or its accuracy,
+if I were to employ the perfectly
+exact terminology and minute reﬁnements of language, which are
+necessary for the avoidance of error in very fundamental enquiries.
+While taking pains, therefore, to avoid any divergence between the
+substance of this chapter and of those which succeed it, and to employ
+only such periphrases as could be translated, if desired, into perfectly
+exact language, I shall not cut myself oﬀ from the convenient, but
+looser, expressions, which have been habitually employed by previous
+
+ch. ii
+
+FUNDAMENTAL IDEAS
+
+19
+
+writers and have the advantage of being, in a general way at least,
+immediately intelligible to the reader.∗
+
+statement,
+
+∗This question, which faces all contemporary writers on logical and
+philosophical subjects,
+is in my opinion much more a question of style—and
+therefore to be settled on the same sort of considerations as other such
+questions—than is generally supposed. There are occasions for very exact
+methods of
+such as are employed in Mr. Russell’s Principia
+Mathematica. But there are advantages also in writing the English of Hume.
+Mr. Moore has developed in Principia Ethica an intermediate style which in his
+hands has force and beauty. But those writers, who strain after exaggerated
+precision without going the whole hog with Mr. Russell, are sometimes merely
+pedantic. They lose the reader’s attention, and the repetitious complication
+of their phrases eludes his comprehension, without their really attaining, to
+compensate, a complete precision. Confusion of thought is not always best
+avoided by technical and unaccustomed expressions, to which the mind has no
+immediate reaction of understanding;
+it is possible, under cover of a careful
+formalism, to make statements, which, if expressed in plain language, the mind
+would immediately repudiate. There is much to be said, therefore, in favour of
+understanding the substance of what you are saying all the time, and of never
+reducing the substantives of your argument to the mental status of an x or y.
+
+CHAPTER III
+
+1.
+
+the measurement of probabilities
+I have spoken of probability as being concerned with
+degrees of rational belief. This phrase implies that it is in some
+sense quantitative and perhaps capable of measurement. The theory
+of probable arguments must be much occupied,
+therefore, with
+comparisons of the respective weights which attach to diﬀerent
+arguments. With this question we will now concern ourselves.
+
+It has been assumed hitherto as a matter of course that probability
+is, in the full and literal sense of the word, measurable. I shall have
+to limit, not extend, the popular doctrine. But, keeping my own
+theories in the background for the moment, I will begin by discussing
+some existing opinions on the subject.
+
+2.
+
+It has been sometimes supposed that a numerical comparison
+between the degrees of any pair of probabilities is not only conceivable
+but is actually within our power. Bentham,
+in his
+Rationale of Judicial Evidence,∗ proposed a scale on which witnesses
+might mark the degree of their certainty; and others have suggested
+seriously a ‘barometer of probability.’†
+
+for instance,
+
+That such comparison is theoretically possible, whether or not we
+are actually competent in every case to make the comparison, has
+been the generally accepted opinion. The following quotation‡ puts
+this point of view very well:
+
+∗Book i. chap vi. (referred to by Venn).
+†The reader may be reminded of Gibbon’s proposal that:—“A Theological
+(Baronius) and our
+Barometer might be formed, of which the Cardinal
+countryman, Dr. Middleton,
+the opposite and remote
+extremities, as the former sunk to the lowest degree of credulity, which was
+compatible with learning, and the latter rose to the highest pitch of scepticism,
+in any wise consistent with Religion.”
+
+should constitute
+
+‡W. F. Donkin, Phil. Mag., 1851. He is replying to an article by J. D.
+
+Forbes (Phil. Mag., Aug. 1849) which had cast doubt upon this opinion.
+
+20
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+21
+
+“I do not see on what ground it can be doubted that every deﬁnite
+state of belief concerning a proposed hypothesis is in itself capable
+of being represented by a numerical expression, however diﬃcult or
+impracticable it may be to ascertain its actual value.
+It would be
+very diﬃcult to estimate in numbers the vis viva of all of the particles
+of a human body at any instant; but no one doubts that it is
+capable of numerical expression. I mention this because I am not sure
+that Professor Forbes has distinguished the diﬃculty of ascertaining
+numbers in certain cases from a supposed diﬃculty of expression by
+means of numbers. The former diﬃculty is real, but merely relative
+to our knowledge and skill; the latter, if real, would be absolute and
+inherent in the subject-matter, which I conceive is not the case.”
+
+De Morgan held the same opinion on the ground that, wherever we
+have diﬀerences of degree, numerical comparison must be theoretically
+possible.∗ He assumes, that is to say, that all probabilities can be
+placed in an order of magnitude, and argues from this that they
+must be measurable. Philosophers, however, who are mathematicians,
+would no longer agree that, even if the premiss is sound,
+the
+conclusion follows from it. Objects can be arranged in an order,
+which we can reasonably call one of degree or magnitude, without its
+being possible to conceive a system of measurement of the diﬀerences
+between the individuals.
+
+This opinion may also have been held by others,
+
+if not by
+De Morgan,
+in part because of the narrow associations which
+Probability has had for them. The Calculus of Probability has
+received far more attention than its logic, and mathematicians, under
+no compulsion to deal with the whole of the subject, have naturally
+conﬁned their attention to those special cases, the existence of which
+
+∗“Whenever the terms greater and less can be applied, there twice, thrice,
+etc., can be conceived,
+though not perhaps measured by us.”—“Theory of
+Probabilities,” Encyclopaedia Metropolitana, p. 395. He is a little more guarded
+in his Formal Logic, pp. 174, 175; but arrives at the same conclusion so far as
+probability is concerned.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+22
+
+3.
+
+4.
+
+will be demonstrated at a later stage, where algebraical representation
+is possible. Probability has become associated, therefore, in the minds
+of theorists with those problems in which we are presented with a
+number of exclusive and exhaustive alternatives of equal probability;
+and the principles, which are readily applicable in such circumstances,
+have been supposed, without much further enquiry, to possess general
+validity.
+
+It is also the case that theories of probability have been
+propounded and widely accepted, according to which its numerical
+character is necessarily involved in the deﬁnition. It is often said, for
+instance, that probability is the ratio of the number of “favourable
+cases” to the total number of “cases.”
+If this deﬁnition is accurate,
+it follows that every probability can be properly represented by a
+number and in fact is a number;
+for a ratio is not a quantity at
+In the case also of deﬁnitions based upon statistical frequency,
+all.
+there must be by deﬁnition a numerical ratio corresponding to every
+probability. These deﬁnitions and the theories based on them will
+be discussed in Chapter VIII.; they are connected with fundamental
+diﬀerences of opinion with which it is not necessary to burden the
+present argument.
+
+If we pass from the opinions of theorists to the experience
+it might perhaps be held that a presumption in
+of practical men,
+favour of the numerical valuation of all probabilities can be based on
+the practice of underwriters and the willingness of Lloyd’s to insure
+against practically any risk. Underwriters are actually willing,
+it
+might be urged, to name a numerical measure in every case, and
+to back their opinion with money. But this practice shows no more
+than that many probabilities are greater or less than some numerical
+measure, not that they themselves are numerically deﬁnite.
+It is
+suﬃcient for the underwriter if the premium he names exceeds the
+probable risk. But, apart from this, I doubt whether in extreme
+cases the process of thought, through which he goes before naming
+a premium, is wholly rational and determinate; or that two equally
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+23
+
+intelligent brokers acting on the same evidence would always arrive
+at the same result.
+In the case, for instance, of insurances eﬀected
+before a Budget, the ﬁgures quoted must be partly arbitrary. There
+is in them an element of caprice, and the broker’s state of mind,
+when he quotes a ﬁgure, is like a bookmaker’s when he names odds.
+Whilst he may be able to make sure of a proﬁt, on the principles of
+the bookmaker, yet the individual ﬁgures that make up the book are,
+within certain limits, arbitrary. He may be almost certain, that is to
+say, that there will not be new taxes on more than one of the articles
+tea, sugar, and whisky; there may be an opinion abroad, reasonable
+or unreasonable, that the likelihood is in the order—whisky, tea,
+sugar; and he may, therefore be able to eﬀect insurances for equal
+amounts in each at 30 per cent, 40 per cent, and 45 per cent. He
+has thus made sure of a proﬁt of 15 per cent, however absurd and
+arbitrary his quotations may be. It is not necessary for the success of
+underwriting on these lines that the probabilities of these new taxes
+it is suﬃcient
+are really measurable by the ﬁgures 3
+10
+that there should be merchants willing to insure at these rates. These
+merchants, moreover, may be wise to insure even if the quotations
+are partly arbitrary; for they may run the risk of insolvency unless
+their possible loss is thus limited. That the transaction is in principle
+one of bookmaking is shown by the fact that, if there is a specially
+large demand for insurance against one of the possibilities, the rate
+rises;—the probability has not changed, but the “book” is in danger
+of being upset. A Presidential election in the United States supplies
+a more precise example. On August 23, 1912, 60 per cent was quoted
+at Lloyd’s to pay a total loss should Dr. Woodrow Wilson be elected,
+30 per cent should Mr. Taft be elected, and 20 per cent should
+Mr. Roosevelt be elected. A broker, who could eﬀect insurances in
+equal amounts against the election of each candidate, would be certain
+at these rates of a proﬁt of 10 per cent. Subsequent modiﬁcations of
+these terms would largely depend upon the number of applicants for
+each kind of policy.
+Is it possible to maintain that these ﬁgures in
+
+, and 45
+100
+
+;
+
+,
+
+4
+10
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+24
+
+any way represent reasoned numerical estimates of probability?
+
+†I have considerably compressed the original report (Sapwell v. Bass).
+
+In some insurances the arbitrary element seems even greater.
+Consider, for instance, the reinsurance rates for the Waratah, a vessel
+which disappeared in South African waters. The lapse of time made
+rates rise; the departure of ships in search of her made them fall;
+some nameless wreckage is found and they rise; it is remembered that
+in similar circumstances thirty years ago a vessel ﬂoated, helpless but
+not seriously damaged, for two months, and they fall. Can it be
+pretended that the ﬁgures which were quoted from day to day—75 per
+cent, 83 per cent, 78 per cent—were rationally determinate, or
+that the actual ﬁgure was not within wide limits arbitrary and
+due to the caprice of individuals? In fact underwriters themselves
+distinguish between risks which are properly insurable, either because
+their probability can be estimated between comparatively narrow
+numerical limits or because it is possible to make a “book” which
+covers all possibilities, and other risks which cannot be dealt with
+in this way and which cannot form the basis of a regular business
+of insurance,—although an occasional gamble may be indulged in. I
+believe, therefore, that the practice of underwriters weakens rather
+than supports the contention that all probabilities can be measured
+and estimated numerically.
+
+Another set of practical men, the lawyers, have been
+more subtle in this matter than the philosophers.∗ A distinction,
+interesting for our present purpose, between probabilities, which can
+be estimated within somewhat narrow limits, and those which cannot,
+has arisen in a series of judicial decisions respecting damages. The
+following extract† from the Times Law Reports seems to me to deal
+∗Leibniz notes the subtle distinctions made by Jurisconsults between degrees
+of probability; and in the preface to a work, projected but unﬁnished, which was
+to have been entitled Ad stateram juris de gradibus probationum et probabilitatum
+he recommends them as models of
+logic in contingent questions (Couturat,
+Logique de Leibniz, p. 240).
+
+5.
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+25
+
+very clearly in a mixture of popular and legal phraseology, with the
+logical point at issue:
+
+This was an action brought by a breeder of racehorses to recover
+damages for breach of a contract. The contract was that Cyllene,
+a racehorse owned by the defendant, should in the season of the
+year 1909 serve one of the plaintiﬀ’s brood mares.
+In the summer
+of 1908 the defendant, without the consent of the plaintiﬀ, sold
+Cyllene for £30,000 to go to South America. The plaintiﬀ claimed a
+sum equal to the average proﬁt he had made through having a mare
+served by Cyllene during the past four years. During those four years
+he had had four colts which had sold at £3300. Upon that basis his
+loss came to 700 guineas.
+
+Mr. Justice Jelf said that he was desirous, if he properly could,
+to ﬁnd some mode of legally making the defendant compensate the
+plaintiﬀ; but the question of damages presented formidable and, to his
+mind, insuperable diﬃculties. The damages, if any, recoverable here
+must be either the estimated loss of proﬁt or else nominal damages.
+The estimate could only be based on a succession of contingencies.
+Thus it was assumed that (inter alia) Cyllene would be alive and
+well at the time of the intended service; that the mare sent would
+be well bred and not barren; that she would not slip her foal; and
+that the foal would be born alive and healthy. In a case of this kind
+he could only rely on the weighing of chances; and the law generally
+regarded damages which depended on the weighing of chances as too
+remote, and therefore irrecoverable. It was drawing the line between
+an estimate of damage based on probabilities, as in “Simpson v.
+L. and N.W. Railway Co.” (1, Q.B.D., 274), where Cockburn, C.J.,
+said:
+“To some extent, no doubt, the damage must be a matter of
+speculation, but that is no reason for not awarding any damages at
+all,” and a claim for damages of a totally problematical character.
+He (Mr. Justice Jelf) thought the present case was well over the
+line. Having referred to “Mayne on Damages” (8th ed., p. 70), he
+pointed out that in “Watson v. Ambergah Railway Co.” (15, Jur., 448)
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+26
+
+Patteson, J., seemed to think that the chance of a prize might be
+taken into account in estimating the damages for breach of a contract
+to send a machine for loading barges by railway too late for a show;
+but Erle, J., appeared to think such damage was too remote. In his
+Lordship’s view the chance of winning a prize was not of suﬃciently
+ascertainable value at the time the contract was made to be within
+the contemplation of the parties. Further, in the present case, the
+contingencies were far more numerous and uncertain. He would enter
+judgment for the plaintiﬀ for nominal damages, which were all he was
+entitled to. They would be assessed at 1s.
+
+One other similar case may be quoted in further elucidation of
+the same point, and because it also illustrates another point—the
+importance of making clear the assumptions relative to which the
+probability is calculated. This case∗ arose out of an oﬀer of a Beauty
+Prize† by the Daily Express. Out of 6000 photographs submitted, a
+number were to be selected and published in the newspaper in the
+following manner:
+
+The United Kingdom was to be divided into districts and the
+photographs of the selected candidates living in each district were to
+be submitted to the readers of the paper in the district, who were to
+select by their votes those whom they considered the most beautiful,
+and a Mr. Seymour Hicks was then to make an appointment with
+the 50 ladies obtaining the greatest number of votes and himself
+select 12 of them. The plaintiﬀ, who came out head of one of
+the districts, submitted that she had not been given a reasonable
+opportunity of keeping an appointment, that she had thereby lost the
+value of her chance of one of the 12 prizes, and claimed damages
+accordingly. The jury found that the defendant had not taken
+reasonable means to give the plaintiﬀ an opportunity of presenting
+herself for selection, and assessed the damages, provided they were
+
+∗Chaplin v. Hicks (1911).
+†The prize was to be a theatrical engagement and, according to the article,
+
+the probability of subsequent marriage into the peerage.
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+27
+
+capable of assessment, at £100, the question of the possibility of
+assessment being postponed. This was argued before Mr. Justice
+Pickford, and subsequently in the Court of Appeal before Lord
+Justices Vaughan Williams, Fletcher Moulton, and Harwell. Two
+questions arose—relative to what evidence ought the probability to
+be calculated, and was it numerically measurable? Counsel for the
+defendant contended that, “if the value of the plaintiﬀ’s chance was
+to be considered, it must be the value as it stood at the beginning of
+the competition, not as it stood after she had been selected as one of
+the 50. As 6000 photographs had been sent in, and there was also
+the personal taste of the defendant as ﬁnal arbiter to be considered,
+the value of the chance of success was really incalculable.” The ﬁrst
+contention that she ought to be considered as one of 6000 not as
+one of 50 was plainly preposterous and did not hoodwink the court.
+But the other point, the personal taste of the arbiter, presented more
+diﬃculty. In estimating the chance, ought the Court to receive and
+take account of evidence respecting the arbiter’s preferences in types
+of beauty? Mr. Justice Pickford, without illuminating the question,
+held that the damages were capable of estimation. Lord Justice
+Vaughan Williams in giving judgment in the Court of Appeal argued
+as follows:
+
+As he understood it, there were some 50 competitors, and there
+were 12 prizes of equal value, so that the average chance of success
+was about one in four.
+It was then said that the questions which
+might arise in the minds of the persons who had to give the decisions
+were so numerous that it was impossible to apply the doctrine of
+averages. He did not agree. Then it was said that if precision and
+certainty were impossible in any case it would be right to describe
+the damages as unassessable. He agreed that there might be damages
+so unassessable that the doctrine of averages was not possible of
+application because the ﬁgures necessary to be applied were not
+forthcoming. Several cases were to be found in the reports where it
+had been so held, but he denied the proposition that because precision
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+28
+
+and certainty had not been arrived at, the jury had no function or
+duty to determine the damages. . . . He (the Lord Justice) denied that
+the mere fact that you could not assess with precision and certainty
+relieved a wrongdoer from paying damages for his breach of duty.
+He would not lay down that in every case it could be left to the
+jury to assess the damages; there were cases where the loss was so
+dependent on the mere unrestricted volition of another person that it
+was impossible to arrive at any assessable loss from the breach. It was
+true that there was no market here; the right to compete was personal
+and could not be transferred. He could not admit that a competitor
+who found herself one of 50 could have gone into the market and sold
+her right to compete. At the same time the jury might reasonably
+have asked themselves the question whether, if there was a right to
+compete, it could have been transferred, and at what price. Under
+these circumstances he thought the matter was one for the jury.
+
+The attitude of the Lord Justice is clear. The plaintiﬀ had
+evidently suﬀered damage, and justice required that she should
+be compensated.
+But it was equally evident, that, relative to
+the completest information available and account being taken of
+the arbiter’s personal taste, the probability could be by no means
+estimated with numerical precision. Further, it was impossible to say
+how much weight ought to be attached to the fact that the plaintiﬀ
+had been head of her district (there were fewer than 50 districts); yet
+it was plain that it made her chance better than the chances of those
+of the 50 left in, who were not head of their districts. Let rough
+justice be done, therefore. Let the case be simpliﬁed by ignoring some
+part of the evidence. The “doctrine of averages” is then applicable, or,
+in other words, the plaintiﬀ’s loss may be assessed at twelve-ﬁftieths
+of the value of the prize.∗
+
+6.
+
+How does the matter stand, then? Whether or not
+
+∗The jury in assessing the damages at £100, however, cannot have argued
+so subtly as this; for the average value of a prize (I have omitted the details
+bearing on their value) could not have been fairly estimated so high as £400.
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+29
+
+such a thing is theoretically conceivable, no exercise of the practical
+judgment is possible, by which a numerical value can actually be
+given to the probability of every argument. So far from our being
+able to measure them, it is not even clear that we are always able to
+place them in an order of magnitude. Nor has any theoretical rule for
+their evaluation ever been suggested.
+
+The doubt, in view of these facts, whether any two probabilities
+are in every case even theoretically capable of comparison in terms
+of numbers, has not, however, received serious consideration. There
+seems to me to be exceedingly strong reasons for entertaining the
+doubt. Let us examine a few more instances.
+
+7. Consider an induction or a generalisation. It is usually held
+that each additional instance increases the generalisation’s probability.
+A conclusion, which is based on three experiments in which the
+unessential conditions are varied, is more trustworthy than if it were
+based on two. But what reason or principle can be adduced for
+attributing a numerical measure to the increase?∗
+
+Or, to take another class of instances, we may sometimes have
+some reason for supposing that one object belongs to a certain
+category if it has points of similarity to other known members of the
+category (e.g. if we are considering whether a certain picture should
+be ascribed to a certain painter), and the greater the similarity the
+greater the probability of our conclusion. But we cannot in these
+cases measure the increase; we can say that the presence of certain
+∗It is true that Laplace and others (even amongst contemporary writers)
+have believed that the probability of an induction is measurable by means of a
+formula known as the rule of succession, according to which the probability of
+an induction based on n instances is n + 1
+. Those who have been convinced
+n + 2
+by the reasoning employed to establish this rule must be asked to postpone
+judgment until
+it has been examined in Chapter XXX. But we may point
+out here the absurdity of supposing that the odds are 2 to 1 in favour of a
+generalisation based on a single instance—a conclusion which this formula would
+seem to justify.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+30
+
+peculiar marks in a picture increases the probability that the artist
+of whom those marks are known to be characteristic painted it, but
+we cannot say that the presence of these marks makes it two or three
+or any other number of times more probable than it would have been
+without them. We can say that one thing is more like a second object
+than it is like a third; but there will very seldom be any meaning in
+saying that it is twice as like. Probability is, so far as measurement
+is concerned, closely analogous to similarity.∗
+
+Or consider the ordinary circumstances of life. We are out for a
+walk—what is the probability that we shall reach home alive? Has
+this always a numerical measure? If a thunderstorm bursts upon us,
+the probability is less than it was before; but is it changed by some
+deﬁnite numerical amount? There might, of course, be data which
+would make these probabilities numerically comparable; it might be
+argued that a knowledge of the statistics of death by lightning would
+make such a comparison possible. But if such information is not
+included within the knowledge to which the probability is referred, this
+fact is not relevant to the probability actually in question and cannot
+aﬀect its value.
+In some cases, moreover, where general statistics
+are available, the numerical probability which might be derived from
+them is inapplicable because of the presence of additional knowledge
+with regard to the particular case. Gibbon calculated his prospects
+
+∗There are very few writers on probability who have explicitly admitted that
+probabilities, though in some sense quantitative, may be incapable of numerical
+comparison. Edgeworth, “Philosophy of Chance” (Mind, 1884, p. 225), admitted
+that
+“there may well be important quantitative, although not numerical,
+estimates” of probabilities. Goldschmidt (Wahrscheinlichkeitsrechnung, p. 43)
+may also be cited as holding a somewhat similar opinion. He maintains that a
+lack of comparability in the grounds often stands in the way of the measurability
+of the probable in ordinary usage, and that there are not necessarily good
+reasons for measuring the value of one argument against that of another. On
+the other hand, a numerical statement for the degree of the probable, although
+generally impossible,
+is not in itself contradictory to the notion; and of three
+statements, relating to the same circumstances, we can well say that one is
+more probable than another, and that one is the most probable of the three.
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+31
+
+of life from the volumes of vital statistics and the calculations of
+actuaries. But if a doctor had been called to his assistance the nice
+precision of these calculations would have become useless; Gibbon’s
+prospects would have been better or worse than before, but he would
+no longer have been able to calculate to within a day or week the
+period for which he then possessed an even chance of survival.
+
+In these instances we can, perhaps, arrange the probabilities in
+an order of magnitude and assert that the new datum strengthens
+or weakens the argument, although there is no basis for an estimate
+how much stronger or weaker the new argument is than the old.
+But in another class of instances is it even possible to arrange the
+probabilities in an order of magnitude, or to say that one is the
+greater and the other less?
+
+8.
+
+Consider three sets of experiments, each directed towards
+establishing a generalisation. The ﬁrst set is more numerous; in the
+second set the irrelevant conditions have been more carefully varied;
+in the third case the generalisation in view is wider in scope than in
+the others. Which of these generalisations is on such evidence the
+most probable? There is, surely, no answer; there is neither equality
+nor inequality between them. We cannot always weigh the analogy
+against the induction, or the scope of the generalisation against the
+bulk of the evidence in support of it. If we have more grounds than
+before, comparison is possible; but, if the grounds in the two cases
+are quite diﬀerent, even a comparison of more and less,
+let alone
+numerical measurement, may be impossible.
+
+This leads up to a contention, which I have heard supported, that,
+although not all measurements and not all comparisons of probability
+are within our power, yet we can say in the case of every argument
+whether it is more or less likely than not. Is our expectation of rain,
+when we start out for a walk, always more likely than not, or less
+likely than not, or as likely as not? I am prepared to argue that
+on some occasions none of these alternatives hold, and that it will
+be an arbitrary matter to decide for or against the umbrella. If the
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+32
+
+barometer is high, but the clouds are black, it is not always rational
+that one should prevail over the other in our minds, or even that we
+should balance them,—though it will be rational to allow caprice to
+determine us and to waste no time on the debate.
+
+9. Some cases, therefore, there certainly are in which no rational
+basis has been discovered for numerical comparison. It is not the case
+here that the method of calculation, prescribed by theory, is beyond
+our powers or too laborious for actual application. No method of
+calculation, however impracticable, has been suggested. Nor have we
+any prima facie indications of the existence of a common unit to
+which the magnitudes of all probabilities are naturally referrible. A
+degree of probability is not composed of some homogeneous material,
+and is not apparently divisible into parts of like character with one
+another. An assertion, that the magnitude of a given probability is in
+a numerical ratio to the magnitude of every other, seems, therefore,
+unless it is based on one of the current deﬁnitions of probability, with
+which I shall deal separately in later chapters, to be altogether devoid
+of the kind of support, which can usually be supplied in the case of
+quantities of which the mensurability is not open to denial. It will be
+worth while, however, to pursue the argument a little further.
+
+10. There appear to be four alternatives. Either in some cases
+there is no probability at all; or probabilities do not all belong to a
+single set of magnitudes measurable in terms of a common unit; or
+these measures always exist, but in many cases are, and must remain,
+unknown; or probabilities do belong to such a set and their measures
+are capable of being determined by us, although we are not always
+able so to determine them in practice.
+
+11. Laplace and his followers excluded the ﬁrst two alternatives.
+They argued that every conclusion has its place in the numerical
+range of probabilities from 0 to 1,
+if only we knew it, and they
+developed their theory of unknown probabilities.
+
+In dealing with this contention, we must be clear as to what
+we mean by saying that a probability is unknown. Do we mean
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+33
+
+unknown through lack of skill
+in arguing from given evidence, or
+unknown through lack of evidence? The ﬁrst is alone admissible,
+for new evidence would give us a new probability, not a fuller
+knowledge of the old one; we have not discovered the probability
+of a statement on given evidence, by determining its probability in
+relation to quite diﬀerent evidence. We must not allow the theory
+of unknown probabilities to gain plausibility from the second sense.
+A relation of probability does not yield us, as a rule, information of
+much value, unless it invests the conclusion with a probability which
+lies between narrow numerical limits. In ordinary practice, therefore,
+we do not always regard ourselves as knowing the probability of a
+conclusion, unless we can estimate it numerically. We are apt, that
+is to say, to restrict the use of the expression probable to these
+numerical examples, and to allege in other cases that the probability
+is unknown. We might say, for example, that we do not know, when
+we go on a railway journey, the probability of death in a railway
+accident, unless we are told the statistics of accidents in former years;
+or that we do not know our chances in a lottery, unless we are told the
+number of the tickets. But it must be clear upon reﬂection that if we
+use the term in this sense,—which is no doubt a perfectly legitimate
+sense,—we ought to say that in the case of some arguments a relation
+of probability does not exist, and not that it is unknown. For it is
+not this probability that we have discovered, when the accession of
+new evidence makes it possible to frame a numerical estimate.
+
+Possibly this theory of unknown probabilities may also gain
+strength from our practice of estimating arguments, which, as I
+maintain, have no numerical value, by reference to those that have.
+We frame two ideal arguments, that is to say, in which the general
+character of the evidence largely resembles what is actually within our
+knowledge, but which is so constituted as to yield a numerical value,
+and we judge that the probability of the actual argument lies between
+these two. Since our standards, therefore, are referred to numerical
+measures in many cases where actual measurement is impossible, and
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+34
+
+since the probability lies between two numerical measures, we come to
+believe that it must also, if only we knew it, possess such a measure
+itself.
+
+12. To say, then, that a probability is unknown ought to mean
+that it is unknown to us through our lack of skill in arguing from
+given evidence. The evidence justiﬁes a certain degree of knowledge,
+but the weakness of our reasoning power prevents our knowing what
+this degree is. At the best,
+in such cases, we only know vaguely
+with what degree of probability the premisses invest the conclusion.
+That probabilities can be unknown in this sense or known with less
+distinctness than the argument justiﬁes,
+is clearly the case. We
+can through stupidity fail to make any estimate of a probability at
+all, just as we may through the same cause estimate a probability
+wrongly. As soon as we distinguish between the degree of belief which
+it is rational to entertain and the degree of belief actually entertained,
+we have in eﬀect admitted that the true probability is not known to
+everybody.
+
+But this admission must not be allowed to carry us too far.
+Probability is, vide Chapter II. (§ 12), relative in a sense to the
+principles of human reason. The degree of probability, which it is
+rational for us to entertain, does not presume perfect logical insight,
+and is relative in part to the secondary propositions which we in fact
+know; and it is not dependent upon whether more perfect logical
+insight is or is not conceivable. It is the degree of probability to which
+those logical processes lead, of which our minds are capable; or, in the
+language of Chapter II., which those secondary propositions justify,
+which we in fact know. If we do not take this view of probability, if
+we do not limit it in this way and make it, to this extent, relative
+to human powers, we are altogether adrift in the unknown; for we
+cannot ever know what degree of probability would be justiﬁed by
+the perception of logical relations which we are, and must always be,
+incapable of comprehending.
+
+13.
+
+Those who have maintained that, where we cannot assign
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+35
+
+a numerical probability, this is not because there is none, but simply
+because we do not know it, have really meant, I feel sure, that with
+some addition to our knowledge a numerical value would be assignable,
+that is to say that our conclusions would have a numerical probability
+relative to slightly diﬀerent premisses. Unless, therefore, the reader
+clings to the opinion that, in every one of the instances I have cited
+in the earlier paragraphs of this chapter, it is theoretically possible on
+that evidence to assign a numerical value to the probability, we are
+left with the ﬁrst two of the alternatives of § 10, which were as follows:
+either in some cases there is no probability at all; or probabilities do
+not all belong to a single set of magnitudes measurable in terms of a
+common unit. It would be diﬃcult to maintain that there is no logical
+relation whatever between our premiss and our conclusion in those
+cases where we cannot assign a numerical value to the probability;
+and if this is so, it is really a question of whether the logical relation
+has characteristics, other than mensurability, of a kind to justify us
+in calling it a probability-relation. Which of the two we favour is,
+therefore, partly a matter of deﬁnition. We might, that is to say,
+pick out from probabilities (in the widest sense) a set,
+if there is
+one, all of which are measurable in terms of a common unit, and call
+the members of this set, and them only, probabilities (in the narrow
+sense). To restrict the term ‘probability’ in this way would be, I
+think, very inconvenient. For it is possible, as I shall show, to ﬁnd
+several sets, the members of each of which are measurable in terms
+of a unit common to all the members of that set; so that it would be
+in some degree arbitrary∗ which we chose. Further, the distinction
+between probabilities, which would be thus measurable and those
+which would not, is not fundamental.
+
+At any rate I aim here at dealing with probability in its widest
+sense, and am averse to conﬁning its scope to a limited type of
+argument. If the opinion that not all probabilities can be measured
+
+∗Not altogether;
+
+for it would be natural to select the set to which the
+
+relation of certainty belongs.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+36
+
+seems paradoxical, it may be due to this divergence from a usage which
+the reader may expect. Common usage, even if it involves, as a rule, a
+ﬂavour of numerical measurement, does not consistently exclude those
+probabilities which are incapable of it. The confused attempts, which
+have been made, to deal with numerically indeterminate probabilities
+under the title of unknown probabilities, show how diﬃcult it is
+to conﬁne the discussion within the intended limits, if the original
+deﬁnition is too narrow.
+
+14.
+
+I maintain, then,
+
+in what follows, that there are some
+pairs of probabilities between the members of which no comparison
+of magnitude is possible; that we can say, nevertheless, of some pairs
+of relations of probability that the one is greater and the other less,
+although it is not possible to measure the diﬀerence between them;
+and that in a very special type of case, to be dealt with later, a
+meaning can be given to a numerical comparison of magnitude.
+I
+think that the results of observation, of which examples have been
+given earlier in this chapter, are consistent with this account.
+
+By saying that not all probabilities are measurable, I mean that
+it is not possible to say of every pair of conclusions, about which we
+have some knowledge, that the degree of our rational belief in one
+bears any numerical relation to the degree of our rational belief in
+the other; and by saying that not all probabilities are comparable in
+respect of more and less, I mean that it is not always possible to say
+that the degree of our rational belief in one conclusion is either equal
+to, greater than, or less than the degree of our belief in another.
+
+We must now examine a philosophical theory of the quantitative
+properties of probability, which would explain and justify the
+conclusions, which reﬂection discovers, if the preceding discussion is
+correct, in the practice of ordinary argument. We must bear in mind
+that our theory must apply to all probabilities and not to a limited
+class only, and that, as we do not adopt a deﬁnition of probability
+which presupposes its numerical mensurability, we cannot directly
+argue from diﬀerences in degree to a numerical measurement of these
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+37
+
+diﬀerences. The problem is subtle and diﬃcult, and the following
+solution is, therefore, proposed with hesitation; but I am strongly
+convinced that something resembling the conclusion here set forth is
+true.
+
+15.
+
+The so-called magnitudes or degrees of knowledge or
+probability, in virtue of which one is greater and another less, really
+arise out of an order in which it is possible to place them. Certainty,
+impossibility, and a probability, which has an intermediate value, for
+example, constitute an ordered series in which the probability lies
+between certainty and impossibility.
+In the same way there may
+exist a second probability which lies between certainty and the ﬁrst
+probability. When, therefore, we say that one probability is greater
+than another, this precisely means that the degree of our rational
+belief in the ﬁrst case lies between certainty and the degree of our
+rational belief in the second case.
+
+On this theory it is easy to see why comparisons of more and less
+are not always possible. They exist between two probabilities, only
+when they and certainty all lie on the same ordered series. But if
+more than one distinct series of probabilities exist, then it is clear
+that only those, which belong to the same series, can be compared.
+If the attribute ‘greater’ as applied to one of two terms arises solely
+out of the relative order of the terms in a series, then comparisons
+of greater and less must always be possible between terms which are
+members of the same series, and can never be possible between two
+terms which are not members of the same series. Some probabilities
+are not comparable in respect of more and less, because there exists
+more than one path, so to speak, between proof and disproof, between
+certainty and impossibility; and neither of two probabilities, which lie
+on independent paths, bears to the other and to certainty the relation
+of ‘between’ which is necessary for quantitative comparison.
+
+If we are comparing the probabilities of two arguments, where the
+conclusion is the same in both and the evidence of one exceeds the
+evidence of the other by the inclusion of some fact which is favourably
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+38
+
+relevant, in such a case a relation seems clearly to exist between the
+two in virtue of which one lies nearer to certainty than the other.
+Several types of argument can be instanced in which the existence
+of such a relation is equally apparent. But we cannot assume its
+presence in every case or in comparing in respect of more and less the
+probabilities of every pair of arguments.
+
+16. Analogous instances are by no means rare, in which, by a
+convenient looseness, the phraseology of quantity is misapplied in the
+same manner as in the case of probability. The simplest example is
+that of colour. When we describe the colour of one object as bluer
+than that of another, or say that it has more green in it, we do not
+mean that there are quantities blue and green of which the object’s
+colour possesses more or less; we mean that the colour has a certain
+position in an order of colours and that it is nearer some standard
+colour than is the colour with which we compare it.
+
+Another example is aﬀorded by the cardinal numbers. We say
+that the number three is greater than the number two, but we do
+not mean that these numbers are quantities one of which possesses
+a greater magnitude than the other. The one is greater than the
+other by reason of its position in the order of numbers; it is further
+distant from the origin zero. One number is greater than another if
+the second number lies between zero and the ﬁrst.
+
+But the closest analogy is that of similarity. When we say of
+three objects A, B, and C that B is more like A than C is, we mean,
+not that there is any respect in which B is in itself quantitatively
+greater than C, but that, if the three objects are placed in an order
+of similarity, B is nearer to A than C is. There are also, as in the
+case of probability, diﬀerent orders of similarity. For instance, a book
+bound in blue morocco is more like a book bound in red morocco
+than if it were bound in blue calf; and a book bound in red calf is
+more like the book in red morocco than if it were in blue calf. But
+there may be no comparison between the degree of similarity which
+exists between books bound in red morocco and blue morocco, and
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+39
+
+that which exists between books bound in red morocco and red calf.
+This illustration deserves special attention, as the analogy between
+orders of similarity and probability is so great that its apprehension
+will greatly assist that of the ideas I wish to convey. We say that one
+argument is more probable than another (i.e. nearer to certainty) in
+the same kind of way as we can describe one object as more like than
+another to a standard object of comparison.
+
+17.
+
+Nothing has been said up to this point which bears
+on the question whether probabilities are ever capable of numerical
+comparison. It is true of some types of ordered series that there are
+measurable relations of distance between their members as well as
+order, and that the relation of one of its members to an ‘origin’ can
+be numerically compared with the relation of another member to the
+same origin. But the legitimacy of such comparisons must be matter
+for special enquiry in each case.
+
+It will not be possible to explain in detail how and in what sense
+a meaning can sometimes be given to the numerical measurement
+of probabilities until Part II.
+is reached. But this chapter will
+be more complete if I indicate brieﬂy the conclusions at which we
+shall arrive later.
+It will be shown that a process of compounding
+probabilities can be deﬁned with such properties that it can be
+conveniently called a process of addition.
+It will sometimes be the
+case, therefore, that we can say that one probability C is equal to
+the sum of two other probabilities A and B, i.e. C = A + B.
+If in
+such a case A and B are equal, then we may write this C = 2A
+and say that C is double A. Similarly if D = C + A, we may write
+D = 3A, and so on. We can attach a meaning, therefore, to the
+equation P = n (cid:5) A, where P and A are relations of probability, and
+n is a number. The relation of certainty has been commonly taken
+as the unit of such conventional measurements. Hence if P represents
+certainty, we should say, in ordinary language, that the magnitude
+It will be shown also that we can
+of the probability A is
+deﬁne a process, applicable to probabilities, which has the properties
+
+1
+n
+
+.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+40
+
+of arithmetical multiplication. Where numerical measurement is
+possible, we can in consequence perform algebraical operations of
+considerable complexity. The attention, out of proportion to their real
+importance, which has been paid, on account of the opportunities of
+mathematical manipulation which they aﬀord, to the limited class of
+numerical probabilities, seems to be a part explanation of the belief,
+which it is the principal object of this chapter to prove erroneous,
+that all probabilities must belong to it.
+
+18. We must look, then, at the quantitative characteristics of
+probability in the following way. Some sets of probabilities we can
+place in an ordered series, in which we can say of any pair that one is
+nearer than the other to certainty,—that the argument in one case is
+nearer proof than in the other, and that there is more reason for one
+conclusion than for the other. But we can only build up these ordered
+series in special cases. If we are given two distinct arguments, there
+is no general presumption that their two probabilities and certainty
+can be placed in an order. The burden of establishing the existence
+of such an order lies on us in each separate case. An endeavour
+will be made later to explain in a systematic way how and in what
+circumstances such orders can be established. The argument for the
+theory here proposed will then be strengthened. For the present it
+has been shown to be agreeable to common sense to suppose that an
+order exists in some cases and not in others.
+
+19.
+
+Some of the principal properties of ordered series of
+
+probabilities are as follows:
+
+(i.) Every probability lies on a path between impossibility
+and certainty;
+it is always true to say of a degree of
+probability, which is not identical either with impossibility
+or with certainty, that it lies between them. Thus certainty,
+impossibility and any other degree of probability form an
+ordered series. This is the same thing as to say that every
+argument amounts to proof, or disproof, or occupies an
+intermediate position.
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+41
+
+(ii.) A path or series, composed of degrees of probability,
+
+is
+not in general compact. It is not necessarily true, that is to
+say, that any pair of probabilities in the same series have a
+probability between them.
+
+(iii.) The same degree of probability can lie on more than one
+path (i.e. can belong to more than one series). Hence, if
+B lies between A and C, and also lies between A(cid:48) and C(cid:48)
+it does not follow that of A and A(cid:48) either lies between the
+other and certainty. The fact, that the same probability can
+belong to more than one distinct series, has its analogy in
+the case of similarity.
+
+(iv.) If ABC forms an ordered series, B lying between A and C,
+and BCD forms an ordered series, C lying between B and D,
+then ABCD forms an ordered series, B lying between
+A and D.
+
+20. The diﬀerent series of probabilities and their mutual relations
+can be most easily pictured by means of a diagram. Let us represent
+an ordered series by points lying upon a path, all the points on a
+given path belonging to the same series.
+It follows from (i.) that
+the points O and I, representing the relations of impossibility and
+certainty, lie on every path, and that all paths lie wholly between
+these points. It follows from (iii.) that the same point can lie on more
+than one path.
+It is possible, therefore, for paths to intersect and
+cross. It follows from (iv.) that the probability represented by a given
+point is greater than that represented by any other point which can
+be reached by passing along a path with a motion constantly towards
+the point of impossibility, and less than that represented by any point
+which can be reached by moving along a path towards the point of
+certainty. As there are independent paths there will be some pairs
+of points representing relations of probability such that we cannot
+reach one by moving from the other along a path always in the same
+direction.
+
+These properties are illustrated in the annexed diagram, O rep-
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+42
+
+resents impossibility, I certainty, and A a numerically measurable
+probability intermediate between O and I; U, V, W, X, Y, Z are non-
+numerical probabilities, of which, however, V is less than the numerical
+probability A, and is also less
+than W, X, and Y. X and Y
+are both greater than W, and
+greater
+than V, but are not
+comparable with one another, or
+with A.
+V and Z are both
+less than W, X, and Y, but
+are not comparable with one
+another; U is not quantitatively
+comparable with any of the probabilities V, W, X, Y, Z. Probabilities
+which are numerically comparable will all belong to one series, and
+the path of this series, which we may call the numerical path or
+strand, will be represented by OAI.
+
+21. The chief results which have been reached so far are collected
+
+together below, and expressed with precision:—
+
+(i.) There are amongst degrees of probability or rational belief
+various sets, each set composing an ordered series. These
+series are ordered by virtue of a relation of ‘between.’ If B is
+‘between’ A and C, ABC form a series.
+
+(ii.) There are two degrees of probability O and I between
+which all other probabilities lie.
+If, that is to say, A is a
+probability, OAI form a series. O represents impossibility
+and I certainty.
+
+(iii.) If A lies between O and B, we may write this (cid:99)AB, so that
+(cid:100)OA and (cid:99)AI are true for all probabilities.
+(iv.) If (cid:99)AB, the probability B is said to be greater than the
+
+probability A, and this can be expressed by B > A.
+
+(v.) If the conclusion a bears the relation of probability P
+in other words, the hypothesis h
+to the premiss h, or if,
+invests the conclusion a with probability P, this may be
+
+ch. iii
+
+FUNDAMENTAL IDEAS
+
+43
+
+written aPh. It may also be written a/h = P.
+
+is of fundamental importance.
+
+This latter expression, which proves to be the more useful of
+the two for most purposes,
+If aPh
+and a(cid:48)Ph(cid:48), i.e. if the probability of a relative to h is the same as the
+probability of a(cid:48) relative to h(cid:48), this may be written a/h = a(cid:48)/h(cid:48). The
+value of the symbol a/h, which represents what is called by other
+writers ‘the probability of a,’ lies in the fact that it contains explicit
+reference to the data to which the probability relates the conclusion,
+and avoids the numerous errors which have arisen out of the omission
+of this reference.
+
+CHAPTER IV
+
+the principle of indifference
+
+Absolute.
+
+‘Sure, Sir, this is not very reasonable, to summon my aﬀection
+
+for a lady I know nothing of.’
+
+Sir Anthony. ‘I am sure, Sir, ’tis more unreasonable in you to object to a
+
+lady you know nothing of.’∗
+
+1.
+
+2.
+
+In the last chapter it was assumed that in some cases the
+probabilities of two arguments may be equal.
+It was also argued
+that there are other cases in which one probability is, in some sense,
+greater than another. But so far there has been nothing to show
+how we are to know when two probabilities are equal or unequal.
+The recognition of equality, when it exists, will be dealt with in this
+chapter, and the recognition of inequality in the next. An historical
+account of the various theories about this problem, which have been
+held from time to time, will be given in Chapter VII.
+
+The determination of equality between probabilities has
+received hitherto much more attention than the determination of
+inequality. This has been due to the stress which has been laid
+on the mathematical side of the subject.
+In order that numerical
+measurement may be possible, we must be given a number of
+equally probable alternatives. The discovery of a rule, by which
+equiprobability could be established, was, therefore, essential. A
+rule, adequate to the purpose, introduced by James Bernoulli, who
+was the real founder of mathematical probability,† has been widely
+adopted, generally under the title of The Principle of Non-Suﬃcient
+Reason, down to the present time. This description is clumsy and
+unsatisfactory, and, if it is justiﬁable to break away from tradition, I
+prefer to call it The Principle of Indiﬀerence.
+
+∗Quoted by Mr. Bosanquet with reference to the Principle of Non-Suﬃcient
+
+Reason.
+
+†See also Chap. VII.
+
+44
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+45
+
+The Principle of Indiﬀerence asserts that if there is no known
+reason for predicating of our subject one rather than another of
+several alternatives, then relatively to such knowledge the assertions
+of each of these alternatives have an equal probability. Thus equal
+probabilities must be assigned to each of several arguments, if there
+is an absence of positive ground for assigning unequal ones.
+
+This rule, as it stands, may lead to paradoxical and even
+contradictory conclusions. I propose to criticise it in detail, and then
+to consider whether any valid modiﬁcation of it is discoverable. For
+several of the criticisms which follow I am much indebted to Von
+Kries’s Die Principien der Wahrscheinlichkeit.∗
+
+3.
+
+If every probability was necessarily either greater than,
+equal to, or less than any other, the Principle of Indiﬀerence would
+be plausible. For if the evidence aﬀords no ground for attributing
+unequal probabilities to the alternative predications, it seems to follow
+that they must be equal.
+If, on the other hand, there need be
+neither equality nor inequality between probabilities, this method of
+reasoning fails. Apart, however, from this objection, which is based
+on the arguments of Chapter III., the plausibility of the principle will
+be most easily shaken by an exhibition of the contradictions which it
+involves. These fall under three or four distinct heads. In §§ 4–9 my
+criticism will be purely destructive, and I shall not attempt in these
+paragraphs to indicate my own way out of the diﬃculties.
+
+4. Consider a proposition, about the subject of which we know
+only the meaning, and about the truth of which, as applied to this
+subject, we possess no external relevant evidence.
+It has been held
+that there are here two exhaustive and exclusive alternatives—the
+truth of the proposition and the truth of its contradictory—while our
+knowledge of the subject aﬀords no ground for preferring one to the
+other. Thus if a and ¯a are contradictories, about the subject of which
+∗Published in 1886. A brief account of Von Kries’s principal conclusions will
+be given on p. 96. A useful summary of his book will be found in a review by
+Meinong, published in the Göttingische gelehrte Anzeigen for 1890 (pp. 56–75).
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+46
+
+2
+
+we have no outside knowledge, it is inferred that the probability of
+each is 1
+.∗ In the same way the probabilities of two other propositions,
+2
+. But without
+b and c, having the same subject as a, may be each 1
+having any evidence bearing on the subject of these propositions we
+may know that the predicates are contraries amongst themselves, and,
+therefore, exclusive alternatives—a supposition which leads by means
+of the same principle to values inconsistent with those just obtained.
+If, for instance, having no evidence relevant to the colour of this book,
+is the probability of ‘This book is red,’ we
+we could conclude that 1
+2
+could conclude equally that the probability of each of the propositions
+. So that we are
+‘This book is black’ and ‘This book is blue’ is also 1
+2
+faced with the impossible case of three exclusive alternatives all as
+likely as not. A defender of the Principle of Indiﬀerence might rejoin
+that we are assuming knowledge of the proposition:
+‘Two diﬀerent
+colours cannot be predicated of the same subject at the same time’;
+and that, if we know this, it constitutes relevant outside evidence.
+But such evidence is about the predicate, not about the subject.
+
+∗Cf. (e.g.) the well-known passage in Jevons’s Principles of Science, vol. i.
+2 to the proposition “A Platythliptic
+p. 243, in which he assigns the probability 1
+Coeﬃcient is positive.”
+Jevons points out, by way of proof, that no other
+probability could reasonably be given. This, of course, involves the assumption
+that every proposition must have some numerical probability. Such a contention
+was ﬁrst criticised, so far as I am aware, by Bishop Terrot in the Edin. Phil.
+Trans. for 1856. It was deliberately rejected by Boole in his last published work
+on probability: “It is a plain consequence,” he says (Edin. Phil. Trans. vol. xxi.
+p. 624), “of the logical theory of probabilities, that the state of expectation
+which accompanies entire ignorance of an event is properly represented, not by
+Jevons’s particular example,
+the fraction 1
+however, is also open to the objection that we do not even know the meaning
+of the subject of the proposition. Would he maintain that there is any sense in
+saying that for those who know no Arabic the probability of every statement
+expressed in Arabic is even? How far has he been inﬂuenced in the choice
+of his example by known characteristics of the predicate ‘positive’? Would he
+2 to the proposition ‘A Platythliptic Coeﬃcient
+have assigned the probability 1
+is a perfect cube’? What about the proposition ‘A Platythliptic Coeﬃcient is
+allogeneous’?
+
+2, but by the indeﬁnite form 0
+0.”
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+47
+
+Thus the defender of the Principle will be driven on, either to conﬁne
+it to cases where we know nothing about either the subject or the
+predicate, which would be to emasculate it for all practical purposes,
+or else to revise and amplify it, which is what we propose to do
+ourselves.
+
+The diﬃculty cannot be met by saying that we must know and
+take account of the number of possible contraries. For the number of
+contraries to any proposition on any evidence is always inﬁnite; ¯ab is
+contrary to a for all values of b. The same point can be put in a form
+which does not involve contraries or contradictories. For example,
+, if h is irrelevant both to a and to b, in the
+a/h = 1
+2
+sense required by the crude Principle of Indiﬀerence.∗ It follows from
+If it follows from the
+this that, if a is true, b must be true also.
+,
+absence of positive data that ‘A is a red book’ has a probability of 1
+2
+and that the probability of ‘A is red’ is also 1
+, then we may deduce
+that, if A is red, it must certainly be a book.
+
+and ab/h = 1
+
+2
+
+2
+
+We may take it, then, that the probability of a proposition,
+about the subject of which we have no extraneous evidence, is not
+. Whether or not this conclusion discredits the Principle
+necessarily 1
+2
+of Indiﬀerence, it is important on its own account, and will help later
+on to confute some famous conclusions of Laplace’s school.
+
+5. Objection can now be made in a somewhat diﬀerent shape.
+Let us suppose as before that there is no positive evidence relating to
+the subjects of the propositions under examination which would lead
+us to discriminate in any way between certain alternative predicates.
+If, to take an example, we have no information whatever as to the
+area or population of the countries of the world, a man is as likely
+to be an inhabitant of Great Britain as of France, there being no
+reason to prefer one alternative to the other.† He is also as likely to
+
+∗a/h stands for ‘the probability of a on hypothesis h.’
+†This example raises a diﬃculty similar to that raised by Von Kries’s
+example of the meteor. Stumpf has propounded an invalid solution of Von
+Kries’s diﬃculty. Against the example proposed here, Stumpf’s solution has less
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+48
+
+be an inhabitant of Ireland as of France. And on the same principle
+he is as likely to be an inhabitant of the British Isles as of France.
+And yet these conclusions are plainly inconsistent. For our ﬁrst two
+propositions together yield the conclusion that he is twice as likely to
+be an inhabitant of the British Isles as of France.
+
+Unless we argue, as I do not think we can, that the knowledge
+that the British Isles are composed of Great Britain and Ireland is a
+ground for supposing that a man is more likely to inhabit them than
+France, there is no way out of the contradiction. It is not plausible to
+maintain, when we are considering the relative populations of diﬀerent
+areas, that the number of names of subdivisions which are within our
+knowledge, is, in the absence of any evidence as to their size, a piece
+of relevant evidence.
+
+At any rate, many other similar examples could be invented, which
+would require a special explanation in each case; for the above is an
+instance of a perfectly general diﬃculty. The possible alternatives
+may be a, b, c, and d, and there may be no means of discriminating
+between them; but equally there may be no means of discriminating
+between (a or b), c, and d. This diﬃculty could be made striking in a
+variety of ways, but it will be better to criticise the principle further
+from a somewhat diﬀerent side.
+
+6.
+
+Consider the speciﬁc volume of a given substance.∗ Let us
+suppose that we know the speciﬁc volume to lie between 1 and 3, but
+that we have no information as to whereabouts in this interval its
+exact value is to be found. The Principle of Indiﬀerence would allow
+us to assume that it is as likely to lie between 1 and 2 as between
+2 and 3; for there is no reason for supposing that it lies in one interval
+rather than in the other. But now consider the speciﬁc density. The
+speciﬁc density is the reciprocal of the speciﬁc volume, so that if the
+. Our data remaining as before, we know
+latter is v the former is 1
+
+v
+
+plausibility than against Von Kries’s.
+
+∗This example is taken from Von Kries, op. cit. p. 24. Von Kries does not
+
+seem to me to explain correctly how the contradiction arises.
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+49
+
+3
+
+2
+
+2
+
+2
+
+2
+
+as between 2
+3
+
+and 1
+3
+
+3
+
+, the former lies between 1 and 1 1
+3
+, the former lies between 1 1
+and 1
+3
+
+that the speciﬁc density must lie between 1 and 1
+, and, by the same
+use of the Principle of Indiﬀerence as before, that it is as likely to
+. But the speciﬁc volume
+be between 1 and 2
+being a determinate function of the speciﬁc density, if the latter lies
+, and if the latter
+between 1 and 2
+lies between 2
+It follows,
+and 3.
+3
+therefore, that the speciﬁc volume is as likely to lie between 1 and 1 1
+as between 1 1
+and 3; whereas we have already proved, relatively to
+precisely the same data, that it is as likely to lie between 1 and 2
+as between 2 and 3. Moreover, any other function of the speciﬁc
+volume would have suited our purpose equally well, and by a suitable
+choice of this function we might have proved in a similar manner
+that any division whatever of the interval 1 to 3 yields sub-intervals
+of equal probability. Speciﬁc volume and speciﬁc density are simply
+alternative methods of measuring the same objective quantity; and
+there are many methods which might be adopted, each yielding on
+the application of the Principle of Indiﬀerence a diﬀerent probability
+for a given objective variation in the quantity.∗
+
+∗A. Nitsche (“Die Dimensionen der Wahrscheinlichkeit und die Evidenz der
+Ungewissheit,” Vierteljahrsschr. f. wissensch. Philos. vol. xvi. p. 29, 1892), in
+criticising Von Kries, argues that the alternatives to which the principle must
+be applied are the smallest physically distinguishable intervals, and that the
+probability of the speciﬁc volume’s lying within a certain range of values turns
+on the number of such distinguishable intervals in the range. This procedure
+might conceivably provide the correct method of computation, but it does not
+therefore restore the credit of the Principle of Indiﬀerence. For it is argued,
+not that the results of applying the principle are always wrong, but that it
+does not lead unambiguously to the correct procedure. If we do not know the
+number of distinguishable intervals we have no reason for supposing that the
+speciﬁc volume lies between 1 and 2 rather than 2 and 3, and the principle can
+therefore be applied as it has been applied above. And even if we do know
+the number and reckon intervals as equal which contain an equal number of
+‘physically distinguishable’ parts, is it certain that this does not simply provide
+us with a new system of measurement, which has the same conventional basis
+as the methods of speciﬁc volume and speciﬁc density, and is no more the one
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+50
+
+The arbitrary nature of particular methods of measurement of
+this and of many other physical quantities is easily explained.
+The objective quality measured may not, strictly speaking, possess
+numerical quantitativeness, although it has the properties necessary
+for measurement by means of correlation with numbers. The values
+which it can assume may be capable of being ranged in an order,
+and it will sometimes happen that the series which is thus formed
+is continuous, so that a value can always be found whose order in
+the series is between any two selected values; but it does not follow
+from this that there is any meaning in the assertion that one value
+is twice another value. The relations of continuous order can exist
+between the terms of a series of values, without the relations of
+numerical quantitativeness necessarily existing also, and in such cases
+we can adopt a largely arbitrary measure of the successive terms,
+which yields results which may be satisfactory for many purposes,
+those, for instance, of mathematical physics, though not for those of
+probability. This method is to select some other series of quantities
+or numbers, each of the terms of which corresponds in order to one
+and only one of the terms of the series which we wish to measure.
+For instance, the series of characteristics, diﬀering in degree, which
+are measured by speciﬁc volume, have this relation to the series
+of numerical ratios between the volumes of equal masses of the
+substances, the speciﬁc volumes of which are in question, and of
+water. They have it also to the corresponding ratios which give rise
+to the measure of speciﬁc density. But these only yield conventional
+measurements, and the numbers with which we correlate the terms
+which we wish to measure can be selected in a variety of ways.
+It
+follows that equal intervals between the numbers which represent the
+ratios do not necessarily correspond to equal intervals between the
+qualities under measurement; for these numerical diﬀerences depend
+
+correct measure than these are?
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+51
+
+upon which convention of measurement we have selected.
+
+7.
+
+A somewhat analogous diﬃculty arises in connection with
+the problems of what is known as ‘geometrical’ or ‘local’ probability.∗
+In these problems we are concerned with the position of a point or
+inﬁnitesimal area or volume within a continuum.† The number of
+cases here is indeﬁnite, but the Principle of Indiﬀerence has been
+held to justify the supposition that equal lengths or areas or volumes
+of the continuum are,
+in the absence of discriminating evidence,
+equally likely to contain the point.
+It has long been known that
+this assumption leads in numerous cases to contradictory conclusions.
+If, for instance, two points A and A(cid:48) are taken at random on the
+surface of a sphere, and we seek the probability that the lesser of the
+two arcs of the great circle AA(cid:48) is less than a, we get one result by
+assuming that the probability of a point’s lying on a given portion of
+the sphere’s surface is proportional to the area of that portion, and
+another result by assuming that, if a point lies on a given great circle,
+the probability of its lying on a given arc of that circle is proportional
+to the length of the arc, each of these assumptions being equally
+justiﬁed by the Principle of Indiﬀerence.
+
+Or consider the following problem: if a chord in a circle is drawn
+at random, what is the probability that it will be less than the side
+of the inscribed equilateral triangle. One can argue:—
+
+∗The best accounts of this subject are to be found in Czuber, Geometrische
+Wahrscheinlichkeiten und Mittelwerte; Czuber, Wahrscheinlichkeitsrechnung,
+vol. i. pp. 75–109; Crofton, Encycl. Brit. (9th edit.), article ‘Probability’; Borel,
+Eléments de la théorie des probabilités, chaps. vi.–viii.; a few other references
+are given in the following pages, and a number of discussions of
+individual
+problems will be found in the mathematical volumes of the Educational Times.
+The interest of the subject is primarily mathematical, and no discussion of its
+principal problems will be attempted here.
+
+†As Czuber points out (Wahrscheinlichkeiterechnung, vol.
+
+i. p. 84), all
+problems, whether geometrical or arithmetical, which deal with a continuum
+and with non-enumerable aggregates, are commonly discussed under the name
+of ‘geometrical probability.’ See also Lämmel, Untersuchungen.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+52
+
+(a) It is indiﬀerent at what point one end of the chord lies. If
+we suppose this end ﬁxed, the direction is then chosen at
+random. In this case the answer is easily shown to be 2
+3
+
+(b) It is indiﬀerent in what direction we suppose the chord
+to lie. Beginning with this apparently not less justiﬁable
+assumption, we ﬁnd that the answer is 1
+2
+
+(c) To choose a chord at random, one must choose its middle
+point at random. If the chord is to be less than the side of
+the inscribed equilateral triangle, the middle point must be
+at a greater distance from the centre than half the radius.
+of the
+But the area at a greater distance than this is 3
+4
+whole. Hence our answer is 3
+4
+
+.∗
+
+.
+
+.
+
+In general, if x and f (x) are both continuous variables, varying
+always in the same or in the opposite sense, and x must lie between
+a and b, then the probability that x lies between c and d, where
+a < c < d < b, seems to be d − c
+, and the probability that f (x) lies
+b − a
+between f (c) and f (d) to be f (d) − f (c)
+. These expressions, which
+f (b) − f (a)
+represent the probabilities of necessarily concordant conclusions, are
+not, as they ought to be, equal.†
+
+8. More than one attempt has been made to separate the cases
+in which the Principle of Indiﬀerence can be legitimately applied to
+examples of geometrical probability from those in which it cannot.
+M. Borel argues that the mathematician can deﬁne the geometrical
+probability that a point M lies on a certain segment PQ of AD as
+proportional to the length of the segment, but that this deﬁnition is
+conventional until its consequences have been conﬁrmed à posteriori
+by their conformity with the results of empirical observation. He
+points out that in actual cases there are generally some considerations
+present which lead us to prefer one of the possible assumptions to the
+
+∗Bertrand, Calcul des probabilités, p. 5.
+†See (e.g.) Borel, Éléments de la théorie des probabilités, p. 85.
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+53
+
+others. Whether or not this is so, the proposed procedure amounts to
+an abandonment of the Principle of Indiﬀerence as a valid criterion,
+and leaves our choice undetermined when further evidence is not
+forthcoming.
+
+M. Poincaré, who also held that judgments of equiprobability in
+such cases depend upon a ‘convention,’ endeavoured to minimise the
+importance of the arbitrary element by showing that, under certain
+conditions, the result is independent of the particular convention
+which is chosen. Instead of assuming that the point is equally likely to
+lie in every inﬁnitesimal interval dx we may represent the probability
+of its lying in this interval by the function φ(x) dx. M. Poincaré
+showed that,
+for instance, where
+we have a number of compartments arranged in a circle coloured
+alternately black and white, if we can assume that φ(x) is a regular
+function, continuous and with continuous diﬀerential coeﬃcients, then,
+whatever the particular form of the function, the probability of black
+is approximately equal to that of white.∗
+
+in the game of rouge et noir,
+
+Whether or not investigations on these lines prove to have a
+practical value, they have not, I think, any theoretical importance.
+If, as I maintain, the probability φ(x) is not necessarily numerical,
+it is not a generally justiﬁable assumption to take its continuity
+for granted. We have, in the particular example quoted, a number
+of alternatives, half of which lead to black and half to white; the
+assumption of continuity amounts to the assumption that for every
+white alternative there is a black alternative whose probability is very
+nearly equal to that of the white. Naturally in such a case we can
+get an approximately equal probability for the whites as a whole and
+for the blacks as a whole, without assuming equal probability for
+each alternative individually. But this fact has no bearing on the
+theoretical diﬃculties which we are discussing.
+
+M. Bertrand is so much impressed by the contradictions of
+
+∗Poincaré, Calcul des probabilités, pp. 126 et seq.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+54
+
+9.
+
+geometrical probability that he wishes to exclude all examples in
+which the number of alternatives is inﬁnite.∗ It will be argued in the
+sequel that something resembling this is true. The discussion of this
+question will be resumed in §§ 21–25.
+
+There is yet another group of cases, distinct in character
+from those considered so far, in which the principle does not seem to
+provide us with unambiguous guidance. The typical example is that
+of an urn containing black and white balls in an unknown proportion.†
+The Principle of Indiﬀerence can be claimed to support the most
+usual hypothesis, namely, that all possible numerical ratios of black
+and white are equally probable. But we might equally well assume
+that all possible constitutions‡ of the system of balls are equally
+probable, so that each individual ball is assumed equally likely to
+be black or white. It would follow from this that an approximately
+equal number of black and white balls is more probable than a large
+excess of one colour. On this hypothesis, moreover, the drawing of
+one ball and the resulting knowledge of its colour leaves unaltered the
+probabilities of the various possible constitutions of the rest of the
+bag; whereas on the ﬁrst hypothesis knowledge of the colour of one
+ball, drawn and not replaced, manifestly alters the probability of the
+colour of the next ball to be drawn. Either of these hypotheses seems
+
+∗Bertrand, Calcul des probabilités, p. 4:
+
+“L’inﬁni n’est pas un nombre; on
+ne doit pas, sans explication, l’introduire dans les raisonnements. La précision
+illusoire des mots pourrait faire naitre des contradictions. Choisir au hasard,
+entre un nombre inﬁni de cas possibles, n’est pas une indication suﬃsante.”
+
+†The diﬃculty in question was ﬁrst pointed out by Boole, Laws of Thought,
+pp. 369–370. After discussing the Law of Succession, Boole proceeds to show
+that “there are other hypotheses, as strictly involving the principle of the ‘equal
+distribution of knowledge or ignorance’ which would also conduct to conﬂicting
+results.” See also Von Kries, op. cit. pp. 31–34, 59, and Stumpf, Über den Begriﬀ
+der mathematischen Wahrscheinlichkeit, Bavarian Academy, 1892, pp. 64–68.
+
+‡If A and B are two balls, A white, B black, and A black, B white, are
+diﬀerent ‘constitutions.’ But if we consider diﬀerent numerical ratios, these two
+cases are indistinguishable, and count as one only.
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+55
+
+to satisfy the Principle of Indiﬀerence, and a believer in the absolute
+validity of the principle will doubtless adopt that one which enters
+his mind ﬁrst.∗
+
+The same point is very clearly illustrated by an example which
+I take from Von Kries. Two cards, chosen from diﬀerent packs, are
+placed face downwards on the table; one is taken up and found to be
+of a black suit: what is the chance that the other is black also? One
+would naturally reply that the chance is even. But this is based on
+the supposition, relatively unpopular with writers on the subject, that
+every ‘constitution’ is equally probable, i.e. that each individual card
+is as likely to be black as red. If we prefer this assumption, we must
+relinquish the text-book theory that the drawing of a black ball from
+an urn, containing black and white balls in unknown proportions,
+aﬀects our knowledge as to the proportion of black and white amongst
+the remaining balls.
+
+The alternative—or text-book—theory assumes that there are
+three equal possibilities—one of each colour, both black, both red.
+If both cards are black, we are twice as likely to turn up a black
+card than if only one is black. After we have turned up a black, the
+probability that the other is black is, therefore, twice as great as the
+probability that it is red. The chance of the second’s being black is
+.† The Principle of Indiﬀerence has nothing to say against
+therefore 2
+3
+either solution. Until some further criterion has been proposed we
+seem compelled to agree with Poincaré that a preference for either
+
+∗C. S. Peirce in his Theory of Probable Inference (Johns Hopkins Studies in
+Logic), pp. 172, 173, argues that the ‘constitution’ hypothesis is alone valid,
+on the ground that, of the two hypotheses, only this one is consistent with
+itself. I agree with his conclusion, and shall give at the close of the chapter the
+fundamental considerations which lead to the rejection of the ‘ratio’ hypothesis.
+2.
+Stumpf points out that the probability of drawing a white ball is, in any case, 1
+This is true; but the probability of a second white clearly depends upon which
+of the two hypotheses has been preferred. Nitsche (loc. cit. p. 31) seems to miss
+the point of the diﬃculty in the same way.
+
+†This is Poisson’s solution, Recherches, p. 96.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+56
+
+hypothesis is wholly arbitrary.
+
+10.
+
+Such, then, are the kinds of result to which an unguarded
+use of the Principle of Indiﬀerence may lead us. The diﬃculties, to
+which attention has been drawn, have been noticed before; but the
+discredit has not been emphatically thrown on the original source
+of error. Yet the principle certainly remains as a negative criterion;
+two propositions cannot be equally probable, so long as there is any
+ground for discriminating between them. The principle is a necessary,
+but not, as it seems, a suﬃcient condition.
+
+The enunciation of some suﬃcient rule is certainly essential
+
+if
+we are to make any progress in the subject. But the diﬃculty
+of discovering a correct principle is considerable. This diﬃculty is
+partly responsible, I think, for the doubts which philosophers and
+many others have often felt regarding any practical application of the
+Calculus. Many candid persons, when confronted with the results of
+Probability, feel a strong sense of the uncertainty of the logical basis
+upon which it seems to rest.
+It is diﬃcult to ﬁnd an intelligible
+account of the meaning of ‘probability,’ or of how we are ever to
+determine the probability of any particular proposition; and yet
+treatises on the subject profess to arrive at complicated results of the
+greatest precision and the most profound practical importance.
+
+The incautious methods and exaggerated claims of the school of
+Laplace have undoubtedly contributed towards the existence of these
+sentiments. But the general scepticism, which I believe to be much
+more widely spread than the literature of the subject admits, is more
+fundamental.
+In this matter Hume need not have felt “aﬀrighted
+and confounded with that forelorn solitude,
+in which I am placed
+in my philosophy,” or have fancied himself “some strange uncouth
+monster, who not being able to mingle and unite in society, has
+been expell’d all human commerce, and left utterly abandon’d and
+disconsolate.” In his views on probability, he stands for the plain man
+against the sophisms and ingenuities of “metaphysicians,
+logicians,
+mathematicians, and even theologians.”
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+57
+
+Yet such scepticism goes too far. The judgments of probability,
+upon which we depend for almost all our beliefs in matters of
+experience, undoubtedly depend on a strong psychological propensity
+in us to consider objects in a particular light. But this is no ground
+for supposing that they are nothing more than “lively imaginations.”
+The same is true of the judgments in virtue of which we assent to
+other logical arguments; and yet in such cases we believe that there
+may be present some element of objective validity, transcending the
+psychological impulsion, with which primarily we are presented. So
+also in the case of probability, we may believe that our judgments
+can penetrate into the real world, even though their credentials are
+subjective.
+
+11. We must now inquire how far it is possible to rehabilitate
+the Principle of Indiﬀerence or ﬁnd a substitute for it. There are
+several distinct diﬃculties which need attention in a discussion of the
+problems raised in the preceding paragraphs. Our ﬁrst object must
+be to make the Principle itself more precise by disclosing how far its
+application is mechanical and how far it involves an appeal to logical
+intuition.
+
+12. Without compromising the objective character of relations of
+probability, we must nevertheless admit that there is little likelihood
+of our discovering a method of recognising particular probabilities,
+without any assistance whatever from intuition or direct judgment.
+Inasmuch as it is always assumed that we can sometimes judge directly
+that a conclusion follows from a premiss,
+it is no great extension
+of this assumption to suppose that we can sometimes recognise
+that a conclusion partially follows from, or stands in a relation of
+probability to, a premiss. Moreover, the failure to explain or deﬁne
+‘probability’ in terms of other logical notions, creates a presumption
+that particular relations of probability must be, in the ﬁrst instance,
+directly recognised as such, and cannot be evolved by rule out of data
+which themselves contain no statements of probability.
+
+On the other hand, although we cannot exclude every element
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+58
+
+of direct judgment, these judgments may be limited and controlled,
+perhaps, by logical rules and principles which possess a general
+application. While we may possess a faculty of direct recognition of
+many relations of probability, as in the case of many other logical
+relations, yet some may be much more easily recognisable than others.
+The object of a logical system of probability is to enable us to know
+the relations, which cannot be easily perceived, by means of other
+relations which we can recognise more distinctly—to convert, in fact,
+vague knowledge into more distinct knowledge.∗
+
+13.
+
+Let us seek to distinguish between the element of direct
+judgment and the element of mechanical rule in the Principle of
+Indiﬀerence. The enunciation of this principle, as it is ordinarily
+expressed, cloaks, but does not avoid, the former element.
+It is in
+part a formula and in part an appeal to direct inspection; but in
+addition to the obscurity and ambiguity of the formula, the appeal
+to intuition is not as explicit as it should be. The principle states
+that ‘there must be no known reason for preferring one of a set of
+alternatives to any other.’ What does this mean? What are ‘reasons,’
+and how are we to know whether they do or do not justify us in
+preferring one alternative to another? I do not know any discussion
+of Probability in which this question has been so much as asked. If,
+for example, we are considering the probability of drawing a black
+
+∗As it is the aim of trigonometry to determine the position of an object,
+which is in a sense visible, not by a direct observation of it, but by observing
+some other object together with certain relations, so an indirect method of this
+kind is the aim of all logical system. If the truth of some propositions, and the
+validity of some arguments, could not be recognised directly, we could make no
+progress. We may have, moreover, some power of direct recognition where it is
+not necessary in our logical system that we should make use of it.
+In these
+cases the method of logical proof increases the certainty of knowledge, which we
+might be able to possess in a more doubtful manner without it. In other cases,
+that, for instance, of a complicated mathematical theorem, it enables us to know
+propositions to be true, which are altogether beyond the reach of our direct
+insight; just as we can often obtain knowledge about the position of a partially
+visible or even invisible object by starting with observations of other objects.
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+59
+
+ball from an urn containing balls which are black and white, we
+assume that the diﬀerence of colour between the balls is not a reason
+for preferring either alternative. But how do we know this, unless
+by a judgment that, on the evidence in hand, our knowledge of the
+colours of the balls is irrelevant to the probability in question? We
+know of some respects in which the alternatives diﬀer; but we judge
+that a knowledge of these diﬀerences is not relevant. If, on the other
+hand, we were taking the balls out of the urn with a magnet, and
+knew that the black balls were of iron and the white of tin, we might
+regard the fact, that a ball was iron and not tin, as very important
+in determining the probability of its being drawn. Before, then, we
+can begin to apply the Principle of Indiﬀerence, we must have made a
+number of direct judgments to the eﬀect that the probabilities under
+consideration are unaﬀected by the inclusion in the evidence of certain
+particular details. We have no right to say of any known diﬀerence
+between the two alternatives that it is ‘no reason’ for preferring one
+of them, unless we have judged that a knowledge of this diﬀerence is
+irrelevant to the probability in question.
+
+14. A brief digression is now necessary, in order to introduce some
+new terms. There are in general two principal types of probabilities,
+the magnitudes of which we seek to compare,—those in which the
+evidence is the same and the conclusions diﬀerent, and those in
+which the evidence is diﬀerent but the conclusion the same. Other
+types of comparison may be required, but these two are by far the
+commonest. In the ﬁrst we compare the likelihood of two conclusions
+on given evidence; in the second we consider what diﬀerence a change
+of evidence makes to the likelihood of a given conclusion. In symbolic
+language we may wish to compare x/h with y/h, or x/h with x/h1h.
+We may call the ﬁrst type judgments of preference, or, when there is
+equality between x/h and y/h, of indiﬀerence; and the second type we
+may call judgments of relevance, or, when there is equality between
+x/h and x/h1h, of irrelevance.
+In the ﬁrst we consider whether or
+not x is to be preferred to y on evidence h; in the second we consider
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+60
+
+whether the addition of h1 to evidence h is relevant to x.
+
+The Principle of Indiﬀerence endeavours to formulate a rule which
+will justify judgments of indiﬀerence. But the rule that there must
+be no ground for preferring one alternative to another, involves, if it
+is to be a guiding rule at all, and not a petitio principii, an appeal to
+judgments of irrelevance.
+
+The simplest deﬁnition of Irrelevance is as follows: h1 is irrelevant
+to x on evidence h, if the probability of x on evidence hh1 is the
+same as its probability on evidence h.∗ But for a reason which will
+appear in Chapter VI., a stricter and more complicated deﬁnition, as
+follows, is theoretically preferable: h1 is irrelevant to x on evidence h,
+if there is no proposition, inferrible from h1h but not from h, such
+that its addition to evidence h aﬀects the probability of x.† Any
+proposition which is irrelevant in the strict sense is, of course, also
+irrelevant in the simpler sense; but if we were to adopt the simpler
+deﬁnition, it would sometimes occur that a part of evidence would be
+relevant, which taken as a whole was irrelevant. The more elaborate
+deﬁnition by avoiding this proves in the sequel more convenient.
+If
+the condition x/h1h = x/h alone is satisﬁed, we may say that the
+evidence h1 is ‘irrelevant as a whole.’‡
+
+It will be convenient to deﬁne also two other phrases. h1 and h2
+are independent and complementary parts of the evidence, if between
+them they make up h and neither can be inferred from the other. If
+x is the conclusion, and h1 and h2 are independent and complementary
+parts of the evidence, then h1 is relevant if the addition of it to h2
+aﬀects the probability of x.§
+
+∗That is to say, h1 is irrelevant to x/h if x/h1h = x/h.
+†That is to say, h1 is irrelevant to x/h,
+1h =| x/h.
+
+1/h =| 1, and x/h(cid:48)
+
+1/h1h = 1, h(cid:48)
+
+that h(cid:48)
+
+‡Where no misunderstanding can arise, the qualiﬁcation ‘as a whole’ will be
+
+sometimes omitted.
+of h if h1h2 = h, h1/h2 =| 1, and h2/h1 =| 1. Also h1 is relevant if x/h =| x/h2.
+
+§I.e. (in symbolism) h1 and h2 are independent and complementary parts
+
+if there is no propsition h(cid:48)
+
+1 such
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+61
+
+Some propositions regarding irrelevance will be proved in Part II.
+If ¯h1 is the contradictory of h1 and x/h1h = x/h, then x/¯h1h = x/h.
+Thus the contradictory of irrelevant evidence is also irrelevant. Also,
+if x/yh = x/h,
+it follows that y/xh = y/h. Hence if, on initial
+evidence h, y is irrelevant to x, then, on the same initial evidence,
+x is irrelevant to y, i.e. if in a given state of knowledge one occurrence
+has no bearing on another then equally the second has no bearing on
+the ﬁrst.
+
+15.
+
+This distinction enables us to formulate the Principle of
+Indiﬀerence at any rate more precisely. There must be no relevant
+evidence relating to one alternative, unless there is corresponding
+evidence relating to the other; our relevant evidence, that is to say,
+must be symmetrical with regard to the alternatives, and must be
+applicable to each in the same manner. This is the rule at which
+the Principle of Indiﬀerence somewhat obscurely aims. We must ﬁrst
+determine what parts of our evidence are relevant on the whole by
+a series of judgments of relevance, not easily reduced to rule, of the
+type described above.
+If this relevant evidence is of the same form
+for both alternatives, then the Principle authorises a judgment of
+indiﬀerence.
+
+16.
+
+This rule can be expressed more precisely in symbolic
+Let us assume,
+that the alternative
+language.
+conclusions are expressible in the forms φ(a) and φ(b), where φ(x) is
+a propositional function.∗ The diﬀerence between them, that is to
+say, can be represented in terms of a single variable.
+
+to begin with,
+
+The Principle of Indiﬀerence is applicable to the alternatives
+φ(a) and φ(b), when the evidence h is so constituted that, if f (a) is
+an independent part of h (see § 14) which is relevant to φ(a), and
+does not contain any independent parts which are irrelevant to φ(a),
+then h includes f (b) also.
+
+The rule can be extended by successive steps to cases in which
+
+∗If φ(a), φ(b), etc., are propositions, and x is a variable, capable of taking
+
+the values a, b, etc, then φ(x) is a propositional function.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+62
+
+we have more than one variable. We can,
+the necessary
+conditions are fulﬁlled,
+successively compare the probabilities of
+φ(a1a2) and φ(b1a2), and of φ(b1a2) and φ(b1b2) and establish equality
+between φ(a1a2) and φ(b1b2).
+
+if
+
+This elucidation is suited to most of the cases to which the
+Principle of Indiﬀerence is ordinarily applied. Thus in the favourite
+examples in which balls are drawn from urns, we can infer from
+our evidence no relevant proposition about white balls, such that we
+cannot infer a corresponding proposition about black balls. Most of
+the examples, to which the mathematical theory of chances has been
+applied, and which depend upon the Principle of Indiﬀerence, can be
+arranged, I think, in the forms which the rule requires as formulated
+above.
+17.
+
+We can now clear up the diﬃculties which arose over
+the group of cases dealt with in § 9, the typical example of which
+was the problem of the urn containing black and white balls in an
+unknown proportion. This more precise enunciation of the Principle
+enables us to show that of the two solutions the equiprobability
+of each ‘constitution’ is alone legitimate, and the equiprobability of
+each numerical ratio erroneous. Let us write the alternative ‘The
+proportion of black balls is x’ ≡ φ(x), and the datum ‘There are
+n balls in the bag, with regard to none of which it is known whether
+they are black or white’ ≡ h. On the ‘ratio’ hypothesis it is argued
+that the Principle of Indiﬀerence justiﬁes the judgment of indiﬀerence,
+φ(x)/h = φ(y)/h. In order that this may be valid, it must be possible
+to state the relevant evidence in the form f (x) f (y). But this is not
+, we have relevant knowledge about the
+the case. If x = 1
+way in which a proportion of black balls of one half can arise, which
+is not identical with our knowledge of the way in which a proportion
+of one quarter can arise. If there are four balls, A, B, C, D, one half
+are black, if A, B or A, C or A, D or B, C or B, D or C, D are black;
+and one quarter are black, if A or B or C or D are black. These
+propositions are not identical in form, and only by a false judgment
+
+and y = 1
+
+2
+
+4
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+63
+
+of irrelevance can we ignore them. On the ‘constitution’ hypothesis,
+however, where A, B black and A, C black are treated as distinct
+alternatives, this want of symmetry in our relevant evidence cannot
+arise.
+
+18. We can also deal with the point which was illustrated by
+the diﬃculty raised in § 4. We considered there the probabilities of a
+and its contradictory ¯a when there is no external evidence relevant
+to either. What exactly do we mean by saying that there is no
+relevant evidence? Is the addition of the word external signiﬁcant? If
+a represents a particular proposition, we must know something about
+it, namely, its meaning. May not the apprehension of its meaning
+aﬀord us some relevant evidence? If so, such evidence must not be
+excluded. If, then, we say that there is no relevant evidence, we must
+mean no evidence beyond what arises from the mere apprehension of
+the meaning of the symbol a. If we attach no meaning to the symbol,
+it is useless to discuss the value of the probability; for the probability,
+which belongs to a proposition as an object of knowledge, not as a
+form of words, cannot in such a case exist.
+
+What exactly does the symbol a stand for in the above? Does it
+stand for any proposition of which we know no more than that it is
+a proposition? Or does it stand for a particular proposition which
+we understand but of which we know no more than is involved in
+understanding it? In the former case we cannot extend our result
+to a proposition of which we know even the meaning; for we should
+then know more than that it is a proposition; and in the latter case
+we cannot say what the probability of a is as compared with that of
+its contradictory, until we know what particular proposition it stands
+for; for, as we have seen, the proposition itself may supply relevant
+evidence.
+
+This suggests that a source of much confusion may lie in the use
+of symbols and the notion of variables in probability. In the logic of
+implication, which deals not with probability but with truth, what is
+true of a variable must be equally true of all instances of the variable.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+64
+
+In Probability, on the other hand, we must be on our guard wherever
+a variable occurs. In Implication we may conclude that ψ is true of
+anything of which φ is true. In Probability we may conclude no more
+than that ψ is probable of anything of which we only know that φ is
+true of it.
+If x stands for anything of which φ(x) is true, as soon
+as we substitute in probability any particular value, whose meaning
+we know, for x, the value of the probability may be aﬀected;
+for
+knowledge, which was irrelevant before, may now become relevant.
+Take the following example: Does φ(a)/ψ(a) = φ(b)/ψ(b)? That is to
+say, is the probability of φ’s being true of a, given only that ψ is true
+of a, equal to the probability of φ’s being true of b, given only that
+ψ is true of b? If this simply means that the probability of an object’s
+satisfying φ about which nothing is known except that it satisﬁes ψ
+is equal to ditto ditto, the equation is an identity. For in this case
+φ(a)/ψ(a) means the same as φ(b)/ψ(b), i.e. we know nothing about
+x and y except that they satisfy ψ, and there is nothing whatever
+by which we can distinguish a from b. But if a and b represent
+speciﬁc entities, which we can distinguish, then the equality does not
+necessarily hold. If, for instance, φ(x) stands for ‘x is Socrates,’ then
+it is plainly false that φ(a)/ψ(a) = φ(b)/ψ(b), where a stands for
+Socrates and b does not.
+
+19.
+
+Bearing this danger in mind, we can now give further
+precision to the enunciation of the Principle of Indiﬀerence given in
+§ 16. Our knowledge of the meaning of a must be taken account
+of so far as it is relevant; and the Principle is only satisﬁed if
+we have corresponding knowledge about the meaning of b. Thus
+φ(a)/h = φ(b)/h may be true for one pair of values a, b, and not true
+for another pair of values a(cid:48), b(cid:48).
+
+This makes it possible to explain in part the contradiction
+,
+discussed in § 4. Even if it were true that the probability of a is 1
+when we know nothing except that a is a proposition, it does not
+follow that the probability of ‘This book is red’ is 1
+, when we know
+2
+the meanings of ‘book’ and ‘red,’ even if we know no more than this.
+
+2
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+65
+
+Knowledge arising directly out of acquaintance with the meaning of
+‘red’ may be suﬃcient to enable us to infer that ‘red’ and ‘not-red’
+are not satisfactory alternatives to which to apply the Principle of
+Indiﬀerence. How this may come about will be discussed in §§ 20, 21.
+But the contradictions are not yet really solved; for some of the
+diﬃculties discussed in § 4 can arise even when we know no more of a
+and b than that they are diﬀerent propositions. In fact, although we
+have now stated more clearly than before how the Principle should
+be enunciated, it is not yet possible to explain or to avoid all the
+contradictions to which it led us in §§ 4 to 7. For this purpose we
+must proceed to a further qualiﬁcation.
+
+20. The examples, in which the Principle of Indiﬀerence broke
+down, had a great deal
+in common. We broke up the ﬁeld of
+possibility, as we may term it, into a number of areas by a series of
+disjunctive judgments. But the alternative areas were not ultimate.
+They were capable of further subdivision into other areas similar in
+kind to the former. The paradoxes and contradictions arose, in each
+case, when the alternatives, which the Principle of Indiﬀerence treated
+as equivalent, actually contained or might contain a diﬀerent or an
+indeﬁnite number of more elementary units.
+
+In the type of cases in which the Principle of Indiﬀerence seemed
+to permit the assertion that, in the absence of relevant evidence, a
+proposition is as likely as its contradictory, its contradictory is not
+an ultimate and indivisible alternative (in the sense to be explained
+in § 21 below), even if the proposition itself satisﬁes this condition.
+For its contradictory can be disjunctively resolved into an indeﬁnite
+number of sets of contraries to the proposition. It was out of this that
+our diﬃculties ﬁrst arose.
+‘This book is not red’ includes amongst
+others the alternatives ‘This book is black’ and ‘This book is blue.’
+It is not, therefore, an ultimate alternative.
+
+In the same way the contradiction of § 5 arose out of the possibility
+of splitting the alternatives ‘He inhabits the British Isles’ into the
+sub-alternatives ‘He inhabits Ireland or he inhabits Great Britain.’
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+66
+
+to 2.’
+
+And in the third type of case, to which the example of speciﬁc volume
+and density belongs, the alternative ‘v lies in the interval 1 to 2’ can
+be broken up into the sub-alternatives ‘v lies in the interval 1 to 1 1
+or 1 1
+2
+21.
+
+This, then, seems to point the way to the qualiﬁcation of
+which we are in search. We must enunciate some formal rule which
+will exclude those cases, in which one of the alternatives involved is
+itself a disjunction of sub-alternatives of the same form. For this
+purpose the following condition is proposed.
+
+2
+
+Let the alternatives, the equiprobability of which we seek to
+establish by means of
+Indiﬀerence, be φ(a1),
+φ(a2) . . . φ(ar),∗ and let the evidence be h. Then it is a necessary
+condition for the application of the principle, that these should be,
+relatively to the evidence, indivisible alternatives of the form φ(x).
+We may deﬁne a divisible alternative in the following manner:
+
+the Principle of
+
+An alternative φ(ar) is divisible if
+
+[φ(ar) ≡ φ(ar(cid:48)) + φ(ar(cid:48)(cid:48))]/h = 1,
+
+(i.)
+(ii.) φ(ar(cid:48)) (cid:5) φ(ar(cid:48)(cid:48))/h = 0,
+(iii.) φ(ar(cid:48))/h =| 0 and φ(ar(cid:48)(cid:48))/h =| 0
+
+The condition that the sub-alternatives must be of the same form
+as the original alternatives, i.e. expressible by means of the same
+propositional function φ(x), deserves attention. It might be the case
+that the original alternatives had nothing substantial in common; i.e.
+φ(x) ≡ (x = x) is the only propositional function common to all of
+them, the alternatives being a1, a2, . . . , ar.
+In these circumstances
+the condition in question cannot be satisﬁed. For the proposition ar
+can always be resolved into the disjunction arb + ar
+¯b, where b is
+If, on the other hand, the
+any proposition and ¯b its contradictory.
+
+∗The more complicated cases in which the propositional function, of which
+the alternatives are instances, involves more than one variable (see § 16), can be
+dealt with in a similar manner mutatis mutandis.
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+67
+
+alternatives which we are comparing can be expressed in the forms
+φ(a1) and φ(a2), where the function φ(x) is distinct from x,
+it is
+not necessarily the case that either of these can be resolved into a
+disjunctive combination of terms which can be expressed in their turn
+in the same form.
+
+Dispensing with symbolism, we can express these conditions
+as follows: Our knowledge must not enable us to split up the
+alternative φ(ar) into a disjunction of two sub-alternatives, (i.) which
+are themselves expressible in the same form φ, (ii.) which are mutually
+exclusive, and (iii.) which, on the evidence, are possible.
+
+In short, the Principle of Indiﬀerence is not applicable to a pair
+of alternatives, if we know that either of them is capable of being
+further split up into a pair of possible but incompatible alternatives
+of the same form as the original pair.
+
+22.
+
+This rule commends itself to common sense.
+
+If we know
+that the two alternatives are compounded of a diﬀerent number or of
+an indeﬁnite number of sub-alternatives which are in other respects
+similar, so far as our evidence goes to the original alternatives, then
+this is a relevant fact of which we must take account. And as it
+aﬀects the two alternatives in diﬀering and unsymmetrical ways, it
+breaks down the fundamental condition for the valid application of
+the Principle of Indiﬀerence.
+
+Neither this consideration nor that discussed in §§ 18 and 19
+substantially modify the Principle of Indiﬀerence as enunciated in
+§ 16. They have only served to make explicit what was always
+implicit in the Principle, by explaining the manner in which our
+knowledge of the form and meaning of the alternatives may be a
+relevant part of the evidence. The apparent contradictions arose from
+paying attention to what we may term the extraneous evidence only,
+to the neglect of such part of the evidence as bore upon the form and
+meaning of the alternatives.
+
+23. The application of this result to the examples cited in § 18
+is not diﬃcult. It excludes the class of cases in which a proposition
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+68
+
+and its contradictory constitute the alternatives. For if b is the
+proposition and ¯b its contradictory, we cannot ﬁnd a propositional
+function φ(x) which will satisfy the necessary conditions.
+It deals
+also with the type of contradiction which arose in considering the
+probability that an individual taken at random was an inhabitant of
+a given region. If, on the other hand, the term ‘country’ is so deﬁned
+that one country cannot include two countries, then an individual is,
+relatively to suitable hypotheses, as likely to be an inhabitant of one
+as of another. For the function φ(x), where φ(x) ≡ ‘the individual
+is an inhabitant of country x,’ satisﬁes the conditions. And it deals
+with the example of ranges of speciﬁc volume and speciﬁc density,
+because there is no range which does not contain within itself two
+similar ranges. As there are in this case no deﬁnite units by which we
+can deﬁne equal ranges, the device, which will be referred to in § 25
+for dealing with geometrical probabilities, is not available.
+
+24.
+
+It is worth while to add that the qualiﬁcation of § 21 is fatal
+to the practical utility of the Principle of Indiﬀerence in those cases
+only in which it is possible to ﬁnd no ultimate alternatives which
+satisfy the conditions. For if the original alternatives each comprise
+a deﬁnite number of indivisible and indiﬀerent sub-alternatives, we
+can compute their probabilities.
+It is often the case, however, that
+we cannot by any process of ﬁnite subdivision arrive at indivisible
+sub-alternatives, or that,
+if we can, they are not on the evidence
+indiﬀerent. In the examples given above, for instance, where φ(x) ≡ x,
+or where x is a part of unspeciﬁed magnitude in a continuum, there
+are no indivisible sub-alternatives. The ﬁrst type comprises all cases,
+amongst others, in which we weigh the probabilities of a proposition
+and its contradictory; and the second includes a great number of
+cases in which physical or geometrical quantities are involved.
+
+25. We can now return to the numerous paradoxes which arise
+in the study of geometrical probability (see §§ 7, 8). The qualiﬁcation
+of § 21 enables us, I think, to discover the source of the confusion.
+Our alternatives in these problems relate to certain areas or segments
+
+ch. iv
+
+FUNDAMENTAL IDEAS
+
+69
+
+or arcs, and however small the elements are which we adopt as our
+alternatives, they are made up of yet smaller elements which would
+also serve as alternatives. Our rule, therefore, is not satisﬁed, and,
+as long as we enunciate them in this shape, we cannot employ the
+Principle of Indiﬀerence. But it is easy in most cases to discover
+another set of alternatives which do satisfy the condition, and which
+will often serve our purpose equally well. Suppose, for instance, that
+a point lies on a line of length m.l., we may write the alternative
+‘the interval of length l on which the point lies is the xth interval
+of that length as we move along the line from left to right’ ≡ φ(x);
+and the Principle of Indiﬀerence can then be applied safely to the
+m alternatives φ(1), φ(2) . . . φ(m), the number m increasing as the
+length l of the intervals is diminished. There is no reason why
+l should not be of any deﬁnite length however small.
+
+In the problem,
+
+If we deal with the problems of geometrical probability in this
+way, we shall avoid the contradictory conclusions, which arise from
+confusing together distinct elementary areas.
+for
+instance, of the chord drawn at random in a circle, which is discussed
+in § 7, the chord is regarded, not as a one-dimensional line, but as the
+limit of an area, the shape of which is diﬀerent in each of the variant
+solutions. In the ﬁrst solution it is the limit of a triangle, the length
+of the base of which tends to zero; in the second solution it is the
+limit of a quadrilateral, two of the sides of which are parallel and at a
+distance apart which tends to zero; and in the third solution the area
+is deﬁned by the limiting position of a central section of undeﬁned
+shape. These distinct hypotheses lead inevitably to diﬀerent results.
+If we were dealing with a strictly linear chord, the Principle of
+Indiﬀerence would yield us no result, as we could not enunciate the
+alternatives in the required form; and if the chord is an elementary
+area, we must know the shape of the area of which it is the limit.
+So long as we are careful to enunciate the alternatives in a form
+to which the Principle of Indiﬀerence can be applied unambiguously,
+we shall be prevented from confusing together distinct problems, and
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+70
+
+shall be able to reach conclusions in geometrical probability which are
+unambiguously valid.
+
+The substance of this explanation can be put in a slightly diﬀerent
+way by saying that it is not a matter of
+indiﬀerence in these
+cases in what manner we proceed to the limit. We must assign
+the probabilities before proceeding to the limit, which we can do
+unambiguously. But if the problem in hand does not stop at small
+ﬁnite lengths, areas, or volumes, and we have to proceed to the
+limit, then the ﬁnal result depends upon the shape in which the
+body approaches the limit. Mathematicians will recognise an analogy
+between this case and the determination of potential at points within
+a conductor. Its value depends upon the shape of the area which in
+the limit represents the point.
+
+26.
+
+The positive contributions of
+
+to the
+this chapter
+In the
+determination of valid judgments of equiprobability are two.
+ﬁrst place we have stated the Principle of Indiﬀerence in a more
+accurate form, by displaying its necessary dependence upon judgments
+of relevance and so bringing out the hidden element of direct judgment
+or intuition, which it has always involved. It has been shown that the
+Principle lays down a rule by which direct judgments of relevance and
+irrelevance can lead on to judgments of preference and indiﬀerence.
+In the second place, some types of consideration, which are in fact
+relevant, but which are in danger of being overlooked, have been
+brought into prominence. By this means it has been possible to avoid
+the various types of doubtful and contradictory conclusions to which
+the Principle seemed to lead, so long as we applied it without due
+qualiﬁcation.
+
+CHAPTER V
+
+other methods of determining probabilities
+
+1.
+
+limits the scope of the Principle of Indiﬀerence.
+
+The recognition of the fact, that not all probabilities
+are numerical,
+It
+has always been agreed that a numerical measure can actually be
+obtained in those cases only in which a reduction to a set of exclusive
+and exhaustive equiprobable alternatives is practicable. Our previous
+conclusion that numerical measurement is often impossible agrees very
+well, therefore, with the argument of the preceding chapter that the
+rules, in virtue of which we can assert equiprobability, are somewhat
+limited in their ﬁeld of application.
+
+But the recognition of this same fact makes it more necessary to
+discuss the principles which will justify comparisons of more and less
+between probabilities, where numerical measurement is theoretically,
+as well as practically, impossible. We must, for the reasons given in
+the preceding chapter, rely in the last resort on direct judgment. The
+object of the following rules and principles is to reduce the judgments
+of preference and relevance, which we are compelled to make, to a
+few relatively simple types.∗
+
+2. We will enquire ﬁrst in what circumstances we can expect a
+comparison of more and less to be theoretically possible. I am inclined
+to think that this is a matter about which, rather unexpectedly
+perhaps, we are able to lay down deﬁnite rules. We are able, I think,
+always to compare a pair of probabilities which are
+
+(i.)
+of the type ab/h and a/h,
+(ii.) of the type a/hh1 and a/h,
+
+or
+provided the additional evidence h1 contains only one independent
+piece of relevant information.
+
+∗Parts of Chap. XV. are closely connected with the topics of the following
+
+paragraphs, and the discussion which is commenced here is concluded there.
+
+71
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+72
+
+(i.) The propositions of Part II. will enable us to prove that
+
+ab/h < a/h unless b/ah = 1;
+
+that is to say, the probability of our conclusion is diminished by the
+addition to it of something, which on the hypothesis of our argument
+cannot be inferred from it. This proposition will be self-evident to
+the reader. The rule, that the probability of two propositions jointly
+is, in general, less than that of either of them separately, includes the
+rule that the attribution of a more specialised concept is less probable
+than the attribution of a less specialised concept.
+
+(ii.)
+
+Similarly,
+
+This condition requires a little more explanation.
+
+It
+is always greater than, equal
+states that the probability a/hh1
+to, or less than the probability a/h,
+if h1 contains no pair of
+complementary and independent parts∗ both relevant to a/h. If h1 is
+favourable, a/hh1 > a/h.
+if h2 is favourable to a/hh1,
+a/hh1h2 > a/hh1. The reverse holds if h1 and h2 are unfavourable.
+Thus we can compare a/hh(cid:48) and a/h,
+in every case in which the
+relevant independent parts of the additional evidence h(cid:48) are either
+all favourable, or all unfavourable. In cases in which our additional
+evidence is equivocal, part taken by itself being favourable and part
+unfavourable, comparison is not necessarily possible.
+In ordinary
+language we may assert that, according to our rule, the addition to
+our evidence of a single fact always has a deﬁnite bearing on our
+conclusion. It either leaves its probability unaﬀected and is irrelevant,
+or it has a deﬁnitely favourable or unfavourable bearing, being
+favourably or unfavourably relevant.
+It cannot aﬀect the conclusion
+in an indeﬁnite way, which allows no comparison between the two
+probabilities. But if the addition of one fact is favourable, and the
+addition of a second is unfavourable, it is not necessarily possible to
+compare the probability of our original argument with its probability
+when it has been modiﬁed by the addition of both the new facts.
+
+∗See Chap. IV. § 14 for the meaning of these terms.
+
+ch. v
+
+FUNDAMENTAL IDEAS
+
+73
+
+Other comparisons are possible by a combination of these two
+principles with the Principle of Indiﬀerence. We may ﬁnd,
+for
+instance, that a/hh1 > a/h, that a/h = b/h, that b/h > b/hh2, and
+that, therefore, a/hh1 > b/hh2. We have thus obtained a comparison
+between a pair of probabilities, which are not of the types discussed
+above, but without the introduction of any fresh principle. We may
+denote comparisons of this type by (iii.).
+
+3.
+
+Whether any comparisons are possible which do not fall
+within any of the categories (i.), (ii.), or (iii.), I do not feel certain.
+We undoubtedly make a number of direct comparisons which do not
+seem to be covered by them. We judge it more probable, for instance,
+that Caesar invaded Britain than that Romulus founded Rome. But
+even in such cases as this, where a reduction into the regular form
+is not obvious,
+it might prove possible if we could clearly analyse
+the real grounds of our judgment. We might argue in this instance
+that, whereas Romulus’s founding of Rome rests solely on tradition,
+we have in addition evidence of another kind for Caesar’s invasion of
+Britain, and that, in so far as our belief in Caesar’s invasion rests on
+tradition, we have reasons of a precisely similar kind as for our belief
+in Romulus without the additional doubt involved in the maintenance
+of a tradition between the times of Romulus and Caesar. By some
+such analysis as this our judgment of comparison might be brought
+within the above categories.
+
+The process of reaching a judgment of comparison in this way
+may be called ‘schematisation.’∗ We take initially an ideal scheme
+which falls within the categories of comparison. Let us represent ‘the
+historical tradition x has been handed down from a date many years
+previous to the time of Caesar’ by ψ1(x); ‘the historical tradition x
+has been handed down from the time of Caesar’ by ψ2(x);
+‘the
+historical tradition x has extra-traditional support’ by ψ3(x); and
+the two traditions, the Romulus tradition and the Caesar tradition
+
+∗This phrase is used by Von Kries, op. cit. p. 179, in a somewhat similar
+
+connection.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+74
+
+4.
+
+respectively, by a and b. Then if our relevant evidence h were of the
+form ψ1(a)ψ2(b)ψ3(b), it is easily seen that the comparison a/h < b/h
+could be justiﬁed on the lines laid down above.∗ A further judgment,
+that our actual evidence presented no relevant divergence from this
+schematic form, would then establish the practical conclusion. As
+I am not aware of any plausible judgment of comparison which we
+make in common practice, but which is clearly incapable of reduction
+to some schematic form, and as I see no logical basis for such a
+comparison, I feel justiﬁed in doubting the possibility of comparing
+the probabilities of arguments dissimilar in form and incapable of
+schematic reduction. But the point must remain very doubtful until
+this part of the subject has received a more prolonged consideration.
+Category (ii.) is very wide, and evidently covers a great
+variety of cases. If we are to establish general principles of argument
+and so avoid excessive dependence on direct individual judgments of
+relevance, we must discover some new and more particular principles
+included within it. Two of these—those of Analogy and of Induction—
+are excessively important, and will be the subject of Part III. of
+this book. In addition to these a few criteria will be examined and
+established in Chapter XIV., §§ 4 and 8 (49.1). We must be content
+here (pending the symbolic developments of Part II.) with the two
+observations following:
+
+(1) The addition of new† evidence h1 to a doubtful‡ argument a/h
+is favourably relevant, if either of the following conditions is fulﬁlled:—
+(a) if a/hh1 = 0; (b) if a/hh1 = 1. Divested of symbolism, this merely
+amounts to a statement that a piece of evidence is favourable if, in
+conjunction with the previous evidence, it is either a necessary or a
+suﬃcient condition for the truth of our conclusion.
+
+(2) It might plausibly be supposed that evidence would be
+
+a/ψ2(a) = b/ψ2(b);
+
+a/ψ1(a) = a/h; and b/ψ2(b)ψ3(b) = b/h.
+
+∗For
+†h1 is new evidence so long as h1/h =| 1.
+‡The argument is doubtful so long as a/h is neither certain nor impossible.
+
+b/ψ2(b) < b/ψ2(b)ψ3(b);
+
+a/ψ1(a) < a/ψ2(a);
+
+ch. v
+
+FUNDAMENTAL IDEAS
+
+75
+
+favourable to favourable
+favourable to our conclusion which is
+evidence—i.e. that,
+if h1 is favourable to x/h and x is favourable
+to a/h, h1 is favourable to a/h. Whilst, however, this argument
+is frequently employed under conditions, which, if explicitly stated,
+would justify it, there are also conditions in which this is not so, so
+that it is not necessarily valid. For the very deceptive fallacy involved
+in the above supposition, Mr. Johnson has suggested to me the name
+of the Fallacy of the Middle Term. The general question—If h1 is
+favourable to x/h and x is favourable to a/h, in what conditions is
+h1 favourable to a/h?—will be examined in Chapter XIV. §§ 4 and
+8 (49.1).
+In the meantime, the intuition of the reader towards the
+fallacy may be assisted by the following observations, which are due
+to Mr. Johnson:
+
+Let x, x(cid:48), x(cid:48)(cid:48) . . . be exclusive and exhaustive alternatives under
+datum h. Let h1 and a be concordant in regard to each of these
+alternatives:
+i.e. any hypothesis which is strengthened by h1 will
+strengthen a, and any hypothesis which is weakened by h1 will
+weaken a. It is obvious that, if h1 strengthens some of the hypotheses
+x, x(cid:48), x(cid:48)(cid:48) . . ., it will weaken others. This fact helps us to see why we
+cannot consider the concordance of h1 and a in regard to one single
+alternative, but must be able to assert their concordance with regard
+to every one of the exclusive and exhaustive alternatives, including
+the particular one taken. But a further condition is needed, which (as
+we shall show) is obviously satisﬁed in two typical problems at least.
+This further condition is that, for each hypothesis x, x(cid:48), x(cid:48)(cid:48) . . .,
+it
+shall hold that, were this hypothesis known to be true, the knowledge
+of h1 would not weaken the probability of a.
+shall
+strengthen a (independently of knowledge of x, x(cid:48), x(cid:48)(cid:48) . . .); and, in a
+sense, they appear to be necessary; for, unless they are satisﬁed, the
+dependence of h1 upon a would be (so to speak) accidental as regards
+the ‘middle terms,’ (x, x(cid:48), x(cid:48)(cid:48) . . .).
+The necessity for reference to all the alternatives x, x(cid:48), x(cid:48)(cid:48) . . . is
+
+These two conditions are suﬃcient
+
+to ensure that h1
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+76
+
+analogous to the requirement of distribution of the middle term in
+ordinary syllogism. Thus, from premises “All P is x, all S is x,” the
+conclusion that “S’s are P” does not formally follow; but given “all P
+is x and all S is x(cid:48)” it does follow that “no S are P”, where x(cid:48) is any
+contrary to x. The two conditions taken together would be analogous
+to the argument: all x S is P; all x(cid:48) S is P; all x(cid:48)(cid:48) S is P; . . . therefore
+all S is P.
+
+First Typical Problem.—An urn contains an unknown proportion
+of diﬀerently coloured balls. A ball is drawn and replaced. Then
+x, x(cid:48), x(cid:48)(cid:48) . . . stand for the various possible proportions. Let h1 mean
+“a white ball has been drawn”; and let a mean “a white ball will
+be again drawn.” Then any hypothesis which is strengthened by h1
+will strengthen a; and any hypothesis which is weakened by h1 will
+weaken a. Moreover, were any one of these hypotheses known to be
+true, the knowledge of h1 would not weaken the probability of a.
+Hence, in the absence of deﬁnite knowledge as regards x, x(cid:48), x(cid:48)(cid:48) . . .,
+the knowledge of h1 would strengthen the probability of a.
+Second Typical Problem.—Let a certain event have taken place;
+which may have been x, x(cid:48), x(cid:48)(cid:48) or . . . . Let h1 mean that A reports
+so and so; and let a mean that B reports similarly or identically.
+The phrase similarly merely indicates that any hypothesis as to the
+actual fact, which would be strengthened by A’s report, would be
+strengthened by B’s report. Of course, even if the reports were
+verbally identical, A’s evidence would not necessarily strengthen the
+hypothesis in an equal degree with B’s; because A and B may be
+unequally expert or intelligent. Now, in such cases, we may further
+aﬃrm (in general), that, were the actual nature of the event known,
+the knowledge of A’s report on it would not weaken (though it also
+need not strengthen) the probability that B would give a similar
+report. Hence, in the absence of such knowledge, the knowledge of h1
+would strengthen the probability of a.
+
+5. Before leaving this part of the argument we must emphasise
+the part played by direct judgment in the theory here presented.
+
+ch. v
+
+FUNDAMENTAL IDEAS
+
+77
+
+The rules for the determination of equality and inequality between
+probabilities all depend upon it at some point. This seems to me
+quite unavoidable. But I do not feel that we should regard it as a
+weakness. For we have seen that most, and perhaps all, cases can
+be determined by the application of general principles to one simple
+type of direct judgment. No more is asked of the intuitive power
+applied to particular cases than to determine whether a new piece of
+evidence tells, on the whole, for or against a given conclusion. The
+application of the rules involves no wider assumptions than those of
+other branches of logic.
+
+While it is important, in establishing a control of direct judgment
+by general principles, not to conceal its presence, yet the fact that
+we ultimately depend upon an intuition need not lead us to suppose
+that our conclusions have, therefore, no basis in reason, or that they
+are as subjective in validity as they are in origin.
+It is reasonable
+to maintain with the logicians of the Port Royal that we may draw
+a conclusion which is truly probable by paying attention to all the
+circumstances which accompany the case, and we must admit with
+as little concern as possible Hume’s taunt that “when we give the
+preference to one set of arguments above another, we do nothing but
+decide from our feeling concerning the superiority of their inﬂuence.”
+
+CHAPTER VI
+
+the weight of arguments
+
+1.
+
+The question to be raised in this chapter is somewhat
+novel; after much consideration I remain uncertain as to how much
+importance to attach to it.
+The magnitude of the probability
+of an argument,
+in the sense discussed in Chapter III., depends
+upon a balance between what may be termed the favourable and
+the unfavourable evidence; a new piece of evidence which leaves
+this balance unchanged, also leaves the probability of the argument
+unchanged. But it seems that there may be another respect in which
+some kind of quantitative comparison between arguments is possible.
+This comparison turns upon a balance, not between the favourable
+and the unfavourable evidence, but between the absolute amounts of
+relevant knowledge and of relevant ignorance respectively.
+
+As the relevant evidence at our disposal increases, the magnitude
+of the probability of the argument may either decrease or increase,
+according as the new knowledge strengthens the unfavourable or the
+favourable evidence; but something seems to have increased in either
+case,—we have a more substantial basis upon which to rest our
+conclusion. I express this by saying that an accession of new evidence
+increases the weight of an argument. New evidence will sometimes
+decrease the probability of an argument, but it will always increase
+its ‘weight.’
+
+The measurement of evidential weight presents similar
+diﬃculties to those with which we met in the measurement of
+probability. Only in a restricted class of cases can we compare the
+weights of two arguments in respect of more and less. But this must
+always be possible where the conclusion of the two arguments is the
+same, and the relevant evidence in the one includes and exceeds the
+evidence in the other. If the new evidence is ‘irrelevant,’ in the more
+precise of the two senses deﬁned in § 14 of Chapter IV., the weight is
+
+2.
+
+78
+
+ch. vi
+
+FUNDAMENTAL IDEAS
+
+79
+
+left unchanged. If any part of the new evidence is relevant, then the
+value is increased.
+
+The reason for our stricter deﬁnition of ‘relevance’ is now apparent.
+If we are to be able to treat ‘weight’ and ‘relevance’ as correlative
+terms, we must regard evidence as relevant, part of which is
+favourable and part unfavourable, even if, taken as a whole, it leaves
+the probability unchanged. With this deﬁnition, to say that a new
+piece of evidence is ‘relevant’
+is the same thing as to say that it
+increases the ‘weight’ of the argument.
+
+A proposition cannot be the subject of an argument, unless we
+at least attach some meaning to it, and this meaning, even if it
+only relates to the form of the proposition, may be relevant in
+some arguments relating to it. But there may be no other relevant
+evidence; and it is sometimes convenient to term the probability of
+such an argument an à priori probability.
+In this case the weight
+of the argument is at its lowest. Starting, therefore, with minimum
+weight, corresponding to à priori probability, the evidential weight of
+an argument rises, though its probability may either rise or fall, with
+every accession of relevant evidence.
+
+3. Where the conclusions of two arguments are diﬀerent, or
+where the evidence for the one does not overlap the evidence for the
+other, it will often be impossible to compare their weights, just as
+it may be impossible to compare their probabilities. Some rules of
+comparison, however, exist, and there seems to be a close, though
+not a complete, correspondence between the conditions under which
+pairs of arguments are comparable in respect of probability and of
+weight respectively. We found that there were three principal types
+in which comparison of probability was possible, other comparisons
+being based on a combination of these:—
+
+(i.) Those based on the Principle of Indiﬀerence, subject to certain
+conditions, and of the form φa/ψa (cid:5) h1 = φb/ψb (cid:5) h2, where h1 and h2
+are irrelevant to the arguments.
+
+(ii.)
+
+a/hh1 ≷ a/h, where h1 is a single unit of
+
+information,
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+80
+
+containing no independent parts which are relevant.
+
+(iii.) ab/h ≤ a/h
+Let us represent the evidential weight of the argument, whose
+probability is a/h, by V(a/h). Then, corresponding to the above, we
+ﬁnd that the following comparisons of weight are possible:—
+(i.) V(φa/ψa (cid:5) h1) = V(φb/ψb (cid:5) h2), where h1 and h2 are irrelevant
+in the strict sense. Arguments, that is to say, to which the Principle
+of Indiﬀerence is applicable, have equal evidential weights.
+
+(ii.) V(a/hh1) > V(a/h), unless h1 is irrelevant,
+
+in which case
+V(a/hh1) = V(a/h). The restriction on the composition of h1, which
+is necessary in the case of comparisons of magnitude, is not necessary
+in the case of weight.
+
+There is, however, no rule for comparisons of weight corresponding
+to (iii.) above. It might be thought that V(ab/h) < V(a/h), on the
+ground that the more complicated an argument is, relative to given
+premisses, the less is its evidential weight. But this is invalid. The
+argument ab/h is further oﬀ proof than was the argument a/h; but
+it is nearer disproof. For example, if ab/h = 0 and a/h > 0, then
+V(ab/h) > V(A/h).
+In fact it would seem to be the case that the
+weight of the argument a/h is always equal to that of ¯a/h, where ¯a
+is the contradictory of a; i.e., V(a/h) = V(¯a/h). For an argument
+is always as near proving or disproving a proposition, as it is to
+disproving or proving its contradictory.
+
+It may be pointed out that if a/h = b/h,
+
+it does not
+necessarily follow that V(a/h) = V(b/h). It has been asserted already
+that if the ﬁrst equality follows directly from a single application of
+the Principle of Indiﬀerence, the second equality also holds. But the
+ﬁrst equality can exist in other cases also.
+If, for instance, a and b
+are members respectively of diﬀerent sets of three equally probable
+exclusive and exhaustive alternatives, then a/h = b/h; but these
+arguments may have very diﬀerent weights. If, however, a and b can
+each, relatively to h, be inferred from the other, i.e. if a/bh = 1 and
+b/ah = 1, then V(a/h) = V(b/h). For in proving or disproving one,
+
+4.
+
+ch. vi
+
+FUNDAMENTAL IDEAS
+
+81
+
+we are necessarily proving or disproving the other.
+
+5.
+
+3
+
+4
+
+Further principles could, no doubt, be arrived at. The above
+can be combined to reach results in cases upon which unaided
+common sense might feel itself unable to pronounce with conﬁdence.
+Suppose, for instance, that we have three exclusive and exhaustive
+alternatives, a, b, and c, and that a/h = b/h in virtue of the
+then we have V(a/h) = V(b/h) and
+Principle of
+V(a/h) = V(¯a/h), so that V(b/h) = V(¯a/h).
+It is also true, since
+¯a/(b + c)h = 1 and (b + c)/¯ah = 1, that V(¯a/h) = V((b + c)/h). Hence
+V(b/h) = V((b + c)/h).
+
+Indiﬀerence,
+
+and x/h1 = 3
+
+The preceding paragraphs will have made it clear that the
+weighing of the amount of evidence is quite a separate process from
+the balancing of the evidence for and against.
+In so far, however,
+as the question of weight has been discussed at all, attempts have
+been made, as a rule, to explain the former in terms of the latter.
+, it has sometimes been supposed that
+If x/h1h2 = 2
+it is more probable that x/h1h2 really is 2
+than that x/h1 really
+is 3
+. According to this view, an increase in the amount of evidence
+4
+strengthens the probability of the probability, or, as De Morgan
+would say, the presumption of the probability. A little reﬂection will
+show that such a theory is untenable. For the probability of x on
+hypothesis h1 is independent of whether as a matter of fact x is or is
+not true, and if we ﬁnd out subsequently that x is true, this does not
+make it false to say that on hypothesis h1 the probability of x is 3
+.
+4
+Similarly the fact that x/h1h2 is 2
+does not impugn the conclusion
+, and unless we have made a mistake in our judgment
+that x/h1 is 3
+or our calculation on the evidence, the two probabilities are 2
+and 3
+4
+3
+respectively.
+
+A second method, by which it might be thought, perhaps,
+that the question of weight has been treated,
+is the method of
+probable error. But while probable error is sometimes connected
+with weight, it is primarily concerned with quite a diﬀerent question.
+‘Probable error,’
+is the name given, rather
+
+it should be explained,
+
+4
+
+6.
+
+3
+
+3
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+82
+
+inconveniently perhaps,
+to an expression which arises when we
+consider the probability that a given quantity is measured by one of
+a number of diﬀerent magnitudes. Our data may tell us that one of
+these magnitudes is the most probable measure of the quantity; but in
+some cases it will also tell us how probable each of the other possible
+magnitudes of the quantity is.
+In such cases we can determine the
+probability that the quantity will have a magnitude which does not
+diﬀer from the most probable by more than a speciﬁed amount. The
+amount, which the diﬀerence between the actual value of the quantity
+and its most probable value is as likely as not to exceed,
+is the
+‘probable error.’ In many practical questions the existence of a small
+probable error is of the greatest importance, if our conclusions are to
+prove valuable. The probability that the quantity has any particular
+magnitude may be very small; but this may matter very little,
+if
+there is a high probability that it lies within a certain range.
+
+Now it is obvious that the determination of probable error is
+intrinsically a diﬀerent problem from the determination of weight.
+The method of probable error is simply a summation of a number
+of alternative and exclusive probabilities.
+If we say that the most
+probable magnitude is x and the probable error y, this is a way,
+convenient for many purposes, of summing up a number of probable
+conclusions regarding a variety of magnitudes other than x which,
+on the evidence, the quantity may possess. The connection between
+probable error and weight, such as it is, is due to the fact that in
+scientiﬁc problems a large probable error is not uncommonly due to
+a great lack of evidence, and that as the available evidence increases
+there is a tendency for the probable error to diminish. In these cases
+the probable error may conceivably be a good practical measure of
+the weight.
+
+It is necessary, however, in a theoretical discussion, to point out
+that the connection is casual, and only exists in a limited class of
+cases. This is easily shown by an example. We may have data
+, of x = 7
+on which the probability of x = 5 is 1
+
+, of x = 6 is 1
+
+3
+
+4
+
+ch. vi
+
+FUNDAMENTAL IDEAS
+
+83
+
+6
+
+20
+
+,
+
+,
+
+, of x = 8 is 1
+
+, and of x = 9 is 1
+
+. Additional evidence might
+is 1
+5
+show that x must either be 5 or 8 or 9, the probabilities of each
+. The evidential weight of the
+of these conclusions being 7
+16
+latter argument is greater than that of the former, but the probable
+error, so far from being diminished, has been increased. There is, in
+fact, no reason whatever for supposing that the probable error must
+necessarily diminish, as the weight of the argument is increased.
+
+4
+16
+
+5
+16
+
+The typical case, in which there may be a practical connection
+between weight and probable error, may be illustrated by the two
+cases following of balls drawn from an urn. In each case we require
+the probability of drawing a white ball;
+in the ﬁrst case we know
+that the urn contains black and white in equal proportions; in the
+second case the proportion of each colour is unknown, and each ball
+It is evident that in either case
+is as likely to be black as white.
+but that the weight
+the probability of drawing a white ball
+of the argument in favour of this conclusion is greater in the ﬁrst
+case. When we consider the most probable proportion in which balls
+will be drawn in the long run,
+if after each withdrawal they are
+replaced, the question of probable error enters in, and we ﬁnd that
+the greater evidential weight of the argument on the ﬁrst hypothesis
+is accompanied by the smaller probable error.
+
+is 1
+2
+
+This conventionalised example is
+
+typical of many scientiﬁc
+problems. The more we know about any phenomenon, the less likely,
+as a rule, is our opinion to be modiﬁed by each additional item of
+experience. In such problems, therefore, an argument of high weight
+concerning some phenomenon is likely to be accompanied by a low
+probable error, when the character of a series of similar phenomena
+is under consideration.
+
+7. Weight cannot, then, be explained in terms of probability.
+An argument of high weight is not ‘more likely to be right’ than
+one of low weight; for the probabilities of these arguments only state
+relations between premiss and conclusion, and these relations are
+stated with equal accuracy in either case. Nor is an argument of
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+84
+
+high weight one in which the probable error is small;
+for a small
+probable error only means that magnitudes in the neighbourhood of
+the most probable magnitude have a relatively high probability, and
+an increase of evidence does not necessarily involve an increase in
+these probabilities.
+
+The conclusion, that the ‘weight’ and the ‘probability’ of an
+argument are independent properties, may possibly introduce a
+diﬃculty into the discussion of the application of probability to
+practice.∗ For in deciding on a course of action, it seems plausible
+to suppose that we ought to take account of the weight as well as
+the probability of diﬀerent expectations. But it is diﬃcult to think of
+any clear example of this, and I do not feel sure that the theory of
+‘evidential weight’ has much practical signiﬁcance.
+
+Bernoulli’s second maxim, that we must take into account all
+the information we have, amounts to an injunction that we should
+be guided by the probability of that argument, amongst those of
+which we know the premisses, of which the evidential weight is the
+greatest. But should not this be re-enforced by a further maxim,
+that we ought to make the weight of our arguments as great as
+possible by getting all the information we can?† It is diﬃcult to see,
+however, to what point the strengthening of an argument’s weight
+by increasing the evidence ought to be pushed. We may argue that,
+when our knowledge is slight but capable of increase, the course of
+action, which will, relative to such knowledge, probably produce the
+greatest amount of good, will often consist in the acquisition of more
+knowledge. But there clearly comes a point when it is no longer
+worth while to spend trouble, before acting,
+in the acquisition of
+further information, and there is no evident principle by which to
+determine how far we ought to carry our maxim of strengthening the
+
+∗See also Chapter XXVI. § 7.
+†Cf. Locke, Essay concerning Human Understanding, book ii. chap. xxi. § 67:
+“He that judges without informing himself to the utmost that he is capable,
+cannot acquit himself of judging amiss.”
+
+ch. vi
+
+FUNDAMENTAL IDEAS
+
+85
+
+8.
+
+9.
+
+weight of our argument. A little reﬂection will probably convince the
+reader that this is a very confusing problem.
+
+The fundamental distinction of this chapter may be brieﬂy
+repeated. One argument has more weight than another if it is based
+upon a greater amount of relevant evidence; but it is not always, or
+even generally, possible to say of two sets of propositions that one set
+embodies more evidence than the other. It has a greater probability
+than another if the balance in its favour, of what evidence there is,
+is greater than the balance in favour of the argument with which we
+compare it; but it is not always, or even generally, possible to say
+that the balance in the one case is greater than the balance in the
+other. The weight, to speak metaphorically, measures the sum of the
+favourable and unfavourable evidence, the probability measures the
+diﬀerence.
+
+The phenomenon of ‘weight’ can be described from the
+point of view of other theories of probability than that which is
+adopted here.
+If we follow certain German logicians in regarding
+probability as being based on the disjunctive judgment, we may
+say that the weight is increased when the number of alternatives
+is reduced, although the ratio of the number of favourable to the
+number of unfavourable alternatives may not have been disturbed; or,
+to adopt the phraseology of another German school, we may say that
+the weight of the probability is increased, as the ﬁeld of possibility is
+contracted.
+
+The same distinction may be explained in the language of the
+frequency theory.∗ We should then say that the weight is increased
+if we are able to employ as the class of reference a class which is
+contained in the original class of reference.
+
+10. The subject of this chapter has not usually been discussed by
+writers on probability, and I know of only two by whom the question
+has been explicitly raised:† Meinong, who threw out a suggestion at
+
+∗See Chap. VIII.
+†There are also some remarks by Czuber (Wahrscheinlichkeitsrechnung, vol. i.
+
+pt. i
+
+A TREATISE ON PROBABILITY
+
+86
+
+the conclusion of his review of Von Kries’ “Principien,” published in
+the Göttingische gelehrte Anzeigen for 1890 (see especially pp. 70–74),
+and A. Nitsche, who took up Meinong’s suggestion in an article in the
+Vierteljahrsschrift für wissenschaftliche Philosophie, 1892, vol. xvi.
+pp. 20–35, entitled “Die Dimensionen der Wahrscheinlichkeit und die
+Evidenz der Ungewissheit.”
+
+Meinong, who does not develop the point in any detail, distin-
+guishes probability and weight as ‘Intensität’ and ‘Qualität,’ and is
+inclined to regard them as two independent dimensions in which
+the judgment is free to move—they are the two dimensions of the
+‘Urteils-Continuum.’ Nitsche regards the weight as being the measure
+of the reliability (Sicherheit) of the probability, and holds that the
+probability continually approximates to its true magnitude (reale
+Geltung) as the weight increases. His treatment is too brief for it to
+be possible to understand very clearly what he means, but his view
+seems to resemble the theory already discussed that an argument of
+high weight is ‘more likely to be right’ than one of low weight.
+
+p. 202) on the Erkenninisswert of probabilities obtained by diﬀerent methods,
+which may have been intended to have some bearing on it.
+
+CHAPTER VII
+
+historical retrospect
+
+1.
+
+The characteristic features of our Philosophy of Probability
+must be determined by the solutions which we oﬀer to the problems
+attacked in Chapters III and IV. Whilst a great part of the logical
+calculus, which will be developed in Part II., would be applicable
+with slight modiﬁcation to several distinct theories of the subject, the
+ultimate problems of establishing the premisses of the calculus bring
+into the light every fundamental diﬀerence of opinion.
+
+These problems are often, for this reason perhaps, left on one side
+by writers whose interest chieﬂy lies in the more formal parts of the
+subject. But Probability is not yet on so sound a basis that the formal
+or mathematical side of it can be safely developed in isolation, and
+some attempts have naturally been made to solve the problem which
+Bishop Butler sets to the logician in the concluding words of the brief
+discussion on probability with which he prefaces the Analogy.∗
+
+In this chapter, therefore, we will review in their historical order
+the answers of Philosophy to the questions, how we know relations
+of probability, what ground we have for our judgments, and by what
+method we can advance our knowledge.
+
+2. The natural man is disposed to the opinion that probability
+is essentially connected with the inductions of experience and, if he
+is a little more sophisticated, with the Laws of Causation and of the
+Uniformity of Nature. As Aristotle says, “the probable is that which
+usually happens.” Events do not always occur in accordance with
+
+∗“It is not my design to inquire further into the nature, the foundation and
+measure of probability; or whence it proceeds that likeness should beget that
+presumption, opinion and full conviction, which the human mind is formed to
+receive from it, and which it does necessarily produce in every one; or to guard
+against the errors to which reasoning from analogy is liable. This belongs to the
+subject of logic, and is a part of that subject which has not yet been thoroughly
+considered.”
+
+87
+
+

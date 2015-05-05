@@ -1,0 +1,9123 @@
+LINEAR ALGEBRA
+
+Jim Hefferon
+
+http://joshua.smcvt.edu/linearalgebra
+
+Notation
+
+R, R+, Rn
+
+real numbers, positive reals, n-tuples of reals
+
+N, C natural numbers { 0, 1, 2, . . . }, complex numbers
+
+(a .. b), [a .. b]
+(cid:104). . .(cid:105)
+hi,j
+
+open interval, closed interval
+sequence (a list in which order matters)
+row i and column j entry of matrix H
+
+V, W, U vector spaces
+(cid:126)v, (cid:126)0, (cid:126)0V
+
+vector, zero vector, zero vector of a space V
+
+Pn, Mn×m space of degree n polynomials, n×m matrices
+[S]
+(cid:104)B, D(cid:105), (cid:126)β,(cid:126)δ
+En = (cid:104)(cid:126)e1, . . . , (cid:126)en(cid:105)
+
+span of a set
+basis, basis vectors
+standard basis for Rn
+
+V ∼= W isomorphic spaces
+M ⊕ N direct sum of subspaces
+
+h, g
+t, s
+RepB((cid:126)v), RepB,D(h)
+Zn×m or Z, In×n or I
+|T |
+R∞(h), N∞(h)
+R(h), N (h)
+
+homomorphisms (linear maps)
+transformations (linear maps from a space to itself)
+representation of a vector, a map
+zero matrix, identity matrix
+determinant of the matrix
+range space, null space of the map
+generalized range space and null space
+
+Greek letters with pronounciation
+
+character
+
+name
+
+character
+
+α
+β
+γ, Γ
+δ, ∆
+
+ζ
+η
+θ, Θ
+ι
+κ
+λ, Λ
+µ
+
+alpha AL-fuh
+beta BAY-tuh
+gamma GAM-muh
+delta DEL-tuh
+epsilon EP-suh-lon
+zeta ZAY-tuh
+eta AY-tuh
+theta THAY-tuh
+iota eye-OH-tuh
+kappa KAP-uh
+lambda LAM-duh
+mu MEW
+
+name
+nu NEW
+xi KSIGH
+omicron OM-uh-CRON
+pi PIE
+rho ROW
+sigma SIG-muh
+tau TOW (as in cow)
+upsilon OOP-suh-LON
+
+ν
+ξ, Ξ
+o
+π, Π
+ρ
+σ, Σ
+τ
+υ, Υ
+φ, Φ phi FEE, or FI (as in hi)
+chi KI (as in hi)
+χ
+ψ, Ψ
+psi SIGH, or PSIGH
+ω, Ω omega oh-MAY-guh
+
+Capitals shown are the ones that diﬀer from Roman capitals.
+
+Preface
+
+This book helps students to master the material of a standard US undergraduate
+ﬁrst course in Linear Algebra.
+
+The material is standard in that the subjects covered are Gaussian reduction,
+vector spaces, linear maps, determinants, and eigenvalues and eigenvectors.
+Another standard is book’s audience: sophomores or juniors, usually with
+a background of at least one semester of calculus. The help that it gives to
+students comes from taking a developmental approach — this book’s presentation
+emphasizes motivation and naturalness, using many examples as well as extensive
+and careful exercises.
+
+The developmental approach is what most recommends this book so I will
+elaborate. Courses at the beginning of a mathematics program focus less on
+theory and more on calculating. Later courses ask for mathematical maturity: the
+ability to follow diﬀerent types of arguments, a familiarity with the themes that
+underlie many mathematical investigations such as elementary set and function
+facts, and a capacity for some independent reading and thinking. Some programs
+have a separate course devoted to developing maturity but in any case a Linear
+Algebra course is an ideal spot to work on this transition to more rigor. It comes
+early in a program so that progress made here pays oﬀ later but also comes late
+enough so that the students in the class are serious about mathematics. The
+material is accessible, coherent, and elegant. There are a variety of argument
+styles, including proofs by contradiction and proofs by induction. And, examples
+are plentiful.
+
+Helping readers start the transition to being serious students of mathematics
+requires taking the mathematics seriously so all of the results here are proved.
+On the other hand, we cannot assume that students have already arrived and so
+in contrast with more advanced texts this book is ﬁlled with examples, often
+quite detailed.
+
+Some texts that assume a not-yet sophisticated reader begin with extensive
+computations, including matrix multiplication and determinants. Then, when
+vector spaces and linear maps ﬁnally appear and deﬁnitions and proofs start, the
+abrupt change brings students to an abrupt stop. While this book begins with
+linear reduction, from the start we do more than compute. The ﬁrst chapter
+includes proofs, such as that linear reduction gives a correct and complete
+solution set. With that as motivation the second chapter begins with real vector
+spaces. In the schedule below this happens at the start of the third week.
+
+A student progresses most in mathematics while doing exercises. The problem
+sets start with routine checks and range up to reasonably involved proofs. I have
+aimed to typically put two dozen in each set, thereby giving a selection. There
+are even a few that are puzzles taken from various journals, competitions, or
+problems collections. These are marked with a ‘?’ and as part of the fun I have
+kept the original wording as much as possible.
+
+That is, as with the rest of the book, the exercises are aimed to both build
+an ability at, and help students experience the pleasure of, doing mathematics.
+Students should see how the ideas arise and should be able to picture themselves
+doing the same type of work.
+
+Applications. Applications and computing are interesting and vital aspects of the
+subject. Consequently, each chapter closes with a selection of topics in those
+areas. These give a reader a taste of the subject, discuss how Linear Algebra
+comes in, point to some further reading, and give a few exercises. They are
+brief enough that an instructor can do one in a day’s class or can assign them
+as projects for individuals or small groups. Whether they ﬁgure formally in a
+course or not, they help readers see for themselves that Linear Algebra is a tool
+that a professional must have.
+
+Availability. This book is Free.
+In particular, instructors can run oﬀ copies
+for students and sell them at the bookstore. See this book’s web page http:
+//joshua.smcvt.edu/linearalgebra for the license details. That page also
+has the latest version, exercise answers, beamer slides, lab manual, additional
+material, and LATEX source.
+Acknowledgments. A lesson of software development is that complex projects
+need a process for bug ﬁxes. I am grateful for such reports from both instructors
+and students and I periodically issue revisions. My contact information is on
+the web page.
+
+I thank Gabriel S Santiago for the cover colors. I am also grateful to Saint
+
+Michael’s College for supporting this project over many years.
+
+And, I thank my wife Lynne for her unﬂagging encouragement.
+
+Advice. This book’s emphasis on motivation and development, and its availability,
+make it widely used for self-study. If you are an independent student then good
+for you, I admire your industry. However, you may ﬁnd some advice useful.
+
+While an experienced instructor knows what subjects and pace suit their
+class, this semester’s timetable (graciously shared by George Ashline) may help
+you plan a sensible rate. It presumes Section One.II, the elements of vectors.
+
+exam
+
+week Monday
+1 One.I.1
+2 One.I.3
+3 Two.I.1
+4 Two.II.1
+5 Two.III.2
+6
+7 Three.I.2
+8 Three.II.1
+9 Three.III.1
+10 Three.IV.2, 3
+11 Three.V.1
+12
+13 Five.II.1
+14 Five.II.1, 2
+
+exam
+
+Wednesday
+One.I.1, 2
+One.III.1
+Two.I.1, 2
+Two.III.1
+Two.III.2, 3
+Three.I.1
+Three.I.2
+Three.II.2
+Three.III.2
+Three.IV.4
+Three.V.2
+Four.I.2
+
+Friday
+One.I.2, 3
+One.III.2
+Two.I.2
+Two.III.2
+Two.III.3
+Three.I.1
+Three.II.1
+Three.II.2
+Three.IV.1, 2
+Three.V.1
+Four.I.1
+Four.III.1
+
+–Thanksgiving break–
+Five.II.3
+
+Five.II.2
+
+(Using this schedule as a target, I ﬁnd that I have room for a lecture or two on
+an application or from the lab manual.) Note that in addition to the in-class
+exams, students in this course do take-home problems that include arguments,
+for instance showing that a set is a vector space. Computations are important
+but so are the proofs.
+
+In the table of contents I have marked subsections as optional if some
+
+instructors will pass over them in favor of spending more time elsewhere.
+
+As enrichment, you might pick one or two topics that appeal to you from
+the end of each chapter or from the lab manual. You’ll get more from these if
+you have access to software for calculations. I recommend Sage, freely available
+from http://sagemath.org.
+
+My main advice is: do many exercises. I have marked a good sample with
+(cid:88)’s in the margin. Do not simply read the answers — you must try the problems
+and possibly struggle with them. For all of the exercises, you must justify your
+answer either with a computation or with a proof. Be aware that few people
+can write correct proofs without training; try to ﬁnd a knowledgeable person to
+work with you.
+
+Finally, a caution for all students, independent or not: I cannot overemphasize
+that the statement, “I understand the material but it is only that I have trouble
+with the problems” shows a misconception. Being able to do things with the
+ideas is their entire point. The quotes below express this sentiment admirably (I
+have taken the liberty of formatting them as poetry). They capture the essence
+of both the beauty and the power of mathematics and science in general, and of
+Linear Algebra in particular.
+
+I know of no better tactic
+than the illustration of exciting principles
+by well-chosen particulars.
+
+–Stephen Jay Gould
+
+If you really wish to learn
+then you must mount the machine
+and become acquainted with its tricks
+by actual trial.
+
+–Wilbur Wright
+
+Jim Hefferon
+Mathematics, Saint Michael’s College
+Colchester, Vermont USA 05439
+http://joshua.smcvt.edu/linearalgebra
+2014-Dec-25
+
+Author’s Note. Inventing a good exercise, one that enlightens as well as tests,
+is a creative act, and hard work. The inventor deserves recognition. But texts
+have traditionally not given attributions for questions. I have changed that here
+where I was sure of the source. I would be glad to hear from anyone who can
+help me to correctly attribute others of the questions.
+
+Contents
+
+Chapter One:
+
+Linear Systems
+
+I
+
+Solving Linear Systems . . . . . . . . . . . . . . . . . . . . . . . .
+I.1 Gauss’s Method . . . . . . . . . . . . . . . . . . . . . . . . .
+I.2 Describing the Solution Set . . . . . . . . . . . . . . . . . . .
+I.3 General = Particular + Homogeneous . . . . . . . . . . . . . .
+II Linear Geometry . . . . . . . . . . . . . . . . . . . . . . . . . . .
+II.1 Vectors in Space*
+. . . . . . . . . . . . . . . . . . . . . . . .
+II.2 Length and Angle Measures* . . . . . . . . . . . . . . . . . .
+III Reduced Echelon Form . . . . . . . . . . . . . . . . . . . . . . . .
+III.1 Gauss-Jordan Reduction . . . . . . . . . . . . . . . . . . . . .
+III.2 The Linear Combination Lemma . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+Topic: Computer Algebra Systems
+Topic: Accuracy of Computations . . . . . . . . . . . . . . . . . . . .
+Topic: Analyzing Networks . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+2
+12
+23
+35
+35
+42
+50
+50
+55
+64
+66
+70
+
+Chapter Two:
+
+Vector Spaces
+
+I.1 Deﬁnition and Examples
+I.2
+
+II.1 Deﬁnition and Examples
+
+I Deﬁnition of Vector Space . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . .
+Subspaces and Spanning Sets . . . . . . . . . . . . . . . . . .
+
+78
+78
+90
+II Linear Independence . . . . . . . . . . . . . . . . . . . . . . . . . 101
+. . . . . . . . . . . . . . . . . . . . 101
+III Basis and Dimension . . . . . . . . . . . . . . . . . . . . . . . . . 113
+III.1 Basis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+III.2 Dimension . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120
+III.3 Vector Spaces and Linear Systems . . . . . . . . . . . . . . . 126
+III.4 Combining Subspaces* . . . . . . . . . . . . . . . . . . . . . . 134
+Topic: Fields . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 143
+
+Topic: Crystals
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 145
+Topic: Voting Paradoxes . . . . . . . . . . . . . . . . . . . . . . . . . 149
+Topic: Dimensional Analysis . . . . . . . . . . . . . . . . . . . . . . . 155
+
+Chapter Three: Maps Between Spaces
+
+I
+
+II Homomorphisms
+
+IV Matrix Operations
+
+Isomorphisms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 163
+. . . . . . . . . . . . . . . . . . . . 163
+I.1 Definition and Examples
+I.2 Dimension Characterizes Isomorphism . . . . . . . . . . . . . 173
+. . . . . . . . . . . . . . . . . . . . . . . . . . . 181
+II.1 Deﬁnition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 181
+II.2 Range space and Null space . . . . . . . . . . . . . . . . . . . 189
+III Computing Linear Maps . . . . . . . . . . . . . . . . . . . . . . . 202
+III.1 Representing Linear Maps with Matrices
+. . . . . . . . . . . 202
+III.2 Any Matrix Represents a Linear Map . . . . . . . . . . . . . 212
+. . . . . . . . . . . . . . . . . . . . . . . . . . 221
+IV.1 Sums and Scalar Products . . . . . . . . . . . . . . . . . . . . 221
+IV.2 Matrix Multiplication . . . . . . . . . . . . . . . . . . . . . . 225
+IV.3 Mechanics of Matrix Multiplication . . . . . . . . . . . . . . 234
+IV.4 Inverses . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 243
+V Change of Basis . . . . . . . . . . . . . . . . . . . . . . . . . . . . 251
+V.1 Changing Representations of Vectors . . . . . . . . . . . . . . 251
+V.2 Changing Map Representations . . . . . . . . . . . . . . . . . 256
+VI Projection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 264
+VI.1 Orthogonal Projection Into a Line*
+. . . . . . . . . . . . . . 264
+VI.2 Gram-Schmidt Orthogonalization* . . . . . . . . . . . . . . . 269
+VI.3 Projection Into a Subspace* . . . . . . . . . . . . . . . . . . . 274
+Topic: Line of Best Fit . . . . . . . . . . . . . . . . . . . . . . . . . . 283
+Topic: Geometry of Linear Maps
+. . . . . . . . . . . . . . . . . . . . 289
+Topic: Magic Squares . . . . . . . . . . . . . . . . . . . . . . . . . . . 296
+Topic: Markov Chains
+. . . . . . . . . . . . . . . . . . . . . . . . . . 301
+. . . . . . . . . . . . . . . . . . . . . . 307
+Topic: Orthonormal Matrices
+
+Chapter Four:
+
+Determinants
+
+I Definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 314
+Exploration* . . . . . . . . . . . . . . . . . . . . . . . . . . . 314
+I.1
+I.2
+Properties of Determinants . . . . . . . . . . . . . . . . . . . 319
+I.3 The Permutation Expansion . . . . . . . . . . . . . . . . . . 324
+I.4 Determinants Exist* . . . . . . . . . . . . . . . . . . . . . . . 333
+II Geometry of Determinants . . . . . . . . . . . . . . . . . . . . . . 342
+II.1 Determinants as Size Functions . . . . . . . . . . . . . . . . . 342
+III Laplace’s Formula . . . . . . . . . . . . . . . . . . . . . . . . . . . 349
+
+III.1 Laplace’s Expansion* . . . . . . . . . . . . . . . . . . . . . . 349
+Topic: Cramer’s Rule . . . . . . . . . . . . . . . . . . . . . . . . . . . 355
+Topic: Speed of Calculating Determinants . . . . . . . . . . . . . . . 358
+Topic: Chiò’s Method . . . . . . . . . . . . . . . . . . . . . . . . . . . 362
+Topic: Projective Geometry . . . . . . . . . . . . . . . . . . . . . . . 366
+
+Chapter Five:
+
+Similarity
+
+I Complex Vector Spaces . . . . . . . . . . . . . . . . . . . . . . . . 379
+Polynomial Factoring and Complex Numbers* . . . . . . . . 380
+I.1
+I.2 Complex Representations . . . . . . . . . . . . . . . . . . . . 382
+II Similarity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 384
+II.1 Deﬁnition and Examples
+. . . . . . . . . . . . . . . . . . . . 384
+II.2 Diagonalizability . . . . . . . . . . . . . . . . . . . . . . . . . 389
+II.3 Eigenvalues and Eigenvectors . . . . . . . . . . . . . . . . . . 393
+III Nilpotence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 403
+III.1 Self-Composition* . . . . . . . . . . . . . . . . . . . . . . . . 403
+III.2 Strings* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 407
+IV Jordan Form . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 418
+IV.1 Polynomials of Maps and Matrices* . . . . . . . . . . . . . . 418
+IV.2 Jordan Canonical Form* . . . . . . . . . . . . . . . . . . . . . 426
+Topic: Method of Powers . . . . . . . . . . . . . . . . . . . . . . . . . 441
+Topic: Stable Populations
+. . . . . . . . . . . . . . . . . . . . . . . . 445
+Topic: Page Ranking . . . . . . . . . . . . . . . . . . . . . . . . . . . 447
+Topic: Linear Recurrences . . . . . . . . . . . . . . . . . . . . . . . . 451
+
+Appendix
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . A-1
+Statements
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . A-2
+Quantiﬁers
+Techniques of Proof
+. . . . . . . . . . . . . . . . . . . . . . . . . . A-3
+Sets, Functions, and Relations . . . . . . . . . . . . . . . . . . . . . A-5
+
+∗Starred subsections are optional.
+
+Chapter One
+Linear Systems
+
+I Solving Linear Systems
+
+Systems of linear equations are common in science and mathematics. These two
+examples from high school science [Onan] give a sense of how they arise.
+
+The ﬁrst example is from Statics. Suppose that we have three objects, we
+know that one has a mass of 2 kg, and we want to ﬁnd the two unknown masses.
+Suppose further that experimentation with a meter stick produces these two
+balances.
+
+40
+
+c
+
+h
+
+50
+
+2
+
+25
+
+c
+
+50
+
+2
+
+h
+
+15
+
+25
+
+For the masses to balance we must have that the sum of moments on the left
+equals the sum of moments on the right, where the moment of an object is its
+mass times its distance from the balance point. That gives a system of two
+linear equations.
+
+40h + 15c = 100
+
+25c = 50 + 50h
+
+The second example is from Chemistry. We can mix, under controlled
+conditions, toluene C7H8 and nitric acid HNO3 to produce trinitrotoluene
+C7H5O6N3 along with the byproduct water (conditions have to be very well
+controlled — trinitrotoluene is better known as TNT). In what proportion should
+we mix them? The number of atoms of each element present before the reaction
+
+x C7H8 + y HNO3 −→ z C7H5O6N3 + w H2O
+
+2
+
+Chapter One. Linear Systems
+
+must equal the number present afterward. Applying that in turn to the elements
+C, H, N, and O gives this system.
+
+7x = 7z
+
+8x + 1y = 5z + 2w
+
+1y = 3z
+
+3y = 6z + 1w
+
+Both examples come down to solving a system of equations. In each system,
+the equations involve only the ﬁrst power of each variable. This chapter shows
+how to solve any such system.
+
+I.1 Gauss’s Method
+
+1.1 Deﬁnition A linear combination of x1, . . . , xn has the form
+
+a1x1 + a2x2 + a3x3 + ··· + anxn
+
+where the numbers a1, . . . , an ∈ R are the combination’s coeﬃcients. A linear
+equation in the variables x1, . . . , xn has the form a1x1 + a2x2 + a3x3 + ··· +
+anxn = d where d ∈ R is the constant.
+An n-tuple (s1, s2, . . . , sn) ∈ Rn is a solution of, or satisﬁes, that equation
+if substituting the numbers s1, . . . , sn for the variables gives a true statement:
+a1s1 + a2s2 + ··· + ansn = d. A system of linear equations
+
+a1,1x1 + a1,2x2 + ··· + a1,nxn = d1
+a2,1x1 + a2,2x2 + ··· + a2,nxn = d2
+
+am,1x1 + am,2x2 + ··· + am,nxn = dm
+
+...
+
+has the solution (s1, s2, . . . , sn) if that n-tuple is a solution of all of the equations.
+
+1.2 Example The combination 3x1 + 2x2 of x1 and x2 is linear. The combination
+3x2
+1.3 Example The ordered pair (−1, 5) is a solution of this system.
+
+1 + 2 sin(x2) is not linear, nor is 3x2
+
+1 + 2x2.
+
+3x1 + 2x2 = 7
+−x1 + x2 = 6
+
+In contrast, (5, −1) is not a solution.
+
+Section I. Solving Linear Systems
+
+3
+
+Finding the set of all solutions is solving the system. We don’t need guesswork
+or good luck, there is an algorithm that always works. This algorithm is Gauss’s
+Method (or Gaussian elimination or linear elimination).
+1.4 Example To solve this system
+
+3x3 = 9
+x1 + 5x2 − 2x3 = 2
+1
+= 3
+3 x1 + 2x2
+
+we transform it, step by step, until it is in a form that we can easily solve.
+
+The ﬁrst transformation rewrites the system by interchanging the ﬁrst and
+
+third row.
+
+swap row 1 with row 3
+
+−→
+
+1
+= 3
+3 x1 + 2x2
+x1 + 5x2 − 2x3 = 2
+3x3 = 9
+
+The second transformation rescales the ﬁrst row by a factor of 3.
+
+multiply row 1 by 3
+
+−→
+
+= 9
+x1 + 6x2
+x1 + 5x2 − 2x3 = 2
+3x3 = 9
+
+The third transformation is the only nontrivial one in this example. We mentally
+multiply both sides of the ﬁrst row by −1, mentally add that to the second row,
+and write the result in as the new second row.
+
+add −1 times row 1 to row 2
+
+−→
+
+x1 + 6x2
+
+= 9
+−x2 − 2x3 = −7
+3x3 = 9
+
+These steps have brought the system to a form where we can easily ﬁnd the
+value of each variable. The bottom equation shows that x3 = 3. Substituting 3
+for x3 in the middle equation shows that x2 = 1. Substituting those two into
+the top equation gives that x1 = 3. Thus the system has a unique solution; the
+solution set is { (3, 1, 3) }.
+
+Most of this subsection and the next one consists of examples of solving
+linear systems by Gauss’s Method, which we will use throughout the book. It is
+fast and easy. But before we do those examples we will ﬁrst show that it is also
+safe: Gauss’s Method never loses solutions (any tuple that is a solution to the
+system before you apply the method is also a solution after), nor does it ever
+pick up extraneous solutions (any tuple that is not a solution before is also not
+a solution after).
+
+4
+
+Chapter One. Linear Systems
+
+1.5 Theorem (Gauss’s Method) If a linear system is changed to another by one of
+these operations
+
+(1) an equation is swapped with another
+(2) an equation has both sides multiplied by a nonzero constant
+(3) an equation is replaced by the sum of itself and a multiple of another
+
+then the two systems have the same set of solutions.
+
+Each of the three Gauss’s Method operations has a restriction. Multiplying
+a row by 0 is not allowed because obviously that can change the solution set.
+Similarly, adding a multiple of a row to itself is not allowed because adding −1
+times the row to itself has the eﬀect of multiplying the row by 0. We disallow
+swapping a row with itself to make some results in the fourth chapter easier,
+and also because it’s pointless.
+Proof We will cover the equation swap operation here. The other two cases
+are Exercise 31.
+
+Consider a linear system.
+
+a1,1x1 + a1,2x2 + ··· + a1,nxn = d1
+
+ai,1x1 + ai,2x2 + ··· + ai,nxn = di
+
+aj,1x1 + aj,2x2 + ··· + aj,nxn = dj
+
+...
+
+...
+
+...
+
+am,1x1 + am,2x2 + ··· + am,nxn = dm
+
+The tuple (s1, . . . , sn) satisﬁes this system if and only if substituting the values
+for the variables, the s’s for the x’s, gives a conjunction of true statements:
+a1,1s1 +a1,2s2 +···+a1,nsn = d1 and . . . ai,1s1 +ai,2s2 +···+ai,nsn = di and
+. . . aj,1s1 + aj,2s2 +··· + aj,nsn = dj and . . . am,1s1 + am,2s2 +··· + am,nsn =
+dm.
+
+In a list of statements joined with ‘and’ we can rearrange the order of the
+statements. Thus this requirement is met if and only if a1,1s1 + a1,2s2 + ··· +
+a1,nsn = d1 and . . . aj,1s1 + aj,2s2 +··· + aj,nsn = dj and . . . ai,1s1 + ai,2s2 +
+··· + ai,nsn = di and . . . am,1s1 + am,2s2 +··· + am,nsn = dm. This is exactly
+the requirement that (s1, . . . , sn) solves the system after the row swap. QED
+
+Section I. Solving Linear Systems
+
+5
+
+1.6 Deﬁnition The three operations from Theorem 1.5 are the elementary re-
+duction operations, or row operations, or Gaussian operations. They are
+swapping, multiplying by a scalar (or rescaling), and row combination.
+
+When writing out the calculations, we will abbreviate ‘row i’ by ‘ρi’. For
+instance, we will denote a row combination operation by kρi + ρj, with the row
+that changes written second. To save writing we will often combine addition
+steps when they use the same ρi as in the next example.
+1.7 Example Gauss’s Method systematically applies the row operations to solve
+a system. Here is a typical case.
+
+x + y
+
+= 0
+2x − y + 3z = 3
+x − 2y − z = 3
+
+We begin by using the ﬁrst row to eliminate the 2x in the second row and the x
+in the third. To get rid of the 2x we mentally multiply the entire ﬁrst row by
+−2, add that to the second row, and write the result in as the new second row.
+To eliminate the x in the third row we multiply the ﬁrst row by −1, add that to
+the third row, and write the result in as the new third row.
+
+−2ρ1+ρ2−→
+
+−ρ1+ρ3
+
+x + y
+
+= 0
+−3y + 3z = 3
+−3y − z = 3
+
+We ﬁnish by transforming the second system into a third, where the bottom
+equation involves only one unknown. We do that by using the second row to
+eliminate the y term from the third row.
+
+−ρ2+ρ3−→
+
+x + y
+
+= 0
+−3y + 3z = 3
+−4z = 0
+
+Now ﬁnding the system’s solution is easy. The third row gives z = 0. Substitute
+that back into the second row to get y = −1. Then substitute back into the ﬁrst
+row to get x = 1.
+1.8 Example For the Physics problem from the start of this chapter, Gauss’s
+Method gives this.
+
+40h + 15c = 100
+−50h + 25c = 50
+
+5/4ρ1+ρ2−→
+
+40h +
+
+15c = 100
+(175/4)c = 175
+
+So c = 4, and back-substitution gives that h = 1. (We will solve the Chemistry
+problem later.)
+
+6
+
+Chapter One. Linear Systems
+
+1.9 Example The reduction
+
+x + y + z = 9
+2x + 4y − 3z = 1
+3x + 6y − 5z = 0
+
+−2ρ1+ρ2−→
+
+−3ρ1+ρ3
+
+x + y + z = 9
+2y − 5z = −17
+3y − 8z = −27
+
+−(3/2)ρ2+ρ3
+
+−→
+
+x + y +
+2y −
+
+z =
+
+9
+5z = −17
+−(1/2)z = −(3/2)
+
+shows that z = 3, y = −1, and x = 7.
+
+As illustrated above, the point of Gauss’s Method is to use the elementary
+
+reduction operations to set up back-substitution.
+
+1.10 Deﬁnition In each row of a system, the ﬁrst variable with a nonzero coeﬃcient
+is the row’s leading variable. A system is in echelon form if each leading
+variable is to the right of the leading variable in the row above it, except for the
+leading variable in the ﬁrst row, and any all-zero rows are at the bottom.
+
+1.11 Example The prior three examples only used the operation of row combina-
+tion. This linear system requires the swap operation to get it into echelon form
+because after the ﬁrst combination
+
+x − y
+
+= 0
+2x − 2y + z + 2w = 4
++ w = 0
+2z + w = 5
+
+y
+
+−2ρ1+ρ2−→
+
+x − y
+
+y
+
+= 0
+z + 2w = 4
++ w = 0
+2z + w = 5
+
+the second equation has no leading y. We exchange it for a lower-down row that
+has a leading y.
+
+x − y
+y
+
+ρ2↔ρ3−→
+
+= 0
++ w = 0
+z + 2w = 4
+2z + w = 5
+
+(Had there been more than one suitable row below the second then we could
+have used any one.) With that, Gauss’s Method proceeds as before.
+
+x − y
+y
+
+−2ρ3+ρ4−→
+
+= 0
++ w = 0
+z + 2w = 4
+−3w = −3
+
+Back-substitution gives w = 1, z = 2 , y = −1, and x = −1.
+
+Section I. Solving Linear Systems
+
+7
+
+Strictly speaking, to solve linear systems we don’t need the row rescaling
+operation. We have introduced it here because it is convenient and because we
+will use it later in this chapter as part of a variation of Gauss’s Method, the
+Gauss-Jordan Method.
+
+All of the systems so far have the same number of equations as unknowns.
+All of them have a solution and for all of them there is only one solution. We
+ﬁnish this subsection by seeing other things that can happen.
+1.12 Example This system has more equations than variables.
+
+x + 3y = 1
+2x + y = −3
+2x + 2y = −2
+
+Gauss’s Method helps us understand this system also, since this
+
+−2ρ1+ρ2−→
+
+−2ρ1+ρ3
+
+x + 3y = 1
+−5y = −5
+−4y = −4
+
+shows that one of the equations is redundant. Echelon form
+
+−(4/5)ρ2+ρ3
+
+−→
+
+x + 3y = 1
+−5y = −5
+0 = 0
+
+gives that y = 1 and x = −2. The ‘0 = 0’ reﬂects the redundancy.
+
+Gauss’s Method is also useful on systems with more variables than equations.
+
+The next subsection has many examples.
+
+Another way that linear systems can diﬀer from the examples shown above
+is that some linear systems do not have a unique solution. This can happen in
+two ways. The ﬁrst is that a system can fail to have any solution at all.
+1.13 Example Contrast the system in the last example with this one.
+
+x + 3y = 1
+2x + y = −3
+2x + 2y = 0
+
+−2ρ1+ρ2−→
+
+−2ρ1+ρ3
+
+x + 3y = 1
+−5y = −5
+−4y = −2
+
+Here the system is inconsistent: no pair of numbers (s1, s2) satisﬁes all three
+equations simultaneously. Echelon form makes the inconsistency obvious.
+
+−(4/5)ρ2+ρ3
+
+−→
+
+x + 3y = 1
+−5y = −5
+0 = 2
+
+The solution set is empty.
+
+8
+
+Chapter One. Linear Systems
+
+1.14 Example The prior system has more equations than unknowns but that
+is not what causes the inconsistency — Example 1.12 has more equations than
+unknowns and yet is consistent. Nor is having more equations than unknowns
+necessary for inconsistency, as we see with this inconsistent system that has the
+same number of equations as unknowns.
+
+x + 2y = 8
+2x + 4y = 8
+
+−2ρ1+ρ2−→ x + 2y = 8
+0 = −8
+
+Instead, inconsistency has to do with the interaction of the left and right sides;
+in the ﬁrst system above the left side’s second equation is twice the ﬁrst but the
+right side’s second constant is not twice the ﬁrst. Later we will have more to
+say about dependencies between a system’s parts.
+
+The other way that a linear system can fail to have a unique solution, besides
+
+having no solutions, is to have many solutions.
+1.15 Example In this system
+
+x + y = 4
+2x + 2y = 8
+
+any pair of numbers satisfying the ﬁrst equation also satisﬁes the second. The
+solution set { (x, y) | x + y = 4 } is inﬁnite; some example member pairs are (0, 4),
+(−1, 5), and (2.5, 1.5).
+
+The result of applying Gauss’s Method here contrasts with the prior example
+
+because we do not get a contradictory equation.
+
+−2ρ1+ρ2−→ x + y = 4
+0 = 0
+
+Don’t be fooled by that example: a 0 = 0 equation is not the signal that a
+
+system has many solutions.
+1.16 Example The absence of a 0 = 0 equation does not keep a system from having
+many diﬀerent solutions. This system is in echelon form, has no 0 = 0, but
+has inﬁnitely many solutions, including (0, 1, −1), (0, 1/2, −1/2), (0, 0, 0), and
+(0, −π, π) (any triple whose ﬁrst component is 0 and whose second component
+is the negative of the third is a solution).
+
+x + y + z = 0
+y + z = 0
+
+Nor does the presence of 0 = 0 mean that the system must have many
+solutions. Example 1.12 shows that. So does this system, which does not have
+
+Section I. Solving Linear Systems
+
+9
+
+any solutions at all despite that in echelon form it has a 0 = 0 row.
+
+2x
+
+− 2z = 6
+y + z = 1
+2x + y − z = 7
+3y + 3z = 0
+
+−ρ1+ρ3−→
+
+−ρ2+ρ3−→
+
+−3ρ2+ρ4
+
+2x
+
+2x
+
+− 2z = 6
+y + z = 1
+y + z = 1
+3y + 3z = 0
+
+− 2z = 6
+y + z = 1
+0 = 0
+0 = −3
+
+In summary, Gauss’s Method uses the row operations to set a system up for
+back substitution. If any step shows a contradictory equation then we can stop
+with the conclusion that the system has no solutions. If we reach echelon form
+without a contradictory equation, and each variable is a leading variable in its
+row, then the system has a unique solution and we ﬁnd it by back substitution.
+Finally, if we reach echelon form without a contradictory equation, and there is
+not a unique solution — that is, at least one variable is not a leading variable —
+then the system has many solutions.
+
+The next subsection explores the third case. We will see that such a system
+
+must have inﬁnitely many solutions and we will describe the solution set.
+
+Note. Here, and in the rest of the book, you must justify all of your exercise
+answers. For instance, if a question asks whether a system has a solution
+then you must justify a yes response by producing the solution and must
+justify a no response by showing that no solution exists.
+
+Exercises
+(cid:88) 1.17 Use Gauss’s Method to ﬁnd the unique solution for each system.
+
+(a) 2x + 3y = 13
+x − y = −1
+
+(b)
+
+x
+
+− z = 0
+3x + y
+= 1
+−x + y + z = 4
+
+(cid:88) 1.18 Use Gauss’s Method to solve each system or conclude ‘many solutions’ or ‘no
+
+(c) x − 3y + z = 1
+x + y + 2z = 14
+
+(d) −x − y = 1
+−3x − 3y = 2
+
+(cid:88) 1.19 We can solve linear systems by methods other than Gauss’s. One often taught
+in high school is to solve one of the equations for a variable, then substitute the
+resulting expression into other equations. Then we repeat that step until there
+
+solutions’.
+
+(a) 2x + 2y = 5
+x − 4y = 0
+
+(e)
+
+4y + z = 20
+2x − 2y + z = 0
++ z = 5
+x
+x + y − z = 10
+
+(b) −x + y = 1
+x + y = 2
+(f) 2x
+
+y
+
++ z + w = 5
+− w = −1
+− z − w = 0
+3x
+4x + y + 2z + w = 9
+
+10
+
+Chapter One. Linear Systems
+
+is an equation with only one variable. From that we get the ﬁrst number in the
+solution and then we get the rest with back-substitution. This method takes longer
+than Gauss’s Method, since it involves more arithmetic operations, and is also
+more likely to lead to errors. To illustrate how it can lead to wrong conclusions,
+we will use the system
+
+x + 3y = 1
+2x + y = −3
+2x + 2y = 0
+
+from Example 1.13.
+(a) Solve the ﬁrst equation for x and substitute that expression into the second
+equation. Find the resulting y.
+(b) Again solve the ﬁrst equation for x, but this time substitute that expression
+into the third equation. Find this y.
+
+What extra step must a user of this method take to avoid erroneously concluding a
+system has a solution?
+
+(cid:88) 1.20 For which values of k are there no solutions, many solutions, or a unique
+
+solution to this system?
+
+(cid:88) 1.21 This system is not linear in that it says sin α instead of α
+
+x − y = 1
+3x − 3y = k
+
+2 sin α − cos β + 3 tan γ = 3
+4 sin α + 2 cos β − 2 tan γ = 10
+6 sin α − 3 cos β + tan γ = 9
+
+and yet we can apply Gauss’s Method. Do so. Does the system have a solution?
+(cid:88) 1.22 What conditions must the constants, the b’s, satisfy so that each of these
+systems has a solution? Hint. Apply Gauss’s Method and see what happens to the
+right side.
+
+(a) x − 3y = b1
+3x + y = b2
+x + 7y = b3
+2x + 4y = b4
+
+(b) x1 + 2x2 + 3x3 = b1
+2x1 + 5x2 + 3x3 = b2
++ 8x3 = b3
+x1
+
+1.23 True or false: a system with more unknowns than equations has at least one
+solution. (As always, to say ‘true’ you must prove it, while to say ‘false’ you must
+produce a counterexample.)
+1.24 Must any Chemistry problem like the one that starts this subsection — a balance
+the reaction problem — have inﬁnitely many solutions?
+
+(cid:88) 1.25 Find the coeﬃcients a, b, and c so that the graph of f(x) = ax2 + bx + c passes
+
+through the points (1, 2), (−1, 6), and (2, 3).
+1.26 After Theorem 1.5 we note that multiplying a row by 0 is not allowed because
+that could change a solution set. Give an example of a system with solution set S0
+where after multiplying a row by 0 the new system has a solution set S1 and S0 is
+a proper subset of S1. Give an example where S0 = S1.
+
+Section I. Solving Linear Systems
+
+11
+
+1.27 Gauss’s Method works by combining the equations in a system to make new
+equations.
+(a) Can we derive the equation 3x − 2y = 5 by a sequence of Gaussian reduction
+steps from the equations in this system?
+
+x + y = 1
+4x − y = 6
+
+(b) Can we derive the equation 5x − 3y = 2 with a sequence of Gaussian reduction
+steps from the equations in this system?
+
+2x + 2y = 5
+3x + y = 4
+
+(c) Can we derive 6x − 9y + 5z = −2 by a sequence of Gaussian reduction steps
+from the equations in the system?
+
+1.28 Prove that, where a, b, . . . , e are real numbers and a (cid:54)= 0, if
+
+2x + y − z = 4
+6x − 3y + z = 5
+
+has the same solution set as
+
+ax + by = c
+
+ax + dy = e
+
+then they are the same equation. What if a = 0?
+
+(cid:88) 1.29 Show that if ad − bc (cid:54)= 0 then
+
+has a unique solution.
+
+(cid:88) 1.30 In the system
+
+ax + by = j
+cx + dy = k
+
+ax + by = c
+dx + ey = f
+
+each of the equations describes a line in the xy-plane. By geometrical reasoning,
+show that there are three possibilities: there is a unique solution, there is no
+solution, and there are inﬁnitely many solutions.
+1.31 Finish the proof of Theorem 1.5.
+1.32 Is there a two-unknowns linear system whose solution set is all of R2?
+
+(cid:88) 1.33 Are any of the operations used in Gauss’s Method redundant? That is, can we
+
+make any of the operations from a combination of the others?
+1.34 Prove that each operation of Gauss’s Method is reversible. That is, show that
+if two systems are related by a row operation S1 → S2 then there is a row operation
+to go back S2 → S1.
+
+? 1.35 [Anton] A box holding pennies, nickels and dimes contains thirteen coins with
+a total value of 83 cents. How many coins of each type are in the box? (These are
+US coins; a penny is 1 cent, a nickel is 5 cents, and a dime is 10 cents.)
+
+? 1.36 [Con. Prob. 1955] Four positive integers are given. Select any three of the
+integers, ﬁnd their arithmetic average, and add this result to the fourth integer.
+Thus the numbers 29, 23, 21, and 17 are obtained. One of the original integers
+is:
+
+12
+
+Chapter One. Linear Systems
+
+(a) 19
+
+(b) 21
+
+(c) 23
+
+(d) 29
+
+(e) 17
+
+? (cid:88) 1.37 [Am. Math. Mon., Jan. 1935] Laugh at this: AHAHA + TEHE = TEHAW. It
+resulted from substituting a code letter for each digit of a simple example in
+addition, and it is required to identify the letters and prove the solution unique.
+? 1.38 [Wohascum no. 2] The Wohascum County Board of Commissioners, which has
+20 members, recently had to elect a President. There were three candidates (A, B,
+and C); on each ballot the three candidates were to be listed in order of preference,
+with no abstentions. It was found that 11 members, a majority, preferred A over
+B (thus the other 9 preferred B over A). Similarly, it was found that 12 members
+preferred C over A. Given these results, it was suggested that B should withdraw,
+to enable a runoﬀ election between A and C. However, B protested, and it was
+then found that 14 members preferred B over C! The Board has not yet recovered
+from the resulting confusion. Given that every possible order of A, B, C appeared
+on at least one ballot, how many members voted for B as their ﬁrst choice?
+
+? 1.39 [Am. Math. Mon., Jan. 1963] “This system of n linear equations with n un-
+
+knowns,” said the Great Mathematician, “has a curious property.”
+
+“Good heavens!” said the Poor Nut, “What is it?”
+“Note,” said the Great Mathematician, “that the constants are in arithmetic
+
+progression.”
+
+“It’s all so clear when you explain it!” said the Poor Nut. “Do you mean like
+
+6x + 9y = 12 and 15x + 18y = 21?”
+
+“Quite so,” said the Great Mathematician, pulling out his bassoon. “Indeed,
+
+the system has a unique solution. Can you ﬁnd it?”
+
+“Good heavens!” cried the Poor Nut, “I am baﬄed.”
+Are you?
+
+I.2 Describing the Solution Set
+
+A linear system with a unique solution has a solution set with one element. A
+linear system with no solution has a solution set that is empty. In these cases
+the solution set is easy to describe. Solution sets are a challenge to describe only
+when they contain many elements.
+2.1 Example This system has many solutions because in echelon form
+
+2x
+
++ z = 3
+x − y − z = 1
+= 4
+
+3x − y
+
+−(1/2)ρ1+ρ2
+
+−→
+
+−(3/2)ρ1+ρ3
+
+2x
+
++
+
+z =
+
+3
+−y − (3/2)z = −1/2
+−y − (3/2)z = −1/2
+
+2x
+
+−ρ2+ρ3−→
+
++
+
+z =
+
+3
+−y − (3/2)z = −1/2
+0
+
+0 =
+
+Section I. Solving Linear Systems
+
+13
+
+not all of the variables are leading variables. Theorem 1.5 shows that an (x, y, z)
+satisﬁes the ﬁrst system if and only if it satisﬁes the third. So we can describe
+the solution set { (x, y, z) | 2x + z = 3 and x − y − z = 1 and 3x − y = 4 } in this
+way.
+
+{ (x, y, z) | 2x + z = 3 and −y − 3z/2 = −1/2 }
+
+(∗)
+This description is better because it has two equations instead of three but it is
+not optimal because it still has some hard to understand interactions among the
+variables.
+
+To improve it, use the variable that does not lead any equation, z, to describe
+the variables that do lead, x and y. The second equation gives y = (1/2)−(3/2)z
+and the ﬁrst equation gives x = (3/2)−(1/2)z. Thus we can describe the solution
+set in this way.
+
+{ (x, y, z) = ((3/2) − (1/2)z, (1/2) − (3/2)z, z) | z ∈ R }
+
+(∗∗)
+Compared with (∗), the advantage of (∗∗) is that z can be any real number.
+This makes the job of deciding which tuples are in the solution set much easier.
+For instance, taking z = 2 shows that (1/2, −5/2, 2) is a solution.
+
+2.2 Deﬁnition In an echelon form linear system the variables that are not leading
+are free.
+
+2.3 Example Reduction of a linear system can end with more than one variable
+free. Gauss’s Method on this system
+
+x + y + z − w = 1
+y − z + w = −1
++ 6z − 6w = 6
+−y + z − w = 1
+
+3x
+
+−3ρ1+ρ3−→
+
+x + y + z − w = 1
+y − z + w = −1
+−3y + 3z − 3w = 3
+−y + z − w = 1
+
+3ρ2+ρ3−→
+
+ρ2+ρ4
+
+x + y + z − w = 1
+y − z + w = −1
+0 = 0
+0 = 0
+
+leaves x and y leading and both z and w free. To get the description that we
+prefer, we work from the bottom. We ﬁrst express the leading variable y in terms
+of z and w, as y = −1 + z − w. Moving up to the top equation, substituting for
+y gives x + (−1 + z − w) + z − w = 1 and solving for x leaves x = 2 − 2z + 2w.
+The solution set
+
+{ (2 − 2z + 2w, −1 + z − w, z, w) | z, w ∈ R }
+
+(∗∗)
+
+has the leading variables in terms of the variables that are free.
+
+14
+
+Chapter One. Linear Systems
+
+2.4 Example The list of leading variables may skip over some columns. After
+this reduction
+
+2x − 2y
+
+= 0
+z + 3w = 2
+= 0
+x − y + 2z + 6w = 4
+
+3x − 3y
+
+−(3/2)ρ1+ρ3
+
+−→
+
+−(1/2)ρ1+ρ4
+
+2x − 2y
+
+= 0
+z + 3w = 2
+0 = 0
+2z + 6w = 4
+
+2x − 2y
+
+−2ρ2+ρ4−→
+
+= 0
+z + 3w = 2
+0 = 0
+0 = 0
+
+x and z are the leading variables, not x and y. The free variables are y and w
+and so we can describe the solution set as { (y, y, 2 − 3w, w) | y, w ∈ R }. For
+instance, (1, 1, 2, 0) satisﬁes the system — take y = 1 and w = 0. The four-tuple
+(1, 0, 5, 4) is not a solution since its ﬁrst coordinate does not equal its second.
+A variable that we use to describe a family of solutions is a parameter. We
+say that the solution set in the prior example is parametrized with y and w.
+(The terms ‘parameter’ and ‘free variable’ do not mean the same thing. In the
+prior example y and w are free because in the echelon form system they do not
+lead while they are parameters because of how we used them to describe the set
+of solutions. Had we instead rewritten the second equation as w = 2/3 − (1/3)z
+then the free variables would still be y and w but the parameters would be y
+and z.)
+
+In the rest of this book we will solve linear systems by bringing them to
+
+echelon form and then parametrizing with the free variables.
+2.5 Example This is another system with inﬁnitely many solutions.
+
+x + 2y
+
+= 1
+= 2
+2x
+3x + 2y + z − w = 4
+
++ z
+
+−2ρ1+ρ2−→
+
+−3ρ1+ρ3
+
+x + 2y
+
+= 1
+= 0
+−4y + z
+−4y + z − w = 1
+
+−ρ2+ρ3−→
+
+x + 2y
+
+−4y + z
+
+= 1
+= 0
+−w = 1
+
+The leading variables are x, y, and w. The variable z is free. Notice that,
+although there are inﬁnitely many solutions, the value of w doesn’t vary but is
+constant at −1. To parametrize, write w in terms of z with w = −1 + 0z. Then
+y = (1/4)z. Substitute for y in the ﬁrst equation to get x = 1 − (1/2)z. The
+solution set is { (1 − (1/2)z, (1/4)z, z, −1) | z ∈ R }.
+
+Parametrizing solution sets shows that systems with free variables have
+
+Section I. Solving Linear Systems
+
+15
+
+inﬁnitely many solutions. For instance, above z takes on all of inﬁnitely many
+real number values, each associated with a diﬀerent solution.
+
+We ﬁnish this subsection by developing a streamlined notation for linear
+
+systems and their solution sets.
+2.6 Deﬁnition An m×n matrix is a rectangular array of numbers with m rows
+and n columns. Each number in the matrix is an entry.
+
+We usually denote a matrix with an upper case roman letters. For instance,
+
+(cid:32)
+
+(cid:33)
+
+A =
+
+1
+3
+
+2.2
+5
+4 −7
+
+has 2 rows and 3 columns and so is a 2×3 matrix. Read that aloud as “two-by-
+three”; the number of rows is always given ﬁrst. (The matrix has parentheses
+on either side so that when two matrices are adjacent we can tell where one
+ends and the other begins.) We name matrix entries with the corresponding
+lower-case letter so that a2,1 = 3 is the entry in the second row and ﬁrst column
+of the above array. Note that the order of the subscripts matters: a1,2 (cid:54)= a2,1
+since a1,2 = 2.2. We denote the set of all n×m matrices by Mn×m.
+
+We use matrices to do Gauss’s Method in essentially the same way that we
+did it for systems of equations: where a row’s leading entry. is its ﬁrst nonzero
+entry (if it has one), we perform row operations to arrive at matrix echelon
+form,where the leading entry in lower rows are to the right of those in the rows
+above. We switch to this notation because it lightens the clerical load of Gauss’s
+Method — the copying of variables and the writing of +’s and =’s.
+2.7 Example We can abbreviate this linear system
+
+with this matrix.
+
+x
+
+1
+
+0
+1
+
+x + 2y
+
+= 4
+y − z = 0
++ 2z = 4
+
+
+
+2
+0
+1 −1
+2
+0
+
+4
+0
+4
+
+The vertical bar reminds a reader of the diﬀerence between the coeﬃcients on
+the system’s left hand side and the constants on the right. With a bar, this is
+an augmented matrix.
+
+ 2ρ2+ρ3−→
+
+1
+
+0
+0
+
+
+
+2
+0
+1 −1
+0
+0
+
+4
+0
+0
+
+1
+
+0
+1
+
+ −ρ1+ρ3−→
+
+1
+
+2
+0
+1 −1
+0
+2
+
+4
+0
+4
+
+2
+0
+1 −1
+2
+
+0
+0 −2
+
+4
+0
+0
+
+16
+
+Chapter One. Linear Systems
+
+The second row stands for y − z = 0 and the ﬁrst row stands for x + 2y = 4 so
+the solution set is { (4 − 2z, z, z) | z ∈ R }.
+
+Matrix notation also clariﬁes the descriptions of solution sets. Example 2.3’s
+{ (2 − 2z + 2w, −1 + z − w, z, w) | z, w ∈ R } is hard to read. We will rewrite it
+to group all of the constants together, all of the coeﬃcients of z together, and
+all of the coeﬃcients of w together. We write them vertically, in one-column
+matrices.
+
+ 2
+
+−1
+0
+0
+
+{
+
+ +
+
+−2
+
+ · z +
+
+1
+1
+0
+
+ · w | z, w ∈ R }
+
+ 2
+
+−1
+0
+1
+
+For instance, the top line says that x = 2 − 2z + 2w and the second line says
+that y = −1 + z − w. (Our next section gives a geometric interpretation that
+will help picture the solution sets.)
+
+2.8 Deﬁnition A vector (or column vector) is a matrix with a single column.
+A matrix with a single row is a row vector. The entries of a vector are its
+components. A column or row vector whose components are all zeros is a zero
+vector.
+
+Vectors are an exception to the convention of representing matrices with
+capital roman letters. We use lower-case roman or greek letters overlined with an
+arrow: (cid:126)a, (cid:126)b, . . . or (cid:126)α, (cid:126)β, . . . (boldface is also common: a or α). For instance,
+this is a column vector with a third component of 7.
+
+1
+
+
+
+3
+7
+
+(cid:126)v =
+
+A zero vector is denoted (cid:126)0. There are many diﬀerent zero vectors — the one-tall
+zero vector, the two-tall zero vector, etc. — but nonetheless we will often say
+“the” zero vector, expecting that the size will be clear from the context.
+2.9 Deﬁnition The linear equation a1x1 + a2x2 + ··· + anxn = d with unknowns
+x1, . . . , xn is satisﬁed by
+
+
+
+s1
+
+...
+sn
+
+(cid:126)s =
+
+if a1s1 + a2s2 + ··· + ansn = d. A vector satisﬁes a linear system if it satisﬁes
+each equation in the system.
+
+Section I. Solving Linear Systems
+
+17
+
+The style of description of solution sets that we use involves adding the
+vectors, and also multiplying them by real numbers. Before we give the examples
+showing the style we ﬁrst need to deﬁne these operations.
+
+2.10 Deﬁnition The vector sum of (cid:126)u and (cid:126)v is the vector of the sums.
+
+ +
+
+u1
+
+...
+un
+
+v1
+
+...
+vn
+
+ =
+
+ u1 + v1
+
+...
+
+
+
+un + vn
+
+(cid:126)u + (cid:126)v =
+
+Note that for the addition to be deﬁned the vectors must have the same
+number of entries. This entry-by-entry addition works for any pair of matrices,
+not just vectors, provided that they have the same number of rows and columns.
+
+2.11 Deﬁnition The scalar multiplication of the real number r and the vector (cid:126)v
+is the vector of the multiples.
+
+ =
+
+v1
+
+...
+vn
+
+
+
+rv1
+
+...
+rvn
+
+r · (cid:126)v = r ·
+
+As with the addition operation, the entry-by-entry scalar multiplication
+
+operation extends beyond vectors to apply to any matrix.
+
+We write scalar multiplication either as r · (cid:126)v or (cid:126)v · r, or even without the ‘·’
+symbol: r(cid:126)v. (Do not refer to scalar multiplication as ‘scalar product’ because we
+will use that name for a diﬀerent operation.)
+
+2.12 Example2
+
+3
+1
+
+ +
+
+ =
+
+ 3
+
+−1
+4
+
+2 + 3
+
+3 − 1
+1 + 4
+
+ =
+
+
+
+5
+
+2
+5
+
+7 ·
+
+ =
+
+ 1
+
+4
+−1
+−3
+
+
+
+ 7
+
+28
+−7
+−21
+
+Observe that the deﬁnitions of addition and scalar multiplication agree where
+
+they overlap; for instance, (cid:126)v + (cid:126)v = 2(cid:126)v.
+
+With these deﬁnitions, we are set to use matrix and vector notation to both
+
+solve systems and express the solution.
+2.13 Example This system
+
+2x + y
+y
+
+x
+
+− w
+= 4
++ w + u = 4
+= 0
+
+− z + 2w
+
+18
+
+Chapter One. Linear Systems
+
+2
+
+0
+1
+
+reduces in this way.
+
+0 −1
+1
+0
+1
+1
+0 −1
+2
+
+0
+1
+0
+
+4
+4
+0
+
+ −(1/2)ρ1+ρ3
+
+−→
+
+(1/2)ρ2+ρ3
+
+−→
+
+2
+2
+
+ w +
+
+0
+0
+
+
+
+{
+
+x
+y
+z
+w
+u
+
+ =
+
+
+
+ +
+
+
+
+0
+4
+0
+0
+0
+
+1
+−1
+3
+1
+0
+
+The solution set is { (w + (1/2)u, 4 − w − u, 3w + (1/2)u, w, u) | w, u ∈ R }. We
+write that in vector form.
+
+
+
+
+
+1
+1
+
+0 −1
+0
+1
+0
+0 −1/2 −1
+
+5/2
+
+0
+4
+4
+1
+0 −2
+
+0 −1
+1
+0
+1
+1
+0 −1
+3
+
+0
+1
+
+1/2
+
+4
+4
+0
+
+ u | w, u ∈ R }
+
+1/2
+−1
+1/2
+
+0
+1
+
+Note how well vector notation sets oﬀ the coeﬃcients of each parameter. For
+instance, the third row of the vector form shows plainly that if u is ﬁxed then z
+increases three times as fast as w. Another thing shown plainly is that setting
+
+both w and u to zero gives that
+
+ =
+
+
+
+
+
+0
+4
+0
+0
+0
+
+x
+y
+z
+w
+u
+
+is a particular solution of the linear system.
+2.14 Example In the same way, the system
+
+x − y + z = 1
++ z = 3
+3x
+5x − 2y + 3z = 5
+
+reduces
+
+1 −1
+
+3
+0
+5 −2
+
+1
+1
+3
+
+1
+3
+5
+
+ −3ρ1+ρ2−→
+
+−5ρ1+ρ3
+
+1 −1
+1 −1
+
+0
+0
+
+0
+0
+
+1
+3 −2
+3 −2
+
+1
+3 −2
+0
+0
+
+1
+0
+0
+
+
+
+
+1
+0
+0
+
+−ρ2+ρ3−→
+
+Section I. Solving Linear Systems
+
+19
+
+to give a one-parameter solution set.
+
+1
+
+ +
+
+0
+0
+
+{
+
+2/3
+
+−1/3
+ z | z ∈ R }
+
+1
+
+1
+
+0
+0
+
+As in the prior example, the vector not associated with the parameter
+
+is a particular solution of the system.
+
+Before the exercises, we will consider what we have accomplished and what
+
+we have yet to do.
+
+So far we have done the mechanics of Gauss’s Method. We have not stopped
+to consider any of the interesting questions that arise, except for proving Theo-
+rem 1.5 — which justiﬁes the method by showing that it gives the right answers.
+For example, can we always describe solution sets as above, with a particular
+solution vector added to an unrestricted linear combination of some other vectors?
+We’ve noted that the solution sets we described in this way have inﬁnitely many
+solutions so an answer to this question would tell us about the size of solution
+sets.
+
+Many questions arise from our observation that we can do Gauss’s Method
+in more than one way (for instance, when swapping rows we may have a choice
+of more than one row). Theorem 1.5 says that we must get the same solution
+set no matter how we proceed but if we do Gauss’s Method in two ways must
+we get the same number of free variables in each echelon form system? Must
+those be the same variables, that is, is it impossible to solve a problem one way
+to get y and w free and solve it another way to get y and z free?
+
+In the rest of this chapter we will answer these questions. The answer to
+each is ‘yes’. In the next subsection we do the ﬁrst one: we will prove that we
+can always describe solution sets in that way. Then, in this chapter’s second
+section, we will use that understanding to describe the geometry of solution sets.
+In this chapter’s ﬁnal section, we will settle the questions about the parameters.
+When we are done, we will not only have a solid grounding in the practice of
+Gauss’s Method but we will also have a solid grounding in the theory. We will
+know exactly what can and cannot happen in a reduction.
+
+Exercises
+(cid:88) 2.15 Find the indicated entry of the matrix, if it is deﬁned.
+
+(cid:18)1
+
+(cid:19)
+
+A =
+
+3
+2 −1
+
+1
+4
+
+20
+
+Chapter One. Linear Systems
+
+(a) a2,1
+
+(c) a2,2
+(cid:88) 2.16 Give the size of each matrix.
+
+(b) a1,2
+
+(a)
+
+10
+5
+(cid:88) 2.17 Do the indicated vector operation, if it is deﬁned.
+
+4
+5
+
+2
+
+0
+1
+
+(b)
+
+1
+−1
+1
+3 −1
+
+ 1
+(cid:19)
+(cid:18)1
+2
+3
+ +
+ (b) 5
+(cid:18) 4
+(cid:19)
+1
+ (f) 6
+ − 4
+3
+(cid:18)1
+(cid:19)
+
+−1
+
+0
+4
+
+1
+1
+
++
+
+10
+
+(d) a3,1
+
+ (c)
+(cid:18) 5
+1
+ −
+3
+ + 2
+
+1
+
+2
+
+(c)
+
+1
+1
+
+5
+1
+
+(a)
+
+(e)
+
+1
+1
+
+0
+3
+
+1
+5
+
+2
+
+2
+3
+
+(cid:19)
+ (d) 7
+
+(cid:18)2
+
+(cid:19)
+
+1
+
+(cid:18)3
+
+(cid:19)
+
+5
+
++ 9
+
+(cid:88) 2.18 Solve each system using matrix notation. Express the solution using vec-
+
+tors.
+
+(a) 3x + 6y = 18
+x + 2y = 6
+
+(d) 2a + b − c = 2
++ c = 3
+= 0
+
+a − b
+
+2a
+
+(b) x + y = 1
+x − y = −1
+
+(c) x1
+
++ x3 = 4
+x1 − x2 + 2x3 = 5
+4x1 − x2 + 5x3 = 17
+= 3
++ w = 4
+x − y + z + w = 1
+
+2x + y
+3x + y + z
+
+(f) x
+
+2x + y
+
+(e) x + 2y − z
+
++ z + w = 4
+− w = 2
+= 7
+
+(cid:88) 2.19 Solve each system using matrix notation. Give each solution set in vector
+
+notation.
+
+(a) 2x + y − z = 1
+= 3
+
+4x − y
+
+(b) x
+
+− z
+
+= 1
+y + 2z − w = 3
+x + 2y + 3z − w = 7
+
+(c) x − y + z
+
+y
+
+= 0
++ w = 0
+3x − 2y + 3z + w = 0
+− w = 0
+
+−y
+
+(d) a + 2b + 3c + d − e = 1
+3a − b + c + d + e = 3
+
+2.20 Solve each system using matrix notation. Express the solution set using
+vectors.
+
+(b)
+
+x + y − 2z = 0
+x − y
+= −3
+3x − y − 2z = −6
+2y − 2z = 3
+
+(c) 2x − y − z + w = 4
+= −1
+
+x + y + z
+
+(a)
+
+(d)
+
+3x + 2y + z = 1
+x − y + z = 2
+5x + 5y + z = 0
+
+x + y − 2z = 0
+x − y
+= −3
+3x − y − 2z = 0
+
+(cid:88) 2.21 The vector is in the set. What value of the parameters produces that vec-
+
+(cid:18) 5
+(cid:19)
+(cid:18) 1
+(cid:19)
+ i +
+−2
+, {
+−1
+
+−1
+
+−5
+
+, {
+
+tor?
+(a)
+
+(b)
+
+2
+1
+
+1
+0
+
+k | k ∈ R }
+
+3
+
+ j | i, j ∈ R }
+
+0
+1
+
+Section I. Solving Linear Systems
+
+21
+
+2.22 Decide if the vector is in the set.
+
+−4
+2
+
+, {
+
+−1
+
+1
+0
+
+2
+
+2
+
+0
+1
+
+k | k ∈ R }
+
+ n | m, n ∈ R }
+
+ m +
+1
+, {
+ 0
+(cid:18) 3
+(cid:18)−6
+(cid:19)
+(cid:19)
+(cid:18) 5
+(cid:19)
+(cid:19)
+(cid:18)5
+ r | r ∈ R }
+ 1
+ +
+ 0
+, {
+ 2
+1
+, {
+2
+ j +
+−3
+ k | j, k ∈ R }
+
+j | j ∈ R }
+
+, {
+
+4
+
+−4
+
+3
+−7
+
+−1
+3
+
+0
+1
+
+−1
+1
+
+(c)
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+1
+−1
+
+0
+1
+
+2.23 [Cleary] A farmer with 1200 acres is considering planting three diﬀerent crops,
+corn, soybeans, and oats. The farmer wants to use all 1200 acres. Seed corn costs
+$20 per acre, while soybean and oat seed cost $50 and $12 per acre respectively.
+The farmer has $40 000 available to buy seed and intends to spend it all.
+
+(a) Use the information above to formulate two linear equations with three
+unknowns and solve it.
+(b) Solutions to the system are choices that the farmer can make. Write down
+two reasonable solutions.
+(c) Suppose that in the fall when the crops mature, the farmer can bring in
+revenue of $100 per acre for corn, $300 per acre for soybeans and $80 per acre
+for oats. Which of your two solutions in the prior part would have resulted in a
+larger revenue?
+
+2.24 Parametrize the solution set of this one-equation system.
+
+(cid:88) 2.25
+
+(a) Apply Gauss’s Method to the left-hand side to solve
+
+x1 + x2 + ··· + xn = 0
+
+x + 2y
+
+2x
+
++ z
+
+x + y
+
+− w = a
+= b
++ 2w = c
+
+for x, y, z, and w, in terms of the constants a, b, and c.
+(b) Use your answer from the prior part to solve this.
+
+x + 2y
+
+2x
+
++ z
+
+x + y
+
+− w = 3
+= 1
++ 2w = −2
+
+(cid:88) 2.26 Why is the comma needed in the notation ‘ai,j’ for matrix entries?
+(cid:88) 2.27 Give the 4×4 matrix whose i, j-th entry is
+
+(a) i + j;
+
+(b) −1 to the i + j power.
+
+2.28 For any matrix A, the transpose of A, written AT, is the matrix whose columns
+are the rows of A. Find the transpose of each of these.
+
+22
+
+(cid:18)1
+
+4
+
+(a)
+
+(cid:19)
+
+2
+5
+
+3
+6
+
+(cid:18)2 −3
+
+(cid:19)
+
+1
+
+1
+
+(b)
+
+(cid:18) 5
+
+10
+
+(c)
+
+(cid:19)
+
+10
+5
+
+1
+
+
+
+1
+0
+
+(d)
+
+Chapter One. Linear Systems
+
+(cid:88) 2.29
+
+(a) Describe all functions f(x) = ax2 + bx + c such that f(1) = 2 and f(−1) = 6.
+
+(b) Describe all functions f(x) = ax2 + bx + c such that f(1) = 2.
+
+2.30 Show that any set of ﬁve points from the plane R2 lie on a common conic section,
+that is, they all satisfy some equation of the form ax2 + by2 + cxy + dx + ey + f = 0
+where some of a, . . . , f are nonzero.
+2.31 Make up a four equations/four unknowns system having
+
+(a) a one-parameter solution set;
+(b) a two-parameter solution set;
+(c) a three-parameter solution set.
+
+? 2.32 [Shepelev] This puzzle is from a Russian web-site http://www.arbuz.uz/ and
+there are many solutions to it, but mine uses linear algebra and is very naive.
+There’s a planet inhabited by arbuzoids (watermeloners, to translate from Russian).
+Those creatures are found in three colors: red, green and blue. There are 13 red
+arbuzoids, 15 blue ones, and 17 green. When two diﬀerently colored arbuzoids
+meet, they both change to the third color.
+
+The question is, can it ever happen that all of them assume the same color?
+
+? 2.33 [USSR Olympiad no. 174]
+
+(a) Solve the system of equations.
+
+ax + y = a2
+x + ay = 1
+
+For what values of a does the system fail to have solutions, and for what values
+of a are there inﬁnitely many solutions?
+(b) Answer the above question for the system.
+
+ax + y = a3
+x + ay = 1
+
+? 2.34 [Math. Mag., Sept. 1952] In air a gold-surfaced sphere weighs 7588 grams. It
+is known that it may contain one or more of the metals aluminum, copper, silver,
+or lead. When weighed successively under standard conditions in water, benzene,
+alcohol, and glycerin its respective weights are 6588, 6688, 6778, and 6328 grams.
+How much, if any, of the forenamed metals does it contain if the speciﬁc gravities
+of the designated substances are taken to be as follows?
+
+Aluminum
+Copper
+Gold
+Lead
+Silver
+
+2.7
+8.9
+19.3
+11.3
+10.8
+
+Alcohol
+Benzene
+Glycerin
+Water
+
+0.81
+0.90
+1.26
+1.00
+
+Section I. Solving Linear Systems
+
+23
+
+I.3 General = Particular + Homogeneous
+
+In the prior subsection the descriptions of solution sets all ﬁt a pattern. They
+have a vector that is a particular solution of the system added to an unre-
+stricted combination of some other vectors. The solution set from Example 2.13
+illustrates.
+
+{
+
++ w
+
+| w, u ∈ R }
+
+
+
+
+
+0
+4
+0
+0
+0
+
+ + u
+
+
+
+
+
+1
+−1
+3
+1
+0
+
+
+
+1/2
+−1
+1/2
+
+0
+1
+
+particular
+solution
+
+unrestricted
+combination
+
+The combination is unrestricted in that w and u can be any real numbers —
+there is no condition like “such that 2w − u = 0” to restrict which pairs w, u we
+can use.
+
+That example shows an inﬁnite solution set ﬁtting the pattern. The other
+two kinds of solution sets also ﬁt. A one-element solution set ﬁts because it has
+a particular solution, and the unrestricted combination part is trivial. (That is,
+instead of being a combination of two vectors or of one vector, it is a combination
+of no vectors. By convention the sum of an empty set of vectors is the zero
+vector.) An empty solution set ﬁts the pattern because there is no particular
+solution and thus there are no sums of that form at all.
+
+3.1 Theorem Any linear system’s solution set has the form
+{(cid:126)p + c1(cid:126)β1 + ··· + ck(cid:126)βk | c1, . . . , ck ∈ R }
+
+where (cid:126)p is any particular solution and where the number of vectors (cid:126)β1, . . . ,
+(cid:126)βk equals the number of free variables that the system has after a Gaussian
+reduction.
+
+The solution description has two parts, the particular solution (cid:126)p and the
+unrestricted linear combination of the (cid:126)β’s. We shall prove the theorem with two
+corresponding lemmas.
+
+We will focus ﬁrst on the unrestricted combination. For that we consider
+systems that have the vector of zeroes as a particular solution so that we can
+shorten (cid:126)p + c1(cid:126)β1 + ··· + ck(cid:126)βk to c1(cid:126)β1 + ··· + ck(cid:126)βk.
+
+3.2 Deﬁnition A linear equation is homogeneous if it has a constant of zero, so
+that it can be written as a1x1 + a2x2 + ··· + anxn = 0.
+
+24
+
+Chapter One. Linear Systems
+
+3.3 Example With any linear system like
+
+3x + 4y = 3
+2x − y = 1
+
+we associate a system of homogeneous equations by setting the right side to
+zeros.
+
+3x + 4y = 0
+2x − y = 0
+
+Compare the reduction of the original system
+
+3x + 4y = 3
+2x − y = 1
+
+−(2/3)ρ1+ρ2
+
+−→
+
+3x +
+
+4y = 3
+−(11/3)y = −1
+
+with the reduction of the associated homogeneous system.
+
+3x + 4y = 0
+2x − y = 0
+
+−(2/3)ρ1+ρ2
+
+−→
+
+3x +
+
+4y = 0
+−(11/3)y = 0
+
+Obviously the two reductions go in the same way. We can study how to reduce
+a linear systems by instead studying how to reduce the associated homogeneous
+system.
+
+Studying the associated homogeneous system has a great advantage over
+studying the original system. Nonhomogeneous systems can be inconsistent.
+But a homogeneous system must be consistent since there is always at least one
+solution, the zero vector.
+
+3.4 Example Some homogeneous systems have the zero vector as their only
+solution.
+
+3x + 2y + z = 0
+6x + 4y
+= 0
+y + z = 0
+
+−2ρ1+ρ2−→
+
+3x + 2y + z = 0
+−2z = 0
+y + z = 0
+
+ρ2↔ρ3−→
+
+3x + 2y + z = 0
+y + z = 0
+−2z = 0
+
+3.5 Example Some homogeneous systems have many solutions. One is the
+
+Section I. Solving Linear Systems
+
+25
+
+Chemistry problem from the ﬁrst page of the ﬁrst subsection.
+
+− 7z
+
+= 0
+7x
+8x + y − 5z − 2w = 0
+= 0
+3y − 6z − w = 0
+
+y − 3z
+
+−(8/7)ρ1+ρ2
+
+−→
+
+7x
+
+− 7z
+
+= 0
+y + 3z − 2w = 0
+= 0
+y − 3z
+3y − 6z − w = 0
+
+−ρ2+ρ3−→
+
+−3ρ2+ρ4
+
+7x − 7z
+
+= 0
+y + 3z − 2w = 0
+−6z + 2w = 0
+−15z + 5w = 0
+
+7x − 7z
+
+= 0
+y + 3z − 2w = 0
+−6z + 2w = 0
+0 = 0
+
+The solution set
+
+{
+
+−(5/2)ρ3+ρ4
+
+−→
+
+ w | w ∈ R }
+1/3
+
+1/3
+
+1
+
+1
+
+has many vectors besides the zero vector (if we interpret w as a number of
+molecules then solutions make sense only when w is a nonnegative multiple of
+3).
+
+3.6 Lemma For any homogeneous linear system there exist vectors (cid:126)β1, . . . , (cid:126)βk
+such that the solution set of the system is
+
+{ c1(cid:126)β1 + ··· + ck(cid:126)βk | c1, . . . , ck ∈ R }
+
+where k is the number of free variables in an echelon form version of the system.
+
+We will make two points before the proof. The ﬁrst is that the basic idea of
+the proof is straightforward. Consider this system of homogeneous equations in
+echelon form.
+
+x + y + 2z + u + v = 0
+y + z + u − v = 0
+u + v = 0
+
+Start with the bottom equation. Express its leading variable in terms of the
+free variables with u = −v. For the next row up, substitute for the leading
+variable u of the row below y + z + (−v) − v = 0 and solve for this row’s leading
+variable y = −z + 2v. Iterate: on the next row up, substitute expressions found
+
+26
+
+Chapter One. Linear Systems
+
+in lower rows x + (−z + 2v) + 2z + (−v) + v = 0 and solve for the leading variable
+x = −z − 2v. To ﬁnish, write the solution in vector notation
+
+for z, v ∈ R
+
+ =
+
+
+
+
+
+x
+y
+z
+u
+v
+
+−1
+−1
+1
+0
+0
+
+ z +
+
+
+
+ v
+
+−2
+2
+0
+−1
+1
+
+and recognize that the (cid:126)β1 and (cid:126)β2 of the lemma are the vectors associated with
+the free variables z and v.
+
+The prior paragraph is an example, not a proof. But it does suggest the
+second point about the proof, its approach. The example moves row-by-row up
+the system, using the equations from lower rows to do the next row. This points
+to doing the proof by mathematical induction.∗
+
+Induction is an important and non-obvious proof technique that we shall
+use a number of times in this book. We will do proofs by induction in two
+steps, a base step and an inductive step. In the base step we verify that the
+statement is true for some ﬁrst instance, here that for the bottom equation we
+can write the leading variable in terms of free variables. In the inductive step
+we must establish an implication, that if the statement is true for all prior cases
+then it follows for the present case also. Here we will establish that if for the
+bottom-most t rows we can express the leading variables in terms of the free
+variables, then for the t + 1-th row from the bottom we can also express the
+leading variable in terms of those that are free.
+
+Those two steps together prove the statement for all the rows because by
+the base step it is true for the bottom equation, and by the inductive step the
+fact that it is true for the bottom equation shows that it is true for the next one
+up. Then another application of the inductive step implies that it is true for the
+third equation up, etc.
+Proof Apply Gauss’s Method to get to echelon form. There may be some 0 = 0
+equations; we ignore these (if the system consists only of 0 = 0 equations then
+the lemma is trivially true because there are no leading variables). But because
+the system is homogeneous there are no contradictory equations.
+
+We will use induction to verify that each leading variable can be expressed
+in terms of free variables. That will ﬁnish the proof because we can use the free
+variables as parameters and the (cid:126)β’s are the vectors of coeﬃcients of those free
+variables.
+
+For the base step consider the bottom-most equation
+
+am,(cid:96)m x(cid:96)m + am,(cid:96)m+1x(cid:96)m+1 + ··· + am,nxn = 0
+
+(∗)
+
+∗ More information on mathematical induction is in the appendix.
+
+Section I. Solving Linear Systems
+27
+where am,(cid:96)m (cid:54)= 0. (The ‘(cid:96)’ means “leading” so that x(cid:96)m is the leading variable
+in row m.) This is the bottom row so any variables after the leading one must
+be free. Move these to the right hand side and divide by am,(cid:96)m
+
+x(cid:96)m = (−am,(cid:96)m+1/am,(cid:96)m )x(cid:96)m+1 + ··· + (−am,n/am,(cid:96)m )xn
+
+to express the leading variable in terms of free variables. (There is a tricky
+technical point here: if in the bottom equation (∗) there are no variables to
+the right of xlm then x(cid:96)m = 0. This satisﬁes the statement we are verifying
+because, as alluded to at the start of this subsection, it has x(cid:96)m written as a
+sum of a number of the free variables, namely as the sum of zero many, under
+the convention that a trivial sum totals to 0.)
+
+For the inductive step assume that the statement holds for the bottom-most
+t rows, with 0 (cid:54) t < m − 1. That is, assume that for the m-th equation, and
+the (m − 1)-th equation, etc., up to and including the (m − t)-th equation, we
+can express the leading variable in terms of free ones. We must verify that
+this then also holds for the next equation up, the (m − (t + 1))-th equation.
+For that, take each variable that leads in a lower equation x(cid:96)m, . . . , x(cid:96)m−t and
+substitute its expression in terms of free variables. We only need expressions
+for leading variables from lower equations because the system is in echelon
+form, so the leading variables in equations above this one do not appear in
+this equation. The result has a leading term of am−(t+1),(cid:96)m−(t+1) x(cid:96)m−(t+1)
+with am−(t+1),(cid:96)m−(t+1) (cid:54)= 0, and the rest of the left hand side is a linear
+combination of free variables. Move the free variables to the right side and divide
+by am−(t+1),(cid:96)m−(t+1) to end with this equation’s leading variable x(cid:96)m−(t+1) in
+terms of free variables.
+
+of mathematical induction the proposition is true.
+
+We have done both the base step and the inductive step so by the principle
+QED
+This shows, as discussed between the lemma and its proof, that we can
+parametrize solution sets using the free variables. We say that the set of
+vectors { c1(cid:126)β1 + ··· + ck(cid:126)βk | c1, . . . , ck ∈ R } is generated by or spanned by the
+set { (cid:126)β1, . . . , (cid:126)βk }.
+
+To ﬁnish the proof of Theorem 3.1 the next lemma considers the particular
+
+solution part of the solution set’s description.
+
+3.7 Lemma For a linear system and for any particular solution (cid:126)p, the solution
+set equals {(cid:126)p + (cid:126)h | (cid:126)h satisﬁes the associated homogeneous system }.
+
+Proof We will show mutual set inclusion, that any solution to the system is in
+the above set and that anything in the set is a solution of the system.∗
+
+∗ More information on set equality is in the appendix.
+
+28
+
+Chapter One. Linear Systems
+
+For set inclusion the ﬁrst way, that if a vector solves the system then it is in
+the set described above, assume that (cid:126)s solves the system. Then (cid:126)s − (cid:126)p solves the
+associated homogeneous system since for each equation index i,
+
+ai,1(s1 − p1) + ··· + ai,n(sn − pn)
+
+= (ai,1s1 + ··· + ai,nsn) − (ai,1p1 + ··· + ai,npn) = di − di = 0
+
+where pj and sj are the j-th components of (cid:126)p and (cid:126)s. Express (cid:126)s in the required
+(cid:126)p + (cid:126)h form by writing (cid:126)s − (cid:126)p as (cid:126)h.
+
+For set inclusion the other way, take a vector of the form (cid:126)p + (cid:126)h, where (cid:126)p
+solves the system and (cid:126)h solves the associated homogeneous system and note
+that (cid:126)p + (cid:126)h solves the given system since for any equation index i,
+
+ai,1(p1 + h1) + ··· + ai,n(pn + hn)
+
+= (ai,1p1 + ··· + ai,npn) + (ai,1h1 + ··· + ai,nhn) = di + 0 = di
+
+where as earlier pj and hj are the j-th components of (cid:126)p and (cid:126)h.
+
+QED
+The two lemmas together establish Theorem 3.1. Remember that theorem
+
+with the slogan, “General = Particular + Homogeneous”.
+3.8 Example This system illustrates Theorem 3.1.
+
+2x + 4y
+
+x + 2y − z = 1
+= 2
+y − 3z = 0
+
+Gauss’s Method
+
+−2ρ1+ρ2−→
+
+x + 2y − z = 1
+2z = 0
+y − 3z = 0
+
+ρ2↔ρ3−→
+
+x + 2y − z = 1
+y − 3z = 0
+2z = 0
+
+shows that the general solution is a singleton set.
+
+1
+
+ }
+
+{
+
+0
+0
+
+That single vector is obviously a particular solution. The associated homogeneous
+system reduces via the same row operations
+
+2x + 4y
+
+x + 2y − z = 0
+= 0
+y − 3z = 0
+
+−2ρ1+ρ2−→ ρ2↔ρ3−→
+
+x + 2y − z = 0
+y − 3z = 0
+2z = 0
+
+Section I. Solving Linear Systems
+
+to also give a singleton set.
+
+ }
+
+0
+
+0
+0
+
+{
+
+29
+
+So, as discussed at the start of this subsection, in this single-solution case the
+general solution results from taking the particular solution and adding to it the
+unique solution of the associated homogeneous system.
+3.9 Example The start of this subsection also discusses that the case where
+the general solution set is empty ﬁts the General = Particular + Homogeneous
+pattern too. This system illustrates.
+
+x
+
+2x − y
+
++ z + w = −1
++ w = 3
+x + y + 3z + 2w = 1
+
+−2ρ1+ρ2−→
+
+−ρ1+ρ3
+
+x
+
++ z + w = −1
+−y − 2z − w = 5
+y + 2z + w = 2
+
+It has no solutions because the ﬁnal two equations conﬂict. But the associated
+homogeneous system does have a solution, as do all homogeneous systems.
+
+x
+
+2x − y
+
++ z + w = 0
++ w = 0
+x + y + 3z + 2w = 0
+
+−2ρ1+ρ2−→
+
+−ρ1+ρ3
+
+ρ2+ρ3−→
+
+x
+
++ z + w = 0
+−y − 2z − w = 0
+0 = 0
+
+In fact, the solution set is inﬁnite.
+
+ w | z, w ∈ R }
+
+−1
+
+−1
+0
+1
+
+{
+
+ z +
+
+−1
+
+−2
+1
+0
+
+Nonetheless, because the original system has no particular solution, its general
+solution set is empty — there are no vectors of the form (cid:126)p + (cid:126)h because there are
+no (cid:126)p ’s.
+
+3.10 Corollary Solution sets of linear systems are either empty, have one element,
+or have inﬁnitely many elements.
+
+Proof We’ve seen examples of all three happening so we need only prove that
+there are no other possibilities.
+
+First observe a homogeneous system with at least one non-(cid:126)0 solution (cid:126)v has
+inﬁnitely many solutions. This is because any scalar multiple of (cid:126)v also solves the
+homogeneous system and there are inﬁnitely many vectors in the set of scalar
+multiples of (cid:126)v: if s, t ∈ R are unequal then s(cid:126)v (cid:54)= t(cid:126)v, since s(cid:126)v − t(cid:126)v = (s − t)(cid:126)v is
+
+30
+
+Chapter One. Linear Systems
+
+non-(cid:126)0 as any non-0 component of (cid:126)v, when rescaled by the non-0 factor s − t, will
+give a non-0 value.
+
+Now apply Lemma 3.7 to conclude that a solution set
+
+{(cid:126)p + (cid:126)h | (cid:126)h solves the associated homogeneous system }
+
+is either empty (if there is no particular solution (cid:126)p), or has one element (if there
+is a (cid:126)p and the homogeneous system has the unique solution (cid:126)0), or is inﬁnite (if
+there is a (cid:126)p and the homogeneous system has a non-(cid:126)0 solution, and thus by the
+QED
+prior paragraph has inﬁnitely many solutions).
+
+This table summarizes the factors aﬀecting the size of a general solution.
+
+number of solutions of the
+
+homogeneous system
+one
+unique
+solution
+
+inﬁnitely many
+inﬁnitely many
+
+solutions
+
+no
+
+solutions
+
+no
+
+solutions
+
+particular
+solution
+exists?
+
+yes
+
+no
+
+The dimension on the top of the table is the simpler one. When we perform
+Gauss’s Method on a linear system, ignoring the constants on the right side and
+so paying attention only to the coeﬃcients on the left-hand side, we either end
+with every variable leading some row or else we ﬁnd some variable that does not
+lead a row, that is, we ﬁnd some variable that is free. (We formalize “ignoring
+the constants on the right” by considering the associated homogeneous system.)
+A notable special case is systems having the same number of equations as
+unknowns. Such a system will have a solution, and that solution will be unique,
+if and only if it reduces to an echelon form system where every variable leads its
+row (since there are the same number of variables as rows), which will happen if
+and only if the associated homogeneous system has a unique solution.
+
+3.11 Deﬁnition A square matrix is nonsingular if it is the matrix of coeﬃcients
+of a homogeneous system with a unique solution. It is singular otherwise, that
+is, if it is the matrix of coeﬃcients of a homogeneous system with inﬁnitely many
+solutions.
+
+3.12 Example The ﬁrst of these matrices is nonsingular while the second is
+singular
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+1
+3
+
+2
+4
+
+1
+3
+
+2
+6
+
+Section I. Solving Linear Systems
+
+31
+
+because the ﬁrst of these homogeneous systems has a unique solution while the
+second has inﬁnitely many solutions.
+
+x + 2y = 0
+3x + 4y = 0
+
+x + 2y = 0
+3x + 6y = 0
+
+We have made the distinction in the deﬁnition because a system with the same
+number of equations as variables behaves in one of two ways, depending on
+whether its matrix of coeﬃcients is nonsingular or singular. Where the matrix
+of coeﬃcients is nonsingular the system has a unique solution for any constants
+on the right side: for instance, Gauss’s Method shows that this system
+
+x + 2y = a
+3x + 4y = b
+
+has the unique solution x = b−2a and y = (3a−b)/2. On the other hand, where
+the matrix of coeﬃcients is singular the system never has a unique solution — it
+has either no solutions or else has inﬁnitely many, as with these.
+
+x + 2y = 1
+3x + 6y = 2
+
+x + 2y = 1
+3x + 6y = 3
+
+The deﬁnition uses the word ‘singular’ because it means “departing from
+general expectation.” People often, naively, expect that systems with the same
+number of variables as equations will have a unique solution. Thus, we can think
+of the word as connoting “troublesome,” or at least “not ideal.” (That ‘singular’
+applies to those systems that never have exactly one solution is ironic, but it is
+the standard term.)
+3.13 Example The systems from Example 3.3, Example 3.4, and Example 3.8
+each have an associated homogeneous system with a unique solution. Thus these
+matrices are nonsingular.
+
+(cid:32)
+
+(cid:33)
+
+3
+4
+2 −1
+
+
+
+1
+0
+1
+
+1
+
+2
+0
+
+
+
+2 −1
+4
+0
+1 −3
+
+2
+6 −4
+0
+1
+
+The Chemistry problem from Example 3.5 is a homogeneous system with more
+than one solution so its matrix is singular.
+
+3
+7
+
+8
+0
+0
+
+
+
+0 −7
+0
+1 −5 −2
+1 −3
+0
+3 −6 −1
+
+32
+
+Chapter One. Linear Systems
+
+The table above has two dimensions. We have considered the one on top: we
+can tell into which column a given linear system goes solely by considering the
+system’s left-hand side; the constants on the right-hand side play no role in this.
+The table’s other dimension, determining whether a particular solution exists,
+is tougher. Consider these two systems with the same left side but diﬀerent
+right sides.
+
+3x + 2y = 5
+3x + 2y = 5
+
+3x + 2y = 5
+3x + 2y = 4
+
+The ﬁrst has a solution while the second does not, so here the constants on the
+right side decide if the system has a solution. We could conjecture that the left
+side of a linear system determines the number of solutions while the right side
+determines if solutions exist but that guess is not correct. Compare these two,
+with the same right sides but diﬀerent left sides.
+
+3x + 2y = 5
+4x + 2y = 4
+
+3x + 2y = 5
+3x + 2y = 4
+
+The ﬁrst has a solution but the second does not. Thus the constants on the
+right side of a system don’t alone determine whether a solution exists. Rather,
+that depends on some interaction between the left and right.
+
+For some intuition about that interaction, consider this system with one of
+
+the coeﬃcients left unspeciﬁed, as the variable c.
+
+x + 2y + 3z = 1
+x + y + z = 1
+cx + 3y + 4z = 0
+
+If c = 2 then this system has no solution because the left-hand side has the
+third row as the sum of the ﬁrst two, while the right-hand does not. If c (cid:54)= 2
+then this system has a unique solution (try it with c = 1). For a system to
+have a solution, if one row of the matrix of coeﬃcients on the left is a linear
+combination of other rows then on the right the constant from that row must be
+the same combination of constants from the same rows.
+
+More intuition about the interaction comes from studying linear combinations.
+That will be our focus in the second chapter, after we ﬁnish the study of Gauss’s
+Method itself in the rest of this chapter.
+
+Exercises
+
+3.14 Solve this system. Then solve the associated homogeneous system.
+
+x + y − 2z = 0
+x − y
+= −3
+3x − y − 2z = −6
+2y − 2z = 3
+
+Section I. Solving Linear Systems
+
+33
+
+(cid:88) 3.15 Solve each system. Express the solution set using vectors. Identify the particular
+solution and the solution set of the homogeneous system. (These systems also
+appear in Exercise 18.)
+
+(a) 3x + 6y = 18
+x + 2y = 6
+
+(d) 2a + b − c = 2
++ c = 3
+= 0
+
+a − b
+
+2a
+
+(b) x + y = 1
+x − y = −1
+
+(c) x1
+
++ x3 = 4
+x1 − x2 + 2x3 = 5
+4x1 − x2 + 5x3 = 17
+= 3
++ w = 4
+x − y + z + w = 1
+
+2x + y
+3x + y + z
+
+(f) x
+
+2x + y
+
+(e) x + 2y − z
+
++ z + w = 4
+− w = 2
+= 7
+
+3.16 Solve each system, giving the solution set in vector notation. Identify the
+particular solution and the solution of the homogeneous system.
+
+(a) 2x + y − z = 1
+= 3
+
+4x − y
+
+(b) x
+
+− z
+
+= 1
+y + 2z − w = 3
+x + 2y + 3z − w = 7
+
+(d) a + 2b + 3c + d − e = 1
+3a − b + c + d + e = 3
+
+(cid:88) 3.17 For the system
+
+(c) x − y + z
+
+y
+
+= 0
++ w = 0
+3x − 2y + 3z + w = 0
+− w = 0
+
+−y
+
+2x − y
+
+− w = 3
+y + z + 2w = 2
+= −1
+
+x − 2y − z
+
+which of these can be used as the particular solution part of some general solu-
+tion?
+
+ (b)
+
+ 0
+
+−3
+5
+0
+
+ (c)
+
+2
+
+1
+1
+0
+
+
+
+−1
+
+−4
+8
+−1
+
+(a)
+
+(cid:88) 3.18 Lemma 3.7 says that we can use any particular solution for (cid:126)p. Find, if possible,
+
+a general solution to this system
+
++ w = 4
+= 0
+y + z + w = 4
+that uses the given vector as its particular solution.
+
+2x + 3y − z
+
+x − y
+
+0
+0
+4
+
+0
+(cid:18)1
+(cid:18)1
+1
+
+1
+
+1
+3
+
+(a)
+
+(a)
+
+(a)
+
+(d)
+
+ (b)
+(cid:19)
+
+1
+−7
+10
+
+−5
+
+ (c)
+(cid:18)1
+(cid:18) 1
+ 2
+ (e)
+
+2
+−3 −6
+
+(b)
+
+(b)
+
+3
+12
+
+1
+−1
+
+1
+3
+7
+
+
+
+−1
+1
+1
+
+ 2
+(cid:19)
+(cid:19)
+
+(c)
+
+
+
+2
+0
+1
+
+1
+5
+4
+
+3
+
+(cid:19)
+
+2
+3
+2
+1
+4
+
+4
+(cid:88) 3.20 Singular or nonsingular?
+
+4 −12
+
+3.19 One is nonsingular while the other is singular. Which is which?
+
+(cid:18)1
+
+1
+
+(cid:19)
+
+2
+3
+
+1
+1
+
+(Careful!)
+
+34
+
+Chapter One. Linear Systems
+
+(cid:88) 3.21 Is the given vector in the set generated by the given set?
+
+,
+
+4
+
+5
+
+}
+
+3
+
+, {
+
+0
+1
+
+(cid:18)2
+(cid:18)1
+(cid:19)
+(cid:18)1
+(cid:19)
+(cid:19)
+ }
+ ,
+ , {
+−1
+1
+2
+1
+ , {
+1
+2
+ ,
+ ,
+3
+1
+ }
+3
+ ,
+2
+ , {
+
+1
+0
+
+0
+1
+
+3
+0
+
+3
+0
+
+0
+1
+1
+
+0
+4
+
+1
+0
+1
+
+1
+5
+
+0
+0
+2
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+ ,
+
+ }
+
+4
+
+2
+1
+
+3.22 Prove that any linear system with a nonsingular matrix of coeﬃcients has a
+solution, and that the solution is unique.
+3.23 In the proof of Lemma 3.6, what happens if there are no non-0 = 0 equations?
+(cid:88) 3.24 Prove that if (cid:126)s and (cid:126)t satisfy a homogeneous system then so do these vec-
+
+tors.
+
+(a) (cid:126)s + (cid:126)t
+
+(b) 3(cid:126)s
+
+(c) k(cid:126)s + m(cid:126)t for k, m ∈ R
+
+What’s wrong with this argument: “These three show that if a homogeneous system
+has one solution then it has many solutions — any multiple of a solution is another
+solution, and any sum of solutions is a solution also — so there are no homogeneous
+systems with exactly one solution.”?
+3.25 Prove that if a system with only rational coeﬃcients and constants has a
+solution then it has at least one all-rational solution. Must it have inﬁnitely many?
+
+Section II. Linear Geometry
+
+II Linear Geometry
+
+35
+
+If you have seen the elements of vectors then this section is an optional
+review. However, later work will refer to this material so if this is not a
+review then it is not optional.
+
+In the ﬁrst section we had to do a bit of work to show that there are only
+three types of solution sets — singleton, empty, and inﬁnite. But this is easy to
+see geometrically in the case of systems with two equations and two unknowns.
+Draw each two-unknowns equation as a line in the plane, and then the two lines
+could have a unique intersection, be parallel, or be the same line.
+
+Unique solution
+
+No solutions
+
+Inﬁnitely many
+solutions
+
+3x + 2y = 7
+x − y = −1
+
+3x + 2y = 7
+3x + 2y = 4
+
+3x + 2y = 7
+6x + 4y = 14
+
+These pictures aren’t a short way to prove the results from the prior section,
+because those results apply to linear systems of any size. But they do broaden
+our understanding of those results.
+
+This section develops what we need to express our results geometrically. In
+particular, while the two-dimensional case is familiar, to extend to systems with
+more than two unknowns we shall need some higher-dimensional geometry.
+
+II.1 Vectors in Space
+
+“Higher-dimensional geometry” sounds exotic.
+eye-opening. But it isn’t distant or unreachable.
+
+It is exotic — interesting and
+
+We begin by deﬁning one-dimensional space to be R. To see that the deﬁnition
+
+is reasonable, picture a one-dimensional space
+
+and pick a point to label 0 and another to label 1.
+
+Now, with a scale and a direction, we have a correspondence with R. For instance,
+
+0
+
+1
+
+36
+
+Chapter One. Linear Systems
+
+to ﬁnd the point matching +2.17, start at 0 and head in the direction of 1, and
+go 2.17 times as far.
+
+The basic idea here, combining magnitude with direction, is the key to
+
+extending to higher dimensions.
+
+An object comprised of a magnitude and a direction is a vector (we use the
+same word as in the prior section because we shall show below how to describe
+such an object with a column vector). We can draw a vector as having some
+length and pointing in some direction.
+
+There is a subtlety involved in the deﬁnition of a vector as consisting of a
+magnitude and a direction — these
+
+are equal, even though they start in diﬀerent places They are equal because they
+have equal lengths and equal directions. Again: those vectors are not just alike,
+they are equal.
+
+How can things that are in diﬀerent places be equal? Think of a vector as
+representing a displacement (the word ‘vector’ is Latin for “carrier” or “traveler”).
+These two squares undergo displacements that are equal despite that they start
+in diﬀerent places.
+
+When we want to emphasize this property vectors have of not being anchored
+we refer to them as free vectors. Thus, these free vectors are equal, as each is a
+displacement of one over and two up.
+
+More generally, vectors in the plane are the same if and only if they have the
+same change in ﬁrst components and the same change in second components: the
+vector extending from (a1, a2) to (b1, b2) equals the vector from (c1, c2) to
+(d1, d2) if and only if b1 − a1 = d1 − c1 and b2 − a2 = d2 − c2.
+
+Saying ‘the vector that, were it to start at (a1, a2), would extend to (b1, b2)’
+
+would be unwieldy. We instead describe that vector as
+
+(cid:32)
+
+(cid:33)
+
+b1 − a1
+b2 − a2
+
+Section II. Linear Geometry
+
+37
+
+so that we represent the ‘one over and two up’ arrows shown above in this way.
+
+We often draw the arrow as starting at the origin, and we then say it is in the
+canonical position (or natural position or standard position). When
+
+(cid:32)
+
+(cid:33)
+
+1
+2
+
+(cid:32)
+
+(cid:33)
+
+(cid:126)v =
+
+v1
+v2
+
+1
+2
+
+”
+
+(cid:32)
+
+(cid:33)
+
+x1
+x2
+
+(cid:32)
+
+is in canonical position then it extends from the origin to the endpoint (v1, v2).
+
+We will typically say “the point (cid:32)
+
+(cid:33)
+
+rather than “the endpoint of the canonical position of” that vector. Thus, we
+will call each of these R2.
+
+{ (x1, x2) | x1, x2 ∈ R }
+
+{
+
+| x1, x2 ∈ R }
+
+In the prior section we deﬁned vectors and vector operations with an algebraic
+
+motivation;
+
+r ·
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+v1
+v2
+
+=
+
+rv1
+rv2
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
++
+
+=
+
+w1
+w2
+
+v1 + w1
+v2 + w2
+
+we can now understand those operations geometrically. For instance, if (cid:126)v
+represents a displacement then 3(cid:126)v represents a displacement in the same direction
+but three times as far and −1(cid:126)v represents a displacement of the same distance
+as (cid:126)v but in the opposite direction.
+
+(cid:126)v
+
+3(cid:126)v
+
+−(cid:126)v
+
+And, where (cid:126)v and (cid:126)w represent displacements, (cid:126)v+(cid:126)w represents those displacements
+combined.
+
+(cid:126)v + (cid:126)w
+
+(cid:126)w
+
+(cid:126)v
+
+38
+
+Chapter One. Linear Systems
+
+The long arrow is the combined displacement in this sense: imagine that you are
+walking on a ship’s deck. Suppose that in one minute the ship’s motion gives it
+a displacement relative to the sea of (cid:126)v, and in the same minute your walking
+gives you a displacement relative to the ship’s deck of (cid:126)w. Then (cid:126)v + (cid:126)w is your
+displacement relative to the sea.
+
+Another way to understand the vector sum is with the parallelogram rule.
+Draw the parallelogram formed by the vectors (cid:126)v and (cid:126)w. Then the sum (cid:126)v + (cid:126)w
+extends along the diagonal to the far corner.
+
+(cid:126)w
+
+(cid:126)v + (cid:126)w
+
+(cid:126)v
+
+The above drawings show how vectors and vector operations behave in R2.
+We can extend to R3, or to even higher-dimensional spaces where we have no
+pictures, with the obvious generalization: the free vector that, if it starts at
+(a1, . . . , an), ends at (b1, . . . , bn), is represented by this column.
+
+ b1 − a1
+
+...
+
+
+
+bn − an
+
+Vectors are equal if they have the same representation. We aren’t too careful
+about distinguishing between a point and the vector whose canonical representa-
+tion ends at that point.
+
+ | v1, . . . , vn ∈ R }
+
+v1
+
+...
+vn
+
+Rn = {
+
+And, we do addition and scalar multiplication component-wise.
+
+Having considered points, we next turn to lines. In R2, the line through
+
+(1, 2) and (3, 1) is comprised of (the endpoints of) the vectors in this set.
+
+(cid:32)
+
+(cid:33)
+
+{
+
+1
+2
+
+(cid:32)
+
+(cid:33)
+
++ t
+
+2
+−1
+
+| t ∈ R }
+(cid:19)
+
+(cid:18)3
+
+(cid:18)1
+
+−
+
+2
+
+1
+
+(cid:19)
+
+That description expresses this picture.(cid:18) 2
+(cid:19)
+
+−1
+
+=
+
+Section II. Linear Geometry
+
+39
+
+The vector that in the description is associated with the parameter t
+
+(cid:32)
+
+(cid:33)
+
+2
+−1
+
+(cid:32)
+
+(cid:33)
+
+3
+1
+
+(cid:32)
+
+(cid:33)
+
+1
+2
+
+=
+
+−
+
+is the one shown in the picture as having its whole body in the line — it is a
+direction vector for the line. Note that points on the line to the left of x = 1
+are described using negative values of t.
+
+In R3, the line through (1, 2, 1) and (2, 3, 2) is the set of (endpoints of) vectors
+
+of this form
+
+{
+
+1
+
+ + t ·
+
+1
+
+ | t ∈ R }
+
+2
+1
+
+1
+1
+
+and lines in even higher-dimensional spaces work in the same way.
+
+In R3, a line uses one parameter so that a particle on that line would be
+free to move back and forth in one dimension. A plane involves two parameters.
+For example, the plane through the points (1, 0, 5), (2, 1, −3), and (−2, 4, 0.5)
+consists of (endpoints of) the vectors in this set.
+
+{
+
+0
+5
+
+1
+ + t
+ 1
+1
+ −
+ 2
+ =
+
+1
+−8
+
+ + s
+
+
+−4.5
+
+4
+
+ −3
+ −3
+
+4
+
+ | t, s ∈ R }
+ −
+−2
+ =
+
+1
+−3
+
+0
+5
+
+4
+0.5
+
+−4.5
+
+ 1
+
+1
+−8
+
+1
+
+
+
+0
+5
+
+The column vectors associated with the parameters come from these calculations.
+
+As with the line, note that we describe some points in this plane with negative
+t’s or negative s’s or both.
+
+Calculus books often describe a plane by using a single linear equation.
+
+ | 2x + y + z = 4 }
+
+x
+
+y
+z
+
+P = {
+
+40
+
+Chapter One. Linear Systems
+
+To translate from this to the vector description, think of this as a one-equation
+linear system and parametrize: x = 2 − y/2 − z/2.
+
+ + y ·
+
+2
+
+0
+0
+
+P = {
+
+−1/2
+
+ + z ·
+
+1
+0
+
+−1/2
+
+ | y, z ∈ R }
+
+0
+1
+
+Shown in grey are the vectors associated with y and z, oﬀset from the origin
+by 2 units along the x-axis, so that their entire body lies in the plane. Thus the
+vector sum of the two, shown in black, has its entire body in the plane along
+with the rest of the parallelogram.
+
+Generalizing, a set of the form {(cid:126)p + t1(cid:126)v1 + t2(cid:126)v2 + ··· + tk(cid:126)vk | t1, . . . , tk ∈ R }
+where (cid:126)v1, . . . ,(cid:126)vk ∈ Rn and k (cid:54) n is a k-dimensional linear surface (or k-ﬂat).
+For example, in R4
+
+{
+
+π
+3
+
+0
+0
+0
+
+−0.5
+
+ | t ∈ R }
+ + t
+1
+ 2
+ | t, s ∈ R }
+2
+ + s
+ 1
+ + t
+0
+ | r, s, t ∈ R }
+2
+ + t
+1
+ + s
+ 0
+ + r
+
+1
+0
+−1
+
+0
+1
+0
+
+0
+0
+0
+
+{
+
+0
+0
+−1
+
+0
+1
+0
+
+0
+1
+0
+
+is a line,
+
+is a plane, and
+
+{
+
+ 3
+
+1
+−2
+0.5
+
+is a three-dimensional linear surface. Again, the intuition is that a line permits
+motion in one direction, a plane permits motion in combinations of two directions,
+etc. When the dimension of the linear surface is one less than the dimension of
+the space, that is, when in Rn we have an (n − 1)-ﬂat, the surface is called a
+hyperplane.
+
+A description of a linear surface can be misleading about the dimension. For
+
+Section II. Linear Geometry
+
+41
+
+example, this
+
+ 1
+
+0
+−1
+−2
+
+L = {
+
+is a degenerate plane because it is actually a line, since the vectors are multiples
+of each other and we can omit one.
+
+ + t
+ 1
+
+0
+−1
+−2
+
+1
+0
+−1
+
+ + s
+ 1
+ 1
+ + r
+
+2
+0
+−2
+
+ | t, s ∈ R }
+ 2
+ | r ∈ R }
+
+1
+0
+−1
+
+L = {
+
+We shall see in the Linear Independence section of Chapter Two what relation-
+ships among vectors causes the linear surface they generate to be degenerate.
+
+We now can restate in geometric terms our conclusions from earlier. First,
+the solution set of a linear system with n unknowns is a linear surface in Rn.
+Speciﬁcally, it is a k-dimensional linear surface, where k is the number of free
+variables in an echelon form version of the system. For instance, in the single
+equation case the solution set is an n − 1-dimensional hyperplane in Rn (where
+n > 0). Second, the solution set of a homogeneous linear system is a linear
+surface passing through the origin. Finally, we can view the general solution
+set of any linear system as being the solution set of its associated homogeneous
+system oﬀset from the origin by a vector, namely by any particular solution.
+
+Exercises
+(cid:88) 1.1 Find the canonical name for each vector.
+
+(a) the vector from (2, 1) to (4, 2) in R2
+(b) the vector from (3, 3) to (2, 5) in R2
+(c) the vector from (1, 0, 6) to (5, 0, 3) in R3
+(d) the vector from (6, 8, 8) to (6, 8, 8) in R3
+
+(cid:88) 1.2 Decide if the two vectors are equal.
+
+(a) the vector from (5, 3) to (6, 2) and the vector from (1, −2) to (1, 1)
+(b) the vector from (2, 1, 1) to (3, 0, 4) and the vector from (5, 1, 4) to (6, 0, 7)
+
+(cid:88) 1.3 Does (1, 0, 2, 1) lie on the line through (−2, 1, 1, 0) and (5, 10, −1, 4)?
+(cid:88) 1.4
+
+(a) Describe the plane through (1, 1, 5, −1), (2, 2, 2, 0), and (3, 1, 0, 4).
+
+(b) Is the origin in that plane?
+
+1.5 Describe the plane that contains this point and line.
+
+2
+
+
+
+0
+3
+
+−1
+
+0
+−4
+
+{
+
+ +
+
+1
+
+ t | t ∈ R }
+
+1
+2
+
+42
+
+Chapter One. Linear Systems
+
+(cid:88) 1.6 Intersect these planes.
+
+(cid:88) 1.7 Intersect each pair, if possible.
+
+ m | k, m ∈ R }
+
+{
+
+1
+1
+
+1
+3
+
+2
+
+1
+ t +
+0
+ s | t, s ∈ R }
+1
+ +
+0
+ k +
+0
+1
+ | t ∈ R }, {
+ + t
+ 1
+ + s
+ | s ∈ R }
+0
+ | s, w ∈ R }
+0
+ + w
+0
+ | t ∈ R }, { s
+ 1
+ + t
+2
+
+3
+−2
+
+1
+2
+
+3
+0
+
+0
+4
+
+{
+
+1
+0
+
+1
+2
+
+1
+1
+
+1
+−1
+
+1
+2
+
+(a) {
+
+(b) {
+
+0
+1
+
+4
+1
+
+0
+1
+
+1.8 When a plane does not pass through the origin, performing operations on vectors
+whose bodies lie in it is more complicated than when the plane passes through the
+origin. Consider the picture in this subsection of the plane
+
+2
+
+ +
+
+−0.5
+ y +
+
+−0.5
+
+ z | y, z ∈ R }
+
+{
+
+0
+0
+
+1
+0
+
+and the three vectors with endpoints (2, 0, 0), (1.5, 1, 0), and (1.5, 0, 1).
+(a) Redraw the picture, including the vector in the plane that is twice as long
+as the one with endpoint (1.5, 1, 0). The endpoint of your vector is not (3, 2, 0);
+what is it?
+(b) Redraw the picture, including the parallelogram in the plane that shows the
+sum of the vectors ending at (1.5, 0, 1) and (1.5, 1, 0). The endpoint of the sum,
+on the diagonal, is not (3, 1, 1); what is it?
+
+1.9 Show that the line segments (a1, a2)(b1, b2) and (c1, c2)(d1, d2) have the same
+lengths and slopes if b1 − a1 = d1 − c1 and b2 − a2 = d2 − c2. Is that only if?
+1.10 How should we deﬁne R0?
+
+? (cid:88) 1.11 [Math. Mag., Jan. 1957] A person traveling eastward at a rate of 3 miles per
+hour ﬁnds that the wind appears to blow directly from the north. On doubling his
+speed it appears to come from the north east. What was the wind’s velocity?
+1.12 Euclid describes a plane as “a surface which lies evenly with the straight lines
+on itself”. Commentators such as Heron have interpreted this to mean, “(A plane
+surface is) such that, if a straight line pass through two points on it, the line
+coincides wholly with it at every spot, all ways”. (Translations from [Heath], pp.
+171-172.) Do planes, as described in this section, have that property? Does this
+description adequately deﬁne planes?
+
+II.2 Length and Angle Measures
+
+We’ve translated the ﬁrst section’s results about solution sets into geometric
+terms, to better understand those sets. But we must be careful not to be misled
+
+Section II. Linear Geometry
+43
+by our own terms — labeling subsets of Rk of the forms {(cid:126)p + t(cid:126)v | t ∈ R } and
+{(cid:126)p + t(cid:126)v + s(cid:126)w | t, s ∈ R } as ‘lines’ and ‘planes’ doesn’t make them act like the
+lines and planes of our past experience. Rather, we must ensure that the names
+suit the sets. While we can’t prove that the sets satisfy our intuition — we
+can’t prove anything about intuition — in this subsection we’ll observe that a
+result familiar from R2 and R3, when generalized to arbitrary Rn, supports the
+idea that a line is straight and a plane is ﬂat. Speciﬁcally, we’ll see how to do
+Euclidean geometry in a ‘plane’ by giving a deﬁnition of the angle between two
+Rn vectors, in the plane that they generate.
+
+2.1 Deﬁnition The length of a vector (cid:126)v ∈ Rn is the square root of the sum of the
+squares of its components.
+
+(cid:113)
+
+|(cid:126)v | =
+
+1 + ··· + v2
+v2
+
+n
+
+2.2 Remark This is a natural generalization of the Pythagorean Theorem. A
+classic motivating discussion is in [Polya].
+
+For any nonzero (cid:126)v, the vector (cid:126)v/|(cid:126)v| has length one. We say that the second
+
+normalizes (cid:126)v to length one.
+
+We can use that to get a formula for the angle between two vectors. Consider
+
+two vectors in R3 where neither is a multiple of the other
+
+(cid:126)v
+
+(cid:126)u
+
+(the special case of multiples will turn out below not to be an exception). They
+determine a two-dimensional plane — for instance, put them in canonical position
+and take the plane formed by the origin and the endpoints. In that plane consider
+the triangle with sides (cid:126)u, (cid:126)v, and (cid:126)u − (cid:126)v.
+
+Apply the Law of Cosines: |(cid:126)u − (cid:126)v |2 = |(cid:126)u |2 + |(cid:126)v |2 − 2 |(cid:126)u | |(cid:126)v | cos θ where θ is the
+
+44
+
+Chapter One. Linear Systems
+
+angle between the vectors. The left side gives
+
+(u1 − v1)2 + (u2 − v2)2 + (u3 − v3)2
+
+= (u2
+
+1 − 2u1v1 + v2
+
+1) + (u2
+
+2 − 2u2v2 + v2
+
+2) + (u2
+
+3 − 2u3v3 + v2
+3)
+
+while the right side gives this.
+
+(u2
+
+1 + u2
+
+2 + u2
+
+3) + (v2
+
+1 + v2
+
+2 + v2
+
+3) − 2 |(cid:126)u | |(cid:126)v | cos θ
+
+Canceling squares u2
+
+1, . . . , v2
+
+3 and dividing by 2 gives a formula for the angle.
+
+θ = arccos(
+
+u1v1 + u2v2 + u3v3
+
+|(cid:126)u | |(cid:126)v |
+
+)
+
+In higher dimensions we cannot draw pictures as above but we can instead
+make the argument analytically. First, the form of the numerator is clear; it
+comes from the middle terms of (ui − vi)2.
+
+2.3 Deﬁnition The dot product (or inner product or scalar product) of two
+n-component real vectors is the linear combination of their components.
+
+(cid:126)u • (cid:126)v = u1v1 + u2v2 + ··· + unvn
+
+Note that the dot product of two vectors is a real number, not a vector, and
+that the dot product is only deﬁned if the two vectors have the same number
+of components. Note also that dot product is related to length: (cid:126)u • (cid:126)u =
+u1u1 + ··· + unun = |(cid:126)u |2.
+2.4 Remark Some authors require that the ﬁrst vector be a row vector and that
+the second vector be a column vector. We shall not be that strict and will allow
+the dot product operation between two column vectors.
+
+Still reasoning analytically but guided by the pictures, we use the next
+theorem to argue that the triangle formed by the line segments making the
+bodies of (cid:126)u, (cid:126)v, and (cid:126)u + (cid:126)v in Rn lies in the planar subset of Rn generated by (cid:126)u
+and (cid:126)v (see the ﬁgure below).
+2.5 Theorem (Triangle Inequality) For any (cid:126)u,(cid:126)v ∈ Rn,
+
+|(cid:126)u + (cid:126)v | (cid:54) |(cid:126)u | + |(cid:126)v |
+
+with equality if and only if one of the vectors is a nonnegative scalar multiple of
+the other one.
+
+This is the source of the familiar saying, “The shortest distance between two
+
+points is in a straight line.”
+
+Section II. Linear Geometry
+
+45
+
+ﬁnish
+
+(cid:126)u + (cid:126)v
+
+(cid:126)v
+
+start
+
+(cid:126)u
+
+Proof (We’ll use some algebraic properties of dot product that we have not yet
+checked, for instance that (cid:126)u • ((cid:126)a + (cid:126)b) = (cid:126)u • (cid:126)a + (cid:126)u • (cid:126)b and that (cid:126)u • (cid:126)v = (cid:126)v • (cid:126)u. See
+Exercise 18.) Since all the numbers are positive, the inequality holds if and only
+if its square holds.
+
+|(cid:126)u + (cid:126)v |2 (cid:54) ( |(cid:126)u | + |(cid:126)v | )2
+
+( (cid:126)u + (cid:126)v ) • ( (cid:126)u + (cid:126)v ) (cid:54) |(cid:126)u |2 + 2 |(cid:126)u | |(cid:126)v | + |(cid:126)v |2
+(cid:126)u • (cid:126)u + (cid:126)u • (cid:126)v + (cid:126)v • (cid:126)u + (cid:126)v • (cid:126)v (cid:54) (cid:126)u • (cid:126)u + 2 |(cid:126)u | |(cid:126)v | + (cid:126)v • (cid:126)v
+
+2 (cid:126)u • (cid:126)v (cid:54) 2 |(cid:126)u | |(cid:126)v |
+
+That, in turn, holds if and only if the relationship obtained by multiplying both
+sides by the nonnegative numbers |(cid:126)u | and |(cid:126)v |
+
+2 ( |(cid:126)v | (cid:126)u ) • ( |(cid:126)u |(cid:126)v ) (cid:54) 2 |(cid:126)u |2 |(cid:126)v |2
+
+and rewriting
+
+0 (cid:54) |(cid:126)u |2 |(cid:126)v |2 − 2 ( |(cid:126)v | (cid:126)u ) • ( |(cid:126)u |(cid:126)v ) + |(cid:126)u |2 |(cid:126)v |2
+
+is true. But factoring shows that it is true
+
+0 (cid:54) ( |(cid:126)u |(cid:126)v − |(cid:126)v | (cid:126)u ) • ( |(cid:126)u |(cid:126)v − |(cid:126)v | (cid:126)u )
+
+since it only says that the square of the length of the vector |(cid:126)u |(cid:126)v − |(cid:126)v | (cid:126)u is not
+negative. As for equality, it holds when, and only when, |(cid:126)u |(cid:126)v − |(cid:126)v | (cid:126)u is (cid:126)0. The
+check that |(cid:126)u |(cid:126)v = |(cid:126)v | (cid:126)u if and only if one vector is a nonnegative real scalar
+QED
+multiple of the other is easy.
+This result supports the intuition that even in higher-dimensional spaces,
+lines are straight and planes are ﬂat. We can easily check from the deﬁnition
+that linear surfaces have the property that for any two points in that surface,
+the line segment between them is contained in that surface. But if the linear
+surface were not ﬂat then that would allow for a shortcut.
+
+P
+
+Q
+
+Because the Triangle Inequality says that in any Rn the shortest cut between
+two endpoints is simply the line segment connecting them, linear surfaces have
+no bends.
+
+46
+
+Chapter One. Linear Systems
+
+Back to the deﬁnition of angle measure. The heart of the Triangle Inequality’s
+proof is the (cid:126)u • (cid:126)v (cid:54) |(cid:126)u | |(cid:126)v | line. We might wonder if some pairs of vectors satisfy
+the inequality in this way: while (cid:126)u • (cid:126)v is a large number, with absolute value
+bigger than the right-hand side, it is a negative large number. The next result
+says that does not happen.
+
+2.6 Corollary (Cauchy-Schwarz Inequality) For any (cid:126)u,(cid:126)v ∈ Rn,
+
+| (cid:126)u • (cid:126)v | (cid:54) | (cid:126)u | |(cid:126)v |
+
+with equality if and only if one vector is a scalar multiple of the other.
+
+Proof The Triangle Inequality’s proof shows that (cid:126)u • (cid:126)v (cid:54) |(cid:126)u | |(cid:126)v | so if (cid:126)u • (cid:126)v is
+positive or zero then we are done. If (cid:126)u • (cid:126)v is negative then this holds.
+
+| (cid:126)u • (cid:126)v | = −( (cid:126)u • (cid:126)v ) = (−(cid:126)u ) • (cid:126)v (cid:54) |−(cid:126)u | |(cid:126)v | = |(cid:126)u | |(cid:126)v |
+
+The equality condition is Exercise 19.
+
+QED
+
+The Cauchy-Schwarz inequality assures us that the next deﬁnition makes
+
+sense because the fraction has absolute value less than or equal to one.
+
+2.7 Deﬁnition The angle between two nonzero vectors (cid:126)u,(cid:126)v ∈ Rn is
+
+θ = arccos(
+
+(cid:126)u • (cid:126)v
+|(cid:126)u | |(cid:126)v |
+
+)
+
+(if either is the zero vector, we take the angle to be right).
+
+2.8 Corollary Vectors from Rn are orthogonal, that is, perpendicular, if and only
+if their dot product is zero. They are parallel if and only if their dot product
+equals the product of their lengths.
+
+2.9 Example These vectors are orthogonal.(cid:32)
+
+1
+−1
+
+(cid:33)
+
+(cid:32)
+
+•
+
+(cid:33)
+
+1
+1
+
+= 0
+
+We’ve drawn the arrows away from canonical position but nevertheless the
+vectors are orthogonal.
+2.10 Example The R3 angle formula given at the start of this subsection is a
+special case of the deﬁnition. Between these two
+
+Section II. Linear Geometry
+
+47
+
+
+
+0
+
+3
+2
+
+
+
+1
+
+1
+0
+
+the angle is
+
+arccos(
+
+√
+(1)(0) + (1)(3) + (0)(2)
+12 + 12 + 02
+
+√
+02 + 32 + 22
+
+) = arccos(
+
+3√
+√
+13
+2
+
+)
+
+approximately 0.94 radians. Notice that these vectors are not orthogonal. Al-
+though the yz-plane may appear to be perpendicular to the xy-plane, in fact
+the two planes are that way only in the weak sense that there are vectors in each
+orthogonal to all vectors in the other. Not every vector in each is orthogonal to
+all vectors in the other.
+
+Exercises
+(cid:88) 2.11 Find the length of each vector.
+
+(cid:88) 2.13 [Ohanian] During maneuvers preceding the Battle of Jutland, the British battle
+cruiser Lion moved as follows (in nautical miles): 1.2 miles north, 6.1 miles 38
+degrees east of south, 4.0 miles at 89 degrees east of north, and 6.5 miles at 31
+degrees east of north. Find the distance between starting and ending positions.
+(Ignore the earth’s curvature.)
+2.14 Find k so that these two vectors are perpendicular.
+
+(cid:18)k
+
+(cid:19)
+
+(cid:18)4
+
+(cid:19)
+
+1
+
+3
+
+2.15 Describe the set of vectors in R3 orthogonal to the one with entires 1, 3, and −1.
+(a) Find the angle between the diagonal of the unit square in R2 and one of
+
+(cid:88) 2.16
+
+the axes.
+(b) Find the angle between the diagonal of the unit cube in R3 and one of the
+axes.
+
+(a)
+
+(b)
+
+(cid:19)
+
+(cid:19)
+
+(cid:18)3
+(cid:18)1
+
+1
+
+2
+
+(cid:18)1
+
+(cid:19)
+
+,
+
+4
+
+(a)
+
+(b)
+
+
+
+ 1
+
+−1
+1
+0
+
+(cid:18)−1
+
+2
+
+(cid:19)
+1
+
+2
+0
+
+(c)
+
+ ,
+
+0
+ (d)
+4
+ (c)
+0
+(cid:19)
+(cid:18)1
+
+1
+1
+
+0
+0
+
+ (e)
+
+ 1
+
+,
+
+2
+
+4
+−1
+
+4
+1
+
+(cid:88) 2.12 Find the angle between each two, if it is deﬁned.
+
+48
+
+Chapter One. Linear Systems
+
+(c) Find the angle between the diagonal of the unit cube in Rn and one of the
+axes.
+
+(d) What is the limit, as n goes to∞, of the angle between the diagonal of the
+
+unit cube in Rn and one of the axes?
+2.17 Is any vector perpendicular to itself?
+
+(cid:88) 2.18 Describe the algebraic properties of dot product.
+
+(a) Is it right-distributive over addition: ((cid:126)u + (cid:126)v) • (cid:126)w = (cid:126)u • (cid:126)w + (cid:126)v • (cid:126)w?
+(b) Is it left-distributive (over addition)?
+(c) Does it commute?
+(d) Associate?
+(e) How does it interact with scalar multiplication?
+
+As always, you must back any assertion with either a proof or an example.
+2.19 Verify the equality condition in Corollary 2.6, the Cauchy-Schwarz Inequal-
+ity.
+(a) Show that if (cid:126)u is a negative scalar multiple of (cid:126)v then (cid:126)u • (cid:126)v and (cid:126)v • (cid:126)u are less
+than or equal to zero.
+(b) Show that |(cid:126)u • (cid:126)v| = |(cid:126)u | |(cid:126)v | if and only if one vector is a scalar multiple of the
+other.
+
+2.20 Suppose that (cid:126)u • (cid:126)v = (cid:126)u • (cid:126)w and (cid:126)u (cid:54)= (cid:126)0. Must (cid:126)v = (cid:126)w?
+
+(cid:88) 2.21 Does any vector have length zero except a zero vector? (If “yes”, produce an
+
+example. If “no”, prove it.)
+
+(cid:88) 2.22 Find the midpoint of the line segment connecting (x1, y1) with (x2, y2) in R2.
+
+Generalize to Rn.
+2.23 Show that if (cid:126)v (cid:54)= (cid:126)0 then (cid:126)v/|(cid:126)v | has length one. What if (cid:126)v = (cid:126)0?
+2.24 Show that if r (cid:62) 0 then r(cid:126)v is r times as long as (cid:126)v. What if r < 0?
+
+(cid:88) 2.25 A vector (cid:126)v ∈ Rn of length one is a unit vector. Show that the dot product
+of two unit vectors has absolute value less than or equal to one. Can ‘less than’
+happen? Can ‘equal to’?
+2.26 Prove that |(cid:126)u + (cid:126)v |2 + |(cid:126)u − (cid:126)v |2 = 2|(cid:126)u |2 + 2|(cid:126)v |2.
+2.27 Show that if (cid:126)x • (cid:126)y = 0 for every (cid:126)y then (cid:126)x = (cid:126)0.
+2.28 Is |(cid:126)u1 + ··· + (cid:126)un| (cid:54) |(cid:126)u1| + ··· + |(cid:126)un|? If it is true then it would generalize the
+Triangle Inequality.
+2.29 What is the ratio between the sides in the Cauchy-Schwarz inequality?
+2.30 Why is the zero vector deﬁned to be perpendicular to every vector?
+2.31 Describe the angle between two vectors in R1.
+2.32 Give a simple necessary and suﬃcient condition to determine whether the angle
+between two vectors is acute, right, or obtuse.
+
+(cid:88) 2.33 Generalize to Rn the converse of the Pythagorean Theorem, that if (cid:126)u and (cid:126)v are
+
+perpendicular then |(cid:126)u + (cid:126)v |2 = |(cid:126)u |2 + |(cid:126)v |2.
+2.34 Show that |(cid:126)u | = |(cid:126)v | if and only if (cid:126)u + (cid:126)v and (cid:126)u − (cid:126)v are perpendicular. Give an
+example in R2.
+
+Section II. Linear Geometry
+
+49
+
+2.35 Show that if a vector is perpendicular to each of two others then it is perpen-
+dicular to each vector in the plane they generate. (Remark. They could generate a
+degenerate plane — a line or a point — but the statement remains true.)
+2.36 Prove that, where (cid:126)u,(cid:126)v ∈ Rn are nonzero vectors, the vector
+
+(cid:126)u
+|(cid:126)u |
+
++
+
+(cid:126)v
+|(cid:126)v |
+
+bisects the angle between them. Illustrate in R2.
+2.37 Verify that the deﬁnition of angle is dimensionally correct: (1) if k > 0 then the
+cosine of the angle between k(cid:126)u and (cid:126)v equals the cosine of the angle between (cid:126)u and
+(cid:126)v, and (2) if k < 0 then the cosine of the angle between k(cid:126)u and (cid:126)v is the negative of
+the cosine of the angle between (cid:126)u and (cid:126)v.
+
+(cid:88) 2.38 Show that the inner product operation is linear: for (cid:126)u,(cid:126)v, (cid:126)w ∈ Rn and k, m ∈ R,
+
+(cid:126)u • (k(cid:126)v + m(cid:126)w) = k((cid:126)u • (cid:126)v) + m((cid:126)u • (cid:126)w).
+
+(cid:88) 2.39 The geometric mean of two positive reals x, y is
+
+√
+xy. It is analogous to the
+arithmetic mean (x + y)/2. Use the Cauchy-Schwarz inequality to show that the
+geometric mean of any x, y ∈ R is less than or equal to the arithmetic mean.
+
+? 2.40 [Cleary] Astrologers claim to be able to recognize trends in personality and
+fortune that depend on an individual’s birthday by somehow incorporating where
+the stars were 2000 years ago. Suppose that instead of star-gazers coming up
+with stuﬀ, math teachers who like linear algebra (we’ll call them vectologers) had
+come up with a similar system as follows: Consider your birthday as a row vector
+(month day). For instance, I was born on July 12 so my vector would be (7 12).
+Vectologers have made the rule that how well individuals get along with each other
+depends on the angle between vectors. The smaller the angle, the more harmonious
+the relationship.
+(a) Find the angle between your vector and mine, in radians.
+(b) Would you get along better with me, or with a professor born on September 19?
+(c) For maximum harmony in a relationship, when should the other person be
+born?
+(d) Is there a person with whom you have a “worst case” relationship, i.e., your
+vector and theirs are orthogonal? If so, what are the birthdate(s) for such people?
+If not, explain why not.
+
+? 2.41 [Am. Math. Mon., Feb. 1933] A ship is sailing with speed and direction (cid:126)v1; the
+wind blows apparently (judging by the vane on the mast) in the direction of a
+vector (cid:126)a; on changing the direction and speed of the ship from (cid:126)v1 to (cid:126)v2 the apparent
+wind is in the direction of a vector (cid:126)b.
+
+2.42 Verify the Cauchy-Schwarz inequality by ﬁrst proving Lagrange’s identity:
+
+(cid:33)(cid:32) (cid:88)
+
+(cid:33)
+
+(cid:88)
+
+Find the vector velocity of the wind.
+
+(cid:32) (cid:88)
+
+(cid:33)2
+
+(cid:32) (cid:88)
+
+ajbj
+
+=
+
+1(cid:54)j(cid:54)n
+
+a2
+j
+
+1(cid:54)j(cid:54)n
+
+b2
+j
+
+−
+
+1(cid:54)j(cid:54)n
+
+1(cid:54)k<j(cid:54)n
+
+(akbj − ajbk)2
+
+and then noting that the ﬁnal term is positive. This result is an improvement over
+Cauchy-Schwarz because it gives a formula for the diﬀerence between the two sides.
+Interpret that diﬀerence in R2.
+
+50
+
+Chapter One. Linear Systems
+
+III Reduced Echelon Form
+
+After developing the mechanics of Gauss’s Method, we observed that it can be
+done in more than one way. For example, from this matrix
+
+(cid:32)
+
+(cid:32)
+
+2
+4
+
+2
+3
+
+(cid:33)
+
+(cid:33)
+
+we could derive any of these three echelon form matrices.
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+2
+2
+0 −1
+
+1
+1
+0 −1
+
+2
+0
+0 −1
+
+The ﬁrst results from −2ρ1 + ρ2. The second comes from doing (1/2)ρ1 and
+then −4ρ1 + ρ2. The third comes from −2ρ1 + ρ2 followed by 2ρ2 + ρ1 (after
+the ﬁrst row combination the matrix is already in echelon form so the second
+one is extra work but it is nonetheless a legal row operation).
+
+The fact that echelon form is not unique raises questions. Will any two
+echelon form versions of a linear system have the same number of free variables?
+If yes, will the two have exactly the same free variables? In this section we will
+give a way to decide if one linear system can be derived from another by row
+operations. The answers to both questions, both ‘yes’, will follow from this.
+
+III.1 Gauss-Jordan Reduction
+
+Here is an extension of Gauss’s Method that has some advantages.
+1.1 Example To solve
+
+we can start as usual by reducing it to echelon form.
+
+x + y − 2z = −2
+y + 3z = 7
+− z = −1
+
+x
+
+ ρ2+ρ3−→
+
+1
+
+−ρ1+ρ3−→
+
+1 −2 −2
+7
+0
+1
+0 −1
+1
+
+3
+1
+
+
+
+1 −2 −2
+7
+1
+0
+8
+
+3
+4
+
+We can keep going to a second stage by making the leading entries into 1’s
+
+0
+0
+
+1
+
+
+1
+
+0
+0
+
+(1/4)ρ3−→
+
+1 −2 −2
+7
+1
+0
+2
+
+3
+1
+
+Section III. Reduced Echelon Form
+
+51
+
+and then to a third stage that uses the leading entries to eliminate all of the
+other entries in each column by combining upwards.
+
+1
+
+0
+0
+
+ −ρ2+ρ1−→
+
+1
+
+0
+0
+
+1
+1
+0
+
+0
+0
+1
+
+2
+1
+2
+
+
+
+0
+1
+0
+
+0
+0
+1
+
+1
+1
+2
+
+−3ρ3+ρ2−→
+
+2ρ3+ρ1
+
+The answer is x = 1, y = 1, and z = 2.
+
+Using one entry to clear out the rest of a column is pivoting on that entry.
+Note that the row combination operations in the ﬁrst stage move left to right,
+from column one to column three, while the combination operations in the third
+stage move right to left.
+1.2 Example The middle stage operations that turn the leading entries into 1’s
+don’t interact so we can combine multiple ones into a single step.
+
+(cid:32)
+
+(cid:33)
+
+2
+1
+4 −2
+
+7
+6
+
+(cid:32)
+(cid:32)
+
+(cid:33)
+(cid:33)
+(cid:33)
+
+1
+
+2
+7
+0 −4 −8
+
+1
+0
+
+(cid:32)
+
+1/2
+
+1
+
+1
+0
+
+0
+1
+
+7/2
+2
+
+5/2
+2
+
+−2ρ1+ρ2−→
+
+(1/2)ρ1−→
+
+(−1/4)ρ2
+
+−(1/2)ρ2+ρ1
+
+−→
+
+The answer is x = 5/2 and y = 2.
+
+This extension of Gauss’s Method is the Gauss-Jordan Method or Gauss-
+
+Jordan reduction.
+
+1.3 Deﬁnition A matrix or linear system is in reduced echelon form if, in addition
+to being in echelon form, each leading entry is a 1 and is the only nonzero entry
+in its column.
+
+The cost of using Gauss-Jordan reduction to solve a system is the additional
+arithmetic. The beneﬁt is that we can just read oﬀ the solution set description.
+In any echelon form system, reduced or not, we can read oﬀ when the system
+has an empty solution set because there is a contradictory equation. We can
+read oﬀ when the system has a one-element solution set because there is no
+contradiction and every variable is the leading variable in some row. And, we
+can read oﬀ when the system has an inﬁnite solution set because there is no
+contradiction and at least one variable is free.
+
+However, in reduced echelon form we can read oﬀ not just the size of the
+solution set but also its description. We have no trouble describing the solution
+
+52
+
+Chapter One. Linear Systems
+
+set when it is empty, of course. Example 1.1 and 1.2 show how in a single
+element solution set case the single element is in the column of constants. The
+next example shows how to read the parametrization of an inﬁnite solution set.
+1.4 Example
+
+
+
+0 −9/2
+0
+3
+−2
+1
+
+0 −1/2
+1
+1/3
+0
+
+0
+
+2
+
+0
+0
+
+ −ρ2+ρ3−→
+
+2
+
+0
+0
+
+6
+3
+3
+
+1
+1
+1
+
+2
+4
+2
+
+5
+1
+5
+
+(1/2)ρ1−→
+
+(1/3)ρ2
+−(1/2)ρ3
+
+As a linear system this is
+
+−(4/3)ρ3+ρ2
+
+−→
+
+−ρ3+ρ1
+
+5
+1
+4
+
+
+1
+
+0
+0
+
+6
+3
+0
+
+2
+1
+4
+1
+0 −2
+
+−3ρ2+ρ1−→
+
+x1
+
+− 1/2x3
+x2 + 1/3x3
+
+= −9/2
+=
+3
+x4 = −2
+
+so a solution set description is this.
+
+ =
+
+x1
+
+x2
+x3
+x4
+
+ +
+−9/2
+
+3
+0
+−2
+
+ 1/2
+
+−1/3
+
+1
+0
+
+ x3 | x3 ∈ R }
+
+S = {
+
+Thus echelon form isn’t some kind of one best form for systems. Other forms,
+such as reduced echelon form, have advantages and disadvantages. Instead of
+picturing linear systems (and the associated matrices) as things we operate
+on, always directed toward the goal of echelon form, we can think of them as
+interrelated when we can get from one to another by row operations. The rest
+of this subsection develops this relationship.
+
+1.5 Lemma Elementary row operations are reversible.
+
+Proof For any matrix A, the eﬀect of swapping rows is reversed by swapping
+them back, multiplying a row by a nonzero k is undone by multiplying by 1/k,
+and adding a multiple of row i to row j (with i (cid:54)= j) is undone by subtracting
+the same multiple of row i from row j.
+
+A
+
+ρi↔ρj−→ ρj↔ρi−→ A
+
+kρi−→ (1/k)ρi−→ A
+(We need the i (cid:54)= j condition; see Exercise 17.)
+
+A
+
+kρi+ρj−→ −kρi+ρj−→ A
+
+A
+
+QED
+
+Section III. Reduced Echelon Form
+
+53
+
+Again, the point of view that we are developing, supported now by the lemma,
+is that the term ‘reduces to’ is misleading: where A −→ B, we shouldn’t think
+of B as after A or simpler than A. Instead we should think of the two matrices
+as interrelated. Below is a picture. It shows the matrices from the start of this
+section and their reduced echelon form version in a cluster, as inter-reducible.
+
+(cid:18)2
+
+4
+
+(cid:19)
+
+2
+3
+
+(cid:19)
+
+(cid:18)2
+
+0
+0 −1
+
+(cid:18)1
+
+0
+
+(cid:19)
+
+0
+1
+
+(cid:19)
+
+(cid:18)1
+(cid:18)2
+
+1
+0 −1
+
+2
+0 −1
+
+(cid:19)
+
+We say that matrices that reduce to each other are equivalent with respect
+to the relationship of row reducibility. The next result justiﬁes this, using the
+deﬁnition of an equivalence.∗
+
+1.6 Lemma Between matrices, ‘reduces to’ is an equivalence relation.
+
+Proof We must check the conditions (i) reﬂexivity, that any matrix reduces
+to itself, (ii) symmetry, that if A reduces to B then B reduces to A, and
+(iii) transitivity, that if A reduces to B and B reduces to C then A reduces to C.
+
+Reﬂexivity is easy; any matrix reduces to itself in zero-many operations.
+The relationship is symmetric by the prior lemma — if A reduces to B by
+
+some row operations then also B reduces to A by reversing those operations.
+
+For transitivity, suppose that A reduces to B and that B reduces to C.
+Following the reduction steps from A → ··· → B with those from B → ··· → C
+QED
+gives a reduction from A to C.
+
+1.7 Deﬁnition Two matrices that are interreducible by elementary row operations
+are row equivalent.
+
+The diagram below shows the collection of all matrices as a box. Inside that
+box each matrix lies in a class. Matrices are in the same class if and only if they
+are interreducible. The classes are disjoint — no matrix is in two distinct classes.
+We have partitioned the collection of matrices into row equivalence classes.†
+
+A
+B
+
+. . .
+
+∗ More information on equivalence relations is in the appendix.
+† More information on partitions and class representatives is in the appendix.
+
+54
+
+Chapter One. Linear Systems
+
+One of the classes is the cluster of interrelated matrices from the start of this
+section pictured earlier, expanded to include all of the nonsingular 2×2 matrices.
+The next subsection proves that the reduced echelon form of a matrix is
+unique. Rephrased in terms of the row-equivalence relationship, we shall prove
+that every matrix is row equivalent to one and only one reduced echelon form
+matrix. In terms of the partition what we shall prove is: every equivalence class
+contains one and only one reduced echelon form matrix. So each reduced echelon
+form matrix serves as a representative of its class.
+
+Exercises
+(cid:88) 1.8 Use Gauss-Jordan reduction to solve each system.
+
+(a) x + y = 2
+x − y = 0
+
+(b) x
+
+2x + 2y
+
+− z = 4
+= 1
+
+(c) 3x − 2y = 1
+6x + y = 1/2
+
+(d) 2x − y
+
+= −1
+x + 3y − z = 5
+y + 2z = 5
+
+1.9 Do Gauss-Jordan reduction.
+
+(a) x + y − z = 3
+2x − y − z = 1
+3x + y + 2z = 0
+
+(b) x + y + 2z = 0
+2x − y + z = 1
+4x + y + 5z = 1
+
+(cid:88) 1.10 Find the reduced echelon form of each matrix.
+
+ (c)
+
+1
+
+1
+3
+
+
+
+2
+5
+2
+
+0
+4
+4
+
+3
+2
+8
+
+1
+1
+1
+
+(b)
+
+3
+0
+
+1
+2
+4
+−1 −3 −3
+
+(cid:88) 1.12 Find each solution set by using Gauss-Jordan reduction and then reading oﬀ
+
+(a)
+
+(d)
+
+1
+
+(cid:18)2
+0
+ 0
+
+0
+1
+
+(cid:19)
+
+1
+3
+
+1
+0
+5
+
+3
+5
+1
+
+2
+6
+5
+
+ 1
+
+ (b)
+
+1.11 Get the reduced echelon form of each.
+1
+2
+0
+
+2
+2 −1
+−2 −1
+
+2
+−1
+
+3
+6
+0
+
+1
+1
+0
+
+(a)
+
+ 1
+
+
+
+the parametrization.
+(a) 2x + y − z = 1
+= 3
+
+4x − y
+
+(b) x
+
+− z
+
+= 1
+y + 2z − w = 3
+x + 2y + 3z − w = 7
+
+(c) x − y + z
+
+y
+
+= 0
++ w = 0
+3x − 2y + 3z + w = 0
+− w = 0
+
+−y
+
+(d) a + 2b + 3c + d − e = 1
+3a − b + c + d + e = 3
+
+Section III. Reduced Echelon Form
+
+55
+
+1.13 Give two distinct echelon form versions of this matrix.
+
+2
+
+6
+1
+
+
+
+3
+2
+5
+
+1
+4
+5
+
+1
+1
+1
+
+(cid:88) 1.14 List the reduced echelon forms possible for each size.
+
+(a) 2×2
+
+(b) 2×3
+
+(c) 3×2
+
+(d) 3×3
+
+(cid:88) 1.15 What results from applying Gauss-Jordan reduction to a nonsingular matrix?
+1.16 [Cleary] Consider the following relationship on the set of 2×2 matrices: we say
+that A is sum-what like B if the sum of all of the entries in A is the same as the
+sum of all the entries in B. For instance, the zero matrix would be sum-what like
+the matrix whose ﬁrst row had two sevens, and whose second row had two negative
+sevens. Prove or disprove that this is an equivalence relation on the set of 2×2
+matrices.
+1.17 The proof of Lemma 1.5 contains a reference to the i (cid:54)= j condition on the row
+combination operation.
+(a) Write down a 2×2 matrix with nonzero entries, and show that the −1· ρ1 + ρ1
+operation is not reversed by 1 · ρ1 + ρ1.
+(b) Expand the proof of that lemma to make explicit exactly where it uses the
+i (cid:54)= j condition on combining.
+
+1.18 [Cleary] Consider the set of students in a class. Which of the following re-
+lationships are equivalence relations? Explain each answer in at least a sen-
+tence.
+(a) Two students x, y are related if x has taken at least as many math classes as y.
+(b) Students x, y are related if they have names that start with the same letter.
+1.19 Show that each of these is an equivalence on the set of 2×2 matrices. Describe
+the equivalence classes.
+(a) Two matrices are related if they have the same product down the diagonal,
+that is, if the product of the entries in the upper left and lower right are equal.
+(b) Two matrices are related if they both have at least one entry that is a 1, or if
+neither does.
+
+1.20 Show that each is not an equivalence on the set of 2×2 matrices.
+
+(a) Two matrices A, B are related if a1,1 = −b1,1.
+(b) Two matrices are related if the sum of their entries are within 5, that is, A is
+related to B if |(a1,1 + ··· + a2,2) − (b1,1 + ··· + b2,2)| < 5.
+
+III.2 The Linear Combination Lemma
+
+We will close this chapter by proving that every matrix is row equivalent to one
+and only one reduced echelon form matrix. The ideas here will reappear, and be
+further developed, in the next chapter.
+
+56
+
+Chapter One. Linear Systems
+
+The crucial observation concerns how row operations act to transform one
+
+matrix into another: the new rows are linear combinations of the old.
+2.1 Example Consider this Gauss-Jordan reduction.
+
+(cid:32)
+
+(cid:33)
+
+2
+1
+
+1
+3
+
+0
+5
+
+−(1/2)ρ1+ρ2
+
+−→
+
+(cid:32)
+
+1
+0
+
+(1/2)ρ1−→
+
+(2/5)ρ2
+
+(cid:32)
+
+2
+0
+
+1/2
+
+(cid:32)
+
+1
+
+(cid:33)
+
+(cid:33)
+
+0
+5
+
+5/2
+
+1
+
+(cid:33)
+
+0
+2
+
+−(1/2)ρ2+ρ1
+
+−→
+
+1
+0
+
+0 −1
+2
+1
+
+Denoting those matrices A → D → G → B and writing the rows of A as α1 and
+α2, etc., we have this.
+
+(cid:32)
+
+(cid:33)
+
+α1
+α2
+
+(cid:32)
+
+(cid:32)
+
+−(1/2)ρ1+ρ2
+
+−→
+
+(cid:32)
+
+δ1 = α1
+δ2 = −(1/2)α1 + α2
+
+(1/2)ρ1−→
+
+(2/5)ρ2
+
+γ1 = (1/2)α1
+γ2 = −(1/5)α1 + (2/5)α2
+
+−(1/2)ρ2+ρ1
+
+−→
+
+β1 = (3/5)α1 − (1/5)α2
+β2 = −(1/5)α1 + (2/5)α2
+
+(cid:33)
+(cid:33)
+
+(cid:33)
+
+2.2 Example The fact that Gaussian operations combine rows linearly also holds
+if there is a row swap. With this A, D, G, and B
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+ρ1↔ρ2−→
+
+1
+0
+
+1
+2
+
+(1/2)ρ2−→
+
+1
+0
+
+1
+1
+
+−ρ2+ρ1−→
+
+1
+0
+
+0
+1
+
+(cid:32)
+
+(cid:33)
+
+0
+1
+
+2
+1
+
+(cid:33)
+
+(cid:32)
+
+(cid:126)α1
+(cid:126)α2
+
+we get these linear relationships.
+
+(cid:32) (cid:126)δ1 = (cid:126)α2
+
+(cid:126)δ2 = (cid:126)α1
+
+ρ1↔ρ2−→
+
+(cid:33)
+
+(1/2)ρ2−→
+
+−ρ2+ρ1−→
+
+(cid:33)
+
+(cid:32)
+(cid:32) (cid:126)β1 = (−1/2)(cid:126)α1 + 1 · (cid:126)α2
+
+(cid:126)γ1 = (cid:126)α2
+(cid:126)γ2 = (1/2)(cid:126)α1
+
+(cid:33)
+
+(cid:126)β2 = (1/2)(cid:126)α1
+
+In summary, Gauss’s Method systematically ﬁnds a suitable sequence of
+
+linear combinations of the rows.
+
+2.3 Lemma (Linear Combination Lemma) A linear combination of linear combina-
+tions is a linear combination.
+
+Section III. Reduced Echelon Form
+57
+Proof Given the set c1,1x1 + ··· + c1,nxn through cm,1x1 + ··· + cm,nxn of
+linear combinations of the x’s, consider a combination of those
+
+d1(c1,1x1 + ··· + c1,nxn) + ··· + dm(cm,1x1 + ··· + cm,nxn)
+
+where the d’s are scalars along with the c’s. Distributing those d’s and regrouping
+gives
+
+= (d1c1,1 + ··· + dmcm,1)x1 + ··· + (d1c1,n + ··· + dmcm,n)xn
+
+which is also a linear combination of the x’s.
+
+QED
+
+2.4 Corollary Where one matrix reduces to another, each row of the second is a
+linear combination of the rows of the ﬁrst.
+
+Proof For any two interreducible matrices A and B there is some minimum
+number of row operations that will take one to the other. We proceed by
+induction on that number.
+
+In the base step, that we can go from the ﬁrst to the second using zero
+reduction operations, the two matrices are equal. Then each row of B is trivially
+a combination of A’s rows (cid:126)βi = 0 · (cid:126)α1 + ··· + 1 · (cid:126)αi + ··· + 0 · (cid:126)αm.
+
+For the inductive step assume the inductive hypothesis: with k (cid:62) 0, any
+matrix that can be derived from A in k or fewer operations has rows that are
+linear combinations of A’s rows. Consider a matrix B such that reducing A to B
+requires k + 1 operations. In that reduction there is a next-to-last matrix G, so
+that A −→ ··· −→ G −→ B. The inductive hypothesis applies to this G because
+it is only k steps away from A. That is, each row of G is a linear combination of
+the rows of A.
+
+We will verify that the rows of B are linear combinations of the rows of G.
+Then the Linear Combination Lemma, Lemma 2.3, applies to show that the
+rows of B are linear combinations of the rows of A.
+
+If the row operation taking G to B is a swap then the rows of B are just the
+rows of G reordered and each row of B is a linear combination of the rows of G.
+If the operation taking G to B is multiplication of a row by a scalar cρi then
+(cid:126)βi = c(cid:126)γi and the other rows are unchanged. Finally, if the row operation is
+adding a multiple of one row to another rρi + ρj then only row j of B diﬀers from
+the matching row of G, and (cid:126)βj = rγi + γj, which is indeed a linear combinations
+of the rows of G.
+
+tion follows by the principle of mathematical induction.
+
+Because we have proved both a base step and an inductive step, the proposi-
+QED
+We now have the insight that Gauss’s Method builds linear combinations
+of the rows. But of course its goal is to end in echelon form, since that is a
+
+58
+
+Chapter One. Linear Systems
+
+particularly basic version of a linear system, as it has isolated the variables. For
+instance, in this matrix
+
+2
+
+0
+0
+0
+
+R =
+
+
+
+0
+1
+0
+1
+
+3
+0
+0
+0
+
+7
+1
+0
+0
+
+8
+5
+3
+0
+
+0
+1
+3
+2
+
+x1 has been removed from x5’s equation. That is, Gauss’s Method has made
+x5’s row in some way independent of x1’s row.
+
+The following result makes this intuition precise. What Gauss’s Method
+
+eliminates is linear relationships among the rows.
+
+2.5 Lemma In an echelon form matrix, no nonzero row is a linear combination
+of the other nonzero rows.
+
+Proof Let R be an echelon form matrix and consider its non-(cid:126)0 rows. First
+observe that if we have a row written as a combination of the others (cid:126)ρi =
+c1(cid:126)ρ1 +··· + ci−1(cid:126)ρi−1 + ci+1(cid:126)ρi+1 +··· + cm(cid:126)ρm then we can rewrite that equation
+as
+
+(cid:126)0 = c1(cid:126)ρ1 + ··· + ci−1(cid:126)ρi−1 + ci(cid:126)ρi + ci+1(cid:126)ρi+1 + ··· + cm(cid:126)ρm
+
+(∗)
+
+where not all the coeﬃcients are zero; speciﬁcally, ci = −1. The converse holds
+also: given equation (∗) where some ci (cid:54)= 0 we could express (cid:126)ρi as a combination
+of the other rows by moving ci(cid:126)ρi to the left and dividing by −ci. Therefore we
+will have proved the theorem if we show that in (∗) all of the coeﬃcients are 0.
+For that we use induction on the row number i.
+
+The base case is the ﬁrst row i = 1 (if there is no such nonzero row, so that
+R is the zero matrix, then the lemma holds vacuously). Let (cid:96)i be the column
+number of the leading entry in row i. Consider the entry of each row that is in
+column (cid:96)1. Equation (∗) gives this.
+
+0 = c1r1,(cid:96)1 + c2r2,(cid:96)1 + ··· + cmrm,(cid:96)1
+
+(∗∗)
+
+The matrix is in echelon form so every row after the ﬁrst has a zero entry in that
+column r2,(cid:96)1 = ··· = rm,(cid:96)1 = 0. Thus equation (∗∗) shows that c1 = 0, because
+r1,(cid:96)1 (cid:54)= 0 as it leads the row.
+The inductive step is much the same as the base step. Again consider
+equation (∗). We will prove that if the coeﬃcient ci is 0 for each row index
+i ∈ { 1, . . . , k } then ck+1 is also 0. We focus on the entries from column (cid:96)k+1.
+
+0 = c1r1,(cid:96)k+1 + ··· + ck+1rk+1,(cid:96)k+1 + ··· + cmrm,(cid:96)k+1
+
+Section III. Reduced Echelon Form
+
+59
+
+By the inductive hypothesis c1, . . . ck are all 0 so this reduces to the equation
+0 = ck+1rk+1,(cid:96)k+1 + ··· + cmrm,(cid:96)k+1. The matrix is in echelon form so the
+entries rk+2,(cid:96)k+1, . . . , rm,(cid:96)k+1 are all 0. Thus ck+1 = 0, because rk+1,(cid:96)k+1 (cid:54)= 0
+QED
+as it is the leading entry.
+
+2.6 Theorem Each matrix is row equivalent to a unique reduced echelon form
+matrix.
+
+Proof [Yuster] Fix a number of rows m. We will proceed by induction on the
+number of columns n.
+
+The base case is that the matrix has n = 1 column. If this is the zero matrix
+then its echelon form is the zero matrix. If instead it has any nonzero entries
+then when the matrix is brought to reduced echelon form it must have at least
+one nonzero entry, which must be a 1 in the ﬁrst row. Either way, its reduced
+echelon form is unique.
+
+For the inductive step we assume that n > 1 and that all m row matrices
+having fewer than n columns have a unique reduced echelon form. Consider
+an m×n matrix A and suppose that B and C are two reduced echelon form
+matrices derived from A. We will show that these two must be equal.
+
+Let ˆA be the matrix consisting of the ﬁrst n − 1 columns of A. Observe
+that any sequence of row operations that bring A to reduced echelon form will
+also bring ˆA to reduced echelon form. By the inductive hypothesis this reduced
+echelon form of ˆA is unique, so if B and C diﬀer then the diﬀerence must occur
+in column n.
+
+We ﬁnish the inductive step, and the argument, by showing that the two
+cannot diﬀer only in that column. Consider a homogeneous system of equations
+for which A is the matrix of coeﬃcients.
+
+By Theorem One.I.1.5 the set of solutions to that system is the same as the set
+of solutions to B’s system
+
+...
+
+...
+
+(∗)
+
+(∗∗)
+
+a1,1x1 + a1,2x2 + ··· + a1,nxn = 0
+a2,1x1 + a2,2x2 + ··· + a2,nxn = 0
+
+am,1x1 + am,2x2 + ··· + am,nxn = 0
+
+b1,1x1 + b1,2x2 + ··· + b1,nxn = 0
+b2,1x1 + b2,2x2 + ··· + b2,nxn = 0
+
+bm,1x1 + bm,2x2 + ··· + bm,nxn = 0
+
+60
+
+and to C’s.
+
+Chapter One. Linear Systems
+
+c1,1x1 + c1,2x2 + ··· + c1,nxn = 0
+c2,1x1 + c2,2x2 + ··· + c2,nxn = 0
+
+cm,1x1 + cm,2x2 + ··· + cm,nxn = 0
+
+...
+
+(∗∗∗)
+
+With B and C diﬀerent only in column n, suppose that they diﬀer in row i.
+Subtract row i of (∗∗∗) from row i of (∗∗) to get the equation (bi,n −ci,n)·xn = 0.
+We’ve assumed that bi,n (cid:54)= ci,n so xn = 0. Thus in (∗∗) and (∗∗∗) the n-th
+column contains a leading entry, or else the variable xn would be free. That’s a
+contradiction because with B and C equal on the ﬁrst n − 1 columns, the leading
+entries in the n-th column would have to be in the same row, and with both
+matrices in reduced echelon form, both leading entries would have to be 1, and
+QED
+would have to be the only nonzero entries in that column. So B = C.
+That result answers the two questions from this section’s introduction: do
+any two echelon form versions of a linear system have the same number of free
+variables, and if so are they exactly the same variables? We get from any echelon
+form version to the reduced echelon form by eliminating up, so any echelon form
+version of a system has the same free variables as the reduced echelon form, and
+therefore uniqueness of reduced echelon form gives that the same variables are
+free in all echelon form version of a system. Thus both questions are answered
+“yes.” There is no linear system and no combination of row operations such that,
+say, we could solve the system one way and get y and z free but solve it another
+way and get y and w free.
+
+We close with a recap. In Gauss’s Method we start with a matrix and then
+derive a sequence of other matrices. We deﬁned two matrices to be related if we
+can derive one from the other. That relation is an equivalence relation, called
+row equivalence, and so partitions the set of all matrices into row equivalence
+classes.
+
+(cid:18)
+(cid:18)
+
+1
+2
+
+3(cid:19)
+3(cid:19)
+
+7
+
+1
+0
+
+1
+
+. . .
+
+(There are inﬁnitely many matrices in the pictured class, but we’ve only got
+room to show two.) We have proved there is one and only one reduced echelon
+form matrix in each row equivalence class. So the reduced echelon form is a
+canonical form∗ for row equivalence: the reduced echelon form matrices are
+
+∗ More information on canonical representatives is in the appendix.
+
+Section III. Reduced Echelon Form
+
+61
+
+representatives of the classes.
+
+(cid:63)
+
+. . .
+
+(cid:63)(cid:18)
+0(cid:19)
+
+1
+0
+
+1
+
+(cid:63)
+
+(cid:63)
+
+The idea here is that one way to understand a mathematical situation is
+by being able to classify the cases that can happen. This is a theme in this
+book and we have seen this several times already. We classiﬁed solution sets of
+linear systems into the no-elements, one-element, and inﬁnitely-many elements
+cases. We also classiﬁed linear systems with the same number of equations as
+unknowns into the nonsingular and singular cases.
+
+Here, where we are investigating row equivalence, we know that the set of all
+matrices breaks into the row equivalence classes and we now have a way to put
+our ﬁnger on each of those classes — we can think of the matrices in a class as
+derived by row operations from the unique reduced echelon form matrix in that
+class.
+
+Put in more operational terms, uniqueness of reduced echelon form lets us
+answer questions about the classes by translating them into questions about
+the representatives. For instance, as promised in this section’s opening, we now
+can decide whether one matrix can be derived from another by row reduction.
+We apply the Gauss-Jordan procedure to both and see if they yield the same
+reduced echelon form.
+2.7 Example These matrices are not row equivalent
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+1 −3
+−2
+6
+
+1 −3
+−2
+5
+
+because their reduced echelon forms are not equal.
+
+2.8 Example Any nonsingular 3×3 matrix Gauss-Jordan reduces to this.
+
+(cid:33)
+
+0
+1
+
+(cid:32)
+
+1 −3
+0
+0
+
+(cid:33)
+1
+
+0
+0
+
+0
+1
+0
+
+1
+0
+
+(cid:32)
+
+
+0
+0
+1
+
+62
+
+Chapter One. Linear Systems
+
+2.9 Example We can describe all the classes by listing all possible reduced echelon
+form matrices. Any 2×2 matrix lies in one of these: the class of matrices row
+equivalent to this,
+
+the inﬁnitely many classes of matrices row equivalent to one of this type
+
+where a ∈ R (including a = 0), the class of matrices row equivalent to this,
+
+(cid:33)
+(cid:33)
+(cid:33)
+(cid:33)
+
+(cid:32)
+(cid:32)
+(cid:32)
+(cid:32)
+
+0
+0
+
+0
+0
+
+1 a
+0
+0
+
+0
+0
+
+1
+0
+
+1
+0
+
+0
+1
+
+and the class of matrices row equivalent to this
+
+(this is the class of nonsingular 2×2 matrices).
+Exercises
+(cid:88) 2.10 Decide if the matrices are row equivalent.
+
+ ,
+(cid:18) 1
+
+2
+1
+5
+
+−1
+
+1
+
+0
+2
+
+1
+2
+
+
+(cid:18)0
+
+2
+10
+4
+
+,
+
+2
+
+0
+2
+0
+
+1
+2
+
+(cid:19)
+
+(cid:19)
+
+3 −1
+2
+5
+
+1
+(cid:19)
+(cid:19)
+
+2
+10
+
+0
+3 −1
+5 −1
+
+(d)
+
+4
+
+(cid:18)1
+2
+(cid:18)1
+(cid:18)1
+
+1
+4
+
+0
+
+0
+
+(a)
+
+(c)
+
+(e)
+
+(a)
+
+(cid:19)
+
+2
+8
+
+,
+
+1
+
+1
+2
+
+(cid:18)0
+(cid:19)
+ ,
+(cid:18)1
+(cid:18)0
+(cid:18)1
+
+0
+
+,
+
+(b)
+
+2
+
+1 −1
+1
+0
+3 −1
+1
+0
+
+(cid:19)
+
+1
+3
+
+(cid:19)
+
+0
+0
+
+(b)
+
+0
+2
+
+(cid:19)
+
+2
+4
+
+1
+1 −1
+
+2
+1
+
+2.11 Describe the matrices in each of the classes represented in Example 2.9.
+2.12 Describe all matrices in the row equivalence class of these.
+
+(cid:18)1
+
+1
+
+(cid:19)
+
+1
+3
+
+(c)
+
+2.13 How many row equivalence classes are there?
+2.14 Can row equivalence classes contain diﬀerent-sized matrices?
+2.15 How big are the row equivalence classes?
+
+(a) Show that for any matrix of all zeros, the class is ﬁnite.
+(b) Do any other classes contain only ﬁnitely many members?
+
+(cid:88) 2.16 Give two reduced echelon form matrices that have their leading entries in the
+
+same columns, but that are not row equivalent.
+
+(cid:88) 2.17 Show that any two n×n nonsingular matrices are row equivalent. Are any two
+
+singular matrices row equivalent?
+
+(cid:88) 2.18 Describe all of the row equivalence classes containing these.
+
+Section III. Reduced Echelon Form
+
+63
+
+(a) 2× 2 matrices
+(d) 3×3 matrices
+
+(b) 2× 3 matrices
+
+(c) 3× 2 matrices
+
+2.19
+
+(a) Show that a vector (cid:126)β0 is a linear combination of members of the set
+{ (cid:126)β1, . . . , (cid:126)βn } if and only if there is a linear relationship (cid:126)0 = c0(cid:126)β0 + ··· + cn(cid:126)βn
+where c0 is not zero. (Hint. Watch out for the (cid:126)β0 = (cid:126)0 case.)
+(b) Use that to simplify the proof of Lemma 2.5.
+
+(cid:88) 2.20 [Trono] Three truck drivers went into a roadside cafe. One truck driver pur-
+chased four sandwiches, a cup of coﬀee, and ten doughnuts for $8.45. Another
+driver purchased three sandwiches, a cup of coﬀee, and seven doughnuts for $6.30.
+What did the third truck driver pay for a sandwich, a cup of coﬀee, and a doughnut?
+(cid:88) 2.21 The Linear Combination Lemma says which equations can be gotten from
+
+Gaussian reduction of a given linear system.
+(1) Produce an equation not implied by this system.
+
+3x + 4y = 8
+2x + y = 3
+
+(2) Can any equation be derived from an inconsistent system?
+
+2.22 [Hoﬀman & Kunze] Extend the deﬁnition of row equivalence to linear systems.
+Under your deﬁnition, do equivalent systems have the same solution set?
+
+(cid:88) 2.23 In this matrix
+
+1
+
+3
+1
+
+
+
+2
+0
+4
+
+3
+3
+5
+
+the ﬁrst and second columns add to the third.
+(a) Show that remains true under any row operation.
+(b) Make a conjecture.
+(c) Prove that it holds.
+
+Topic
+Computer Algebra Systems
+
+The linear systems in this chapter are small enough that their solution by hand
+is easy. For large systems, including those involving thousands of equations,
+we need a computer. There are special purpose programs such as LINPACK
+for this. Also popular are general purpose computer algebra systems including
+Maple, Mathematica, or MATLAB, and Sage.
+
+For example, in the Topic on Networks, we need to solve this.
+
+i0 − i1 − i2
+
+i1
+
+− i3
+
+i2
+
+− i5
+− i4 + i5
+
+i3 + i4
+
+5i1
+
++ 10i3
+
+2i2
+5i1 − 2i2
+
++ 4i4
+
++ 50i5
+
+= 0
+= 0
+= 0
+− i6 = 0
+= 10
+= 10
+= 0
+
+Doing this by hand would take time and be error-prone. A computer is better.
+Here is that system solved with Sage. (There are many ways to do this; the
+
+one here has the advantage of simplicity.)
+
+sage: var('i0,i1,i2,i3,i4,i5,i6')
+(i0, i1, i2, i3, i4, i5, i6)
+sage: network_system=[i0-i1-i2==0, i1-i3-i5==0,
+....:
+....:
+sage: solve(network_system, i0,i1,i2,i3,i4,i5,i6)
+[[i0 == (7/3), i1 == (2/3), i2 == (5/3), i3 == (2/3),
+
+i2-i4+i5==0, i3+i4-i6==0, 5*i1+10*i3==10,
+2*i2+4*i4==10, 5*i1-2*i2+50*i5==0]
+
+i4 == (5/3), i5 == 0, i6 == (7/3)]]
+
+Magic.
+
+Here is the same system solved under Maple. We enter the array of coeﬃcients
+
+and the vector of constants, and then we get the solution.
+
+> A:=array( [[1,-1,-1,0,0,0,0],
+[0,1,0,-1,0,-1,0],
+[0,0,1,0,-1,1,0],
+[0,0,0,1,1,0,-1],
+[0,5,0,10,0,0,0],
+
+Topic: Computer Algebra Systems
+
+65
+
+[0,0,2,0,4,0,0],
+[0,5,-2,0,0,50,0]] );
+
+> u:=array( [0,0,0,0,10,10,0] );
+> linsolve(A,u);
+5 2
+
+7
+
+2
+
+5
+
+7
+
+[ -, -, -, -, -, 0, - ]
+
+3
+
+3
+
+3 3
+
+3
+
+3
+
+If a system has inﬁnitely many solutions then the program will return a
+
+parametrization.
+
+Exercises
+
+1 Use the computer to solve the two problems that opened this chapter.
+
+(a) This is the Statics problem.
+
+40h + 15c = 100
+
+25c = 50 + 50h
+
+(b) This is the Chemistry problem.
+
+7h = 7j
+
+8h + 1i = 5j + 2k
+
+1i = 3j
+
+3i = 6j + 1k
+
+2 Use the computer to solve these systems from the ﬁrst subsection, or conclude
+‘many solutions’ or ‘no solutions’.
+
+(a) 2x + 2y = 5
+x − 4y = 0
+
+(e)
+
+(b) −x + y = 1
+x + y = 2
+(f) 2x
+
+4y + z = 20
+2x − 2y + z = 0
++ z = 5
+x
+x + y − z = 10
+
+y
+
++ z + w = 5
+− w = −1
+− z − w = 0
+3x
+4x + y + 2z + w = 9
+
+(c) x − 3y + z = 1
+x + y + 2z = 14
+
+(d) −x − y = 1
+−3x − 3y = 2
+
+3 Use the computer to solve these systems from the second subsection.
+
+(a) 3x + 6y = 18
+x + 2y = 6
+
+(d) 2a + b − c = 2
++ c = 3
+= 0
+
+a − b
+
+2a
+
+(b) x + y = 1
+x − y = −1
+
+(c) x1
+
++ x3 = 4
+x1 − x2 + 2x3 = 5
+4x1 − x2 + 5x3 = 17
+= 3
++ w = 4
+x − y + z + w = 1
+
+2x + y
+3x + y + z
+
+(f) x
+
+2x + y
+
+(e) x + 2y − z
+
++ z + w = 4
+− w = 2
+= 7
+
+4 What does the computer give for the solution of the general 2×2 system?
+
+ax + cy = p
+bx + dy = q
+
+Topic
+Accuracy of Computations
+
+Gauss’s Method lends itself to computerization. The code below illustrates. It
+operates on an n×n matrix named a, doing row combinations using the ﬁrst
+row, then the second row, etc.
+for(row=1; row<=n-1; row++){
+
+for(row_below=row+1; row_below<=n; row_below++){
+
+multiplier=a[row_below,row]/a[row,row];
+for(col=row; col<=n; col++){
+
+a[row_below,col]-=multiplier*a[row,col];
+
+}
+
+}
+
+}
+
+This is in the C language. The for(row=1; row<=n-1; row++){ .. } loop initial-
+izes row at 1 and then iterates while row is less than or equal to n − 1, each
+time through incrementing row by one with the ++ operation. The other non-
+obvious language construct is that the -= in the innermost loop has the eﬀect of
+a[row_below,col]=-1*multiplier*a[row,col]+a[row_below,col].
+
+While that code is a ﬁrst take on mechanizing Gauss’s Method, it is naive.
+For one thing, it assumes that the entry in the row,row position is nonzero. So
+one way that it needs to be extended is to cover the case where ﬁnding a zero
+in that location leads to a row swap or to the conclusion that the matrix is
+singular.
+
+We could add some if statements to cover those cases but we will instead
+consider another way in which this code is naive. It is prone to pitfalls arising
+from the computer’s reliance on ﬂoating point arithmetic.
+
+For example, above we have seen that we must handle a singular system as a
+separate case. But systems that are nearly singular also require care. Consider
+this one (the extra digits are in the ninth signiﬁcant place).
+
+x + 2y = 3
+
+1.000 000 01x + 2y = 3.000 000 01
+
+(∗)
+
+By eye we easily spot the solution x = 1, y = 1. A computer has more trouble. If
+it represents real numbers to eight signiﬁcant places, called single precision, then
+
+Topic: Accuracy of Computations
+
+67
+
+it will represent the second equation internally as 1.000 000 0x + 2y = 3.000 000 0,
+losing the digits in the ninth place. Instead of reporting the correct solution,
+this computer will think that the two equations are equal and it will report that
+the system is singular.
+
+For some intuition about how the computer could come up with something
+
+that far oﬀ, consider this graph of the system.
+
+(1, 1)
+
+We cannot tell the two lines apart; this system is nearly singular in the sense that
+the two lines are nearly the same line. This gives the system (∗) the property
+that a small change in an equation can cause a large change in the solution. For
+instance, changing the 3.000 000 01 to 3.000 000 03 changes the intersection point
+from (1, 1) to (3, 0). The solution changes radically depending on the ninth digit,
+which explains why an eight-place computer has trouble. A problem that is very
+sensitive to inaccuracy or uncertainties in the input values is ill-conditioned.
+
+The above example gives one way in which a system can be diﬃcult to
+solve on a computer. It has the advantage that the picture of nearly-equal lines
+gives a memorable insight into one way for numerical diﬃculties to happen.
+Unfortunately this insight isn’t useful when we wish to solve some large system.
+We typically will not understand the geometry of an arbitrary large system.
+
+There are other ways that a computer’s results may be unreliable, besides
+that the angle between some of the linear surfaces is small. For example, consider
+this system (from [Hamming]).
+
+0.001x + y = 1
+x − y = 0
+
+(∗∗)
+
+The second equation gives x = y, so x = y = 1/1.001 and thus both variables
+have values that are just less than 1. A computer using two digits represents
+the system internally in this way (we will do this example in two-digit ﬂoating
+point arithmetic for clarity but inventing a similar one with eight or more digits
+is easy).
+
+(1.0 × 10−3) · x + (1.0 × 100) · y = 1.0 × 100
+(1.0 × 100) · x − (1.0 × 100) · y = 0.0 × 100
+
+The row reduction step −1000ρ1 + ρ2 produces a second equation −1001y =
+−1000, which this computer rounds to two places as (−1.0× 103)y = −1.0× 103.
+
+68
+
+Chapter One. Linear Systems
+
+The computer decides from the second equation that y = 1 and with that it
+concludes from the ﬁrst equation that x = 0. The y value is close but the x is
+bad — the ratio of the actual answer to the computer’s answer is inﬁnite. In
+short, another cause of unreliable output is the computer’s reliance on ﬂoating
+point arithmetic when the system-solving code leads to using leading entries
+that are small.
+
+An experienced programmer may respond by using double precision, which
+retains sixteen signiﬁcant digits, or perhaps using some even larger size. This
+will indeed solve many problems. However, double precision has greater memory
+requirements and besides we can obviously tweak the above to give the same
+trouble in the seventeenth digit, so double precision isn’t a panacea. We need a
+strategy to minimize numerical trouble as well as some guidance about how far
+we can trust the reported solutions.
+
+A basic improvement on the naive code above is to not determine the factor
+to use for row combinations by simply taking the entry in the row,row position,
+but rather to look at all of the entries in the row column below the row,row entry
+and take one that is likely to give reliable results because it is not too small.
+This is partial pivoting.
+
+For example, to solve the troublesome system (∗∗) above we start by looking
+at both equations for a best entry to use, and take the 1 in the second equation
+as more likely to give good results. The combination step of −.001ρ2 + ρ1
+gives a ﬁrst equation of 1.001y = 1, which the computer will represent as
+(1.0 × 100)y = 1.0 × 100, leading to the conclusion that y = 1 and, after back-
+substitution, that x = 1, both of which are close to right. We can adapt the
+code from above to do this.
+for(row=1; row<=n-1; row++){
+/* find the largest entry in this column (in row max) */
+
+max=row;
+for(row_below=row+1; row_below<=n; row_below++){
+if (abs(a[row_below,row]) > abs(a[max,row]));
+
+max = row_below;
+
+}
+
+/* swap rows to move that best entry up */
+
+for(col=row; col<=n; col++){
+
+temp=a[row,col];
+a[row,col]=a[max,col];
+a[max,col]=temp;
+
+}
+
+/* proceed as before */
+
+for(row_below=row+1; row_below<=n; row_below++){
+
+multiplier=a[row_below,row]/a[row,row];
+for(col=row; col<=n; col++){
+
+a[row_below,col]-=multiplier*a[row,col];
+
+}
+
+}
+
+}
+
+A full analysis of the best way to implement Gauss’s Method is beyond the
+scope of this book (see [Wilkinson 1965]), but the method recommended by
+
+Topic: Accuracy of Computations
+
+69
+
+most experts ﬁrst ﬁnds the best entry among the candidates and then scales it
+to a number that is less likely to give trouble. This is scaled partial pivoting.
+In addition to returning a result that is likely to be reliable, most well-done
+code will return a conditioning number that describes the factor by which
+uncertainties in the input numbers could be magniﬁed to become inaccuracies
+in the results returned (see [Rice]).
+
+The lesson is that just because Gauss’s Method always works in theory, and
+just because computer code correctly implements that method, doesn’t mean
+that the answer is reliable. In practice, always use a package where experts have
+worked hard to counter what can go wrong.
+
+Exercises
+
+1 Using two decimal places, add 253 and 2/3.
+2 This intersect-the-lines problem contrasts with the example discussed above.
+
+(1, 1)
+
+x + 2y = 3
+3x − 2y = 1
+
+Illustrate that in this system some small change in the numbers will produce only
+a small change in the solution by changing the constant in the bottom equation to
+1.008 and solving. Compare it to the solution of the unchanged system.
+3 Consider this system ([Rice]).
+
+0.000 3x + 1.556y = 1.569
+0.345 4x − 2.346y = 1.018
+
+(a) Solve it.
+
+(b) Solve it by rounding at each step to four digits.
+
+4 Rounding inside the computer often has an eﬀect on the result. Assume that your
+machine has eight signiﬁcant digits.
+(a) Show that the machine will compute (2/3) + ((2/3) − (1/3)) as unequal to
+((2/3) + (2/3)) − (1/3). Thus, computer arithmetic is not associative.
+(b) Compare the computer’s version of (1/3)x + y = 0 and (2/3)x + 2y = 0. Is
+twice the ﬁrst equation the same as the second?
+
+5 Ill-conditioning is not only dependent on the matrix of coeﬃcients. This example
+[Hamming] shows that it can arise from an interaction between the left and right
+sides of the system. Let ε be a small real.
+
+3x + 2y + z =
+6
+2x + 2εy + 2εz = 2 + 4ε
+x + 2εy − εz = 1 + ε
+
+(a) Solve the system by hand. Notice that the ε’s divide out only because there is
+an exact cancellation of the integer parts on the right side as well as on the left.
+(b) Solve the system by hand, rounding to two decimal places, and with ε = 0.001.
+
+Topic
+Analyzing Networks
+
+The diagram below shows some of a car’s electrical network. The battery is on
+the left, drawn as stacked line segments. The wires are lines, shown straight and
+with sharp right angles for neatness. Each light is a circle enclosing a loop.
+
+Brake
+Actuated
+Switch
+
+12V
+
+Light
+Switch
+
+Dimmer
+
+Hi
+
+Oﬀ
+
+Lo
+
+Dome
+Light
+
+Door
+Actuated
+Switch
+
+L
+
+R
+
+L
+
+R
+
+L
+
+R
+
+L
+
+R
+
+L
+
+R
+
+Brake
+Lights
+
+Parking
+Lights
+
+Rear
+Lights
+
+Headlights
+
+The designer of such a network needs to answer questions such as: how much
+electricity ﬂows when both the hi-beam headlights and the brake lights are on?
+We will use linear systems to analyze simple electrical networks.
+
+For the analysis we need two facts about electricity and two facts about
+
+electrical networks.
+
+The ﬁrst fact is that a battery is like a pump, providing a force impelling
+the electricity to ﬂow, if there is a path. We say that the battery provides a
+potential. For instance, when the driver steps on the brake then the switch
+makes contact and so makes a circuit on the left side of the diagram, which
+includes the brake lights. Once the circuit exists, the battery’s force creates a
+current ﬂowing through that circuit, lighting the lights.
+
+The second electrical fact is that in some kinds of network components the
+amount of ﬂow is proportional to the force provided by the battery. That is, for
+each such component there is a number, it’s resistance, such that the potential
+
+Topic: Analyzing Networks
+
+71
+
+is equal to the ﬂow times the resistance. Potential is measured in volts, the
+rate of ﬂow is in amperes, and resistance to the ﬂow is in ohms; these units are
+deﬁned so that volts = amperes · ohms.
+
+Components with this property, that the voltage-amperage response curve is a
+line through the origin, are resistors. For example, if a resistor measures 2 ohms
+then wiring it to a 12 volt battery results in a ﬂow of 6 amperes. Conversely, if
+electrical current of 2 amperes ﬂows through that resistor then there must be
+a 4 volt potential diﬀerence between it’s ends. This is the voltage drop across
+the resistor. One way to think of the electrical circuits that we consider here is
+that the battery provides a voltage rise while the other components are voltage
+drops.
+
+The facts that we need about networks are Kirchoﬀ’s Current Law, that for
+any point in a network the ﬂow in equals the ﬂow out and Kirchoﬀ’s Voltage
+Law, that around any circuit the total drop equals the total rise.
+
+We start with the network below. It has a battery that provides the potential
+to ﬂow and three resistors, shown as zig-zags. When components are wired one
+after another, as here, they are in series.
+
+20 volt
+potential
+
+2 ohm
+
+resistance
+
+3 ohm
+
+resistance
+
+5 ohm
+resistance
+
+By Kirchoﬀ’s Voltage Law, because the voltage rise is 20 volts, the total voltage
+drop must also be 20 volts. Since the resistance from start to ﬁnish is 10 ohms
+(the resistance of the wire connecting the components is negligible), the current
+is (20/10) = 2 amperes. Now, by Kirchhoﬀ’s Current Law, there are 2 amperes
+through each resistor. Therefore the voltage drops are: 4 volts across the 2 ohm
+resistor, 10 volts across the 5 ohm resistor, and 6 volts across the 3 ohm resistor.
+The prior network is simple enough that we didn’t use a linear system but
+
+the next one is more complicated. Here the resistors are in parallel.
+
+20 volt
+
+12 ohm
+
+8 ohm
+
+We begin by labeling the branches as below. Let the current through the left
+branch of the parallel portion be i1 and that through the right branch be i2,
+
+72
+
+Chapter One. Linear Systems
+
+and also let the current through the battery be i0. Note that we don’t need to
+know the actual direction of ﬂow — if current ﬂows in the direction opposite to
+our arrow then we will get a negative number in the solution.
+
+↑ i0
+
+i1 ↓
+
+↓ i2
+
+The Current Law, applied to the split point in the upper right, gives that
+i0 = i1 + i2. Applied to the split point lower right it gives i1 + i2 = i0. In
+the circuit that loops out of the top of the battery, down the left branch of the
+parallel portion, and back into the bottom of the battery, the voltage rise is
+20 while the voltage drop is i1 · 12, so the Voltage Law gives that 12i1 = 20.
+Similarly, the circuit from the battery to the right branch and back to the
+battery gives that 8i2 = 20. And, in the circuit that simply loops around in the
+left and right branches of the parallel portion (we arbitrarily take the direction
+of clockwise), there is a voltage rise of 0 and a voltage drop of 8i2 − 12i1 so
+8i2 − 12i1 = 0.
+
+i0 −
+−i0 +
+
+i1 − i2 = 0
+i1 + i2 = 0
+= 20
+8i2 = 20
+−12i1 + 8i2 = 0
+
+12i1
+
+The solution is i0 = 25/6, i1 = 5/3, and i2 = 5/2, all in amperes. (Incidentally,
+this illustrates that redundant equations can arise in practice.)
+
+Kirchhoﬀ’s laws can establish the electrical properties of very complex net-
+works. The next diagram shows ﬁve resistors, whose values are in ohms, wired
+in series-parallel.
+
+10 volt
+
+50
+
+5
+
+10
+
+2
+
+4
+
+This is a Wheatstone bridge (see Exercise 3). To analyze it, we can place the
+arrows in this way.
+
+Topic: Analyzing Networks
+
+73
+
+↑ i0
+
+i5 →
+
+i1 (cid:46)
+
+i3 (cid:38)
+
+(cid:38) i2
+
+(cid:46) i4
+
+Kirchhoﬀ’s Current Law, applied to the top node, the left node, the right node,
+and the bottom node gives these.
+
+i0 = i1 + i2
+
+i1 = i3 + i5
+
+i2 + i5 = i4
+
+i3 + i4 = i0
+
+Kirchhoﬀ’s Voltage Law, applied to the inside loop (the i0 to i1 to i3 to i0 loop),
+the outside loop, and the upper loop not involving the battery, gives these.
+
+5i1 + 10i3 = 10
+
+2i2 + 4i4 = 10
+
+5i1 + 50i5 − 2i2 = 0
+
+Those suﬃce to determine the solution i0 = 7/3, i1 = 2/3, i2 = 5/3, i3 = 2/3,
+i4 = 5/3, and i5 = 0.
+
+We can understand many kinds of networks in this way. For instance, the
+
+exercises analyze some networks of streets.
+
+Exercises
+
+1 Calculate the amperages in each part of each network.
+
+(a) This is a simple network.
+
+9 volt
+
+3 ohm
+
+2 ohm
+
+2 ohm
+
+(b) Compare this one with the parallel case discussed above.
+
+3 ohm
+
+9 volt
+
+2 ohm
+
+2 ohm
+
+2 ohm
+
+74
+
+Chapter One. Linear Systems
+
+(c) This is a reasonably complicated network.
+
+3 ohm
+
+3 ohm
+
+9 volt
+
+3 ohm
+
+2 ohm
+
+4 ohm
+
+2 ohm
+
+2 ohm
+
+2 In the ﬁrst network that we analyzed, with the three resistors in series, we just
+added to get that they acted together like a single resistor of 10 ohms. We can do
+a similar thing for parallel circuits. In the second circuit analyzed,
+
+20 volt
+
+12 ohm
+
+8 ohm
+
+the electric current through the battery is 25/6 amperes. Thus, the parallel portion
+is equivalent to a single resistor of 20/(25/6) = 4.8 ohms.
+(a) What is the equivalent resistance if we change the 12 ohm resistor to 5 ohms?
+(b) What is the equivalent resistance if the two are each 8 ohms?
+(c) Find the formula for the equivalent resistance if the two resistors in parallel
+are r1 ohms and r2 ohms.
+
+3 A Wheatstone bridge is used to measure resistance.
+
+r1
+
+r2
+
+rg
+
+r3
+
+r4
+
+Show that in this circuit if the current ﬂowing through rg is zero then r4 = r2r3/r1.
+(To operate the device, put the unknown resistance at r4. At rg is a meter that
+shows the current. We vary the three resistances r1, r2, and r3 — typically they
+each have a calibrated knob — until the current in the middle reads 0. Then the
+equation gives the value of r4.)
+4 Consider this traﬃc circle.
+
+Main Street
+
+North Avenue
+
+Pier Boulevard
+
+Topic: Analyzing Networks
+
+75
+
+This is the traﬃc volume, in units of cars per ﬁve minutes.
+
+North Pier Main
+
+25
+50
+We can set up equations to model how the traﬃc ﬂows.
+
+100
+75
+
+150
+150
+
+into
+out of
+
+Is it a reasonable
+
+(a) Adapt Kirchhoﬀ’s Current Law to this circumstance.
+modeling assumption?
+(b) Label the three between-road arcs in the circle with a variable. Using the
+(adapted) Current Law, for each of the three in-out intersections state an equation
+describing the traﬃc ﬂow at that node.
+(c) Solve that system.
+(d) Interpret your solution.
+(e) Restate the Voltage Law for this circumstance. How reasonable is it?
+
+5 This is a network of streets.
+
+Shelburne St
+
+Willow
+
+Jay Ln
+
+west
+
+Winooski Ave
+
+east
+
+We can observe the hourly ﬂow of cars into this network’s entrances, and out of its
+exits.
+
+east Winooski
+
+west Winooski Willow
+
+Shelburne
+
+Jay
+–
+55
+
+40
+75
+
+into
+out of
+
+80
+30
+
+50
+5
+
+65
+70
+
+(Note that to reach Jay a car must enter the network via some other road ﬁrst,
+which is why there is no ‘into Jay’ entry in the table. Note also that over a long
+period of time, the total in must approximately equal the total out, which is why
+both rows add to 235 cars.) Once inside the network, the traﬃc may ﬂow in diﬀerent
+ways, perhaps ﬁlling Willow and leaving Jay mostly empty, or perhaps ﬂowing in
+some other way. Kirchhoﬀ’s Laws give the limits on that freedom.
+(a) Determine the restrictions on the ﬂow inside this network of streets by setting
+up a variable for each block, establishing the equations, and solving them. Notice
+that some streets are one-way only. (Hint: this will not yield a unique solution,
+since traﬃc can ﬂow through this network in various ways; you should get at
+least one free variable.)
+(b) Suppose that someone proposes construction for Winooski Avenue East be-
+tween Willow and Jay, and traﬃc on that block will be reduced. What is the least
+amount of traﬃc ﬂow that can we can allow on that block without disrupting
+the hourly ﬂow into and out of the network?
+
+Chapter Two
+Vector Spaces
+
+The ﬁrst chapter ﬁnished with a fair understanding of how Gauss’s Method
+solves a linear system. It systematically takes linear combinations of the rows.
+Here we move to a general study of linear combinations.
+
+We need a setting. At times in the ﬁrst chapter we’ve combined vectors from
+R2, at other times vectors from R3, and at other times vectors from higher-
+dimensional spaces. So our ﬁrst impulse might be to work in Rn, leaving n
+unspeciﬁed. This would have the advantage that any of the results would hold
+for R2 and for R3 and for many other spaces, simultaneously.
+
+But if having the results apply to many spaces at once is advantageous then
+sticking only to Rn’s is overly restrictive. We’d like our results to apply to
+combinations of row vectors, as in the ﬁnal section of the ﬁrst chapter. We’ve
+even seen some spaces that are not simply a collection of all of the same-sized
+column vectors or row vectors. For instance, we’ve seen a homogeneous system’s
+solution set that is a plane inside of R3. This set is a closed system in that a
+linear combination of these solutions is also a solution. But it does not contain
+all of the three-tall column vectors, only some of them.
+
+We want the results about linear combinations to apply anywhere that linear
+combinations make sense. We shall call any such set a vector space. Our results,
+instead of being phrased as “Whenever we have a collection in which we can
+sensibly take linear combinations . . . ”, will be stated “In any vector space . . . ”
+Such a statement describes at once what happens in many spaces. To
+understand the advantages of moving from studying a single space to studying
+a class of spaces, consider this analogy. Imagine that the government made
+laws one person at a time: “Leslie Jones can’t jay walk.” That would be bad;
+statements have the virtue of economy when they apply to many cases at once.
+Or suppose that they said, “Kim Ke must stop when passing an accident.”
+Contrast that with, “Any doctor must stop when passing an accident.” More
+general statements, in some ways, are clearer.
+
+78
+
+Chapter Two. Vector Spaces
+
+I Deﬁnition of Vector Space
+
+We shall study structures with two operations, an addition and a scalar multi-
+plication, that are subject to some simple conditions. We will reﬂect more on
+the conditions later but on ﬁrst reading notice how reasonable they are. For
+instance, surely any operation that can be called an addition (e.g., column vector
+addition, row vector addition, or real number addition) will satisfy conditions
+(1) through (5) below.
+
+I.1 Deﬁnition and Examples
+
+1.1 Deﬁnition A vector space (over R) consists of a set V along with two
+operations ‘+’ and ‘·’ subject to the conditions that for all vectors (cid:126)v, (cid:126)w, (cid:126)u ∈ V
+and all scalars r, s ∈ R:
+(1) the set V is closed under vector addition, that is, (cid:126)v + (cid:126)w ∈ V
+(2) vector addition is commutative, (cid:126)v + (cid:126)w = (cid:126)w + (cid:126)v
+(3) vector addition is associative, ((cid:126)v + (cid:126)w) + (cid:126)u = (cid:126)v + ((cid:126)w + (cid:126)u)
+(4) there is a zero vector (cid:126)0 ∈ V such that (cid:126)v + (cid:126)0 = (cid:126)v for all (cid:126)v ∈ V
+(5) each (cid:126)v ∈ V has an additive inverse (cid:126)w ∈ V such that (cid:126)w + (cid:126)v = (cid:126)0
+(6) the set V is closed under scalar multiplication, that is, r · (cid:126)v ∈ V
+(7) addition of scalars distributes over scalar multiplication, (r+s)·(cid:126)v = r·(cid:126)v+s·(cid:126)v
+(8) scalar multiplication distributes over vector addition, r·((cid:126)v+ (cid:126)w) = r·(cid:126)v+r· (cid:126)w
+(9) ordinary multipication of scalars associates with scalar multiplication,
+
+(rs) · (cid:126)v = r · (s · (cid:126)v)
+
+(10) multiplication by the scalar 1 is the identity operation, 1 · (cid:126)v = (cid:126)v.
+
+1.2 Remark The deﬁnition involves two kinds of addition and two kinds of
+multiplication, and so may at ﬁrst seem confused. For instance, in condition (7)
+the ‘+’ on the left is addition of two real numbers while the ‘+’ on the right
+is addition of two vectors in V. These expressions aren’t ambiguous because
+of context; for example, r and s are real numbers so ‘r + s’ can only mean
+real number addition.
+In the same way, item (9)’s left side ‘rs’ is ordinary
+real number multiplication, while its right side ‘s · (cid:126)v’ is the scalar multipliction
+deﬁned for this vector space.
+
+The best way to understand the deﬁnition is to go through the examples below
+and for each, check all ten conditions. The ﬁrst example includes that check,
+written out at length. Use it as a model for the others. Especially important are
+the closure conditions, (1) and (6). They specify that the addition and scalar
+
+Section I. Deﬁnition of Vector Space
+
+79
+
+multiplication operations are always sensible — they are deﬁned for every pair of
+vectors and every scalar and vector, and the result of the operation is a member
+of the set (see Example 1.4).
+1.3 Example The set R2 is a vector space if the operations ‘+’ and ‘·’ have their
+
+usual meaning.(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:32)
+
+(cid:33)
+
+y1
+y2
+
++
+
+=
+
+x1
+x2
+
+(cid:33)
+
+x1 + y1
+x2 + y2
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+r ·
+
+x1
+x2
+
+=
+
+rx1
+rx2
+
+We shall check all of the conditions.
+
+There are ﬁve conditions in the paragraph having to do with addition. For
+(1), closure of addition, observe that for any v1, v2, w1, w2 ∈ R the result of the
+vector sum
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
++
+
+=
+
+v1 + w1
+v2 + w2
+
+is a column array with two real entries, and so is in R2. For (2), that addition
+of vectors commutes, take all entries to be real numbers and compute
+
++
+
+=
+
+w1
+w2
+
+v1 + w1
+v2 + w2
+
+=
+
+w1 + v1
+w2 + v2
+
+=
+
++
+
+w1
+w2
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(the second equality follows from the fact that the components of the vectors are
+real numbers, and the addition of real numbers is commutative). Condition (3),
+associativity of vector addition, is similar.
+
++
+
+) +
+
+w1
+w2
+
+(v1 + w1) + u1
+(v2 + w2) + u2
+
+v1
+v2
+
+(cid:32)
+
+(cid:33)
+
+(cid:33)
+
+(cid:32)
+
+(cid:32)
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(cid:32)
+
+(cid:33)
+
+(
+
+v1
+v2
+
+w1
+w2
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+u1
+u2
+
+(cid:32)
+
+(cid:32)
+(cid:32)
+(cid:32)
+
+=
+
+=
+
+=
+
+(cid:33)
+(cid:33)
+
+v1 + (w1 + u1)
+v2 + (w2 + u2)
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
++ (
+
++
+
+w1
+w2
+
+(cid:32)
+
+(cid:33)
+
+)
+
+u1
+u2
+
+(cid:33)
+
+(cid:32)
+
+For the fourth condition we must produce a zero element — the vector of zeroes
+is it.
+
+For (5), to produce an additive inverse, note that for any v1, v2 ∈ R we have
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
++
+
+(cid:32)
+
+(cid:33)
+
+0
+0
+
+(cid:32)
+
+=
+
+(cid:33)
+
+−v1
+−v2
+
++
+
+=
+
+v1
+v2
+
+(cid:33)
+
+v1
+v2
+
+(cid:32)
+
+(cid:33)
+
+0
+0
+
+80
+
+Chapter Two. Vector Spaces
+
+so the ﬁrst vector is the desired additive inverse of the second.
+
+The checks for the ﬁve conditions having to do with scalar multiplication are
+
+similar. For (6), closure under scalar multiplication, where r, v1, v2 ∈ R,
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+r ·
+
+v1
+v2
+
+=
+
+rv1
+rv2
+
+(cid:32)
+
+(cid:33)
+
+is a column array with two real entries, and so is in R2. Next, this checks (7).
+
+(r + s) ·
+
+=
+
+(r + s)v1
+(r + s)v2
+
+rv1 + sv1
+rv2 + sv2
+
+= r ·
+
++ s ·
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+For (8), that scalar multiplication distributes from the left over vector addition,
+we have this.
+
+(cid:32)
+
+(cid:33)
+
+r(v1 + w1)
+r(v2 + w2)
+
+rv1 + rw1
+rv2 + rw2
+
+= r ·
+
++ r ·
+
+w1
+w2
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(cid:32)
+
+(cid:32)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+r · (
+
+v1
+v2
+
++
+
+w1
+w2
+
+The ninth
+
+(rs) ·
+
+) =
+
+(cid:33)
+
+(cid:32)
+
+v1
+v2
+
+(cid:32)
+
+=
+
+(cid:32)
+
+=
+
+(cid:33)
+
+(cid:33)
+
+(cid:32)
+
+=
+
+(cid:32)
+
+=
+
+and tenth conditions are also straightforward.
+
+(cid:32)
+
+(cid:33)
+
+v1
+v2
+
+(cid:33)
+
+v1
+v2
+
+)
+
+(cid:32)
+
+(cid:33)
+
+(cid:33)
+
+(cid:33)
+
+(cid:32)
+
+v1
+v2
+
+r(sv1)
+r(sv2)
+
+= r · (s ·
+
+(rs)v1
+(rs)v2
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+1 ·
+
+v1
+v2
+
+=
+
+=
+
+1v1
+1v2
+
+In a similar way, each Rn is a vector space with the usual operations of vector
+addition and scalar multiplication. (In R1, we usually do not write the members
+as column vectors, i.e., we usually do not write ‘(π)’. Instead we just write ‘π’.)
+1.4 Example This subset of R3 that is a plane through the origin
+
+y
+z
+
+ | x + y + z = 0 }
+x
+x
+
+x1 + x2
+
+r ·
+
+y1 + y2
+z1 + z2
+
+y
+z
+
+ =
+
+
+
+rx
+
+ry
+rz
+
+P = {
+
+ +
+
+x1
+
+y1
+z1
+
+x2
+
+y2
+z2
+
+ =
+
+is a vector space if ‘+’ and ‘·’ are interpreted in this way.
+
+The addition and scalar multiplication operations here are just the ones of R3,
+reused on its subset P. We say that P inherits these operations from R3. This
+
+Section I. Deﬁnition of Vector Space
+
+81
+
+example of an addition in P 1
+
+1
+−2
+
+ +
+
+ =
+
+−1
+
+0
+1
+
+
+
+ 0
+
+1
+−1
+
+illustrates that P is closed under addition. We’ve added two vectors from P —
+that is, with the property that the sum of their three entries is zero — and the
+result is a vector also in P. Of course, this example is not a proof. For the proof
+that P is closed under addition, take two elements of P.
+
+Membership in P means that x1 + y1 + z1 = 0 and x2 + y2 + z2 = 0. Observe
+that their sum
+
+y1
+z1
+
+y2
+z2
+
+y1 + y2
+z1 + z2
+
+x1
+x2
+
+
+x1 + x2
+
+x
+
+rx
+ =
+
+x
+
+y
+z
+
+
+
+ry
+rz
+
+r ·
+
+y
+z
+
+is also in P since its entries add (x1 + x2) + (y1 + y2) + (z1 + z2) = (x1 + y1 +
+z1) + (x2 + y2 + z2) to 0. To show that P is closed under scalar multiplication,
+start with a vector from P
+
+where x + y + z = 0, and then for r ∈ R observe that the scalar multiple
+
+gives rx + ry + rz = r(x + y + z) = 0. Thus the two closure conditions are
+satisﬁed. Veriﬁcation of the other conditions in the deﬁnition of a vector space
+are just as straightforward.
+1.5 Example Example 1.3 shows that the set of all two-tall vectors with real
+entries is a vector space. Example 1.4 gives a subset of an Rn that is also a
+vector space. In contrast with those two, consider the set of two-tall columns
+with entries that are integers (under the usual operations of component-wise
+addition and scalar multiplication). This is a subset of a vector space but it is
+not itself a vector space. The reason is that this set is not closed under scalar
+
+82
+
+Chapter Two. Vector Spaces
+
+multiplication, that is, it does not satisfy condition (6). Here is a column with
+integer entries and a scalar such that the outcome of the operation
+
+is not a member of the set, since its entries are not all integers.
+1.6 Example The singleton set
+
+(cid:33)
+
+2
+1.5
+
+0.5 ·
+
+=
+
+(cid:32)
+}
+
+4
+3
+
+(cid:32)
+
+(cid:33)
+0
+
+0
+
+0
+0
+0
+
+{
+
+0
+0
+0
+
+is a vector space under the operations
+
+ +
+
+0
+
+0
+0
+0
+
+ =
+
+0
+
+0
+0
+0
+
+ =
+
+0
+
+0
+0
+0
+
+
+
+0
+
+0
+0
+0
+
+r ·
+
+that it inherits from R4.
+
+A vector space must have at least one element, its zero vector. Thus a
+
+one-element vector space is the smallest possible.
+
+1.7 Deﬁnition A one-element vector space is a trivial space.
+
+The examples so far involve sets of column vectors with the usual operations.
+But vector spaces need not be collections of column vectors, or even of row
+vectors. Below are some other types of vector spaces. The term ‘vector space’
+does not mean ‘collection of columns of reals’. It means something more like
+‘collection in which any linear combination is sensible’.
+1.8 Example Consider P3 = { a0 + a1x + a2x2 + a3x3 | a0, . . . , a3 ∈ R }, the set
+of polynomials of degree three or less (in this book, we’ll take constant polyno-
+mials, including the zero polynomial, to be of degree zero). It is a vector space
+under the operations
+
+(a0 + a1x + a2x2 + a3x3) + (b0 + b1x + b2x2 + b3x3)
+
+= (a0 + b0) + (a1 + b1)x + (a2 + b2)x2 + (a3 + b3)x3
+
+and
+
+r · (a0 + a1x + a2x2 + a3x3) = (ra0) + (ra1)x + (ra2)x2 + (ra3)x3
+
+Section I. Deﬁnition of Vector Space
+
+83
+
+(the veriﬁcation is easy). This vector space is worthy of attention because these
+are the polynomial operations familiar from high school algebra. For instance,
+3 · (1 − 2x + 3x2 − 4x3) − 2 · (2 − 3x + x2 − (1/2)x3) = −1 + 7x2 − 11x3.
+
+Although this space is not a subset of any Rn, there is a sense in which we
+can think of P3 as “the same” as R4. If we identify these two space’s elements in
+this way
+
+a0 + a1x + a2x2 + a3x3
+
+corresponds to
+
+then the operations also correspond. Here is an example of corresponding
+additions.
+
+a1
+a2
+a3
+
+a0
+
+ =
+ 2
+ +
+
+3
+7
+−4
+
+ 1
+
+−2
+0
+1
+
+
+
+ 3
+
+1
+7
+−3
+
+1 − 2x + 0x2 + 1x3
++ 2 + 3x + 7x2 − 4x3
+3 + 1x + 7x2 − 3x3
+
+corresponds to
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+Things we are thinking of as “the same” add to “the same” sum. Chapter Three
+makes precise this idea of vector space correspondence. For now we shall just
+leave it as an intuition.
+1.9 Example The set M2×2 of 2×2 matrices with real number entries is a vector
+space under the natural entry-by-entry operations.
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
+(cid:33)
+
+(cid:32)
+
++
+
+=
+
+a b
+c d
+
+w x
+y z
+
+a + w b + x
+c + y d + z
+
+ra rb
+rd
+rc
+As in the prior example, we can think of this space as “the same” as R4.
+1.10 Example The set { f | f : N → R } of all real-valued functions of one natural
+number variable is a vector space under the operations
+
+a b
+c d
+
+=
+
+r ·
+
+(f1 + f2) (n) = f1(n) + f2(n)
+
+(r · f) (n) = r f(n)
+
+so that if, for example, f1(n) = n2 + 2 sin(n) and f2(n) = − sin(n) + 0.5 then
+(f1 + 2f2) (n) = n2 + 1.
+
+We can view this space as a generalization of Example 1.3 — instead of 2-tall
+
+vectors, these functions are like inﬁnitely-tall vectors.
+
+n f(n) = n2 + 1
+0
+1
+2
+3
+
+1
+2
+5
+10
+
+...
+
+...
+
+corresponds to
+
+
+
+
+
+1
+2
+5
+10
+
+...
+
+84
+
+Chapter Two. Vector Spaces
+
+Addition and scalar multiplication are component-wise, as in Example 1.3. (We
+can formalize “inﬁnitely-tall” by saying that it means an inﬁnite sequence, or
+that it means a function from N to R.)
+1.11 Example The set of polynomials with real coeﬃcients
+
+{ a0 + a1x + ··· + anxn | n ∈ N and a0, . . . , an ∈ R }
+
+makes a vector space when given the natural ‘+’
+
+(a0 + a1x + ··· + anxn) + (b0 + b1x + ··· + bnxn)
+
+= (a0 + b0) + (a1 + b1)x + ··· + (an + bn)xn
+
+and ‘·’.
+
+r · (a0 + a1x + . . . anxn) = (ra0) + (ra1)x + . . . (ran)xn
+
+This space diﬀers from the space P3 of Example 1.8. This space contains
+not just degree three polynomials, but degree thirty polynomials and degree
+three hundred polynomials, too. Each individual polynomial of course is of a
+ﬁnite degree, but the set has no single bound on the degree of all of its members.
+We can think of this example, like the prior one, in terms of inﬁnite-tuples.
+For instance, we can think of 1 + 3x + 5x2 as corresponding to (1, 3, 5, 0, 0, . . .).
+However, this space diﬀers from the one in Example 1.10. Here, each member of
+the set has a ﬁnite degree, that is, under the correspondence there is no element
+from this space matching (1, 2, 5, 10, . . . ). Vectors in this space correspond to
+inﬁnite-tuples that end in zeroes.
+1.12 Example The set { f | f : R → R } of all real-valued functions of one real
+variable is a vector space under these.
+
+(f1 + f2) (x) = f1(x) + f2(x)
+
+(r · f) (x) = r f(x)
+
+The diﬀerence between this and Example 1.10 is the domain of the functions.
+1.13 Example The set F = {a cos θ + b sin θ | a, b ∈ R} of real-valued functions of
+the real variable θ is a vector space under the operations
+
+(a1 cos θ + b1 sin θ) + (a2 cos θ + b2 sin θ) = (a1 + a2) cos θ + (b1 + b2) sin θ
+
+and
+
+r · (a cos θ + b sin θ) = (ra) cos θ + (rb) sin θ
+
+inherited from the space in the prior example. (We can think of F as “the same”
+as R2 in that a cos θ + b sin θ corresponds to the vector with components a and
+b.)
+
+Section I. Deﬁnition of Vector Space
+
+85
+
+1.14 Example The set
+
+{ f : R → R |
+
+d2f
+dx2
+
++ f = 0 }
+
+is a vector space under the, by now natural, interpretation.
+
+(f + g) (x) = f(x) + g(x)
+
+(r · f) (x) = r f(x)
+
+In particular, notice that closure is a consequence
+
+d2(f + g)
+
+dx2
+
++ (f + g) = (
+
+d2f
+dx2
+
++ f) + (
+
+d2g
+dx2
+
++ g)
+
+and
+
+d2(rf)
+
+dx2
+
++ (rf) = r(
+
+d2f
+dx2
+
++ f)
+
+of basic Calculus. This turns out to equal the space from the prior example —
+functions satisfying this diﬀerential equation have the form a cos θ + b sin θ —
+but this description suggests an extension to solutions sets of other diﬀerential
+equations.
+1.15 Example The set of solutions of a homogeneous linear system in n variables is
+a vector space under the operations inherited from Rn. For example, for closure
+under addition consider a typical equation in that system c1x1 + ··· + cnxn = 0
+and suppose that both these vectors
+
+
+
+v1
+
+...
+vn
+
+
+
+w1
+
+...
+wn
+
+(cid:126)v =
+
+(cid:126)w =
+
+satisfy the equation. Then their sum (cid:126)v + (cid:126)w also satisﬁes that equation: c1(v1 +
+w1) +··· + cn(vn + wn) = (c1v1 +··· + cnvn) + (c1w1 +··· + cnwn) = 0. The
+checks of the other vector space conditions are just as routine.
+
+We often omit the multiplication symbol ‘·’ between the scalar and the vector.
+We distinguish the multiplication in c1v1 from that in r(cid:126)v by context, since if
+both multiplicands are real numbers then it must be real-real multiplication
+while if one is a vector then it must be scalar-vector multiplication.
+
+Example 1.15 has brought us full circle since it is one of our motivating
+examples. Now, with some feel for the kinds of structures that satisfy the
+deﬁnition of a vector space, we can reﬂect on that deﬁnition. For example, why
+specify in the deﬁnition the condition that 1 · (cid:126)v = (cid:126)v but not a condition that
+0 · (cid:126)v = (cid:126)0?
+
+One answer is that this is just a deﬁnition — it gives the rules and you need
+
+to follow those rules to continue.
+
+86
+
+Chapter Two. Vector Spaces
+
+Another answer is perhaps more satisfying. People in this area have worked
+to develop the right balance of power and generality. This deﬁnition is shaped
+so that it contains the conditions needed to prove all of the interesting and
+important properties of spaces of linear combinations. As we proceed, we shall
+derive all of the properties natural to collections of linear combinations from the
+conditions given in the deﬁnition.
+
+The next result is an example. We do not need to include these properties
+in the deﬁnition of vector space because they follow from the properties already
+listed there.
+
+1.16 Lemma In any vector space V, for any (cid:126)v ∈ V and r ∈ R, we have (1) 0·(cid:126)v = (cid:126)0,
+(2) (−1 · (cid:126)v) + (cid:126)v = (cid:126)0, and (3) r · (cid:126)0 = (cid:126)0.
+Proof For (1) note that (cid:126)v = (1 + 0) · (cid:126)v = (cid:126)v + (0 · (cid:126)v). Add to both sides the
+additive inverse of (cid:126)v, the vector (cid:126)w such that (cid:126)w + (cid:126)v = (cid:126)0.
+
+(cid:126)w + (cid:126)v = (cid:126)w + (cid:126)v + 0 · (cid:126)v
+
+(cid:126)0 = (cid:126)0 + 0 · (cid:126)v
+(cid:126)0 = 0 · (cid:126)v
+
+Item (2) is easy: (−1·(cid:126)v) +(cid:126)v = (−1 + 1)·(cid:126)v = 0·(cid:126)v = (cid:126)0. For (3), r·(cid:126)0 = r· (0·(cid:126)0) =
+(r · 0) · (cid:126)0 = (cid:126)0 will do.
+QED
+The second item shows that we can write the additive inverse of (cid:126)v as ‘−(cid:126)v ’
+
+without worrying about any confusion with (−1) · (cid:126)v.
+
+A recap: our study in Chapter One of Gaussian reduction led us to consider
+collections of linear combinations. So in this chapter we have deﬁned a vector
+space to be a structure in which we can form such combinations, subject to
+simple conditions on the addition and scalar multiplication operations. In a
+phrase: vector spaces are the right context in which to study linearity.
+
+From the fact that it forms a whole chapter, and especially because that
+chapter is the ﬁrst one, a reader could suppose that our purpose in this book is
+the study of linear systems. The truth is that we will not so much use vector
+spaces in the study of linear systems as we instead have linear systems start us
+on the study of vector spaces. The wide variety of examples from this subsection
+shows that the study of vector spaces is interesting and important in its own
+right. Linear systems won’t go away. But from now on our primary objects of
+study will be vector spaces.
+
+Exercises
+
+1.17 Name the zero vector for each of these vector spaces.
+
+(a) The space of degree three polynomials under the natural operations.
+
+Section I. Deﬁnition of Vector Space
+
+87
+
+(b) The space of 2×4 matrices.
+(c) The space { f : [0..1] → R | f is continuous }.
+(d) The space of real-valued functions of one natural number variable.
+
+(cid:88) 1.18 Find the additive inverse, in the vector space, of the vector.
+
+(a) In P3, the vector −3 − 2x + x2.
+(b) In the space 2×2,
+
+(cid:18)1 −1
+
+(cid:19)
+
+0
+
+3
+
+.
+
+(c) In { aex + be−x | a, b ∈ R }, the space of functions of the real variable x under
+the natural operations, the vector 3ex − 2e−x.
+
+(cid:88) 1.19 For each, list three elements and then show it is a vector space.
+
+(a) The set of linear polynomials P1 = { a0 + a1x | a0, a1 ∈ R } under the usual
+polynomial addition and scalar multiplication operations.
+(b) The set of linear polynomials { a0 + a1x | a0 − 2a1 = 0 }, under the usual poly-
+nomial addition and scalar multiplication operations.
+
+Hint. Use Example 1.3 as a guide. Most of the ten conditions are just veriﬁcations.
+1.20 For each, list three elements and then show it is a vector space.
+
+(a) The set of 2×2 matrices with real entries under the usual matrix operations.
+(b) The set of 2×2 matrices with real entries where the 2, 1 entry is zero, under
+the usual matrix operations.
+
+(cid:88) 1.21 For each, list three elements and then show it is a vector space.
+
+(a) The set of three-component row vectors with their usual operations.
+(b) The set
+
+under the operations inherited from R4.
+
+(cid:88) 1.22 Show that each of these is not a vector space. (Hint. Check closure by listing
+
+two members of each set and trying some operations on them.)
+(a) Under the operations inherited from R3, this set
+
+ ∈ R4 | x + y − z + w = 0 }
+
+ x
+
+y
+z
+w
+
+{
+
+{
+
+y
+z
+
+ ∈ R3 | x + y + z = 1 }
+x
+ ∈ R3 | x2 + y2 + z2 = 1 }
+x
+(cid:18)a 1
+
+(cid:19)
+
+y
+z
+
+| a, b, c ∈ R }
+
+{
+
+{
+
+b c
+
+(b) Under the operations inherited from R3, this set
+
+(c) Under the usual matrix operations,
+
+(d) Under the usual polynomial operations,
+
+{ a0 + a1x + a2x2 | a0, a1, a2 ∈ R+ }
+
+where R+ is the set of reals greater than zero
+
+88
+
+Chapter Two. Vector Spaces
+
+(e) Under the inherited operations,
+
+∈ R2 | x + 3y = 4 and 2x − y = 3 and 6x + 4y = 10 }
+
+(cid:18)x
+
+(cid:19)
+
+y
+
+{
+
+1.23 Deﬁne addition and scalar multiplication operations to make the complex
+numbers a vector space over R.
+
+(cid:88) 1.24 Is the set of rational numbers a vector space over R under the usual addition
+
+and scalar multiplication operations?
+1.25 Show that the set of linear combinations of the variables x, y, z is a vector space
+under the natural addition and scalar multiplication operations.
+1.26 Prove that this is not a vector space: the set of two-tall column vectors with
+real entries subject to these operations.
+
+(cid:19)
+
+=
+
+y
+
+(cid:18)rx
+
+(cid:19)
+
+ry
+
+1.27 Prove or disprove that R3 is a vector space under these operations.
+
+(d) The set of functions { f : R → R | df/dx + 2f = 0 }
+(e) The set of functions { f : R → R | df/dx + 2f = 1 }
+
+(cid:88) 1.29 Prove or disprove that this is a vector space: the real-valued functions f of one
+
+real variable such that f(7) = 0.
+
+(cid:88) 1.30 Show that the set R+ of positive reals is a vector space when we interpret ‘x + y’
+to mean the product of x and y (so that 2 + 3 is 6), and we interpret ‘r · x’ as the
+r-th power of x.
+1.31 Is { (x, y) | x, y ∈ R } a vector space under these operations?
+
+(a) (x1, y1) + (x2, y2) = (x1 + x2, y1 + y2) and r · (x, y) = (rx, y)
+(b) (x1, y1) + (x2, y2) = (x1 + x2, y1 + y2) and r · (x, y) = (rx, 0)
+
+(cid:88) 1.28 For each, decide if it is a vector space; the intended operations are the natural
+
+y1
+
+(cid:18)x1
+(cid:19)
+x2
+ =
+x2
+ =
+
+y2
+z2
+
+y2
+z2
+
+ +
+ +
+
+x1
+x1
+
+y1
+z1
+
+y1
+z1
+
+(a)
+
+(b)
+
+ones.
+(a) The diagonal 2×2 matrices
+
+(b) This set of 2×2 matrices
+
+(c) This set
+
++
+
+=
+
+y2
+
+0
+0
+
+r ·
+
+y
+z
+
+y
+z
+
+0
+0
+
+0
+0
+
+ry
+rz
+
+y1 − y2
+
+(cid:18)x
+rx
+
+0
+
+
+(cid:18)x2
+(cid:19)
+(cid:18)x1 − x2
+(cid:19)
+ and r
+0
+ =
+x
+0
+ and r
+x
+ =
+(cid:19)
+(cid:18)a 0
+(cid:18) x
+ ∈ R4 | x + y + w = 1 }
+ x
+
+| a, b ∈ R }
+
+| x, y ∈ R }
+
+(cid:19)
+
+x + y
+
+x + y
+
+0 b
+
+y
+
+{
+
+{
+
+{
+
+y
+z
+w
+
+Section I. Deﬁnition of Vector Space
+
+89
+
+1.32 Prove or disprove that this is a vector space: the set of polynomials of degree
+greater than or equal to two, along with the zero polynomial.
+1.33 At this point “the same” is only an intuition, but nonetheless for each vector
+space identify the k for which the space is “the same” as Rk.
+(a) The 2×3 matrices under the usual operations
+(b) The n×m matrices (under their usual operations)
+(c) This set of 2×2 matrices
+
+{
+
+(cid:18)a 0
+(cid:19)
+(cid:19)
+(cid:18)a 0
+
+b c
+
+b c
+
+| a, b, c ∈ R }
+
+| a + b + c = 0 }
+
+(d) This set of 2×2 matrices
+
+{
+
+(cid:88) 1.34 Using (cid:126)+ to represent vector addition and (cid:126)· for scalar multiplication, restate
+
+the deﬁnition of vector space.
+
+(cid:88) 1.35 Prove these.
+
+(a) For any (cid:126)v ∈ V, if (cid:126)w ∈ V is an additive inverse of (cid:126)v, then (cid:126)v is an additive
+inverse of (cid:126)w. So a vector is an additive inverse of any additive inverse of itself.
+(b) Vector addition left-cancels: if (cid:126)v,(cid:126)s,(cid:126)t ∈ V then (cid:126)v + (cid:126)s = (cid:126)v +(cid:126)t implies that (cid:126)s = (cid:126)t.
+1.36 The deﬁnition of vector spaces does not explicitly say that (cid:126)0 + (cid:126)v = (cid:126)v (it instead
+says that (cid:126)v + (cid:126)0 = (cid:126)v). Show that it must nonetheless hold in any vector space.
+
+(cid:88) 1.37 Prove or disprove that this is a vector space: the set of all matrices, under the
+
+usual operations.
+1.38 In a vector space every element has an additive inverse. Can some elements
+have two or more?
+1.39
+
+(a) Prove that every point, line, or plane thru the origin in R3 is a vector
+
+space under the inherited operations.
+(b) What if it doesn’t contain the origin?
+
+(cid:88) 1.40 Using the idea of a vector space we can easily reprove that the solution set of
+a homogeneous linear system has either one element or inﬁnitely many elements.
+Assume that (cid:126)v ∈ V is not (cid:126)0.
+(a) Prove that r · (cid:126)v = (cid:126)0 if and only if r = 0.
+(b) Prove that r1 · (cid:126)v = r2 · (cid:126)v if and only if r1 = r2.
+(c) Prove that any nontrivial vector space is inﬁnite.
+(d) Use the fact that a nonempty solution set of a homogeneous linear system is
+a vector space to draw the conclusion.
+
+1.41 Is this a vector space under the natural operations: the real-valued functions of
+one real variable that are diﬀerentiable?
+1.42 A vector space over the complex numbers C has the same deﬁnition as a vector
+space over the reals except that scalars are drawn from C instead of from R. Show
+that each of these is a vector space over the complex numbers. (Recall how complex
+numbers add and multiply: (a0 + a1i) + (b0 + b1i) = (a0 + b0) + (a1 + b1)i and
+(a0 + a1i)(b0 + b1i) = (a0b0 − a1b1) + (a0b1 + a1b0)i.)
+(a) The set of degree two polynomials with complex coeﬃcients
+
+90
+
+(b) This set
+
+Chapter Two. Vector Spaces
+
+(cid:18)0 a
+(cid:19)
+
+b 0
+
+{
+
+| a, b ∈ C and a + b = 0 + 0i }
+
+1.43 Name a property shared by all of the Rn’s but not listed as a requirement for a
+vector space.
+
+(a) Prove that for any four vectors (cid:126)v1, . . . ,(cid:126)v4 ∈ V we can associate their sum
+
+(cid:88) 1.44
+
+in any way without changing the result.
+
+(((cid:126)v1 + (cid:126)v2) + (cid:126)v3) + (cid:126)v4 = ((cid:126)v1 + ((cid:126)v2 + (cid:126)v3)) + (cid:126)v4 = ((cid:126)v1 + (cid:126)v2) + ((cid:126)v3 + (cid:126)v4)
+
+= (cid:126)v1 + (((cid:126)v2 + (cid:126)v3) + (cid:126)v4) = (cid:126)v1 + ((cid:126)v2 + ((cid:126)v3 + (cid:126)v4))
+
+This allows us to write ‘(cid:126)v1 + (cid:126)v2 + (cid:126)v3 + (cid:126)v4’ without ambiguity.
+(b) Prove that any two ways of associating a sum of any number of vectors give
+the same sum. (Hint. Use induction on the number of vectors.)
+
+1.45 Example 1.5 gives a subset of R2 that is not a vector space, under the obvious
+operations, because while it is closed under addition, it is not closed under scalar
+multiplication. Consider the set of vectors in the plane whose components have
+the same sign or are 0. Show that this set is closed under scalar multiplication but
+not addition.
+
+I.2 Subspaces and Spanning Sets
+
+One of the examples that led us to deﬁne vector spaces was the solution set of a
+homogeneous system. For instance, we saw in Example 1.4 such a space that
+is a planar subset of R3. There, the vector space R3 contains inside it another
+vector space, the plane.
+
+2.1 Deﬁnition For any vector space, a subspace is a subset that is itself a vector
+space, under the inherited operations.
+
+2.2 Example Example 1.4’s plane
+
+is a subspace of R3. As required by the deﬁnition the plane’s operations are
+inherited from the larger space, that is, vectors add in P as they add in R3
+
+y
+z
+
+ | x + y + z = 0 }
+x
+x1 + x2
+ =
+x2
+ +
+
+
+y1 + y2
+z1 + z2
+
+y2
+z2
+
+P = {
+
+x1
+
+y1
+z1
+
+

@@ -1,0 +1,9986 @@
+Image Processing: The Fundamentals
+
+Image Processing: The Fundamentals, Second Edition 
+© 2010 John Wiley & Sons, Ltd. ISBN: 978-0-470-74586-1
+
+Maria Petrou and Costas Petrou
+
+Image Processing: The Fundamentals
+
+Maria Petrou
+
+Costas Petrou
+
+A John Wiley and Sons, Ltd., Publication
+
+This edition ﬁrst published 2010
+c⃝ 2010 John Wiley & Sons Ltd
+Registered oﬃce
+John Wiley & Sons Ltd, The Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ, United Kingdom
+
+For details of our global editorial oﬃces, for customer services and for information about how to apply for
+permission to reuse the copyright material in this book please see our website at www.wiley.com.
+
+The right of the author to be identiﬁed as the author of this work has been asserted in accordance with the
+Copyright, Designs and Patents Act 1988.
+
+All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or
+transmitted, in any form or by any means, electronic, mechanical, photocopying, recording or otherwise,
+except as permitted by the UK Copyright, Designs and Patents Act 1988, without the prior permission of
+the publisher.
+
+Wiley also publishes its books in a variety of electronic formats. Some content that appears in print may not
+be available in electronic books.
+
+Designations used by companies to distinguish their products are often claimed as trademarks. All brand
+names and product names used in this book are trade names, service marks, trademarks or registered
+trademarks of their respective owners. The publisher is not associated with any product or vendor
+mentioned in this book. This publication is designed to provide accurate and authoritative information in
+regard to the subject matter covered. It is sold on the understanding that the publisher is not engaged in
+rendering professional services. If professional advice or other expert assistance is required, the services of a
+competent professional should be sought.
+
+Library of Congress Cataloging-in-Publication Data
+Petrou, Maria.
+
+Image processing : the fundamentals / Maria Petrou, Costas Petrou. – 2nd ed.
+
+p. cm.
+
+Includes bibliographical references and index.
+ISBN 978-0-470-74586-1 (cloth)
+1. Image processing–Digital techniques.
+TA1637.P48 2010
+621.36′7–dc22
+
+ISBN 978-0-470-74586-1
+
+2009053150
+
+A catalogue record for this book is available from the British Library.
+
+Set in 10/12 Computer Modern by Laserwords Private Ltd, Chennai, India.
+Printed in Singapore by Markono
+
+This book is dedicated to our mother and grandmother
+Dionisia, for all her love and sacriﬁces.
+
+Contents
+
+Preface
+
+xxiii
+
+1 Introduction
+
+than one sensor type corresponding to the same patch of the scene?
+
+Why do we process images? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is an image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a digital image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a spectral band? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why do most image processing algorithms refer to grey images, while most images
+we come across are colour images? . . . . . . . . . . . . . . . . . . . . . . . .
+How is a digital image formed? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If a sensor corresponds to a patch in the physical world, how come we can have more
+. . . . .
+What is the physical meaning of the brightness of an image at a pixel position? . .
+Why are images often quoted as being 512 × 512, 256 × 256, 128 × 128 etc? . . . .
+How many bits do we need to store an image? . . . . . . . . . . . . . . . . . . . . .
+What determines the quality of an image? . . . . . . . . . . . . . . . . . . . . . . .
+What makes an image blurred? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is meant by image resolution? . . . . . . . . . . . . . . . . . . . . . . . . . .
+What does “good contrast” mean? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the purpose of image processing? . . . . . . . . . . . . . . . . . . . . . . .
+How do we do image processing? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Do we use nonlinear operators in image processing?
+. . . . . . . . . . . . . . . . .
+What is a linear operator? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How are linear operators deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the relationship between the point spread function of an imaging device
+and that of a linear operator? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How does a linear operator transform an image? . . . . . . . . . . . . . . . . . . .
+What is the meaning of the point spread function? . . . . . . . . . . . . . . . . . .
+Box 1.1. The formal deﬁnition of a point source in the continuous domain . . . . .
+How can we express in practice the eﬀect of a linear operator on an image? . . . .
+Can we apply more than one linear operators to an image? . . . . . . . . . . . . .
+Does the order by which we apply the linear operators make any diﬀerence to the
+result? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 1.2. Since matrix multiplication is not commutative, how come we can change
+the order by which we apply shift invariant linear operators? . . . . . . . . .
+
+1
+1
+1
+1
+2
+
+2
+3
+
+3
+3
+6
+6
+7
+7
+7
+10
+11
+11
+12
+12
+12
+
+12
+12
+13
+14
+18
+22
+
+22
+
+22
+
+vii
+
+viii
+
+Contents
+
+Box 1.3. What is the stacking operator? . . . . . . . . . . . . . . . . . . . . . . . .
+29
+What is the implication of the separability assumption on the structure of matrix H? 38
+39
+How can a separable transform be written in matrix form?
+. . . . . . . . . . . . .
+40
+What is the meaning of the separability assumption? . . . . . . . . . . . . . . . . .
+Box 1.4. The formal derivation of the separable matrix equation . . . . . . . . . .
+41
+43
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+43
+What is the signiﬁcance of equation (1.108) in linear image processing?
+. . . . . .
+What is this book about? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+44
+
+2 Image Transformations
+
+47
+47
+47
+47
+47
+49
+50
+50
+50
+
+What is this chapter about? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we deﬁne an elementary image?
+. . . . . . . . . . . . . . . . . . . . . . .
+What is the outer product of two vectors? . . . . . . . . . . . . . . . . . . . . . . .
+How can we expand an image in terms of vector outer products? . . . . . . . . . .
+How do we choose matrices hc and hr? . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a unitary matrix? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the inverse of a unitary transform? . . . . . . . . . . . . . . . . . . . . . .
+How can we construct a unitary matrix? . . . . . . . . . . . . . . . . . . . . . . . .
+How should we choose matrices U and V so that g can be represented by fewer bits
+50
+than f? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+50
+What is matrix diagonalisation?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+50
+Can we diagonalise any matrix? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+51
+2.1 Singular value decomposition . . . . . . . . . . . . . . . . . . . . . . . . .
+51
+How can we diagonalise an image? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+54
+Box 2.1. Can we expand in vector outer products any image? . . . . . . . . . . . .
+How can we compute matrices U, V and Λ 1
+56
+2 needed for image diagonalisation? . .
+56
+Box 2.2. What happens if the eigenvalues of matrix ggT are negative? . . . . . . .
+60
+What is the singular value decomposition of an image? . . . . . . . . . . . . . . . .
+61
+Can we analyse an eigenimage into eigenimages? . . . . . . . . . . . . . . . . . . .
+62
+How can we approximate an image using SVD? . . . . . . . . . . . . . . . . . . . .
+62
+Box 2.3. What is the intuitive explanation of SVD?
+. . . . . . . . . . . . . . . . .
+63
+What is the error of the approximation of an image by SVD? . . . . . . . . . . . .
+How can we minimise the error of the reconstruction? . . . . . . . . . . . . . . . .
+65
+Are there any sets of elementary images in terms of which any image may be expanded? 72
+What is a complete and orthonormal set of functions? . . . . . . . . . . . . . . . .
+72
+73
+Are there any complete sets of orthonormal discrete valued functions? . . . . . . .
+74
+2.2 Haar, Walsh and Hadamard transforms . . . . . . . . . . . . . . . . . .
+74
+How are the Haar functions deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How are the Walsh functions deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . .
+74
+74
+Box 2.4. Deﬁnition of Walsh functions in terms of the Rademacher functions
+. . .
+How can we use the Haar or Walsh functions to create image bases? . . . . . . . .
+75
+How can we create the image transformation matrices from the Haar and Walsh
+functions in practice? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What do the elementary images of the Haar transform look like? . . . . . . . . . .
+Can we deﬁne an orthogonal matrix with entries only +1 or −1? . . . . . . . . . .
+Box 2.5. Ways of ordering the Walsh functions
+. . . . . . . . . . . . . . . . . . . .
+What do the basis images of the Hadamard/Walsh transform look like? . . . . . .
+
+76
+80
+85
+86
+88
+
+Contents
+
+What are the advantages and disadvantages of the Walsh and the Haar transforms?
+What is the Haar wavelet? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Discrete Fourier transform . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the discrete version of the Fourier transform (DFT)? . . . . . . . . . . . .
+Box 2.6. What is the inverse discrete Fourier transform? . . . . . . . . . . . . . . .
+How can we write the discrete Fourier transform in a matrix form? . . . . . . . . .
+Is matrix U used for DFT unitary? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Which are the elementary images in terms of which DFT expands an image? . . .
+Why is the discrete Fourier transform more commonly used than the other
+
+transforms? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What does the convolution theorem state? . . . . . . . . . . . . . . . . . . . . . . .
+Box 2.7. If a function is the convolution of two other functions, what is the rela-
+tionship of its DFT with the DFTs of the two functions? . . . . . . . . . . . .
+How can we display the discrete Fourier transform of an image? . . . . . . . . . . .
+What happens to the discrete Fourier transform of an image if the image
+
+is rotated? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+What happens to the discrete Fourier transform of an image if the image
+
+is shifted? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the relationship between the average value of the image and its DFT? . .
+What happens to the DFT of an image if the image is scaled? . . . . . . . . . . . .
+Box 2.8. What is the Fast Fourier Transform? . . . . . . . . . . . . . . . . . . . . .
+What are the advantages and disadvantages of DFT? . . . . . . . . . . . . . . . . .
+Can we have a real valued DFT? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Can we have a purely imaginary DFT? . . . . . . . . . . . . . . . . . . . . . . . . .
+Can an image have a purely real or a purely imaginary valued DFT? . . . . . . . .
+2.4 The even symmetric discrete cosine transform (EDCT) . . . . . . . .
+What is the even symmetric discrete cosine transform? . . . . . . . . . . . . . . . .
+Box 2.9. Derivation of the inverse 1D even discrete cosine transform . . . . . . . .
+What is the inverse 2D even cosine transform? . . . . . . . . . . . . . . . . . . . .
+What are the basis images in terms of which the even cosine transform expands an
+image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5 The odd symmetric discrete cosine transform (ODCT) . . . . . . . .
+What is the odd symmetric discrete cosine transform? . . . . . . . . . . . . . . . .
+Box 2.10. Derivation of the inverse 1D odd discrete cosine transform . . . . . . . .
+What is the inverse 2D odd discrete cosine transform? . . . . . . . . . . . . . . . .
+What are the basis images in terms of which the odd discrete cosine transform
+expands an image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.6 The even antisymmetric discrete sine transform (EDST) . . . . . . .
+What is the even antisymmetric discrete sine transform? . . . . . . . . . . . . . . .
+Box 2.11. Derivation of the inverse 1D even discrete sine transform . . . . . . . . .
+What is the inverse 2D even sine transform? . . . . . . . . . . . . . . . . . . . . . .
+What are the basis images in terms of which the even sine transform expands an
+image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What happens if we do not remove the mean of the image before we compute its
+EDST? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . .
+2.7 The odd antisymmetric discrete sine transform (ODST)
+What is the odd antisymmetric discrete sine transform? . . . . . . . . . . . . . . .
+
+ix
+
+92
+93
+94
+94
+95
+96
+99
+101
+
+105
+105
+
+105
+112
+
+113
+
+114
+118
+119
+124
+126
+126
+130
+137
+138
+138
+143
+145
+
+146
+149
+149
+152
+154
+
+154
+157
+157
+160
+162
+
+163
+
+166
+167
+167
+
+x
+
+Contents
+
+Box 2.12. Derivation of the inverse 1D odd discrete sine transform . . . . . . . . .
+What is the inverse 2D odd sine transform? . . . . . . . . . . . . . . . . . . . . . .
+What are the basis images in terms of which the odd sine transform expands an
+image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+3 Statistical Description of Images
+
+What is this chapter about? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why do we need the statistical description of images? . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.1 Random ﬁelds
+What is a random ﬁeld? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a random variable? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a random experiment? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we perform a random experiment with computers? . . . . . . . . . . . . .
+How do we describe random variables? . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the probability of an event? . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the distribution function of a random variable? . . . . . . . . . . . . . . .
+What is the probability of a random variable taking a speciﬁc value? . . . . . . . .
+What is the probability density function of a random variable? . . . . . . . . . . .
+How do we describe many random variables? . . . . . . . . . . . . . . . . . . . . .
+What relationships may n random variables have with each other? . . . . . . . . .
+How do we deﬁne a random ﬁeld?
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we relate two random variables that appear in the same random ﬁeld? . .
+How can we relate two random variables that belong to two diﬀerent random
+
+ﬁelds? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If we have just one image from an ensemble of images, can we calculate expectation
+values? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+When is a random ﬁeld homogeneous with respect to the mean? . . . . . . . . . .
+When is a random ﬁeld homogeneous with respect to the autocorrelation function?
+How can we calculate the spatial statistics of a random ﬁeld? . . . . . . . . . . . .
+How do we compute the spatial autocorrelation function of an image in practice? .
+When is a random ﬁeld ergodic with respect to the mean? . . . . . . . . . . . . . .
+When is a random ﬁeld ergodic with respect to the autocorrelation function? . . .
+What is the implication of ergodicity? . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 3.1. Ergodicity, fuzzy logic and probability theory . . . . . . . . . . . . . . . .
+How can we construct a basis of elementary images appropriate for expressing in an
+optimal way a whole set of images? . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Karhunen-Loeve transform . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the Karhunen-Loeve transform? . . . . . . . . . . . . . . . . . . . . . . . .
+Why does diagonalisation of the autocovariance matrix of a set of images deﬁne a
+desirable basis for expressing the images in the set? . . . . . . . . . . . . . . .
+How can we transform an image so its autocovariance matrix becomes diagonal? .
+What is the form of the ensemble autocorrelation matrix of a set of images, if the
+. . . . . . . . . .
+How do we go from the 1D autocorrelation function of the vector representation of
+an image to its 2D autocorrelation matrix? . . . . . . . . . . . . . . . . . . .
+How can we transform the image so that its autocorrelation matrix is diagonal? . .
+
+ensemble is stationary with respect to the autocorrelation?
+
+171
+172
+
+173
+176
+
+177
+177
+177
+178
+178
+178
+178
+178
+178
+179
+180
+181
+181
+184
+184
+189
+190
+
+193
+
+195
+195
+195
+196
+196
+197
+197
+199
+200
+
+200
+201
+201
+
+201
+204
+
+210
+
+211
+213
+
+Contents
+
+How do we compute the K-L transform of an image in practice?
+How do we compute the Karhunen-Loeve (K-L) transform of an ensemble of
+
+. . . . . . . . . .
+
+expansion?
+
+images? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is the assumption of ergodicity realistic? . . . . . . . . . . . . . . . . . . . . . . . .
+Box 3.2. How can we calculate the spatial autocorrelation matrix of an image, when
+it is represented by a vector? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is the mean of the transformed image expected to be really 0?
+. . . . . . . . . . .
+How can we approximate an image using its K-L transform? . . . . . . . . . . . . .
+What is the error with which we approximate an image when we truncate its K-L
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What are the basis images in terms of which the Karhunen-Loeve transform expands
+an image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 3.3. What is the error of the approximation of an image using the Karhunen-
+Loeve transform? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . . .
+3.3 Independent component analysis
+What is Independent Component Analysis (ICA)? . . . . . . . . . . . . . . . . . .
+What is the cocktail party problem? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we solve the cocktail party problem? . . . . . . . . . . . . . . . . . . . . .
+What does the central limit theorem say? . . . . . . . . . . . . . . . . . . . . . . .
+What do we mean by saying that “the samples of x1(t) are more Gaussianly dis-
+tributed than either s1(t) or s2(t)” in relation to the cocktail party problem?
+Are we talking about the temporal samples of x1(t), or are we talking about
+all possible versions of x1(t) at a given time? . . . . . . . . . . . . . . . . . .
+How do we measure non-Gaussianity? . . . . . . . . . . . . . . . . . . . . . . . . .
+How are the moments of a random variable computed? . . . . . . . . . . . . . . . .
+How is the kurtosis deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is negentropy deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is entropy deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 3.4. From all probability density functions with the same variance, the Gaussian
+has the maximum entropy . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is negentropy computed? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 3.5. Derivation of the approximation of negentropy in terms of moments . . .
+Box 3.6. Approximating the negentropy with nonquadratic functions . . . . . . . .
+Box 3.7. Selecting the nonquadratic functions with which to approximate the ne-
+gentropy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we apply the central limit theorem to solve the cocktail party problem? . .
+How may ICA be used in image processing? . . . . . . . . . . . . . . . . . . . . . .
+How do we search for the independent components? . . . . . . . . . . . . . . . . .
+How can we whiten the data? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we select the independent components from whitened data? . . . . . . . .
+Box 3.8. How does the method of Lagrange multipliers work? . . . . . . . . . . . .
+Box 3.9. How can we choose a direction that maximises the negentropy? . . . . . .
+How do we perform ICA in image processing in practice? . . . . . . . . . . . . . .
+How do we apply ICA to signal processing? . . . . . . . . . . . . . . . . . . . . . .
+What are the major characteristics of independent component analysis? . . . . . .
+What is the diﬀerence between ICA as applied in image and in signal processing? .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+xi
+
+214
+
+215
+215
+
+215
+220
+220
+
+220
+
+221
+
+226
+234
+234
+234
+235
+235
+
+235
+239
+239
+240
+243
+243
+
+246
+246
+252
+254
+
+257
+264
+264
+264
+266
+267
+268
+269
+274
+283
+289
+290
+292
+
+xii
+
+Contents
+
+4 Image Enhancement
+
+What is image enhancement? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we enhance an image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is linear ﬁltering? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.1 Elements of linear ﬁlter theory . . . . . . . . . . . . . . . . . . . . . . . .
+How do we deﬁne a 2D ﬁlter? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How are the frequency response function and the unit sample response of the ﬁlter
+related? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why are we interested in the ﬁlter function in the real domain? . . . . . . . . . . .
+Are there any conditions which h(k, l) must fulﬁl so that it can be used as a convo-
+lution ﬁlter? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.1. What is the unit sample response of the 2D ideal low pass ﬁlter? . . . . .
+What is the relationship between the 1D and the 2D ideal lowpass ﬁlters? . . . . .
+How can we implement in the real domain a ﬁlter that is inﬁnite in extent? . . . .
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.2. z-transforms
+Can we deﬁne a ﬁlter directly in the real domain for convenience?
+. . . . . . . . .
+Can we deﬁne a ﬁlter in the real domain, without side lobes in the frequency
+
+domain? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Reducing high frequency noise . . . . . . . . . . . . . . . . . . . . . . . .
+What are the types of noise present in an image? . . . . . . . . . . . . . . . . . . .
+What is impulse noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is Gaussian noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is additive noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is multiplicative noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is homogeneous noise?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is zero-mean noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is biased noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is independent noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is uncorrelated noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is white noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the relationship between zero-mean uncorrelated and white noise?
+. . . .
+What is iid noise?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is it possible to have white noise that is not iid? . . . . . . . . . . . . . . . . . . .
+Box 4.3. The probability density function of a function of a random variable
+. . .
+Why is noise usually associated with high frequencies? . . . . . . . . . . . . . . . .
+How do we deal with multiplicative noise? . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.4. The Fourier transform of the delta function . . . . . . . . . . . . . . . . .
+Box 4.5. Wiener-Khinchine theorem . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is the assumption of Gaussian noise in an image justiﬁed? . . . . . . . . . . . . . .
+How do we remove shot noise? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a rank order ﬁlter? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is median ﬁltering? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is mode ﬁltering? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we reduce Gaussian noise? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Can we have weighted median and mode ﬁlters like we have weighted mean ﬁlters?
+Can we ﬁlter an image by using the linear methods we learnt in Chapter 2? . . . .
+How do we deal with mixed noise in images? . . . . . . . . . . . . . . . . . . . . .
+
+293
+293
+293
+293
+294
+294
+
+294
+294
+
+294
+296
+300
+301
+301
+309
+
+309
+311
+311
+311
+311
+311
+311
+311
+312
+312
+312
+312
+313
+313
+313
+315
+320
+324
+325
+325
+325
+326
+326
+326
+326
+328
+328
+333
+335
+337
+
+Contents
+
+Can we avoid blurring the image when we are smoothing it? . . . . . . . . . . . . .
+What is the edge adaptive smoothing? . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.6. Eﬃcient computation of the local variance
+. . . . . . . . . . . . . . . . .
+How does the mean shift algorithm work? . . . . . . . . . . . . . . . . . . . . . . .
+What is anisotropic diﬀusion? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.7. Scale space and the heat equation . . . . . . . . . . . . . . . . . . . . . .
+Box 4.8. Gradient, Divergence and Laplacian . . . . . . . . . . . . . . . . . . . . .
+Box 4.9. Diﬀerentiation of an integral with respect to a parameter . . . . . . . . .
+Box 4.10. From the heat equation to the anisotropic diﬀusion algorithm . . . . . .
+How do we perform anisotropic diﬀusion in practice? . . . . . . . . . . . . . . . . .
+4.3 Reducing low frequency interference . . . . . . . . . . . . . . . . . . . .
+When does low frequency interference arise? . . . . . . . . . . . . . . . . . . . . . .
+Can variable illumination manifest itself in high frequencies? . . . . . . . . . . . .
+In which other cases may we be interested in reducing low frequencies? . . . . . . .
+What is the ideal high pass ﬁlter?
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we enhance small image details using nonlinear ﬁlters? . . . . . . . . . . .
+What is unsharp masking? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we apply the unsharp masking algorithm locally? . . . . . . . . . . . . . .
+How does the locally adaptive unsharp masking work? . . . . . . . . . . . . . . . .
+How does the retinex algorithm work? . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 4.11. Which are the grey values that are stretched most by the retinex
+
+algorithm? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we improve an image which suﬀers from variable illumination? . . . . . .
+What is homomorphic ﬁltering? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is photometric stereo? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What does ﬂatﬁelding mean? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is ﬂatﬁelding performed? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Histogram manipulation . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the histogram of an image? . . . . . . . . . . . . . . . . . . . . . . . . . .
+When is it necessary to modify the histogram of an image? . . . . . . . . . . . . .
+How can we modify the histogram of an image? . . . . . . . . . . . . . . . . . . . .
+What is histogram manipulation? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What aﬀects the semantic information content of an image? . . . . . . . . . . . . .
+How can we perform histogram manipulation and at the same time preserve the
+information content of the image? . . . . . . . . . . . . . . . . . . . . . . . . .
+What is histogram equalisation? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why do histogram equalisation programs usually not produce images with ﬂat his-
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we perform histogram equalisation in practice?
+. . . . . . . . . . . . . . .
+Can we obtain an image with a perfectly ﬂat histogram? . . . . . . . . . . . . . . .
+What if we do not wish to have an image with a ﬂat histogram? . . . . . . . . . .
+How do we do histogram hyperbolisation in practice? . . . . . . . . . . . . . . . . .
+How do we do histogram hyperbolisation with random additions? . . . . . . . . . .
+Why should one wish to perform something other than histogram equalisation? . .
+What if the image has inhomogeneous contrast?
+. . . . . . . . . . . . . . . . . . .
+Can we avoid damaging ﬂat surfaces while increasing the contrast of genuine tran-
+sitions in brightness? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+tograms?
+
+xiii
+
+337
+337
+339
+339
+342
+342
+345
+348
+348
+349
+351
+351
+351
+351
+351
+357
+357
+357
+358
+360
+
+360
+364
+364
+366
+366
+366
+367
+367
+367
+367
+368
+368
+
+368
+370
+
+370
+370
+372
+373
+373
+374
+374
+375
+
+377
+
+xiv
+
+Contents
+
+How can we enhance an image by stretching only the grey values that appear in
+genuine brightness transitions? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we perform pairwise image enhancement in practice? . . . . . . . . . . . .
+4.5 Generic deblurring algorithms . . . . . . . . . . . . . . . . . . . . . . . .
+How does mode ﬁltering help deblur an image? . . . . . . . . . . . . . . . . . . . .
+Can we use an edge adaptive window to apply the mode ﬁlter? . . . . . . . . . . .
+How can mean shift be used as a generic deblurring algorithm? . . . . . . . . . . .
+What is toboggan contrast enhancement? . . . . . . . . . . . . . . . . . . . . . . .
+How do we do toboggan contrast enhancement in practice? . . . . . . . . . . . . .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+5 Image Restoration
+
+What is image restoration? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why may an image require restoration? . . . . . . . . . . . . . . . . . . . . . . . .
+What is image registration? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is image restoration performed? . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the diﬀerence between image enhancement and image restoration? . . . .
+5.1 Homogeneous linear image restoration: inverse ﬁltering . . . . . . . .
+How do we model homogeneous linear image degradation? . . . . . . . . . . . . . .
+How may the problem of image restoration be solved? . . . . . . . . . . . . . . . .
+How may we obtain information on the frequency response function ˆH(u, v) of the
+degradation process? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+If we know the frequency response function of the degradation process, isn’t the
+solution to the problem of image restoration trivial? . . . . . . . . . . . . . .
+What happens at frequencies where the frequency response function is zero? . . . .
+Will the zeros of the frequency response function and the image always
+
+coincide? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we avoid the ampliﬁcation of noise? . . . . . . . . . . . . . . . . . . . . .
+How do we apply inverse ﬁltering in practice? . . . . . . . . . . . . . . . . . . . . .
+Can we deﬁne a ﬁlter that will automatically take into consideration the noise in
+the blurred image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5.2 Homogeneous linear image restoration: Wiener ﬁltering . . . . . . .
+How can we express the problem of image restoration as a least square error esti-
+mation problem? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+Can we ﬁnd a linear least squares error solution to the problem of image
+
+restoration? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+What is the linear least mean square error solution of the image restoration
+
+problem?
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 5.1. The least squares error solution . . . . . . . . . . . . . . . . . . . . . . . .
+Box 5.2. From the Fourier transform of the correlation functions of images to their
+spectral densities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 5.3. Derivation of the Wiener ﬁlter
+. . . . . . . . . . . . . . . . . . . . . . . .
+What is the relationship between Wiener ﬁltering and inverse ﬁltering?
+. . . . . .
+How can we determine the spectral density of the noise ﬁeld? . . . . . . . . . . . .
+How can we possibly use Wiener ﬁltering, if we know nothing about the statistical
+. . . . . . . . . . . . . . . . . . . . . . . .
+How do we apply Wiener ﬁltering in practice? . . . . . . . . . . . . . . . . . . . . .
+
+properties of the unknown image?
+
+377
+378
+383
+383
+385
+385
+387
+387
+393
+
+395
+395
+395
+395
+395
+395
+396
+396
+396
+
+396
+
+407
+408
+
+408
+408
+410
+
+417
+419
+
+419
+
+419
+
+420
+420
+
+427
+428
+430
+430
+
+430
+431
+
+Contents
+
+xv
+
+5.3 Homogeneous linear image restoration: Constrained matrix inversion 436
+If the degradation process is assumed linear, why don’t we solve a system of linear
+.
+
+equations to reverse its eﬀect instead of invoking the convolution theorem?
+
+Equation (5.146) seems pretty straightforward, why bother with any other
+
+approach? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is there any way by which matrix H can be inverted? . . . . . . . . . . . . . . . .
+When is a matrix block circulant? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+When is a matrix circulant? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why can block circulant matrices be inverted easily? . . . . . . . . . . . . . . . . .
+Which are the eigenvalues and eigenvectors of a circulant matrix? . . . . . . . . . .
+How does the knowledge of the eigenvalues and the eigenvectors of a matrix help in
+inverting the matrix? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we know that matrix H that expresses the linear degradation process is
+block circulant? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we diagonalise a block circulant matrix? . . . . . . . . . . . . . . . . . . .
+Box 5.4. Proof of equation (5.189)
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 5.5. What is the transpose of matrix H? . . . . . . . . . . . . . . . . . . . . .
+How can we overcome the extreme sensitivity of matrix inversion to noise? . . . . .
+How can we incorporate the constraint in the inversion of the matrix? . . . . . . .
+Box 5.6. Derivation of the constrained matrix inversion ﬁlter
+. . . . . . . . . . . .
+What is the relationship between the Wiener ﬁlter and the constrained matrix in-
+version ﬁlter? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we apply constrained matrix inversion in practice?
+. . . . . . . . . . . . .
+5.4 Inhomogeneous linear image restoration: the whirl transform . . . .
+How do we model the degradation of an image if it is linear but inhomogeneous? .
+How may we use constrained matrix inversion when the distortion matrix is not
+circulant? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What happens if matrix H is really very big and we cannot take its inverse? . . . .
+Box 5.7. Jacobi’s method for inverting large systems of linear equations . . . . . .
+Box 5.8. Gauss-Seidel method for inverting large systems of linear equations . . . .
+Does matrix H as constructed in examples 5.41, 5.43, 5.44 and 5.45 fulﬁl the condi-
+tions for using the Gauss-Seidel or the Jacobi method? . . . . . . . . . . . . .
+What happens if matrix H does not satisfy the conditions for the Gauss-Seidel
+method? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we apply the gradient descent algorithm in practice? . . . . . . . . . . . .
+What happens if we do not know matrix H?
+. . . . . . . . . . . . . . . . . . . . .
+5.5 Nonlinear image restoration: MAP estimation . . . . . . . . . . . . . .
+What does MAP estimation mean? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we formulate the problem of image restoration as a MAP estimation? . . .
+How do we select the most probable conﬁguration of restored pixel values, given the
+degradation model and the degraded image? . . . . . . . . . . . . . . . . . . .
+Box 5.9. Probabilities: prior, a priori, posterior, a posteriori, conditional . . . . . .
+Is the minimum of the cost function unique?
+. . . . . . . . . . . . . . . . . . . . .
+How can we select then one solution from all possible solutions that minimise the
+cost function? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Can we combine the posterior and the prior probabilities for a conﬁguration x? . .
+Box 5.10. Parseval’s theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+436
+
+436
+437
+437
+438
+438
+438
+
+439
+
+444
+445
+446
+448
+455
+456
+459
+
+462
+464
+468
+468
+
+477
+481
+482
+485
+
+485
+
+486
+487
+489
+490
+490
+490
+
+490
+491
+491
+
+493
+493
+496
+
+xvi
+
+Contents
+
+How do we model in general the cost function we have to minimise in order to restore
+an image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the reason we use a temperature parameter when we model the joint prob-
+ability density function, since its does not change the conﬁguration for which
+the probability takes its maximum? . . . . . . . . . . . . . . . . . . . . . . . .
+How does the temperature parameter allow us to focus or defocus in the solution
+space? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we model the prior probabilities of conﬁgurations?
+. . . . . . . . . . . . .
+What happens if the image has genuine discontinuities? . . . . . . . . . . . . . . .
+How do we minimise the cost function?
+. . . . . . . . . . . . . . . . . . . . . . . .
+How do we create a possible new solution from the previous one? . . . . . . . . . .
+How do we know when to stop the iterations? . . . . . . . . . . . . . . . . . . . . .
+How do we reduce the temperature in simulated annealing? . . . . . . . . . . . . .
+How do we perform simulated annealing with the Metropolis sampler in practice? .
+How do we perform simulated annealing with the Gibbs sampler in practice? . . .
+Box 5.11. How can we draw random numbers according to a given probability
+density function? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why is simulated annealing slow? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we accelerate simulated annealing? . . . . . . . . . . . . . . . . . . . . . .
+How can we coarsen the conﬁguration space? . . . . . . . . . . . . . . . . . . . . .
+5.6 Geometric image restoration . . . . . . . . . . . . . . . . . . . . . . . . .
+How may geometric distortion arise? . . . . . . . . . . . . . . . . . . . . . . . . . .
+Why do lenses cause distortions? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can a geometrically distorted image be restored? . . . . . . . . . . . . . . . .
+How do we perform the spatial transformation? . . . . . . . . . . . . . . . . . . . .
+How may we model the lens distortions? . . . . . . . . . . . . . . . . . . . . . . . .
+How can we model the inhomogeneous distortion? . . . . . . . . . . . . . . . . . .
+How can we specify the parameters of the spatial transformation model? . . . . . .
+Why is grey level interpolation needed? . . . . . . . . . . . . . . . . . . . . . . . .
+Box 5.12. The Hough transform for line detection . . . . . . . . . . . . . . . . . . .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+6 Image Segmentation and Edge Detection
+
+What is this chapter about? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What exactly is the purpose of image segmentation and edge detection? . . . . . .
+6.1 Image segmentation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we divide an image into uniform regions? . . . . . . . . . . . . . . . . . .
+What do we mean by “labelling” an image? . . . . . . . . . . . . . . . . . . . . . .
+What can we do if the valley in the histogram is not very sharply deﬁned? . . . . .
+How can we minimise the number of misclassiﬁed pixels?
+. . . . . . . . . . . . . .
+How can we choose the minimum error threshold? . . . . . . . . . . . . . . . . . .
+What is the minimum error threshold when object and background pixels are nor-
+mally distributed? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+What is the meaning of the two solutions of the minimum error threshold
+
+equation? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we estimate the parameters of the Gaussian probability density functions
+that represent the object and the background? . . . . . . . . . . . . . . . . .
+
+499
+
+501
+
+501
+501
+502
+503
+503
+505
+506
+506
+507
+
+508
+511
+511
+512
+513
+513
+513
+513
+513
+514
+515
+516
+516
+520
+526
+
+527
+527
+527
+528
+528
+528
+528
+529
+530
+
+534
+
+535
+
+537
+
+Contents
+
+What are the drawbacks of the minimum error threshold method? . . . . . . . . .
+Is there any method that does not depend on the availability of models for the
+distributions of the object and the background pixels? . . . . . . . . . . . . .
+Box 6.1. Derivation of Otsu’s threshold . . . . . . . . . . . . . . . . . . . . . . . .
+Are there any drawbacks in Otsu’s method? . . . . . . . . . . . . . . . . . . . . . .
+How can we threshold images obtained under variable illumination? . . . . . . . .
+If we threshold the image according to the histogram of ln f(x, y), are we
+thresholding it according to the reﬂectance properties of the imaged
+surfaces? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 6.2. The probability density function of the sum of two random variables . . .
+Since straightforward thresholding methods break down under variable
+
+logical reconstruction of f by g?
+
+illumination, how can we cope with it? . . . . . . . . . . . . . . . . . . . . . .
+What do we do if the histogram has only one peak? . . . . . . . . . . . . . . . . .
+Are there any shortcomings of the grey value thresholding methods? . . . . . . . .
+How can we cope with images that contain regions that are not uniform but they
+are perceived as uniform? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Can we improve histogramming methods by taking into consideration the spatial
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Are there any segmentation methods that take into consideration the spatial prox-
+imity of pixels? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can one choose the seed pixels? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How does the split and merge method work? . . . . . . . . . . . . . . . . . . . . .
+What is morphological image reconstruction? . . . . . . . . . . . . . . . . . . . . .
+How does morphological image reconstruction allow us to identify the seeds needed
+for the watershed algorithm? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we compute the gradient magnitude image? . . . . . . . . . . . . . . . . .
+What is the role of the number we subtract from f to create mask g in the morpho-
+. . . . . . . . . . . . . . . . . . . . . . . . .
+What is the role of the shape and size of the structuring element in the morphological
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How does the use of the gradient magnitude image help segment the image by the
+watershed algorithm? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Are there any drawbacks in the watershed algorithm which works with the gradient
+magnitude image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is it possible to segment an image by ﬁltering? . . . . . . . . . . . . . . . . . . . .
+How can we use the mean shift algorithm to segment an image? . . . . . . . . . . .
+What is a graph? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we use a graph to represent an image? . . . . . . . . . . . . . . . . . . . .
+How can we use the graph representation of an image to segment it? . . . . . . . .
+What is the normalised cuts algorithm? . . . . . . . . . . . . . . . . . . . . . . . .
+Box 6.3. The normalised cuts algorithm as an eigenvalue problem . . . . . . . . . .
+Box 6.4. How do we minimise the Rayleigh quotient? . . . . . . . . . . . . . . . . .
+How do we apply the normalised graph cuts algorithm in practice? . . . . . . . . .
+Is it possible to segment an image by considering the dissimilarities between regions,
+as opposed to considering the similarities between pixels? . . . . . . . . . . .
+6.2 Edge detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we measure the dissimilarity between neighbouring pixels? . . . . . . . . .
+
+proximity of pixels?
+
+reconstruction of f by g?
+
+xvii
+
+541
+
+541
+542
+545
+545
+
+545
+546
+
+548
+549
+550
+
+551
+
+553
+
+553
+554
+554
+554
+
+557
+557
+
+558
+
+560
+
+566
+
+568
+574
+574
+576
+576
+576
+576
+576
+585
+589
+
+589
+591
+591
+
+xviii
+
+Contents
+
+What is the smallest possible window we can choose?
+. . . . . . . . . . . . . . . .
+What happens when the image has noise? . . . . . . . . . . . . . . . . . . . . . . .
+Box 6.5. How can we choose the weights of a 3 × 3 mask for edge detection? . . . .
+What is the best value of parameter K? . . . . . . . . . . . . . . . . . . . . . . . .
+Box 6.6. Derivation of the Sobel ﬁlters . . . . . . . . . . . . . . . . . . . . . . . . .
+In the general case, how do we decide whether a pixel is an edge pixel or not? . . .
+How do we perform linear edge detection in practice?
+. . . . . . . . . . . . . . . .
+Are Sobel masks appropriate for all images? . . . . . . . . . . . . . . . . . . . . . .
+How can we choose the weights of the mask if we need a larger mask owing to the
+presence of signiﬁcant noise in the image? . . . . . . . . . . . . . . . . . . . .
+
+Can we use the optimal ﬁlters for edges to detect lines in an image in an
+
+signal with a ﬁlter
+
+optimal way? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the fundamental diﬀerence between step edges and lines? . . . . . . . . . .
+Box 6.7. Convolving a random noise signal with a ﬁlter
+. . . . . . . . . . . . . . .
+Box 6.8. Calculation of the signal to noise ratio after convolution of a noisy edge
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 6.9. Derivation of the good locality measure . . . . . . . . . . . . . . . . . . .
+Box 6.10. Derivation of the count of false maxima . . . . . . . . . . . . . . . . . .
+Can edge detection lead to image segmentation? . . . . . . . . . . . . . . . . . . .
+What is hysteresis edge linking? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Does hysteresis edge linking lead to closed edge contours? . . . . . . . . . . . . . .
+What is the Laplacian of Gaussian edge detection method? . . . . . . . . . . . . .
+Is it possible to detect edges and lines simultaneously? . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . .
+6.3 Phase congruency and the monogenic signal
+What is phase congruency? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is phase congruency for a 1D digital signal?
+. . . . . . . . . . . . . . . . . .
+How does phase congruency allow us to detect lines and edges? . . . . . . . . . . .
+Why does phase congruency coincide with the maximum of the local energy of the
+signal? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we measure phase congruency? . . . . . . . . . . . . . . . . . . . . . . . .
+Couldn’t we measure phase congruency by simply averaging the phases of the har-
+monic components? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we measure phase congruency in practice? . . . . . . . . . . . . . . . . . .
+How do we measure the local energy of the signal? . . . . . . . . . . . . . . . . . .
+Why should we perform convolution with the two basis signals in order to get the
+projection of the local signal on the basis signals? . . . . . . . . . . . . . . . .
+Box 6.11. Some properties of the continuous Fourier transform . . . . . . . . . . .
+If all we need to compute is the local energy of the signal, why don’t we use Parseval’s
+theorem to compute it in the real domain inside a local window? . . . . . . .
+How do we decide which ﬁlters to use for the calculation of the local energy? . . .
+How do we compute the local energy of a 1D signal in practice? . . . . . . . . . . .
+How can we tell whether the maximum of the local energy corresponds to a sym-
+metric or an antisymmetric feature? . . . . . . . . . . . . . . . . . . . . . . .
+How can we compute phase congruency and local energy in 2D?
+. . . . . . . . . .
+What is the analytic signal? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we generalise the Hilbert transform to 2D? . . . . . . . . . . . . . . . . .
+How do we compute the Riesz transform of an image? . . . . . . . . . . . . . . . .
+
+592
+593
+595
+596
+596
+601
+602
+605
+
+606
+
+609
+609
+615
+
+616
+617
+619
+620
+621
+621
+623
+623
+625
+625
+625
+626
+
+626
+627
+
+627
+630
+630
+
+632
+637
+
+647
+648
+651
+
+652
+659
+659
+660
+660
+
+Contents
+
+How can the monogenic signal be used? . . . . . . . . . . . . . . . . . . . . . . . .
+How do we select the even ﬁlter we use? . . . . . . . . . . . . . . . . . . . . . . . .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+7 Image Processing for Multispectral Images
+
+What is a multispectral image? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What are the problems that are special to multispectral images? . . . . . . . . . .
+What is this chapter about? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.1 Image preprocessing for multispectral images . . . . . . . . . . . . . .
+Why may one wish to replace the bands of a multispectral image with other
+
+bands? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we usually construct a grey image from a multispectral image?
+. . . . . .
+How can we construct a single band from a multispectral image that contains the
+maximum amount of image information? . . . . . . . . . . . . . . . . . . . . .
+What is principal component analysis? . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 7.1. How do we measure information? . . . . . . . . . . . . . . . . . . . . . . .
+How do we perform principal component analysis in practice? . . . . . . . . . . . .
+What are the advantages of using the principal components of an image, instead of
+the original bands? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What are the disadvantages of using the principal components of an image instead
+of the original bands? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is it possible to work out only the ﬁrst principal component of a multispectral image
+if we are not interested in the other components? . . . . . . . . . . . . . . . .
+Box 7.2. The power method for estimating the largest eigenvalue of a matrix . . .
+What is the problem of spectral constancy? . . . . . . . . . . . . . . . . . . . . . .
+What inﬂuences the spectral signature of a pixel? . . . . . . . . . . . . . . . . . . .
+What is the reﬂectance function? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Does the imaging geometry inﬂuence the spectral signature of a pixel? . . . . . . .
+How does the imaging geometry inﬂuence the light energy a pixel receives? . . . .
+How do we model the process of image formation for Lambertian surfaces?
+. . . .
+How can we eliminate the dependence of the spectrum of a pixel on the imaging
+geometry? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How can we eliminate the dependence of the spectrum of a pixel on the spectrum
+of the illuminating source? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What happens if we have more than one illuminating sources?
+. . . . . . . . . . .
+How can we remove the dependence of the spectral signature of a pixel on the
+imaging geometry and on the spectrum of the illuminant? . . . . . . . . . . .
+
+What do we have to do if the imaged surface is not made up from the same
+
+material? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the spectral unmixing problem? . . . . . . . . . . . . . . . . . . . . . . . .
+How do we solve the linear spectral unmixing problem? . . . . . . . . . . . . . . .
+Can we use library spectra for the pure materials? . . . . . . . . . . . . . . . . . .
+How do we solve the linear spectral unmixing problem when we know the spectra
+of the pure components? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Is it possible that the inverse of matrix Q cannot be computed? . . . . . . . . . . .
+What happens if the library spectra have been sampled at diﬀerent wavelengths
+from the mixed spectrum? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+xix
+
+660
+661
+668
+
+669
+669
+669
+670
+671
+
+671
+671
+
+671
+672
+673
+674
+
+675
+
+675
+
+682
+682
+684
+684
+684
+684
+685
+685
+
+686
+
+686
+687
+
+687
+
+688
+688
+689
+689
+
+690
+693
+
+693
+
+xx
+
+Contents
+
+What happens if we do not know which pure substances might be present in the
+mixed substance? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we solve the linear spectral unmixing problem if we do not know the spectra
+of the pure materials? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+7.2 The physics and psychophysics of colour vision . . . . . . . . . . . . .
+What is colour? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the interest in colour from the engineering point of view?
+. . . . . . . . .
+What inﬂuences the colour we perceive for a dark object? . . . . . . . . . . . . . .
+What causes the variations of the daylight? . . . . . . . . . . . . . . . . . . . . . .
+How can we model the variations of the daylight? . . . . . . . . . . . . . . . . . . .
+Box 7.3. Standard illuminants . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the observed variation in the natural materials? . . . . . . . . . . . . . . .
+What happens to the light once it reaches the sensors? . . . . . . . . . . . . . . . .
+Is it possible for diﬀerent materials to produce the same recording by a sensor? . .
+How does the human visual system achieve colour constancy? . . . . . . . . . . . .
+What does the trichromatic theory of colour vision say? . . . . . . . . . . . . . . .
+What deﬁnes a colour system? . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How are the tristimulus values speciﬁed? . . . . . . . . . . . . . . . . . . . . . . . .
+Can all monochromatic reference stimuli be matched by simply adjusting the inten-
+sities of the primary lights? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Do all people require the same intensities of the primary lights to match the same
+monochromatic reference stimulus? . . . . . . . . . . . . . . . . . . . . . . . .
+Who are the people with normal colour vision? . . . . . . . . . . . . . . . . . . . .
+What are the most commonly used colour systems? . . . . . . . . . . . . . . . . . .
+What is the CIE RGB colour system? . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the XY Z colour system? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we represent colours in 3D? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we represent colours in 2D? . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the chromaticity diagram? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Box 7.4. Some useful theorems from 3D geometry . . . . . . . . . . . . . . . . . .
+What is the chromaticity diagram for the CIE RGB colour system? . . . . . . . .
+How does the human brain perceive colour brightness? . . . . . . . . . . . . . . . .
+How is the alychne deﬁned in the CIE RGB colour system?
+. . . . . . . . . . . .
+How is the XY Z colour system deﬁned? . . . . . . . . . . . . . . . . . . . . . . . .
+What is the chromaticity diagram of the XY Z colour system?
+. . . . . . . . . . .
+How is it possible to create a colour system with imaginary primaries, in practice?
+What if we wish to model the way a particular individual sees colours? . . . . . . .
+If diﬀerent viewers require diﬀerent intensities of the primary lights to see white,
+how do we calibrate colours between diﬀerent viewers? . . . . . . . . . . . . .
+How do we make use of the reference white? . . . . . . . . . . . . . . . . . . . . . .
+How is the sRGB colour system deﬁned? . . . . . . . . . . . . . . . . . . . . . . .
+Does a colour change if we double all its tristimulus values? . . . . . . . . . . . . .
+How does the description of a colour, in terms of a colour system, relate to the way
+we describe colours in everyday language? . . . . . . . . . . . . . . . . . . . .
+How do we compare colours? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a metric?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Can we use the Euclidean metric to measure the diﬀerence of two colours? . . . . .
+
+694
+
+695
+700
+700
+700
+700
+701
+702
+704
+706
+711
+713
+714
+715
+715
+715
+
+715
+
+717
+717
+717
+717
+718
+718
+718
+719
+721
+724
+725
+726
+726
+728
+729
+729
+
+730
+730
+732
+733
+
+733
+733
+733
+734
+
+Contents
+
+Which are the perceptually uniform colour spaces? . . . . . . . . . . . . . . . . . .
+How is the Luv colour space deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is the Lab colour space deﬁned? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we choose values for (Xn, Yn, Zn)? . . . . . . . . . . . . . . . . . . . . . . .
+How can we compute the RGB values from the Luv values? . . . . . . . . . . . . .
+How can we compute the RGB values from the Lab values? . . . . . . . . . . . . .
+How do we measure perceived saturation? . . . . . . . . . . . . . . . . . . . . . . .
+How do we measure perceived diﬀerences in saturation? . . . . . . . . . . . . . . .
+How do we measure perceived hue? . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How is the perceived hue angle deﬁned? . . . . . . . . . . . . . . . . . . . . . . . .
+How do we measure perceived diﬀerences in hue? . . . . . . . . . . . . . . . . . . .
+What aﬀects the way we perceive colour? . . . . . . . . . . . . . . . . . . . . . . .
+What is meant by temporal context of colour?
+. . . . . . . . . . . . . . . . . . . .
+What is meant by spatial context of colour? . . . . . . . . . . . . . . . . . . . . . .
+Why distance matters when we talk about spatial frequency? . . . . . . . . . . . .
+How do we explain the spatial dependence of colour perception?
+. . . . . . . . . .
+7.3 Colour image processing in practice . . . . . . . . . . . . . . . . . . . .
+How does the study of the human colour vision aﬀect the way we do image
+
+processing? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How perceptually uniform are the perceptually uniform colour spaces in practice? .
+How should we convert the image RGB values to the Luv or the Lab colour
+
+spaces?
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we measure hue and saturation in image processing applications? . . . . .
+How can we emulate the spatial dependence of colour perception in image
+
+processing? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is the relevance of the phenomenon of metamerism to image processing? . .
+How do we cope with the problem of metamerism in an industrial inspection appli-
+cation? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+What is a Monte-Carlo method? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we remove noise from multispectral images? . . . . . . . . . . . . . . . . .
+How do we rank vectors?
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we deal with mixed noise in multispectral images? . . . . . . . . . . . . . .
+How do we enhance a colour image? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we restore multispectral images? . . . . . . . . . . . . . . . . . . . . . . . .
+How do we compress colour images? . . . . . . . . . . . . . . . . . . . . . . . . . .
+How do we segment multispectral images? . . . . . . . . . . . . . . . . . . . . . . .
+How do we apply k-means clustering in practice? . . . . . . . . . . . . . . . . . . .
+How do we extract the edges of multispectral images? . . . . . . . . . . . . . . . .
+What is the “take home” message of this chapter? . . . . . . . . . . . . . . . . . .
+
+Bibliographical notes
+
+References
+
+Index
+
+xxi
+
+734
+734
+735
+735
+735
+736
+737
+737
+737
+738
+738
+740
+740
+740
+741
+741
+742
+
+742
+742
+
+742
+747
+
+752
+756
+
+756
+757
+759
+760
+760
+761
+767
+767
+767
+767
+769
+770
+
+775
+
+777
+
+781
+
+Preface
+
+Since the ﬁrst edition of this book in 1999, the ﬁeld of Image Processing has seen many
+developments. First of all, the proliferation of colour sensors caused an explosion of research
+in colour vision and colour image processing. Second, application of image processing to
+biomedicine has really taken oﬀ, with medical image processing nowadays being almost a
+ﬁeld of its own. Third, image processing has become more sophisticated, having reached out
+even further aﬁeld, into other areas of research, as diverse as graph theory and psychophysics,
+to borrow methodologies and approaches.
+
+This new edition of the book attempts to capture these new insights, without, however,
+forgetting the well known and established methods of image processing of the past. The book
+may be treated as three books interlaced: the advanced proofs and peripheral material are
+presented in grey boxes; they may be omitted in a ﬁrst reading or for an undergraduate course.
+The back bone of the book is the text given in the form of questions and answers. We believe
+that the order of the questions is that of coming naturally to the reader when they encounter
+a new concept. There are 255 ﬁgures and 384 fully worked out examples aimed at clarifying
+these concepts. Examples with a number preﬁxed with a “B” refer to the boxed
+material and again they may be omitted in a ﬁrst reading or an undergraduate
+course. The book is accompanied by a CD with all the MatLab programs that produced
+the examples and the ﬁgures. There is also a collection of slide presentations in pdf format,
+available from the accompanying web page of the book, that may help the lecturer who wishes
+to use this material for teaching.
+
+We have made a great eﬀort to make the book easy to read and we hope that learning
+about the “nuts and bolts” behind the image processing algorithms will make the subject
+even more exciting and a pleasure to delve into.
+
+Over the years of writing this book, we were helped by various people. We would par-
+ticularly like to thank Mike Brookes, Nikos Mitianoudis, Antonis Katartzis, Mohammad Ja-
+hangiri, Tania Stathaki and Vladimir Jeliazkov, for useful discussions, Mohammad Jahangiri,
+Leila Favaedi and Olga Duran for help with some ﬁgures, and Pedro Garcia-Sevilla for help
+with typesetting the book.
+
+Maria Petrou and Costas Petrou
+
+xxiii
+
+Plates
+
+771
+
+(a)
+
+(b)
+
+Plate I: (a) The colours of the Macbeth colour chart. (b) The chromaticity diagram of the
+XY Z colour system. Points A and B represent colours which, although further apart than
+points C and D, are perceived as more similar than the colours represented by C and D.
+
+(a) One eigenvalue
+
+(b) Two eigenvalues
+
+(c) Three eigenvalues
+
+(d) Four eigenvalues
+
+(e) Five eigenvalues
+
+(f) Six eigenvalues
+
+Plate II: The inclusion of extra eigenvalues beyond the third one changes the colour appear-
+ance very little (see example 7.12, on page 713).
+
+Plate III: Colour perception depends on colour spatial frequency (see page 740).
+
+Image Processing: The Fundamentals, Second Edition
+© 2010 John Wiley & Sons, Ltd. ISBN: 978-0-470-74586-1
+
+ Maria Petrou and Costas Petrou
+
+772
+
+Plates
+
+Plate IV: Colour perception depends on colour context (see page 740).
+
+(a) 5% impulse noise
+
+(b) 5% impulse + Gaussian (σ = 15)
+
+(c) Vector median ﬁltering
+
+(d) α-trimmed vector median ﬁltering
+
+Plate V: At the top, images aﬀected by impulse noise and mixed noise, and at the bottom
+their restored versions, using vector median ﬁltering, with window size 3× 3, and α-trimmed
+vector median ﬁltering, with α = 0.2 and window size 5 × 5 (example 7.32, page 761).
+
+Plates
+
+773
+
+(a) Original
+
+(b) Seen from 2m
+
+(c) Seen from 4m
+
+(d) Seen from 6m
+
+Plate VI: (a) “A Street in Shanghai” (344 × 512). As seen from (b) 2m, (c) 4m and (d) 10m
+distance. In (b) a border of 10 pixels around should be ignored, in (c) the stripe aﬀected by
+border eﬀects is 22 pixels wide, while in (d) is 34 pixels wide (example 7.28, page 754).
+
+(a) “Abu-Dhabi building”
+
+(b) After colour enhancement
+
+Plate VII: Enhancing colours by increasing their saturation to its maximum, while retaining
+their hue. Threshold= 0.04 and γ = 1/√6 were used for the saturation (see page 761).
+
+774
+
+Plates
+
+(a) “Vina del Mar-Valparaiso”
+
+(b) After colour enhancement
+
+Plate VIII: Enhancing colours by increasing their saturation to the maximum, while retaining
+their hue. Threshold= 0.01 and γ = 1/√6 were used for the saturation (see page 761).
+
+(a) Original (184 × 256)
+
+(b) 10-means (sRGB)
+
+(c) Mean shift (sRGB)
+
+(d) Mean shift (CIE RGB)
+
+Plate IX: “The Merchant in Al-Ain” segmented in Luv space, assuming that the original
+values are either in the CIE RGB or the sRGB space (see example 7.37, on page 768).
+
+(a) From the average band
+
+(b) From the 1st PC
+
+(c) From all bands
+
+Plate X: The edges superimposed on the original image (see example 7.38, on page 769).
+
+Chapter 1
+
+Introduction
+
+Why do we process images?
+
+Image Processing has been developed in response to three major problems concerned with
+pictures:
+
+tures;
+
+• picture digitisation and coding to facilitate transmission, printing and storage of pic-
+• picture enhancement and restoration in order, for example, to interpret more easily
+• picture segmentation and description as an early stage to Machine Vision.
+
+pictures of the surface of other planets taken by various probes;
+
+Image Processing nowadays refers mainly to the processing of digital images.
+
+What is an image?
+
+A panchromatic image is a 2D light intensity function, f(x, y), where x and y are spatial
+coordinates and the value of f at (x, y) is proportional to the brightness of the scene at that
+point.
+If we have a multispectral image, f(x, y) is a vector, each component of which
+indicates the brightness of the scene at point (x, y) at the corresponding spectral band.
+
+What is a digital image?
+
+A digital image is an image f(x, y) that has been discretised both in spatial coordinates
+and in brightness. It is represented by a 2D integer array, or a series of 2D arrays, one for
+each colour band. The digitised brightness value is called grey level.
+
+Each element of the array is called pixel or pel, derived from the term “picture element”.
+Usually, the size of such an array is a few hundred pixels by a few hundred pixels and there
+are several dozens of possible diﬀerent grey levels. Thus, a digital image looks like this
+
+f(1, 1)
+f(2, 1)
+
+f(1, 2)
+f(2, 2)
+
+...
+
+...
+
+f(x, y) =⎡⎢⎢⎢⎣
+
+f(1, N)
+f(2, N)
+
+...
+
+. . .
+. . .
+
+. . .
+
+⎤⎥⎥⎥⎦
+
+(1.1)
+
+f(N, 1)
+
+f(N, 2)
+
+f(N, N)
+
+Image Processing: The Fundamentals, Second Edition 
+© 2010 John Wiley & Sons, Ltd. ISBN: 978-0-470-74586-1
+
+Maria Petrou and Costas Petrou
+
+2
+
+Image Processing: The Fundamentals
+
+with 0 ≤ f(x, y) ≤ G − 1, where usually N and G are expressed as positive integer powers of
+2 (N = 2n, G = 2m).
+
+What is a spectral band?
+
+A colour band is a range of wavelengths of the electromagnetic spectrum, over which the
+sensors we use to capture an image have nonzero sensitivity. Typical colour images consist
+of three colour bands. This means that they have been captured by three diﬀerent sets
+of sensors, each set made to have a diﬀerent sensitivity function. Figure 1.1 shows typical
+sensitivity curves of a multispectral camera.
+
+All the methods presented in this book, apart from those in Chapter 7, will refer to single
+
+band images.
+
+1
+
+y
+t
+i
+v
+i
+t
+i
+s
+n
+e
+s
+
+0
+
+sensors B
+
+sensors G
+
+sensors R
+
+wavelength
+
+Figure 1.1: The spectrum of the light which reaches a sensor is multiplied with the sensitivity
+function of the sensor and recorded by the sensor. This recorded value is the brightness of
+the image in the location of the sensor and in the band of the sensor. This ﬁgure shows the
+sensitivity curves of three diﬀerent sensor types.
+
+Why do most image processing algorithms refer to grey images, while most images
+we come across are colour images?
+
+For various reasons.
+
+1. A lot of the processes we apply to a grey image can be easily extended to a colour image
+
+by applying them to each band separately.
+
+2. A lot of the information conveyed by an image is expressed in its grey form and so
+colour is not necessary for its extraction. That is the reason black and white television
+receivers had been perfectly acceptable to the public for many years and black and
+white photography is still popular with many photographers.
+
+3. For many years colour digital cameras were expensive and not widely available. A
+lot of image processing techniques were developed around the type of image that was
+available. These techniques have been well established in image processing.
+
+Nevertheless, colour is an important property of the natural world, and so we shall examine
+its role in image processing in a separate chapter in this book.
+
+1. Introduction
+
+3
+
+How is a digital image formed?
+
+Each pixel of an image corresponds to a part of a physical object in the 3D world. This
+physical object is illuminated by some light which is partly reﬂected and partly absorbed by
+it. Part of the reﬂected light reaches the array of sensors used to image the scene and is
+responsible for the values recorded by these sensors. One of these sensors makes up a pixel
+and its ﬁeld of view corresponds to a small patch in the imaged scene. The recorded value by
+each sensor depends on its sensitivity curve. When a photon of a certain wavelength reaches
+the sensor, its energy is multiplied with the value of the sensitivity curve of the sensor at
+that wavelength and is accumulated. The total energy collected by the sensor (during the
+exposure time) is eventually used to compute the grey value of the pixel that corresponds to
+this sensor.
+
+If a sensor corresponds to a patch in the physical world, how come we can have
+more than one sensor type corresponding to the same patch of the scene?
+
+Indeed, it is not possible to have three diﬀerent sensors with three diﬀerent sensitivity curves
+corresponding exactly to the same patch of the physical world. That is why digital cameras
+have the three diﬀerent types of sensor slightly displaced from each other, as shown in ﬁgure
+1.2, with the sensors that are sensitive to the green wavelengths being twice as many as those
+sensitive to the blue and the red wavelengths. The recordings of the three sensor types are
+interpolated and superimposed to create the colour image. Recently, however, cameras have
+been constructed where the three types of sensor are combined so they exactly exist on top of
+each other and so they view exactly the same patch in the real world. These cameras produce
+much sharper colour images than the ordinary cameras.
+
+R G
+R
+RG G
+G
+G
+B
+B
+B
+R
+G R
+G G
+G
+G
+B
+B
+B
+R
+GRGRG
+G
+B
+B
+
+G
+R
+G
+
+G
+
+G
+
+B
+
+Figure 1.2: The RGB sensors as they are arranged in a typical digital camera.
+
+What is the physical meaning of the brightness of an image at a pixel position?
+
+The brightness values of diﬀerent pixels have been created by using the energies recorded
+by the corresponding sensors. They have signiﬁcance only relative to each other and they
+are meaningless in absolute terms. So, pixel values between diﬀerent images should only be
+compared if either care has been taken for the physical processes used to form the two images
+to be identical, or the brightness values of the two images have somehow been normalised so
+that the eﬀects of the diﬀerent physical processes have been removed. In that case, we say
+that the sensors are calibrated.
+
+4
+
+Image Processing: The Fundamentals
+
+Example 1.1
+You are given a triple array of 3×3 sensors, arranged as shown in ﬁgure 1.3,
+with their sampled sensitivity curves given in table 1.1. The last column of
+this table gives in some arbitrary units the energy, Eλi, carried by photons
+with wavelength λi.
+
+Sensors B Sensors G Sensors R Energy
+
+Wavelength
+
+λ0
+λ1
+λ2
+λ3
+λ4
+λ5
+λ6
+λ7
+λ8
+λ9
+
+0.2
+0.4
+0.8
+1.0
+0.7
+0.2
+0.1
+0.0
+0.0
+0.0
+
+0.0
+0.2
+0.3
+0.4
+0.6
+1.0
+0.8
+0.6
+0.3
+0.0
+
+0.0
+0.1
+0.2
+0.2
+0.3
+0.5
+0.6
+0.8
+1.0
+0.6
+
+1.00
+0.95
+0.90
+0.88
+0.85
+0.81
+0.78
+0.70
+0.60
+0.50
+
+Table 1.1: The sensitivity curves of three types of sensor for wavelengths
+in the range [λ0,λ 9], and the corresponding energy of photons of these
+particular wavelengths in some arbitrary units.
+
+The shutter of the camera is open long enough for 10 photons to reach the
+locations of the sensors.
+
+R
+B
+R
+B
+
+R
+R G
+G G
+B
+B
+R
+G G
+G R
+B
+B
+GRGRGR
+B
+
+B
+
+B
+
+(1,1) (1,2) (1,3)
+
+(2,1)
+
+(2,2)
+
+(2,3)
+
+(3,1)
+
+(3,2) (3,3)
+
+Figure 1.3: Three 3 × 3 sensor arrays interlaced. On the right, the loca-
+tions of the pixels they make up. Although the three types of sensor are
+slightly misplaced with respect to each other, we assume that each triplet
+is coincident and forms a single pixel.
+
+For simplicity, we consider that exactly the same types of photon reach all
+sensors that correspond to the same location.
+
+1. Introduction
+
+5
+
+The wavelengths of the photons that reach the pixel locations of each
+triple sensor, as identiﬁed in ﬁgure 1.3, are:
+
+Location (1, 1):
+Location (1, 2):
+Location (1, 3):
+Location (2, 1):
+Location (2, 2):
+Location (2, 3):
+Location (3, 1):
+Location (3, 2):
+Location (3, 3):
+Calculate the values that each sensor array will record and thus produce
+the three photon energy bands recorded.
+
+λ0,λ9,λ9,λ8,λ7,λ8,λ1,λ0,λ1,λ1
+λ1,λ3,λ3,λ4,λ4,λ5,λ2,λ6,λ4,λ5
+λ6,λ7,λ7,λ0,λ5,λ6,λ6,λ1,λ5,λ9
+λ0,λ1,λ0,λ2,λ1,λ1,λ4,λ3,λ3,λ1
+λ3,λ3,λ4,λ3,λ4,λ4,λ5,λ2,λ9,λ4
+λ7,λ7,λ6,λ7,λ6,λ1,λ5,λ9,λ8,λ7
+λ6,λ6,λ1,λ8,λ7,λ8,λ9,λ9,λ8,λ7
+λ0,λ4,λ3,λ4,λ1,λ5,λ4,λ0,λ2,λ1
+λ3,λ4,λ1,λ0,λ0,λ4,λ2,λ5,λ2,λ4
+
+We denote by gX(i, j) the value that will be recorded by sensor type X at location (i, j).
+For sensors R, G and B in location (1, 1), the recorded values will be:
+
+gR(1, 1) = 2Eλ0 × 0.0 + 2Eλ9 × 0.6 + 2Eλ8 × 1.0 + 1Eλ7 × 0.8 + 3Eλ1 × 0.1
+
+= 1.0 × 0.6 + 1.2 × 1.0 + 0.7 × 0.8 + 2.85 × 0.1
+= 2.645
+
+gG(1, 1) = 2Eλ0 × 0.0 + 2Eλ9 × 0.0 + 2Eλ8 × 0.3 + 1Eλ7 × 0.6 + 3Eλ1 × 0.2
+
+= 1.2 × 0.3 + 0.7 × 0.6 + 2.85 × 0.2
+= 1.35
+
+(1.2)
+
+(1.3)
+
+(1.4)
+
+gB(1, 1) = 2Eλ0 × 0.2 + 2Eλ9 × 0.0 + 2Eλ8 × 0.0 + 1Eλ7 × 0.0 + 3Eλ1 × 0.4
+
+= 2.0 × 0.2 + 2.85 × 0.4
+= 1.54
+
+Working in a similar way, we deduce that the energies recorded by the three sensor
+arrays are:
+
+ER = ⎛⎝
+EG = ⎛⎝
+EB = ⎛⎝
+
+2.645 2.670 3.729
+1.167 4.053 4.576
+
+1.350 4.938 4.522
+2.244 4.176 4.108
+
+4.551 1.716 1.801⎞⎠
+2.818 2.532 2.612⎞⎠
+0.536 4.707 5.047⎞⎠
+
+1.540 5.047 1.138
+4.995 5.902 0.698
+
+(1.5)
+
+6
+
+Image Processing: The Fundamentals
+
+256 × 256 pixels
+
+128 × 128 pixels
+
+64 × 64 pixels
+
+32 × 32 pixels
+
+Figure 1.4: Keeping the number of grey levels constant and decreasing the number of pixels
+with which we digitise the same ﬁeld of view produces the checkerboard eﬀect.
+
+Why are images often quoted as being 512 × 512, 256 × 256, 128 × 128 etc?
+Many calculations with images are simpliﬁed when the size of the image is a power of 2. We
+shall see some examples in Chapter 2.
+
+How many bits do we need to store an image?
+The number of bits, b, we need to store an image of size N × N, with 2m grey levels, is:
+
+(1.6)
+So, for a typical 512 × 512 image with 256 grey levels (m = 8) we need 2,097,152 bits or
+262,144 8-bit bytes. That is why we often try to reduce m and N, without signiﬁcant loss of
+image quality.
+
+b = N × N × m
+
+1. Introduction
+
+7
+
+What determines the quality of an image?
+
+The quality of an image is a complicated concept, largely subjective and very much application
+dependent. Basically, an image is of good quality if it is not noisy and
+(1) it is not blurred;
+(2) it has high resolution;
+(3) it has good contrast.
+
+What makes an image blurred?
+
+Image blurring is caused by incorrect image capturing conditions. For example, out of focus
+camera, or relative motion of the camera and the imaged object. The amount of image
+blurring is expressed by the so called point spread function of the imaging system.
+
+What is meant by image resolution?
+
+The resolution of an image expresses how much detail we can see in it and clearly depends
+on the number of pixels we use to represent a scene (parameter N in equation (1.6)) and the
+number of grey levels used to quantise the brightness values (parameter m in equation (1.6)).
+Keeping m constant and decreasing N results in the checkerboard eﬀect (ﬁgure 1.4).
+Keeping N constant and reducing m results in false contouring (ﬁgure 1.5). Experiments
+have shown that the more detailed a picture is, the less it improves by keeping N constant
+and increasing m. So, for a detailed picture, like a picture of crowds (ﬁgure 1.6), the number
+of grey levels we use does not matter much.
+
+Example 1.2
+
+Assume that the range of values recorded by the sensors of example 1.1 is
+from 0 to 10. From the values of the three bands captured by the three
+sets of sensors, create digital bands with 3 bits each (m = 3).
+
+For 3-bit images, the pixels take values in the range [0, 23 − 1], ie in the range
+[0, 7]. Therefore, we have to divide the expected range of values to 8 equal intervals:
+10/8 = 1.25. So, we use the following conversion table:
+
+All pixels with recorded value in the range [0.0, 1.25)
+All pixels with recorded value in the range [1.25, 2.5)
+All pixels with recorded value in the range [2.5, 3.75)
+All pixels with recorded value in the range [3.75, 5.0)
+All pixels with recorded value in the range [5.0, 6.25)
+All pixels with recorded value in the range [6.25, 7.5)
+All pixels with recorded value in the range [7.5, 8.75)
+All pixels with recorded value in the range [8.75, 10.0]
+
+get grey value 0
+get grey value 1
+get grey value 2
+get grey value 3
+get grey value 4
+get grey value 5
+get grey value 6
+get grey value 7
+
+8
+
+Image Processing: The Fundamentals
+
+This mapping leads to the following bands of the recorded image.
+
+R =⎛⎝
+
+2 2 2
+0 3 3
+
+3 1 1⎞⎠ G =⎛⎝
+
+1 3 3
+1 3 3
+
+2 2 2⎞⎠ B =⎛⎝
+
+1
+3
+0
+
+4 0
+4 0
+
+3 4⎞⎠
+
+(1.7)
+
+m = 8
+
+m = 7
+
+m = 6
+
+m = 5
+
+m = 4
+
+m = 3
+
+m = 2
+
+m = 1
+
+Figure 1.5: Keeping the size of the image constant (249 × 199) and reducing the number
+of grey levels (= 2m) produces false contouring. To display the images, we always map the
+diﬀerent grey values to the range [0, 255].
+
+1. Introduction
+
+9
+
+256 grey levels (m = 8)
+
+128 grey levels (m = 7)
+
+64 grey levels (m = 6)
+
+32 grey levels (m = 5)
+
+16 grey levels (m = 4)
+
+8 grey levels (m = 3)
+
+4 grey levels (m = 2)
+
+2 grey levels (m = 1)
+
+Figure 1.6: Keeping the number of pixels constant and reducing the number of grey levels
+does not aﬀect much the appearance of an image that contains a lot of details.
+
+10
+
+Image Processing: The Fundamentals
+
+What does “good contrast” mean?
+
+Good contrast means that the grey values present in the image range from black to white,
+making use of the full range of brightness to which the human vision system is sensitive.
+
+Example 1.3
+
+Consider each band created in example 1.2 as a separate grey image. Do
+these images have good contrast? If not, propose some way by which bands
+with good contrast could be created from the recorded sensor values.
+
+The images created in example 1.2 do not have good contrast because none of them
+contains the value 7 (which corresponds to the maximum brightness and which would
+be displayed as white by an image displaying device).
+The reason for this is the way the quantisation was performed: the look up table created
+to convert the real recorded values to digital values took into consideration the full range
+of possible values a sensor may record (ie from 0 to 10). To utilise the full range of
+grey values for each image, we should have considered the minimum and the maximum
+value of its pixels, and map that range to the 8 distinct grey levels. For example, for
+the image that corresponds to band R, the values are in the range [1.167, 4.576]. If we
+divide this range in 8 equal sub-ranges, we shall have:
+All pixels with recorded value in the range [0.536, 1.20675)
+All pixels with recorded value in the range [1.20675, 1.8775)
+All pixels with recorded value in the range [1.8775, 2.54825)
+All pixels with recorded value in the range [2.54825, 3.219)
+All pixels with recorded value in the range [3.219, 3.88975)
+All pixels with recorded value in the range [3.88975, 4.5605)
+All pixels with recorded value in the range [4.5605, 5.23125)
+All pixels with recorded value in the range [5.23125, 5.902]
+We must create one such look up table for each band. The grey images we create this
+way are:
+
+get grey value 0
+get grey value 1
+get grey value 2
+get grey value 3
+get grey value 4
+get grey value 5
+get grey value 6
+get grey value 7
+
+R =⎛⎝
+
+3 3 6
+0 6 7
+
+7 1 1⎞⎠ G =⎛⎝
+
+0 7 7
+1 6 6
+
+3 2 2⎞⎠ B =⎛⎝
+
+1
+6
+0
+
+6 0
+7 0
+
+6 6⎞⎠
+
+(1.8)
+
+Example 1.4
+
+Repeat example 1.3, now treating the three bands as parts of the same
+colour image.
+
+If we treat all three bands as a single colour image (as they are meant to be), we must
+
+1. Introduction
+
+11
+
+ﬁnd the minimum and maximum value over all three recorded bands, and create a
+look up table appropriate for all bands. In this case, the range of the recorded values
+is [0.536, 5.902]. The look up table we create by mapping this range to the range [0, 7] is
+
+All pixels with recorded value in the range [0.536, 1.20675)
+All pixels with recorded value in the range [1.20675, 1.8775)
+All pixels with recorded value in the range [1.8775, 2.54825)
+All pixels with recorded value in the range [2.54825, 3.219)
+All pixels with recorded value in the range [3.219, 3.88975)
+All pixels with recorded value in the range [3.88975, 4.5605)
+All pixels with recorded value in the range [4.5605, 5.23125)
+All pixels with recorded value in the range [5.23125, 5.902]
+The three image bands we create this way are:
+
+get grey value 0
+get grey value 1
+get grey value 2
+get grey value 3
+get grey value 4
+get grey value 5
+get grey value 6
+get grey value 7
+
+1 6 5
+2 5 5
+
+3 2 3⎞⎠ B =⎛⎝
+
+1 6 0
+6 7 0
+
+0 6 6⎞⎠
+
+(1.9)
+
+R =⎛⎝
+
+3 3 4
+1 5 6
+
+5 1 1⎞⎠ G =⎛⎝
+
+Note that each of these bands if displayed as a separate grey image may not display the
+full range of grey values, but it will have grey values that are consistent with those of
+the other three bands, and so they can be directly compared. For example, by looking
+at the three digital bands we can say that pixel (1, 1) has the same brightness (within
+the limits of the digitisation error) in bands G or B. Such a statement was not possible
+in example 1.3 because the three digital bands were not calibrated.
+
+What is the purpose of image processing?
+
+Image processing has multiple purposes.
+
+• To improve the quality of an image in a subjective way, usually by increasing its contrast.
+
+This is called image enhancement.
+
+• To use as few bits as possible to represent the image, with minimum deterioration in
+
+its quality. This is called image compression.
+
+• To improve an image in an objective way, for example by reducing its blurring. This is
+
+called image restoration.
+
+• To make explicit certain characteristics of the image which can be used to identify the
+
+contents of the image. This is called feature extraction.
+
+How do we do image processing?
+
+We perform image processing by using image transformations.
+Image transformations are
+performed using operators. An operator takes as input an image and produces another
+image. In this book we shall put emphasis on a particular class of operators, called linear
+operators.
+
+12
+
+Image Processing: The Fundamentals
+
+Do we use nonlinear operators in image processing?
+
+Yes. We shall see several examples of them in this book. However, nonlinear operators cannot
+be collectively characterised. They are usually problem- and application-speciﬁc, and they
+are studied as individual processes used for speciﬁc tasks. On the contrary, linear operators
+can be studied collectively, because they share important common characteristics, irrespective
+of the task they are expected to perform.
+
+What is a linear operator?
+Consider O to be an operator which takes images into images. If f is an image, O(f) is the
+result of applying O to f. O is linear if
+
+for all images f and g and all scalars a and b.
+
+O[af + bg] = aO[f] + bO[g]
+
+How are linear operators deﬁned?
+
+Linear operators are deﬁned in terms of their point spread functions. The point spread
+function of an operator is what we get out if we apply the operator on a point source:
+
+(1.10)
+
+(1.11)
+
+(1.12)
+
+Or
+
+O[point source] ≡ point spread function
+
+O[δ(α − x, β − y)] ≡ h(x, α, y, β)
+
+where δ(α − x, β − y) is a point source of brightness 1 centred at point (x, y).
+What is the relationship between the point spread function of an imaging device
+and that of a linear operator?
+
+They both express the eﬀect of either the imaging device or the operator on a point source. In
+the real world a star is the nearest to a point source. Assume that we capture the image of a
+star by using a camera. The star will appear in the image like a blob: the camera received the
+light of the point source and spread it into a blob. The bigger the blob, the more blurred the
+image of the star will look. So, the point spread function of the camera measures the amount
+of blurring present in the images captured by this camera. The camera, therefore, acts like
+a linear operator which accepts as input the ideal brightness function of the continuous real
+world and produces the recorded digital image. That is why we use the term “point spread
+function” to characterise both cameras and linear operators.
+
+How does a linear operator transform an image?
+
+If the operator is linear, when the point source is a times brighter, the result will be a times
+higher:
+
+O [aδ(α − x, β − y)] = ah(x, α, y, β)
+
+(1.13)
+
+1. Introduction
+
+13
+
+An image is a collection of point sources (the pixels) each with its own brightness value. For
+example, assuming that an image f is 3 × 3 in size, we may write:
+
+f =⎛⎝
+
+f(1, 1)
+
+0
+0
+
+0 0
+0
+0
+0
+
+0 f(1, 2) 0
+0
+0
+0
+
+0
+0
+
+0⎞⎠ + ··· +⎛⎝
+
+0
+0
+
+0 0
+0 0
+
+0 0 f(3, 3)⎞⎠
+
+(1.14)
+
+We may say that an image is the sum of these point sources. Then the eﬀect of an operator
+characterised by point spread function h(x, α, y, β) on an image f(x, y) can be written as:
+
+g(α, β) =
+
+f(x, y)h(x, α, y, β)
+
+(1.15)
+
+0⎞⎠ +⎛⎝
+N+x=1
+
+N+y=1
+
+where g(α, β) is the output “image”, f(x, y) is the input image and the size of the image is
+N × N. Here we treat f(x, y) as the brightness of a point source located at position (x, y).
+Applying an operator on it produces the point spread function of the operator times the
+strength of the source, ie times the grey value f(x, y) at that location. Then, as the operator
+is linear, we sum over all such point sources, ie we sum over all pixels.
+
+What is the meaning of the point spread function?
+
+The point spread function h(x, α, y, β) expresses how much the input value at position (x, y)
+inﬂuences the output value at position (α, β). If the inﬂuence expressed by the point spread
+function is independent of the actual positions but depends only on the relative position of
+the inﬂuencing and the inﬂuenced pixels, we have a shift invariant point spread function:
+(1.16)
+
+h(x, α, y, β) = h(α − x, β − y)
+
+Then equation (1.15) is a convolution:
+
+g(α, β) =
+
+f(x, y)h(α − x, β − y)
+
+(1.17)
+
+N+x=1
+
+N+y=1
+
+If the columns are inﬂuenced independently from the rows of the image, then the point
+
+spread function is separable:
+
+(1.18)
+The above expression serves also as the deﬁnition of functions hc(x, α) and hr(y, β). Then
+equation (1.15) may be written as a cascade of two 1D transformations:
+
+h(x, α, y, β) ≡ hc(x, α)hr(y, β)
+
+g(α, β) =
+
+hc(x, α)
+
+f(x, y)hr(y, β)
+
+(1.19)
+
+N+x=1
+
+N+y=1
+
+If the point spread function is both shift invariant and separable, then equation (1.15)
+
+may be written as a cascade of two 1D convolutions:
+
+g(α, β) =
+
+N+x=1
+
+hc(α − x)
+
+N+y=1
+
+f(x, y)hr(β − y)
+
+(1.20)
+
+14
+
+Image Processing: The Fundamentals
+
+Box 1.1. The formal deﬁnition of a point source in the continuous domain
+
+Let us deﬁne an extended source of constant brightness
+δn(x, y) ≡ n2rect(nx, ny)
+
+where n is a positive constant and
+
+rect(nx, ny) ≡ , 1 inside a rectangle |nx|≤ 1
+
+0 elsewhere
+
+2 ,|ny|≤ 1
+
+2
+
+The total brightness of this source is given by
+
+(1.21)
+
+(1.22)
+
+- +∞
+−∞ - +∞
+
+−∞
+
+δn(x, y)dxdy = n2- +∞
+
+−∞ - +∞
+
+rect(nx, ny)dxdy
+
+= 1
+
+(1.23)
+
+.
+
+−∞
+area of rectangle
+
+/0
+
+1
+
+and is independent of n.
+
+As n → +∞, we create a sequence, δn, of extended square sources which gradually
+shrink with their brightness remaining constant. At the limit, δn becomes Dirac’s delta
+function
+
+with the property:
+
+Integral
+
+= 0
+
+δ(x, y), ̸= 0
+−∞ - +∞
+- +∞
+−∞ - +∞
+- +∞
+
+−∞
+
+−∞
+
+for x = y = 0
+
+elsewhere
+
+δ(x, y)dxdy = 1
+
+δn(x, y)g(x, y)dxdy
+
+(1.24)
+
+(1.25)
+
+(1.26)
+
+is the average of image g(x, y) over a square with sides 1
+we have
+
+n centred at (0, 0). At the limit,
+
+δ(x, y)g(x, y)dxdy = g(0, 0)
+
+(1.27)
+
+which is the value of the image at the origin. Similarly,
+
+−∞
+
+- +∞
+−∞ - +∞
+−∞ - +∞
+- +∞
+
+−∞
+
+g(x, y)δn(x − a, y − b)dxdy
+
+(1.28)
+
+1. Introduction
+
+is the average value of g over a square 1
+
+n × 1
+
+n centred at x = a, y = b, since:
+
+δn(x − a, y − b) = n2rect[n(x − a), n(y − b)]
+
+|n(x − a)|≤ 1
+elsewhere
+
+2
+
+|n(y − b)|≤ 1
+
+2
+
+15
+
+(1.29)
+
+2 ≤ n(x − a) ≤ 1
+
+We can see that this is a square source centred at (a, b) by considering that |n(x−a)|≤ 1
+means − 1
+2n. Thus, we
+have δn(x − a, y − b) = n2 in the region a − 1
+At the limit of n → +∞, integral (1.28) is the value of the image g at x = a, y = b, ie:
+(1.30)
+
+2n ≤ x ≤ a + 1
+2n, b − 1
+
+2n, or a − 1
+2n ≤ x ≤ a + 1
+
+2n ≤ y ≤ b + 1
+2n.
+
+2, ie − 1
+
+g(x, y)δn(x − a, y − b)dxdy = g(a, b)
+
+2
+
+- +∞
+−∞ - +∞
+
+−∞
+
+This equation is called the shifting property of the delta function. This equation also
+shows that any image g(a, b) can be expressed as a superposition of point sources.
+
+0
+
+= , n2
+2n ≤ x − a ≤ 1
+
+Example 1.5
+The following 3 × 3 image
+
+f =⎛⎝
+
+0 2 6
+1 4 7
+
+3 5 7⎞⎠
+
+(1.31)
+
+is processed by a linear operator O which has a point spread function
+h(x, α, y, β) deﬁned as:
+h(1, 1, 1, 1) = 1.0
+h(1, 2, 1, 2) = 0.0
+h(1, 3, 1, 3) = 0.6
+h(2, 2, 1, 1) = 0.6
+h(2, 3, 1, 2) = 0.8
+h(3, 1, 1, 3) = 0.5
+h(3, 3, 1, 1) = 0.5
+h(1, 1, 2, 2) = 0.6
+h(1, 2, 2, 3) = 0.4
+h(2, 1, 2, 1) = 0.8
+h(2, 2, 2, 2) = 0.5
+h(2, 3, 2, 3) = 1.0
+h(3, 2, 2, 1) = 0.6
+h(3, 3, 2, 2) = 1.0
+h(1, 1, 3, 3) = 1.0
+h(1, 3, 3, 1) = 0.5
+h(2, 1, 3, 2) = 0.7
+h(2, 2, 3, 3) = 0.5
+
+h(1, 1, 1, 2) = 0.5
+h(1, 2, 1, 3) = 0.4
+h(2, 1, 1, 1) = 0.8
+h(2, 2, 1, 2) = 0.5
+h(2, 3, 1, 3) = 1.0
+h(3, 2, 1, 1) = 0.6
+h(3, 3, 1, 2) = 0.9
+h(1, 1, 2, 3) = 0.2
+h(1, 3, 2, 1) = 0.4
+h(2, 1, 2, 2) = 0.7
+h(2, 2, 2, 3) = 0.5
+h(3, 1, 2, 1) = 0.7
+h(3, 2, 2, 2) = 0.5
+h(3, 3, 2, 3) = 1.0
+h(1, 2, 3, 1) = 0.5
+h(1, 3, 3, 2) = 1.0
+h(2, 1, 3, 3) = 0.5
+h(2, 3, 3, 1) = 0.4
+
+h(1, 1, 1, 3) = 0.0
+h(1, 3, 1, 1) = 0.5
+h(2, 1, 1, 2) = 0.7
+h(2, 2, 1, 3) = 0.4
+h(3, 1, 1, 1) = 0.9
+h(3, 2, 1, 2) = 0.5
+h(3, 3, 1, 3) = 1.0
+h(1, 2, 2, 1) = 0.0
+h(1, 3, 2, 2) = 1.0
+h(2, 1, 2, 3) = 0.6
+h(2, 3, 2, 1) = 0.5
+h(3, 1, 2, 2) = 0.5
+h(3, 2, 2, 3) = 0.5
+h(1, 1, 3, 1) = 1.0
+h(1, 2, 3, 2) = 0.1
+h(1, 3, 3, 3) = 0.6
+h(2, 2, 3, 1) = 0.6
+h(2, 3, 3, 2) = 0.9
+
+h(1, 2, 1, 1) = 0.5
+h(1, 3, 1, 2) = 1.0
+h(2, 1, 1, 3) = 0.4
+h(2, 3, 1, 1) = 0.4
+h(3, 1, 1, 2) = 0.5
+h(3, 2, 1, 3) = 0.3
+h(1, 1, 2, 1) = 1.0
+h(1, 2, 2, 2) = 0.2
+h(1, 3, 2, 3) = 0.6
+h(2, 2, 2, 1) = 0.6
+h(2, 3, 2, 2) = 1.0
+h(3, 1, 2, 3) = 0.5
+h(3, 3, 2, 1) = 0.5
+h(1, 1, 3, 2) = 0.6
+h(1, 2, 3, 3) = 0.6
+h(2, 1, 3, 1) = 0.5
+h(2, 2, 3, 2) = 0.5
+h(2, 3, 3, 3) = 1.0
+
+16
+
+Image Processing: The Fundamentals
+
+h(3, 1, 3, 1) = 0.8
+h(3, 2, 3, 2) = 0.5
+h(3, 3, 3, 3) = 1.0
+Work out the output image.
+
+h(3, 1, 3, 2) = 0.5
+h(3, 2, 3, 3) = 0.8
+
+h(3, 1, 3, 3) = 0.5
+h(3, 3, 3, 1) = 0.4
+
+h(3, 2, 3, 1) = 0.5
+h(3, 3, 3, 2) = 0.4
+
+The point spread function of the operator h(x, α, y, β) gives the weight with which the
+pixel value at input position (x, y) contributes to output pixel position (α, β). Let us
+call the output image g(α, β). We show next how to calculate g(1, 1). For g(1, 1), we
+need to use the values of h(x, 1, y, 1) to weigh the values of pixels (x, y) of the input
+image:
+
+g(1, 1) =
+
+f(x, y)h(x, 1, y, 1)
+
+3+x=1
+
+3+y=1
+
+= f(1, 1)h(1, 1, 1, 1) + f(1, 2)h(1, 1, 2, 1) + f(1, 3)h(1, 1, 3, 1)
+
++f(2, 1)h(2, 1, 1, 1) + f(2, 2)h(2, 1, 2, 1) + f(2, 3)h(2, 1, 3, 1)
++f(3, 1)h(3, 1, 1, 1) + f(3, 2)h(3, 1, 2, 1) + f(3, 3)h(3, 1, 3, 1)
+
+= 2 × 1.0 + 6 × 1.0 + 1 × 0.8 + 4 × 0.8 + 7 × 0.5 + 3 × 0.9
+
++5 × 0.7 + 7 × 0.8 = 27.3
+
+For g(1, 2), we need to use the values of h(x, 1, y, 2):
+
+The other values are computed in a similar way. Finally, the output image is:
+
+g(1, 2) =
+
+f(x, y)h(x, 1, y, 2) = 20.1
+
+3+x=1
+3+y=1
+g =⎛⎝
+16.0 29.3 33.4⎞⎠
+
+27.3 20.1 18.9
+19.4 16.0 18.4
+
+(1.32)
+
+(1.33)
+
+(1.34)
+
+Example 1.6
+
+Is the operator of example 1.5 shift invariant?
+
+No, it is not. For example, pixel (2, 2) inﬂuences the value of pixel (1, 2) with weight
+h(2, 1, 2, 2) = 0.7. These two pixels are at distance 2 − 1 = 1 along the x axis and at
+distance 2− 2 = 0 along the y axis. At the same relative distance are also pixels (3, 3)
+and (2, 3). The value of h(3, 2, 3, 3), however, is 0.8 ̸= 0.7.
+
+1. Introduction
+
+Example 1.7
+
+17
+
+The point spread function of an operator that operates on images of size
+3 × 3 is
+h(1, 1, 1, 1) = 1.0
+h(1, 2, 1, 2) = 0.0
+h(1, 3, 1, 3) = 0.6
+h(2, 2, 1, 1) = 1.0
+h(2, 3, 1, 2) = 0.0
+h(3, 1, 1, 3) = 0.5
+h(3, 3, 1, 1) = 1.0
+h(1, 1, 2, 2) = 1.0
+h(1, 2, 2, 3) = 0.0
+h(2, 1, 2, 1) = 0.8
+h(2, 2, 2, 2) = 1.0
+h(2, 3, 2, 3) = 0.0
+h(3, 2, 2, 1) = 0.8
+h(3, 3, 2, 2) = 1.0
+h(1, 1, 3, 3) = 1.0
+h(1, 3, 3, 1) = 0.5
+h(2, 1, 3, 2) = 0.8
+h(2, 2, 3, 3) = 1.0
+h(3, 1, 3, 1) = 0.8
+h(3, 2, 3, 2) = 0.8
+h(3, 3, 3, 3) = 1.0
+Is it shift variant or shift invariant?
+
+h(1, 1, 1, 2) = 0.5
+h(1, 2, 1, 3) = 0.4
+h(2, 1, 1, 1) = 0.8
+h(2, 2, 1, 2) = 0.5
+h(2, 3, 1, 3) = 0.4
+h(3, 2, 1, 1) = 0.8
+h(3, 3, 1, 2) = 0.5
+h(1, 1, 2, 3) = 0.5
+h(1, 3, 2, 1) = 0.4
+h(2, 1, 2, 2) = 0.8
+h(2, 2, 2, 3) = 0.5
+h(3, 1, 2, 1) = 0.7
+h(3, 2, 2, 2) = 0.8
+h(3, 3, 2, 3) = 0.5
+h(1, 2, 3, 1) = 0.5
+h(1, 3, 3, 2) = 0.4
+h(2, 1, 3, 3) = 0.8
+h(2, 3, 3, 1) = 0.5
+h(3, 1, 3, 2) = 0.7
+h(3, 2, 3, 3) = 0.8
+
+h(1, 1, 1, 3) = 0.0
+h(1, 3, 1, 1) = 0.5
+h(2, 1, 1, 2) = 0.7
+h(2, 2, 1, 3) = 0.0
+h(3, 1, 1, 1) = 0.9
+h(3, 2, 1, 2) = 0.7
+h(3, 3, 1, 3) = 0.0
+h(1, 2, 2, 1) = 0.0
+h(1, 3, 2, 2) = 0.5
+h(2, 1, 2, 3) = 0.7
+h(2, 3, 2, 1) = 0.0
+h(3, 1, 2, 2) = 0.9
+h(3, 2, 2, 3) = 0.7
+h(1, 1, 3, 1) = 1.0
+h(1, 2, 3, 2) = 0.0
+h(1, 3, 3, 3) = 0.5
+h(2, 2, 3, 1) = 1.0
+h(2, 3, 3, 2) = 0.0
+h(3, 1, 3, 3) = 0.9
+h(3, 3, 3, 1) = 1.0
+
+h(1, 2, 1, 1) = 0.5
+h(1, 3, 1, 2) = 1.0
+h(2, 1, 1, 3) = 0.4
+h(2, 3, 1, 1) = 0.5
+h(3, 1, 1, 2) = 0.5
+h(3, 2, 1, 3) = 0.4
+h(1, 1, 2, 1) = 1.0
+h(1, 2, 2, 2) = 0.5
+h(1, 3, 2, 3) = 1.0
+h(2, 2, 2, 1) = 1.0
+h(2, 3, 2, 2) = 0.5
+h(3, 1, 2, 3) = 0.5
+h(3, 3, 2, 1) = 1.0
+h(1, 1, 3, 2) = 1.0
+h(1, 2, 3, 3) = 0.5
+h(2, 1, 3, 1) = 0.5
+h(2, 2, 3, 2) = 1.0
+h(2, 3, 3, 3) = 0.5
+h(3, 2, 3, 1) = 0.5
+h(3, 3, 3, 2) = 1.0
+
+In order to show that the function is shift variant, it is enough to show that for at
+least two pairs of pixels, that correspond to input-output pixels in the same relative
+position, the values of the function are diﬀerent. This is what we did in example
+1.6.
+If we cannot ﬁnd such an example, we must then check for shift invariance.
+The function must have the same value for all pairs of input-output pixels that are in
+the same relative position in order to be shift invariant. As the range of values each
+of the arguments of this function takes is [1, 3], the relative coordinates of pairs of
+input-output pixels take values in the range [−2, 2]. We observe the following.
+For x − α = −2 and y − β = −2 we have: h(1, 3, 1, 3) = 0.6
+For x − α = −2 and y − β = −1 we have: h(1, 3, 1, 2) = h(1, 3, 2, 3) = 1.0
+For x − α = −2 and y − β = 0 we have: h(1, 3, 1, 1) = h(1, 3, 2, 2) = h(1, 3, 3, 3) = 0.5
+For x − α = −2 and y − β = 1 we have: h(1, 3, 2, 1) = h(1, 3, 3, 2) = 0.4
+For x − α = −2 and y − β = 2 we have: h(1, 3, 3, 1) = 0.5
+For x − α = −1 and y − β = −2 we have: h(1, 2, 1, 3) = h(2, 3, 1, 3) = 0.4
+For x − α = −1 and y − β = −1 we have:
+h(1, 2, 1, 2) = h(2, 3, 2, 3) = h(1, 2, 2, 3) = h(2, 3, 1, 2) = 0.0
+For x − α = −1 and y − β = 0 we have:
+
+18
+
+Image Processing: The Fundamentals
+
+h(1, 2, 1, 1) = h(1, 2, 2, 2) = h(1, 2, 3, 3) = h(2, 3, 1, 1) = h(2, 3, 2, 2) = h(2, 3, 3, 3) = 0.5
+For x − α = −1 and y − β = 1 we have:
+h(1, 2, 2, 1) = h(1, 2, 3, 2) = h(2, 3, 2, 1) = h(2, 3, 3, 2) = 0.0
+For x − α = −1 and y − β = 2 we have: h(1, 2, 3, 1) = 0.5
+For x − α = 0 and y − β = −2 we have: h(1, 1, 1, 3) = h(2, 2, 1, 3) = h(3, 3, 1, 3) = 0.0
+For x − α = 0 and y − β = −1 we have:
+h(1, 1, 1, 2) = h(2, 2, 1, 2) = h(3, 3, 1, 2) = h(1, 1, 2, 3) = h(2, 2, 2, 3) = h(3, 3, 2, 3) = 0.5
+For x − α = 0 and y − β = 0 we have:
+h(1, 1, 1, 1) = h(2, 2, 1, 1) = h(3, 3, 1, 1) = h(1, 1, 2, 2) = h(2, 2, 2, 2) =
+h(3, 3, 2, 2) = h(1, 1, 3, 3) = h(2, 2, 3, 3) = h(3, 3, 3, 3) = 1.0
+For x − α = 0 and y − β = 1 we have:
+h(1, 1, 2, 1) = h(2, 2, 2, 1) = h(3, 3, 2, 1) = h(1, 1, 3, 2) = h(2, 2, 3, 2) = h(3, 3, 3, 2) = 1.0
+For x − α = 0 and y − β = 2 we have: h(1, 1, 3, 1) = h(2, 2, 3, 1) = h(3, 3, 3, 1) = 1.0
+For x − α = 1 and y − β = −2 we have: h(2, 1, 1, 3) = h(3, 2, 1, 3) = 0.4
+For x − α = 1 and y − β = −1 we have:
+h(2, 1, 1, 2) = h(2, 1, 2, 3) = h(3, 2, 1, 2) = h(3, 2, 2, 3) = 0.7
+For x − α = 1 and y − β = 0 we have:
+h(2, 1, 1, 1) = h(2, 1, 2, 2) = h(2, 1, 3, 3) = h(3, 2, 1, 1) = h(3, 2, 2, 2) = h(3, 2, 3, 3) = 0.8
+For x − α = 1 and y − β = 1 we have:
+h(2, 1, 2, 1) = h(2, 1, 3, 2) = h(3, 2, 2, 1) = h(3, 2, 3, 2) = 0.8
+For x − α = 1 and y − β = 2 we have: h(2, 1, 3, 1) = h(3, 2, 3, 1) = 0.5
+For x − α = 2 and y − β = −2 we have: h(3, 1, 1, 3) = 0.5
+For x − α = 2 and y − β = −1 we have: h(3, 1, 1, 2) = h(3, 1, 2, 3) = 0.5
+For x − α = 2 and y − β = 0 we have: h(3, 1, 1, 1) = h(3, 1, 2, 2) = h(3, 1, 3, 3) = 0.9
+For x − α = 2 and y − β = 1 we have; h(3, 1, 2, 1) = h(3, 1, 3, 2) = 0.7
+For x − α = 2 and y − β = 2 we have: h(3, 1, 3, 1) = 0.8
+So, this is a shift invariant point spread function.
+
+How can we express in practice the eﬀect of a linear operator on an image?
+
+This is done with the help of matrices. We can rewrite equation (1.15) as follows:
+
+g(α, β) =
+f(1, 1)h(1,α, 1,β ) + f(2, 1)h(2,α, 1,β ) + . . . + f(N, 1)h(N, α, 1,β )
++f(1, 2)h(1,α, 2,β ) + f(2, 2)h(2,α, 2,β ) + . . . + f(N, 2)h(N, α, 2,β )
++ . . . + f(1, N)h(1,α, N,β ) + f(2, N)h(2,α, N,β ) + . . .
++f(N, N)h(N, α, N, β )
+
+The right-hand side of this expression can be thought of as the dot product of vector
+
+hT
+αβ ≡
+[h(1,α, 1,β ), h(2,α, 1,β ), . . . , h(N, α, 1,β ), h(1,α, 2,β ), h(2,α, 2,β ), . . . ,
+h(N, α, 2,β ), . . . , h(2,α, N,β ), . . . , h(N, α, N, β )]
+
+with vector:
+
+(1.35)
+
+(1.36)
+
+H =
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+α↓
+
+α↓
+
+x→
+
+x→
+
+3 y = 1
+β = 1 4 α↓
+3 y = 1
+β = 2 4 α↓
+...
+x→3 y = 1
+β = N4
+
+x→
+
+x→
+
+3 y = 2
+β = 1 4 . . . α↓
+3 y = 2
+β = 2 4 . . . α↓
+...
+x→3 y = 2
+β = N4
+
+. . . α↓
+
+x→3y = N
+β = 14
+x→3y = N
+β = 14
+...
+x→3y = N
+β = N4
+
+α↓
+
+α↓
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(1.39)
+
+1. Introduction
+
+19
+
+f T ≡ [f(1, 1), f(2, 1), . . . , f(N, 1), f(1, 2), f(2, 2), . . . , f(N, 2),
+
+. . . , f(1, N), f(2, N), . . . , f(N, N)]
+
+(1.37)
+This last vector is actually the image f(x, y) written as a vector by stacking its columns one
+under the other. If we imagine writing g(α, β) in the same way, then vectors hT
+αβ will arrange
+themselves as the rows of a matrix H, where for β = 1, α will run from 1 to N to give the
+ﬁrst N rows of the matrix, then for β = 2, β will run again from 1 to N to give the second
+N rows of the matrix, and so on. Thus, equation (1.15) may be written in a more compact
+way as:
+
+(1.38)
+This is the fundamental equation of linear image processing. H here is a square N 2 × N 2
+matrix that is made up of N × N submatrices of size N × N each, arranged in the following
+way:
+
+g = Hf
+
+In this representation each bracketed expression represents an N × N submatrix made up
+from function h(x, α, y, β) for ﬁxed values of y and β and with variables x and α taking up
+all their possible values in the directions indicated by the arrows. This schematic structure
+of matrix H is said to correspond to a partition of this matrix into N 2 square submatrices.
+
+Example 1.8
+
+A linear operator is such that it replaces the value of each pixel by the
+average of its four nearest neighbours. Apply this operator to a 3×3 image
+g. Assume that the image is repeated ad inﬁnitum in all directions, so that
+all its pixels have neighbours. Work out the 9×9 matrix H that corresponds
+to this operator by using equation (1.39).
+
+If the image is repeated in all directions, the image and the neighbours of its border
+pixels will look like this:
+
+g32
+
+g33
+
+g31
+
+g11
+g33
+− − − − − − −
+g11
+g13
+g21
+g23
+g33
+g31
+− − − − − − −
+g11
+g13
+
+g11
+g21
+g31
+
+g12
+g22
+g32
+
+g13
+g23
+g33
+
+g11
+
+g12
+
+g13
+
+|
+|
+|
+|
+|
+
+|
+|
+|
+|
+|
+
+(1.40)
+
+20
+
+Image Processing: The Fundamentals
+
+The result then of replacing every pixel by the average of its four nearest neighbours
+is:
+
+g31+g12+g21+g13
+
+4
+
+g32+g13+g22+g11
+
+4
+
+g33+g11+g23+g12
+
+4
+
+g11+g22+g31+g23
+
+4
+
+g12+g23+g32+g21
+
+4
+
+g13+g21+g33+g22
+
+4
+
+(1.41)
+
+g21+g32+g11+g33
+
+4
+
+g22+g33+g12+g31
+
+4
+
+g23+g31+g13+g32
+
+4
+
+In order to construct matrix H we must deduce from the above result the weight by
+which a pixel at position (x, y) of the input image contributes to the value of a pixel at
+position (α, β) of the output image. Such value will be denoted by h(x, α, y, β). Matrix
+H will be made up from these values arranged as follows:
+
+H =
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+h(1, 1, 1, 1) h(2, 1, 1, 1) h(3, 1, 1, 1) h(1, 1, 2, 1) h(2, 1, 2, 1)
+h(1, 2, 1, 1) h(2, 2, 1, 1) h(3, 2, 1, 1) h(1, 2, 2, 1) h(2, 2, 2, 1)
+h(1, 3, 1, 1) h(2, 3, 1, 1) h(3, 3, 1, 1) h(1, 3, 2, 1) h(2, 3, 2, 1)
+h(1, 1, 1, 2) h(2, 1, 1, 2) h(3, 1, 1, 2) h(1, 1, 2, 2) h(2, 1, 2, 2)
+h(1, 2, 1, 2) h(2, 2, 1, 2) h(3, 2, 1, 2) h(1, 2, 2, 2) h(2, 2, 2, 2)
+h(1, 3, 1, 2) h(2, 3, 1, 2) h(3, 3, 1, 2) h(1, 3, 2, 2) h(2, 3, 2, 2)
+h(1, 1, 1, 3) h(2, 1, 1, 3) h(3, 1, 1, 3) h(1, 1, 2, 3) h(2, 1, 2, 3)
+h(1, 2, 1, 3) h(2, 2, 1, 3) h(3, 2, 1, 3) h(1, 2, 2, 3) h(2, 2, 2, 3)
+h(1, 3, 1, 3) h(2, 3, 1, 3) h(3, 3, 1, 3) h(1, 3, 2, 3) h(2, 3, 2, 3)
+
+h(3, 1, 2, 1) h(1, 1, 3, 1) h(2, 1, 3, 1) h(3, 1, 3, 1)
+h(3, 2, 2, 1) h(1, 2, 3, 1) h(2, 2, 3, 1) h(3, 2, 3, 1)
+h(3, 3, 2, 1) h(1, 3, 3, 1) h(2, 3, 3, 1) h(3, 3, 3, 1)
+h(3, 1, 2, 2) h(1, 1, 3, 2) h(2, 1, 3, 2) h(3, 1, 3, 2)
+h(3, 2, 2, 2) h(1, 2, 3, 2) h(2, 2, 3, 2) h(3, 2, 3, 2)
+h(3, 3, 2, 2) h(1, 3, 3, 2) h(2, 3, 3, 2) h(3, 3, 3, 2)
+h(3, 1, 2, 3) h(1, 1, 3, 3) h(2, 1, 3, 3) h(3, 1, 3, 3)
+h(3, 2, 2, 3) h(1, 2, 3, 3) h(2, 2, 3, 3) h(3, 2, 3, 3)
+h(3, 3, 2, 3) h(1, 3, 3, 3) h(2, 3, 3, 3) h(3, 3, 3, 3)
+
+By inspection we deduce that:
+
+H =
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+1/4 1/4 1/4
+0
+0
+0
+1/4
+0
+1/4 1/4
+0
+0
+1/4
+1/4
+0
+1/4
+0
+0
+0
+1/4
+1/4
+0
+0
+0
+
+1/4
+0
+0
+1/4
+1/4
+0
+0
+0
+1/4 1/4 1/4
+0
+0
+0
+0
+1/4
+1/4 1/4 1/4
+0
+0
+0
+0
+0
+0
+0
+1/4
+0
+1/4
+1/4
+0
+1/4 1/4
+
+1/4
+0
+0
+
+0
+0
+1/4
+
+0
+0
+0
+1/4
+1/4
+0
+0
+0
+0
+1/4
+1/4
+0
+1/4 1/4
+1/4
+0
+1/4
+0
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+(1.42)
+
+(1.43)
+
+1. Introduction
+
+Example 1.9
+
+21
+
+The eﬀect of a linear operator is to subtract from every pixel its right
+neighbour. This operator is applied to image (1.40). Work out the output
+image and the H matrix that corresponds to this operator.
+
+The result of this operator will be:
+
+g11 − g12
+g21 − g22
+g31 − g32
+
+g12 − g13
+g22 − g23
+g32 − g33
+
+g13 − g11
+g23 − g21
+g33 − g31
+
+(1.44)
+
+By following the procedure we followed in example 1.8, we can work out matrix H,
+which here, for convenience, we call ˆH:
+0
+0 −1
+0
+0
+0
+0
+0
+0 −1
+0
+0
+0
+0
+0
+0
+1
+0 −1
+0
+0
+0
+1
+0
+0 −1
+0
+0
+0
+1
+0
+0
+0 −1
+0
+0 −1
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0 −1
+0
+0
+0
+0
+0
+1
+
+1
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+−1
+0
+0 −1
+0
+
+(1.45)
+
+ˆH =
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+Example 1.10
+
+The eﬀect of a linear operator is to subtract from every pixel its bottom
+right neighbour. This operator is applied to image (1.40). Work out the
+output image and the H matrix that corresponds to this operator.
+
+The result of this operator will be:
+
+g11 − g22
+g21 − g32
+g31 − g12
+
+g12 − g23
+g22 − g33
+g32 − g13
+
+g13 − g21
+g23 − g31
+g33 − g11
+
+(1.46)
+
+By following the procedure we followed in example 1.8, we can work out matrix H,
+
+22
+
+Image Processing: The Fundamentals
+
+which here, for convenience, we call ˜H:
+
+˜H =
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+1
+0
+0
+0 −1
+0
+0
+0
+0
+0
+1
+0
+0
+0 −1
+0
+0
+0
+0
+0
+0
+0
+1 −1
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0 −1
+0
+0
+0
+0
+1
+0
+0
+0
+0 −1
+0
+0
+0
+0
+0
+0
+0
+1 −1
+0 −1
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0 −1
+0
+0
+0
+−1
+0
+0
+0
+0
+0
+1
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+(1.47)
+
+Can we apply more than one linear operators to an image?
+
+We can apply as many operators as we like.
+
+Does the order by which we apply the linear operators make any diﬀerence to
+the result?
+
+No, if the operators are shift invariant. This is a very important and convenient property of
+the commonly used linear operators.
+
+Box 1.2. Since matrix multiplication is not commutative, how come we can
+change the order by which we apply shift invariant linear operators?
+In general, if A and B are two matrices, AB ̸= BA. However, matrix H, which expresses
+the eﬀect of a linear operator, has a particular structure. We can see that from equation
+(1.39): the N 2 × N 2 matrix H can be divided into N 2 submatrices of size N × N each.
+There are at most N distinct such submatrices and they have a particular structure:
+the second column of their elements can be produced from the ﬁrst column, by shifting
+all elements by one position down. The element that sticks out at the bottom is put
+at the empty position at the top. The third column is produced by applying the same
+procedure to the second column as so on (see example 1.11). A matrix that has this
+property is called circulant matrix. At the same time, these submatrices are also
+arranged in a circulant way: the second column of them is produced from the ﬁrst
+column by shifting all of them by one position down. The submatrix that sticks out at
+the bottom is put at the empty position at the top. The third column of matrices is
+created from the second by applying the same procedure and so on (see example 1.12).
+A matrix that has this property is called block circulant. It is this particular structure
+that allows one to exchange the order by which two operators with matrices H and ˜H,
+respectively, are applied to an image g written as a vector:
+
+H ˜Hg = ˜HHg
+
+(1.48)
+
+1. Introduction
+
+23
+
+Example B1.11
+Write down the form you expect two 3 × 3 circulant matrices to have and
+show that their product commutes.
+
+A 3×3 circulant matrix will contain at most 3 distinct elements. Let us call them α, β
+and γ for matrix A, and ˜α, ˜β and ˜γ for matrix ˜A. Since these matrices are circulant,
+they must have the following structure:
+
+We can work out the product A ˜A:
+
+˜α ˜γ
+˜β
+˜γ
+
+α γ β
+β α γ
+
+˜β
+˜α ˜γ
+˜β
+˜α
+
+A =⎛⎝
+
+γ β α⎞⎠
+⎞⎠ =⎛⎝
+γ β α⎞⎠ =⎛⎝
+
+α γ β
+β α γ
+
+A ˜A =⎛⎝
+˜AA =⎛⎝
+
+α γ β
+β α γ
+
+γ β α⎞⎠⎛⎝
+⎞⎠⎛⎝
+
+˜β
+˜α ˜γ
+˜β
+˜α
+
+˜α ˜γ
+˜β
+˜γ
+
+We get the same result by working out ˜AA:
+
+˜A =⎛⎝
+
+˜α ˜γ
+˜β
+˜γ
+
+˜β
+˜α ˜γ
+˜β
+˜α
+
+⎞⎠
+
+(1.49)
+
+α˜α + γ ˜β + β˜γ α˜γ + γ ˜α + β ˜β α ˜β + γ˜γ + β ˜α
+β ˜α + α ˜β + γ˜γ β˜γ + α˜α + γ ˜β β ˜β + α˜γ + γ ˜α
+γ˜γ + β ˜α + α ˜β γ ˜α + β˜γ + α˜α
+γ ˜α + β ˜β + α˜γ
+(1.50)
+
+˜αα + ˜γβ + ˜βγ
+˜βα + ˜αβ + ˜γγ
+˜γα + ˜ββ + ˜αγ
+
+˜αβ + ˜γγ + ˜βα
+˜αγ + ˜γα + ˜ββ
+˜ββ + ˜αγ + ˜γα
+˜βγ + ˜αα + ˜γβ
+˜γγ + ˜βα + ˜αβ ˜γβ + ˜βγ + ˜αα
+(1.51)
+
+⎞⎠
+⎞⎠
+
+We can see that A ˜A = ˜AA, ie that these two matrices commute.
+
+Example B1.12
+
+Identify the 3 × 3 submatrices from which the H matrices of examples 1.8,
+1.9 and 1.10 are made.
+
+We can easily identify that matrix H of example 1.8 is made up from submatrices:
+
+H11 ≡⎛⎝
+
+1/4 1/4
+0
+1/4
+0
+1/4
+1/4 1/4
+
+0 ⎞⎠ H21 = H31 ≡⎛⎝
+
+1/4
+0
+0
+
+0
+1/4
+0
+
+0
+0
+
+1/4⎞⎠
+
+(1.52)
+
+24
+
+Image Processing: The Fundamentals
+
+Matrix ˆH of example 1.9 is made up from submatrices:
+
+Matrix ˜H of example 1.10 is made up from submatrices:
+
+ˆH11 ≡⎛⎝
+˜H11 ≡⎛⎝
+
+1 0 0
+0 1 0
+
+0 0 1⎞⎠ ˆH21 ≡⎛⎝
+0 0 1⎞⎠ ˜H21 ≡⎛⎝
+
+1 0 0
+0 1 0
+
+0 0 0
+0 0 0
+
+0 0 0⎞⎠ ˆH31 ≡⎛⎝
+0 0 0⎞⎠ ˜H31 ≡⎛⎝
+
+0 0 0
+0 0 0
+
+−1
+0
+0 −1
+0
+
+0
+0
+
+0 −1 ⎞⎠
+0 ⎞⎠
+
+0 −1
+0
+0 −1
+0
+0
+−1
+
+(1.53)
+
+(1.54)
+
+Thus, matrices H, ˆH and ˜H of examples 1.8, 1.9 and 1.10, respectively, may be written
+as:
+
+H =⎡⎣
+
+H11 H31 H21
+H21 H11 H31
+H31 H21 H11
+
+⎤⎦
+
+ˆH =⎡⎣
+
+ˆH11
+ˆH21
+ˆH31
+
+ˆH31
+ˆH11
+ˆH21
+
+ˆH21
+ˆH31
+ˆH11
+
+⎤⎦
+
+˜H =⎡⎣
+
+˜H11
+˜H21
+˜H31
+
+˜H31
+˜H11
+˜H21
+
+˜H21
+˜H31
+˜H11
+
+⎤⎦(1.55)
+
+Each one of the submatrices is circulant and they are arranged in a circulant manner,
+so matrices H, ˆH and ˜H are block circulant.
+
+Example 1.13
+
+Apply the operator of example 1.9 to the output image (1.41) of example
+1.8 by working directly on the output image. Then apply the operator of
+example 1.8 to the output image (1.44) of example 1.9. Compare the two
+answers.
+
+The operator of example 1.9 subtracts from every pixel the value of its right neighbour.
+We remember that the image is assumed to be wrapped round so that all pixels have
+neighbours in all directions. We perform this operation on image (1.41) and obtain:
+
+g31+g12+g21−g32−g22−g11
+
+4
+
+g32+g13+g22−g33−g23−g12
+
+4
+
+g33+g11+g23−g31−g21−g13
+
+4
+
+g11+g22+g31−g12−g32−g21
+
+4
+
+g12+g23+g32−g13−g33−g22
+
+4
+
+g13+g21+g33−g11−g31−g23
+
+4
+
+g21+g32+g11−g22−g12−g31
+
+4
+
+g22+g33+g12−g23−g13−g32
+
+4
+
+g23+g31+g13−g21−g11−g33
+
+4
+
+⎤⎥⎥⎥⎥⎦(1.56)
+
+⎡⎢⎢⎢⎢⎣
+
+The operator of example 1.8 replaces every pixel with the average of its four neighbours.
+
+1. Introduction
+
+25
+
+We apply it to image (1.44) and obtain:
+
+⎡⎢⎢⎢⎢⎣
+
+g31−g32+g12−g13+g21−g22+g13−g11
+
+4
+
+g32−g33+g13−g11+g22−g23+g11−g12
+
+4
+
+g11−g12+g22−g23+g31−g32+g23−g21
+
+4
+
+g12−g13+g23−g21+g32−g33+g21−g22
+
+4
+
+g21−g22+g32−g33+g11−g12+g33−g31
+
+4
+
+g22−g23+g33−g31+g12−g13+g31−g32
+g33−g31+g11−g12+g23−g21+g12−g13
+
+4
+
+4
+
+g13−g11+g21−g22+g33−g31+g22−g23
+
+4
+
+g23−g21+g31−g32+g13−g11+g32−g33
+
+4
+
+⎤⎥⎥⎥⎥⎦
+
+(1.57)
+
+By comparing outputs (1.56) and (1.57) we see that we get the same answer whichever
+is the order by which we apply the operators.
+
+Example 1.14
+
+Use matrix multiplication to derive the matrix with which an image (writ-
+ten in vector form) has to be multiplied from the left so that the operators
+of examples 1.8 and 1.9 are applied in a cascaded way. Does the answer
+depend on the order by which the operators are applied?
+
+H ˆH =
+
+0
+1
+4
+0
+1
+4
+0
+1
+4
+0
+1
+4
+0
+
+1
+4
+0
+0
+1
+4
+0
+0
+0
+1
+4
+1
+4
+
+0
+1
+4
+0
+0
+1
+4
+0
+1
+4
+0
+1
+4
+
+0
+0
+1
+4
+0
+0
+1
+4
+1
+4
+1
+4
+0
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+If we apply ﬁrst the operator of example 1.9 and then the operator of example 1.8, we
+must compute the product H ˆH of matrices H and ˆH given by equations (1.43) and
+(1.45), respectively:
+1
+4
+1
+4
+0
+0
+0
+1
+4
+0
+0
+1
+4
+
+0
+0
+0
+0 −1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0 −1
+0
+0
+0
+1
+0
+0
+0
+1
+0 −1
+0
+0
+0
+1
+4
+0
+0
+1
+0
+0 −1
+0
+0
+0
+1
+4
+0
+1
+0
+0
+0 −1
+0
+0
+0
+1
+4
+0 −1
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+−1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0 −1
+0
+0
+0
+0
+0
+0
+1
+0 −1
+0
+1
+4
+0
+0
+1/4 −1/4 −1/4
+1/4
+0
+0
+1/4 −1/4
+1/4 −1/4
+0
+0
+1/4
+1/4 −1/4 −1/4 −1/4
+1/4 −1/4 −1/4
+1/4
+1/4
+0 −1/4
+1/4 −1/4
+1/4 −1/4
+1/4 −1/4
+0
+1/4 −1/4 −1/4 −1/4
+1/4
+1/4
+0
+1/4 −1/4 −1/4
+1/4
+1/4
+0
+0
+0 −1/4
+1/4
+0
+0
+0
+1/4 −1/4
+−1/4
+1/4 −1/4
+1/4 −1/4
+1/4
+1/4
+−1/4 −1/4
+0
+0
+0
+
+0
+1
+1
+4
+4
+0
+0
+1
+4
+0
+1
+1
+4
+4
+0
+0
+1
+4
+0
+1
+1
+4
+4
+0
+0
+1
+4
+0
+1
+1
+4
+4
+0
+0
+1
+4
+0
+0
+0
+−1/4
+1/4
+1/4 −1/4
+1/4
+0
+0
+0
+0
+0
+0
+
+0
+0
+0
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+=
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+(1.58)
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+26
+
+Image Processing: The Fundamentals
+
+If we apply ﬁrst the operator of example 1.8 and then the operator of example 1.9, we
+must compute the product ˆHH of matrices H and ˆH given by equations (1.43) and
+(1.45), respectively:
+
+1
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+−1
+0
+0 −1
+0
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+=
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+1
+4
+0
+1
+4
+0
+1
+4
+0
+0
+1
+4
+0
+
+1
+4
+0
+0
+0
+1
+4
+1
+4
+1
+4
+0
+0
+
+0
+1
+4
+0
+1
+4
+0
+1
+4
+0
+1
+4
+0
+
+1
+4
+1
+4
+0
+0
+0
+1
+4
+0
+0
+1
+4
+
+1
+4
+0
+0
+1
+4
+0
+0
+0
+1
+4
+1
+4
+
+0
+0
+1
+4
+1
+4
+1
+4
+0
+0
+0
+1
+4
+
+0
+0
+0 −1
+0
+0
+0
+0
+0
+0
+0 −1
+0
+0
+0
+1
+4
+0
+1
+0 −1
+0
+0
+0
+1
+4
+0
+1
+0
+0 −1
+0
+0
+1
+4
+0
+1
+0
+0
+0 −1
+0
+0
+0
+1
+0
+0
+0
+0 −1
+0
+0
+0
+1
+0
+0
+0
+0
+1
+4
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0 −1
+1
+0
+0
+0
+0
+0
+0
+1/4 −1/4 −1/4
+−1/4
+1/4
+1/4
+0
+1/4 −1/4
+1/4 −1/4
+1/4 −1/4
+0
+1/4 −1/4 −1/4 −1/4
+1/4
+1/4
+1/4 −1/4 −1/4
+1/4
+0
+0
+1/4
+0 −1/4
+0
+0
+0
+1/4 −1/4
+1/4 −1/4
+1/4 −1/4
+1/4
+1/4 −1/4 −1/4 −1/4
+1/4
+0
+0
+0
+1/4
+1/4
+0
+1/4 −1/4 −1/4
+0 −1/4
+0
+1/4
+0
+0
+0
+−1/4
+1/4 −1/4
+1/4 −1/4
+1/4 −1/4
+1/4
+1/4
+0
+−1/4 −1/4
+0
+0
+
+0
+0
+0
+
+0
+0
+0
+
+ˆHH =
+
+0
+0
+1
+4
+0
+0
+1
+4
+1
+4
+1
+4
+0
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+(1.59)
+
+0
+1
+4
+0
+0
+1
+4
+0
+1
+4
+0
+1
+4
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+By comparing results (1.58) and (1.59) we see that the order by which we multiply the
+matrices, and by extension the order by which we apply the operators, does not matter.
+
+Example 1.15
+
+Process image (1.40) with matrix (1.59) and compare your answer with the
+output images produced in example 1.13.
+
+To process image (1.40) by matrix (1.59), we must write it in vector form, by stacking
+its columns one under the other:
+
+27
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+1. Introduction
+
+4
+
+⎡⎣
+
+1
+
+4
+
+4
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+1
+
+4
+
+4
+
+4
+
+4
+
+1
+
+4
+
+1
+
+4
+
+4
+
+4
+
+4
+
+4
+
+1
+4
+
+1
+4
+
+1
+4
+1
+
+1
+4
+1
+4
+1
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+4 − 1
+4 − 1
+1
+4 − 1
+4 − 1
+4 − 1
+
+1
+4
+1
+4
+1
+4
+
+1
+4
+
+4 − 1
+4 − 1
+
+4 − 1
+4 − 1
+4 − 1
+4 − 1
+4 − 1
+4 − 1
+1
+1
+4
+0 − 1
+0
+0
+0
+0
+0
+0
+0
+0
+
+−g11+g21+g31+g12−g22−g32
+− 1
+g11−g21+g31−g12+g22−g32
+4 − 1
+4 − 1
+g11+g21−g31−g12−g22+g32
+4 − 1
+4 − 1
+1
+1
+4
+−g12+g22+g32+g13−g23−g33
+0
+0 − 1
+0
+0
+0
+0
+g12−g22+g32−g13+g23−g33
+0
+0
+0
+g12+g22−g32−g13−g23+g33
+4 − 1
+4 − 1
+1
+g11−g21−g31−g13+g23+g33
+− 1
+4 − 1
+−g11+g21−g31+g13−g23+g33
+− 1
+4 − 1
+−g11−g21+g31+g13+g23−g33
+(1.60)
+To create an image out of the output vector (1.60), we have to use its ﬁrst three
+elements as the ﬁrst column of the image, the next three elements as the second column
+of the image, and so on. The image we obtain is:
+
+g11
+g21
+g31
+g12
+g22
+g32
+g13
+g23
+g33
+
+1
+
+4 − 1
+
+=
+
+1
+4
+
+1
+
+1
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+1
+
+1
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+4
+
+4
+
+−g11+g21+g31+g12−g22−g32
+g11−g21+g31−g12+g22−g32
+g11+g21−g31−g12−g22+g32
+
+4
+
+4
+
+4
+
+−g12+g22+g32+g13−g23−g33
+g12−g22+g32−g13+g23−g33
+g12+g22−g32−g13−g23+g33
+
+4
+
+4
+
+4
+
+g11−g21−g31−g13+g23+g33
+−g11+g21−g31+g13−g23+g33
+−g11−g21+g31+g13+g23−g33
+
+4
+
+4
+
+4
+
+By comparing (1.61) and (1.56) we see that we obtain the same output image either we
+apply the operators locally, or we operate on the whole image by using the corresponding
+matrix.
+
+⎤⎦(1.61)
+
+Example 1.16
+By examining matrices H, ˆH and ˜H given by equations (1.43), (1.45) and
+(1.47), respectively, deduce the point spread function of the corresponding
+operators.
+
+As these operators are shift invariant, by deﬁnition, in order to work out their point
+spread functions starting from their corresponding H matrix, we have to reason about
+the structure of the matrix as exempliﬁed by equation (1.39). The point spread function
+will be the same for all pixels of the input image, so we might as well pick one of them;
+say we pick the pixel in the middle of the input image, with coordinates x = 2 and
+y = 2. Then, we have to read the values of the elements of the matrix that correspond
+to all possible combinations of α and β, which indicate the coordinates of the output
+image. According to equation (1.39), β takes all its possible values along a column
+of submatrices, while α takes all its possible values along a column of any one of the
+submatrices. Fixing the value of x = 2 means that we shall have to read only the
+middle column of the submatrix we use. Fixing the value of y = 2 means that we
+shall have to read only the middle column of submatrices. The middle column then of
+
+28
+
+Image Processing: The Fundamentals
+
+matrix H, when wrapped to form a 3×3 image, will be the point spread function of the
+operator, ie it will represent the output image we shall get if the operator is applied to
+an input image that consists of only 0s except in the central pixel where it has value 1
+(a single point source). We have to write the ﬁrst three elements of the central column
+of the H matrix as the ﬁrst column of the output image, the next three elements as
+the second column, and the last three elements as the last column of the output image.
+For the three operators that correspond to matrices H, ˆH and ˜H, we obtain:
+
+h =⎛⎝
+
+0
+1
+4
+0
+
+1
+4
+0
+1
+4
+
+0
+1
+4
+
+0⎞⎠ ˆh =⎛⎝
+
+0 0 0
+−1 1 0
+
+0 0 0 ⎞⎠ ˜h =⎛⎝
+
+0 0
+−1
+0 1 0
+
+0 0 0 ⎞⎠
+
+(1.62)
+
+Example 1.17
+
+What will be the eﬀect of the operator that corresponds to matrix (1.59)
+on a 3 × 3 input image that depicts a point source in the middle?
+The output image will be the point spread function of the operator. Following the
+reasoning of example 1.16, we deduce that the point spread function of this composite
+operator is:
+
+⎛⎝
+
+−1/4
+1/4 0
+1/4 −1/4 0
+−1/4
+
+1/4 0 ⎞⎠
+
+(1.63)
+
+(1.64)
+
+(1.65)
+
+Example 1.18
+
+What will be the eﬀect of the operator that corresponds to matrix (1.59)
+on a 3 × 3 input image that depicts a point source in position (1, 2)?
+In this case we want to work out the output for x = 1 and y = 2. We select from
+matrix (1.59) the second column of submatrices, and the ﬁrst column of them and wrap
+it to form a 3 × 3 image. We obtain:
+
+Alternatively, we multiply from the left input image
+
+⎛⎝
+
+1/4 −1/4 0
+1/4 0
+−1/4
+−1/4
+
+1/4 0 ⎞⎠
+gT =60 0 0 1 0 0
+
+0 0 07
+
+1. Introduction
+
+29
+
+with matrix H ˆH given by equation (1.58) and write the output vector as an image.
+We get exactly the same answer.
+
+Box 1.3. What is the stacking operator?
+The stacking operator allows us to write an N × N image array as an N 2 × 1 vector, or
+an N 2 × 1 vector as an N × N square array.
+
+We deﬁne some vectors Vn and some matrices Nn as:
+
+0
+...
+0
+1 }
+0
+...
+0
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+Vn ≡
+
+0
+
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+⎤⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎦
+
+⎫⎪⎬⎪⎭
+⎫⎪⎬⎪⎭
+⎫⎪⎪⎬⎪⎪⎭
+⎫⎪⎪⎪⎬⎪⎪⎪⎭
+⎫⎪⎪⎬⎪⎪⎭
+
+1 0 . . . 0
+0 1 . . . 0
+...
+...
+0 0 . . . 1
+
+...
+
+0
+
+Nn ≡
+
+⎡⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎣
+
+rows 1 to n − 1
+
+row n
+
+(1.66)
+
+rows n + 1 to N
+
+n − 1 square N × N ma-
+trices on top of each other
+with all their elements 0
+
+the nth matrix is the unit
+matrix
+
+N − n square N × N ma-
+trices on the top of each
+other with all their ele-
+ments 0
+
+(1.67)
+
+The dimensions of Vn are N × 1 and of Nn N 2 × N. Then vector f which corresponds
+to the N × N square matrix f is given by:
+N+n=1
+
+NnfVn
+
+(1.68)
+
+f =
+
+It can be shown that if f is an N 2 × 1 vector, we can write it as an N × N matrix f,
+the ﬁrst column of which is made up from the ﬁrst N elements of f, the second column
+
+30
+
+Image Processing: The Fundamentals
+
+from the second N elements of f, and so on, by using the following expression:
+
+f =
+
+N+n=1
+
+N T
+
+n fVT
+n
+
+(1.69)
+
+Example B1.19
+
+You are given a 3 × 3 image f and you are asked to use the stacking operator
+to write it in vector form.
+
+Let us say that:
+
+f =⎛⎝
+
+f11
+f21
+f31
+
+f12
+f22
+f32
+
+f13
+f23
+f33
+
+⎞⎠
+
+We deﬁne vectors Vn and matrices Nn for n = 1, 2, 3:
+
+(1.70)
+
+(1.71)
+
+V1 =⎛⎝
+
+1
+0
+
+0⎞⎠ , V2 =⎛⎝
+
+0
+1
+
+0⎞⎠ , V3 =⎛⎝
+
+0
+0
+
+1⎞⎠
+
+, N2 =
+
+, N3 =
+
+.
+
+(1.72)
+
+N1 =
+
+1 0 0
+0 1 0
+0 0 1
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 0 0
+0 0 0
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+0 0 0
+0 0 0
+0 0 0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+According to equation (1.68):
+
+f = N1fV1 + N2fV2 + N3fV3
+
+(1.73)
+
+1. Introduction
+
+31
+
+We shall calculate each term separately:
+
+f11
+f21
+f31
+
+⎛⎝
+
+f12
+f22
+f32
+
+f13
+f23
+f33
+
+1
+0
+
+⎞⎠⎛⎝
+0⎞⎠ ⇒
+
+1 0 0
+0 1 0
+0 0 1
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+N1fV1 =
+
+N1fV1 =
+
+Similarly:
+
+f11
+f21
+f31
+
+⎛⎝
+
+⎞⎠ =
+
+f11
+f21
+f31
+0
+0
+0
+0
+0
+0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0
+0
+0
+0
+0
+0
+f13
+f23
+f33
+
+(1.74)
+
+(1.75)
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+N2fV2 =
+
+,
+
+N3fV3 =
+
+0
+0
+0
+f12
+f22
+f32
+0
+0
+0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+Then by substituting into (1.73), we obtain vector f .
+
+Example B1.20
+
+You are given a 9 × 1 vector f. Use the stacking operator to write it as a
+3 × 3 matrix.
+Let us say that:
+
+32
+
+Image Processing: The Fundamentals
+
+f =
+
+f11
+f21
+f31
+f12
+f22
+f32
+f13
+f23
+f33
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+According to equation (1.69)
+
+(1.76)
+
+f = N T
+
+1 fV1
+
+T + N T
+
+2 fV2
+
+T + N T
+
+3 fV3
+
+T
+
+(1.77)
+
+(where N1, N2, N3, V1, V2 and V3 are deﬁned in Box 1.3)
+We shall calculate each term separately:
+
+N T
+
+1 fVT
+
+1 =⎛⎝
+
+1 0 0 0 0 0 0
+0 1 0 0 0 0 0
+0 0 1 0 0 0 0
+
+1 0 0 0 0 0 0
+0 1 0 0 0 0 0
+0 0 1 0 0 0 0
+
+=⎛⎝
+
+Similarly:
+
+0 0
+0 0
+
+0 0⎞⎠
+
+0 0
+0 0
+
+0 0⎞⎠
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+f11
+f21
+f31
+f12
+f22
+f32
+f13
+f23
+f33
+f11
+f21
+f31
+f12
+f22
+f32
+f13
+f23
+f33
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+61 0 07
+
+0 0
+0 0
+0 0
+0 0
+0 0
+0 0
+0 0
+0 0
+0 0
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+=⎛⎝
+
+f11
+f21
+f31
+
+0 0
+0 0
+
+0 0⎞⎠ (1.78)
+
+N T
+
+2 fVT
+
+2 =⎛⎝
+
+0 f12
+0 f22
+0 f32
+
+0
+0
+
+0⎞⎠ ,
+
+N T
+
+3 fVT
+
+3 =⎛⎝
+
+0 0 f13
+0 0 f23
+0 0 f33
+
+⎞⎠
+
+(1.79)
+
+Then by substituting into (1.77), we obtain matrix f.
+
+1. Introduction
+
+33
+
+Example B1.21
+
+Show that the stacking operator is linear.
+
+To show that an operator is linear we must show that we shall get the same answer
+either we apply it to two images w and g and sum up the results with weights α and β,
+respectively, or we apply it to the weighted sum αw + βg directly. We start by applying
+the stacking operator to composite image αw + βg, following equation (1.68):
+
+Nn(αw + βg)Vn =
+
+N+n=1
+
+=
+
+=
+
+N+n=1
+N+n=1
+N+n=1
+
+Nn(αwVn + βgVn)
+
+(NnαwVn + NnβgVn)
+
+NnαwVn +
+
+N+n=1
+
+NnβgVn
+
+(1.80)
+
+Since α and β do not depend on the summing index n, they may come out of the
+summands:
+
+N+n=1
+
+Nn(αw + βg)Vn = α
+
+N+n=1
+Then, we deﬁne vector w to be the vector version of image w, given by<N
+and vector g to be the vector version of image g, given by<N
+
+N+n=1
+
+n=1 NnwVn
+n=1 NngVn, to obtain:
+
+NnwVn + β
+
+NngVn
+
+(1.81)
+
+Nn(αw + βg)Vn = αw + βg
+
+(1.82)
+
+N+n=1
+
+This proves that the stacking operator is linear, because if we apply it separately to
+images w and g we shall get vectors w and g, respectively, which, when added with
+weights α and β, will produce the result we obtained above by applying the operator to
+the composite image αw + βg directly.
+
+Example B1.22
+Consider a 9 × 9 matrix H that is partitioned into nine 3 × 3 submatrices.
+2 , deﬁned in Box
+Show that if we multiply it from the left with matrix N T
+1.3, we shall extract the second row of its submatrices.
+
+34
+
+Image Processing: The Fundamentals
+
+We apply deﬁnition (1.67) for N = 3 and n = 2 to deﬁne matrix N2 and we write
+explicitly all the elements of matrix H before we perform the multiplication:
+
+N T
+
+2 H = ⎛⎝
+
+0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 0 0
+
+0 0 0 0 0 1 0 0 0⎞⎠ ×
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+= ⎛⎝
+
+−
+
+h11 h12 h13
+h21 h22 h23
+h31 h32 h33
+−
+h41 h42 h43
+h51 h52 h53
+h61 h62 h63
+−
+h71 h72 h73
+h81 h82 h83
+h91 h92 h93
+
+−
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+h14 h15 h16
+h24 h25 h26
+h34 h35 h36
+
+h44 h45 h46
+h54 h55 h56
+h64 h65 h66
+
+−
+
+−
+
+h74 h75 h76
+h84 h85 h86
+h94 h95 h96
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+−
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+−
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+−
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+−
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+− − −
+
+− − −
+
+− − −
+
+− − −
+
+h41 h42 h43
+h51 h52 h53
+h61 h62 h63
+
+| h44 h45 h46
+| h54 h55 h56
+| h64 h65 h66
+
+| h47 h48 h49
+| h57 h58 h59
+| h67 h68 h69
+
+⎞⎠
+
+(1.83)
+
+We note that the result is a matrix made up from the middle row of partitions of the
+original matrix H.
+
+Example B1.23
+
+Consider a 9 × 9 matrix H that is partitioned into nine 3 × 3 submatrices.
+Show that if we multiply it from the right with matrix N3, deﬁned in Box
+1.3, we shall extract the third column of its submatrices.
+
+1. Introduction
+
+35
+
+We apply deﬁnition (1.67) for N = 3 and n = 3 to deﬁne matrix N3 and we write
+explicitly all the elements of matrix H before we perform the multiplication:
+
+HN3 =
+
+−
+
+h11 h12 h13
+h21 h22 h23
+h31 h32 h33
+−
+h41 h42 h43
+h51 h52 h53
+h61 h62 h63
+−
+h71 h72 h73
+h81 h82 h83
+h91 h92 h93
+
+−
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+h14 h15 h16
+h24 h25 h26
+h34 h35 h36
+
+h44 h45 h46
+h54 h55 h56
+h64 h65 h66
+
+−
+
+−
+
+h74 h75 h76
+h84 h85 h86
+h94 h95 h96
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+− − −
+
+− − −
+
+− − −
+
+− − −
+
+−
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+−
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+−
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+−
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+
+−
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+−
+−
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+−
+−
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+−
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+=
+
+(1.84)
+
+We observe that the result is a matrix made up from the last column of the partitions
+of the original matrix H.
+
+Example B1.24
+
+Multiply the 3 × 9 matrix produced in example 1.22 with the 9 × 3 matrix
+produced in example 1.23 and show that the resultant 3 × 3 matrix is the
+sum of the individual multiplications of the corresponding partitions.
+
+36
+
+Image Processing: The Fundamentals
+
+⎛⎝
+
+h41 h42 h43 | h44 h45 h46 | h47 h48 h49
+h51 h52 h53 | h54 h55 h56 | h57 h58 h59
+h61 h62 h63 | h64 h65 h66 | h67 h68 h69
+
+⎞⎠
+
+−
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+−
+−
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+−
+−
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+−
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+=
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+⎛⎝
+
+h41h17 + h42h27 + h43h37 + h44h47 + h45h57 + h46h67 + h47h77 + h48h87 + h49h97
+h51h17 + h52h27 + h53h37 + h54h47 + h55h57 + h56h67 + h57h77 + h58h87 + h59h97
+h61h17 + h62h27 + h63h37 + h64h47 + h65h57 + h66h67 + h67h77 + h68h87 + h69h97
+h41h18 + h42h28 + h43h38 + h44h48 + h45h58 + h46h68 + h47h78 + h48h88 + h49h98
+h51h18 + h52h28 + h53h38 + h54h48 + h55h58 + h56h68 + h57h78 + h58h88 + h59h98
+h61h18 + h62h28 + h63h38 + h64h48 + h65h58 + h66h68 + h67h78 + h68h88 + h69h98
+
+h41h19 + h42h29 + h43h39 + h44h49 + h45h59 + h46h69 + h47h79 + h48h89 + h49h99
+h51h19 + h52h29 + h53h39 + h54h49 + h55h59 + h56h69 + h57h79 + h58h89 + h59h99
+h61h19 + h62h29 + h63h39 + h64h49 + h65h59 + h66h69 + h67h79 + h68h89 + h69h99
+
+h41h17 + h42h27 + h43h37 h41h18 + h42h28 + h43h38 h41h19 + h42h29 + h43h39
+h51h17 + h52h27 + h53h37 h51h18 + h52h28 + h53h38 h51h19 + h52h29 + h53h39
+h61h17 + h62h27 + h63h37 h61h18 + h62h28 + h63h38 h61h19 + h62h29 + h63h39
+h44h47 + h45h57 + h46h67 h44h48 + h45h58 + h46h68 h44h49 + h45h59 + h46h69
+h54h47 + h55h57 + h56h67 h54h48 + h55h58 + h56h68 h54h49 + h55h59 + h56h69
+h64h47 + h65h57 + h66h67 h64h48 + h65h58 + h66h68 h64h49 + h65h59 + h66h69
+h47h77 + h48h87 + h49h97 h47h78 + h48h88 + h49h98 h47h79 + h48h89 + h49h99
+h57h77 + h58h87 + h59h97 h57h78 + h58h88 + h59h98 h57h79 + h58h89 + h59h99
+h67h77 + h68h87 + h69h97 h67h78 + h68h88 + h69h98 h67h79 + h68h89 + h69h99
+
+⎛⎝
+⎛⎝
+⎛⎝
+
+⎞⎠=
+⎞⎠+
+⎞⎠+
+⎞⎠=
+⎞⎠
+
+h41 h42 h43
+h51 h52 h53
+h61 h62 h63
+
+⎛⎝
+
+⎞⎠⎛⎝
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+
+h44 h45 h46
+h54 h55 h56
+h64 h65 h66
+
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+
+⎞⎠+⎛⎝
++⎛⎝
+
+⎞⎠⎛⎝
+
+⎞⎠⎛⎝
+
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+⎞⎠
+
+1. Introduction
+
+37
+
+Example B1.25
+
+Use the stacking operator to show that the order of two linear operators
+can be interchanged as long as the multiplication of two circulant matrices
+is commutative.
+
+Consider an operator with matrix H applied to vector f constructed from an image f,
+by using equation (1.68):
+
+˜f ≡ Hf = H
+
+NnfVn
+
+(1.85)
+
+The result is vector ˜f, to which we can apply matrix ˆH that corresponds to another
+linear operator:
+
+˜˜f ≡ ˆH˜f = ˆHH
+
+NnfVn
+
+(1.86)
+
+N+n=1
+
+N+n=1
+
+From this output vector ˜˜f we can construct the output image ˜˜f by applying equation
+(1.69):
+
+˜˜f =
+
+˜˜fVm
+
+N T
+m
+
+T
+
+(1.87)
+
+N+m=1
+
+We may replace ˜˜f from (1.86) to obtain:
+
+˜˜f =
+
+=
+
+N+m=1
+N+m=1
+
+N T
+m
+
+ˆHH
+
+(N T
+m
+
+N+n=1
+
+NnfVnVm
+
+T
+
+N+n=1
+
+ˆH)(HNn)f(VnVm
+
+T )
+
+(1.88)
+
+The various factors in (1.88) have been grouped together to facilitate interpretation.
+
+ˆH) extracts from matrix ˆH the mth row of its partitions (see exam-
+Factor (N T
+m
+ple 1.22), while factor (HNn) extracts from matrix H the nth column of its partitions
+(see example 1.23). The product of these two factors extracts the (m, n) partition of
+matrix ˆHH, which is a submatrix of size N × N. This submatrix is equal to the sum
+ˆH) and (HNn) (see
+of the products of the corresponding partitions of matrices (N T
+m
+example 1.24). Since these products are products of circulant matrices (see example
+1.11), the order by which they are multiplied does not matter.
+
+So, we shall get the same answer here either we have (N T
+m
+ie we shall get the same answer whichever way we apply the two linear operators.
+
+ˆH)(HNn) or (N T
+
+mH)( ˆHNn),
+
+38
+
+Image Processing: The Fundamentals
+
+What is the implication of the separability assumption on the structure of matrix
+H?
+
+According to the separability assumption, we can replace h(x, α, y, β) with the product of
+two functions, hc(x, α)hr(y, β). Then inside each partition of H in equation (1.39), hc(x, α)
+remains constant and we may write for H:
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+hr11⎛⎜⎜⎜⎝
+hr12⎛⎜⎜⎜⎝
+hr1N⎛⎜⎜⎜⎝
+
+. . . hcN1
+hc11
+. . . hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+. . . hcN1
+hc11
+. . . hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+
+...
+...
+
+hc11
+. . . hcN1
+. . . hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+
+. . . hrN1⎛⎜⎜⎜⎝
+. . . hrN2⎛⎜⎜⎜⎝
+. . . hrNN⎛⎜⎜⎜⎝
+
+. . .
+. . .
+
+hcN1
+hc11
+hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+hcN1
+hc11
+hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+
+. . .
+. . .
+
+...
+...
+
+hc11
+. . . hcN1
+. . . hcN2
+hc12
+...
+...
+hc1N . . . hcNN
+
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(1.89)
+
+Here the arguments of functions hc(x, α) and hr(y, β) have been written as indices to save
+c and
+space. We say then that matrix H is the Kronecker product of matrices hT
+we write this as:
+
+r and hT
+
+H = hT
+
+r ⊗ hT
+
+c
+
+Example 1.26
+
+Calculate the Kronecker product A ⊗ B where
+
+A ≡⎛⎝
+
+1 2 3
+4 3 1
+
+2 4 1⎞⎠ B ≡⎛⎝
+
+2 0 1
+0 1 3
+
+2 1 0⎞⎠
+
+(1.90)
+
+(1.91)
+
+1. Introduction
+
+39
+
+2 0 1
+0 1 3
+
+2 0 1
+0 1 3
+
+1 × B 2 × B 3 × B
+4 × B 3 × B 1 × B
+2 0 1
+0 1 3
+
+2 × B 4 × B 1 × B⎞⎠ =
+A ⊗ B =⎛⎝
+1 ×⎛⎝
+2 1 0⎞⎠ 2 ×⎛⎝
+2 1 0⎞⎠ 3 ×⎛⎝
+2 1 0⎞⎠
+2 1 0⎞⎠ 3 ×⎛⎝
+2 1 0⎞⎠ 1 ×⎛⎝
+4 ×⎛⎝
+2 1 0⎞⎠
+2 ×⎛⎝
+2 1 0⎞⎠ 4 ×⎛⎝
+2 1 0⎞⎠ 1 ×⎛⎝
+2 1 0⎞⎠
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+2 0 1
+0 1 3
+
+2 0 1
+0 1 3
+
+2 0 1
+0 1 3
+
+2 0 1
+0 1 3
+
+2 0 1
+0 1 3
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+2 0 1
+0 1 3
+
+=
+
+1
+2 0
+3
+0 1
+0
+2 1
+8 0
+4
+0 4 12
+8 4
+0
+2
+4 0
+6
+0 2
+4 2
+0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+2
+6
+0
+3
+9
+0
+4
+
+6 0 3
+4 0
+0 3 9
+0 2
+6 3 0
+4 2
+2 0 1
+6 0
+0 1 3
+0 3
+2 1 0
+6 3
+8 0
+2 0 1
+0 4 12 0 1 3
+8 4
+2 1 0
+
+0
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(1.92)
+
+How can a separable transform be written in matrix form?
+
+Consider again equation (1.19) which expresses the separable linear transform of an image:
+
+g(α, β) =
+
+hc(x, α)
+
+f(x, y)hr(y, β)
+
+(1.93)
+
+N+x=1
+
+N+y=1
+
+Notice that factor<N
+y=1 f(x, y)hr(y, β) actually represents the product f hr of two N × N
+matrices, which must be another matrix s ≡ f hr of the same size. Let us deﬁne an element
+of s as:
+
+s(x, β) ≡
+
+N+y=1
+
+f(x, y)hr(y, β) = f hr
+
+Then (1.93) may be written as:
+
+g(α, β) =
+
+N+x=1
+
+hc(x, α)s(x, β)
+
+(1.94)
+
+(1.95)
+
+40
+
+Image Processing: The Fundamentals
+
+Thus, in matrix form:
+
+g = hT
+
+c s = hT
+
+c f hr
+
+(1.96)
+
+What is the meaning of the separability assumption?
+Let us assume that operator O has point spread function h(x, α, y, β), which is separable. The
+separability assumption implies that operator O operates on the rows of the image matrix
+f independently from the way it operates on its columns. These independent operations are
+expressed by the two matrices hr and hc, respectively. That is why we chose subscripts r and
+c to denote these matrices (r = rows, c = columns). Matrix hr is used to multiply the image
+from the right. Ordinary matrix multiplication then means that the rows of the image are
+multiplied with it. Matrix hc is used to multiply the image from the left. Thus, the columns
+of the image are multiplied with it.
+
+Example B1.27
+Are the operators which correspond to matrices H, ˆH and ˜H given by
+equations (1.43), (1.45) and (1.47), respectively, separable?
+
+If an operator is separable, we must be able to write its H matrix as the Kronecker
+product of two matrices. In other words, we must check whether from every submatrix
+of H we can get out a common factor, such that the submatrix that remains is the
+same for all partitions. We can see that this is possible for matrix ˆH, but it is not
+possible for matrices H and ˜H. For example, some of the partitions of matrices H
+and ˜H are diagonal, while others are not. It is impossible to express them then as the
+product of a scalar with the same 3 × 3 matrix. On the other hand, all partitions of
+ˆH are diagonal (or zero), so we can see that the common factors we can get out from
+each partition form matrix
+
+while the common matrix that is multiplied in each partition by these coeﬃcients is
+the 3 × 3 identity matrix:
+
+So, we may write:
+
+A ≡⎛⎝
+I ≡⎛⎝
+
+1 0
+0 1
+0 0
+
+ˆH = A ⊗ I
+
+1 −1
+0
+0
+1 −1
+0
+−1
+
+1 ⎞⎠
+1⎞⎠
+
+0
+0
+
+(1.97)
+
+(1.98)
+
+(1.99)
+
+1. Introduction
+
+41
+
+Box 1.4. The formal derivation of the separable matrix equation
+
+We can use equations (1.68) and (1.69) with (1.38) as follows. First, express the output
+image g using (1.69) in terms of g:
+
+g =
+
+N T
+
+mgVT
+m
+
+N+m=1
+
+(1.100)
+
+Then express g in terms of H and f from (1.38) and replace f in terms of f using (1.68):
+
+g = H
+
+NnfVn
+
+N+n=1
+
+(1.101)
+
+Substitute (1.101) into (1.100) and group factors with the help of brackets to obtain:
+
+g =
+
+N+m=1
+
+(N T
+
+mHNn)f(VnVT
+m)
+
+N+n=1
+
+(1.102)
+
+H is a N 2×N 2 matrix. We may think of it as partitioned in N ×N submatrices stacked
+together. Then it can be shown that N T
+mHNn is the Hmn such submatrix (see example
+1.28).
+Under the separability assumption, matrix H is the Kronecker product of matrices hc
+and hr:
+
+Then partition Hmn is essentially hT
+obtain:
+
+H = hT
+
+c ⊗ hT
+r (m, n)hT
+c .
+
+r
+
+(1.103)
+
+If we substitute this in (1.102), we
+
+c f(VnVT
+m)
+hT
+
+g =
+
+N+m=1
+⇒ g = hT
+c f
+
+r (m, n)
+hT
+a scalar
+
+N+n=1
+.
+/0
+N+n=1
+N+m=1
+
+1
+
+r (m, n)VnVT
+hT
+m
+
+(1.104)
+
+Product VnVT
+m is the product between an N × 1 matrix with the only nonzero element
+at position n, with a 1 × N matrix, with the only nonzero element at position m. So,
+it is an N × N square matrix with the only nonzero element at position (n, m). When
+r matrix in position
+multiplied with hT
+(n, m) and sets to zero all other elements. The sum over all m’s and n’s is matrix hr.
+So, from (1.104) we have:
+
+r (m, n), it places the (m, n) element of the hT
+
+g = hT
+
+c f hr
+
+(1.105)
+
+42
+
+Image Processing: The Fundamentals
+
+Example 1.28
+You are given a 9 × 9 matrix H which is partitioned into nine 3 × 3
+2 HN3, where N2 and N3 are matrices of the
+submatrices. Show that N T
+stacking operator, is partition H23 of matrix H.
+
+− − −
+
+− − −
+
+−
+
+h11 h12 h13
+h21 h22 h23
+h31 h32 h33
+−
+h41 h42 h43
+h51 h52 h53
+h61 h62 h63
+−
+h71 h72 h73
+h81 h82 h83
+h91 h92 h93
+
+−
+
+h14 h15 h16
+h24 h25 h26
+h34 h35 h36
+
+h44 h45 h46
+h54 h55 h56
+h64 h65 h66
+
+−
+
+−
+
+h74 h75 h76
+h84 h85 h86
+h94 h95 h96
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+− − −
+
+− − −
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+−
+
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+−
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+−
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+−
+
+(1.106)
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+H ≡
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+N T
+
+2 HN3 = ⎛⎝
+
+0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 0 0
+
+0 0 0 0 0 1 0 0 0⎞⎠
+
+h11 h12 h13 h14 h15 h16 h17 h18 h19
+h21 h22 h23 h24 h25 h26 h27 h28 h29
+h31 h32 h33 h34 h35 h36 h37 h38 h39
+h41 h42 h43 h44 h45 h46 h47 h48 h49
+h51 h52 h53 h54 h55 h56 h57 h58 h59
+h61 h62 h63 h64 h65 h66 h67 h68 h69
+h71 h72 h73 h74 h75 h76 h77 h78 h79
+h81 h82 h83 h84 h85 h86 h87 h88 h89
+h91 h92 h93 h94 h95 h96 h97 h98 h99
+h17 h18 h19
+h27 h28 h29
+h37 h38 h39
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+h77 h78 h79
+h87 h88 h89
+h97 h98 h99
+
+0 0 0 0 0 1 0 0 0⎞⎠
+
+0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 0 0
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+h47 h48 h49
+h57 h58 h59
+h67 h68 h69
+
+⎞⎠ = H23
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+0 0 0
+1 0 0
+0 1 0
+0 0 1
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(1.107)
+
+= ⎛⎝
+= ⎛⎝
+
+1. Introduction
+
+43
+
+What is the “take home” message of this chapter?
+
+Under the assumption that the operator with which we manipulate an image is linear and
+separable, this operation may be expressed by an equation of the form
+
+(1.108)
+where f and g are the input and output images, respectively, and hc and hr are matrices
+expressing the point spread function of the operator.
+
+g = hT
+
+c f hr
+
+Figure 1.7: The original image “Ancestors” and a compressed version of it.
+
+What is the signiﬁcance of equation (1.108) in linear image processing?
+
+In linear image processing we are trying to solve the following four problems in relation to
+equation (1.108).
+
+• Given an image f, choose matrices hc and hr so that the output image g is “better” than
+f, according to some subjective criteria. This is the problem of image enhancement.
+Linear methods are not very successful here. Most of image enhancement is done with
+the help of nonlinear methods.
+
+44
+
+Image Processing: The Fundamentals
+
+• Given an image f, choose matrices hc and hr so that g can be represented by fewer
+bits than f, without much loss of detail. This is the problem of image compression.
+Quite a few image compression methods rely on such an approach.
+
+• Given an image g and an estimate of h(x, α, y, β), recover image f. This is the problem
+of image restoration. A lot of commonly used approaches to image restoration follow
+this path.
+
+• Given an image f, choose matrices hc and hr so that output image g salienates certain
+features of f. This is the problem of feature extraction. Algorithms that attempt to
+do that often include a linear step that can be expressed by equation (1.108), but most
+of the times they also include nonlinear components.
+
+Figures 1.7–1.11 show examples of these processes.
+
+Figure 1.8: The original image “Birthday” and its enhanced version.
+
+What is this book about?
+
+This book is about introducing the mathematical foundations of image processing in the
+context of speciﬁc applications in the four main themes of image processing as identiﬁed
+above. The themes of image enhancement, image restoration and feature extraction will be
+discussed in detail. The theme of image compression is only touched upon as this could be
+the topic of a whole book on its own. This book puts emphasis on linear methods, but several
+nonlinear techniques relevant to image enhancement, image restoration and feature extraction
+will also be presented.
+
+1. Introduction
+
+45
+
+Figure 1.9: The blurred original image “Hara” and its restored version.
+
+Figure 1.10: The original image “Mitsos” and its edge maps of decreasing detail (indicating
+locations where the brightness of the image changes abruptly).
+
+46
+
+Image Processing: The Fundamentals
+
+(a) Image “Siblings”
+
+(b) Thresholding and binarisation
+
+(c) Gradient magnitude
+
+(d) Region segmentation
+
+Figure 1.11: There are various ways to reduce the information content of an image and
+salienate aspects of interest for further analysis.
+
+Chapter 2
+
+Image Transformations
+
+What is this chapter about?
+
+This chapter is concerned with the development of some of the most important tools of linear
+image processing, namely the ways by which we express an image as the linear superposition
+of some elementary images.
+
+How can we deﬁne an elementary image?
+
+There are many ways to do that. We already saw one in Chapter 1: an elementary image
+has all its pixels black except one that has value 1. By shifting the position of the nonzero
+pixel to all possible positions, we may create N 2 diﬀerent such elementary images in terms
+of which we may expand any N × N image. In this chapter, we shall use more sophisticated
+elementary images and deﬁne an elementary image as the outer product of two vectors.
+
+What is the outer product of two vectors?
+Consider two vectors N × 1:
+
+i = (ui1, ui2, . . . , uiN)
+uT
+j = (vj1, vj2, . . . , vjN)
+vT
+
+Their outer product is deﬁned as:
+
+(2.1)
+
+(2.2)
+
+uivT
+
+vj2
+
+j =⎛⎜⎜⎜⎝
+
+ui1
+ui2
+...
+uiN
+
+⎞⎟⎟⎟⎠6vj1
+
+. . . vjN7 =⎛⎜⎜⎜⎝
+
+ui1vj1
+ui2vj1
+
+...
+
+ui1vj2
+ui2vj2
+
+...
+
+uiN vj1 uiN vj2
+
+. . .
+. . .
+
+ui1vjN
+ui2vjN
+
+...
+
+. . . uiN vjN
+
+⎞⎟⎟⎟⎠
+
+Therefore, the outer product of these two vectors is an N × N matrix which may be thought
+of as an image.
+
+How can we expand an image in terms of vector outer products?
+
+We saw in the previous chapter that a general separable linear transformation of an image
+matrix f may be written as
+
+Image Processing: The Fundamentals, Second Edition 
+© 2010 John Wiley & Sons, Ltd. ISBN: 978-0-470-74586-1
+
+Maria Petrou and Costas Petrou
+
+48
+
+Image Processing: The Fundamentals
+
+g = hT
+
+c f hr
+
+(2.3)
+
+where g is the output image and hc and hr are the transforming matrices.
+
+We may use the inverse matrices of hT
+
+as follows: multiply both sides of the equation with (hT
+right:
+
+c and hr to solve this expression for f in terms of g,
+on the
+
+c )−1 on the left and with h−1
+
+r
+
+(hT
+
+c )−1
+
+Thus we write:
+
+gh−1
+
+r = (hT
+
+c )−1
+
+c f hrh−1
+hT
+
+r = f
+
+c )−1
+Let us assume that we partition matrices (hT
+
+f = (hT
+
+r
+
+gh−1
+c )−1 and h−1
+
+r
+
+respectively:
+
+in their column and row vectors,
+
+(2.4)
+
+(2.5)
+
+(2.6)
+
+(2.7)
+
+≡ (u1|u2| . . .|uN) ,
+
+c7−1
+6hT
+
+Then:
+
+2
+
+vT
+1
+−−vT
+−−...
+−−vT
+
+N
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+h−1
+r ≡
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+. . . uN7 g⎛⎜⎜⎜⎝
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
++ ··· +⎛⎜⎜⎜⎝
+
+. . . 0
+. . . 0
+...
+. . . 0
+
+vT
+1
+vT
+2...
+vT
+N
+
+0
+0
+...
+0
+
+f =6u1 u2
+⎞⎟⎟⎟⎠
++⎛⎜⎜⎜⎝
+
+0 g12
+0
+0
+...
+...
+0
+0
+
+f =
+
+N+i=1
+
+N+j=1
+
+gijuivT
+j
+
+This is an expansion of image f in terms of vector outer products. The outer product
+j may be interpreted as an “image” so that the sum over all combinations of the outer
+
+uivT
+products, appropriately weighted by the gij coeﬃcients, represents the original image f.
+
+We may also write matrix g as the sum of N 2, N × N matrices, each one having only one
+
+nonzero element:
+
+g =⎛⎜⎜⎜⎝
+
+g11
+0
+...
+0
+
+0 . . . 0
+0 . . . 0
+...
+...
+0 . . . 0
+
+Then equation (2.7) may be written as:
+
+0 . . .
+0 . . .
+...
+0 . . .
+
+0
+0
+...
+gNN
+
+⎞⎟⎟⎟⎠
+
+(2.8)
+
+(2.9)
+
+2. Image Transformations
+
+49
+
+Example 2.1
+
+Derive the term with i = 2 and j = 1 on the right-hand side of equation
+(2.9).
+
+Let us denote by ui1, ui2, . . . , uiN the elements of vector ui and by vi1, vi2, . . . , viN
+the elements of vector vi.
+If we substitute g from equation (2.8) into equation (2.7), the right-hand side of equa-
+tion (2.7) will consist of N 2 terms of similar form. One such term is:
+
+=6u1 u2
+=⎛⎜⎜⎜⎝
+
+6u1 u2
+⎛⎜⎜⎜⎝
+
+0
+g21
+...
+0
+
+. . . uN7
+
+. . .
+. . .
+
+u21
+u22
+...
+
+uN1
+u11
+uN2
+u12
+...
+...
+u1N u2N . . . uNN
+
+=⎛⎜⎜⎝
+
+u21g21v11
+u22g21v11
+
+⎞⎟⎟⎟⎠
+= g21⎛⎜⎜⎝
+
+. . .
+
+⎛⎜⎜⎜⎝
+⎞⎟⎟⎟⎠
+
+0
+g21
+...
+0
+
+⎛⎜⎜⎜⎝
+
+0 . . . 0
+0 . . . 0
+...
+...
+0 . . . 0
+
+v11
+v21
+...
+vN1
+
+v12
+v22
+...
+vN2
+
+g21v12
+
+0
+...
+0
+
+. . .
+. . .
+
+. . .
+
+. . . uN7
+
+0 . . . 0
+0 . . . 0
+...
+...
+0 . . . 0
+0
+...
+0
+
+⎛⎜⎜⎜⎝
+
+⎞⎟⎟⎟⎠
+
+⎛⎜⎜⎜⎝
+
+. . .
+. . .
+
+. . .
+
+T
+
+T
+
+T
+
+v1
+v2
+...
+vN
+v1N
+v2N
+...
+vNN
+0
+...
+0
+
+g21v11
+
+g21v1N
+
+u21g21v12
+u22g21v12
+
+. . .
+. . .
+
+u21g21v1N
+u22g21v1N
+
+. . .
+
+. . .
+
+. . . u2N g21v1N
+u21v1N
+u22v1N
+
+. . .
+. . .
+
+u21v12
+u22v12
+
+. . .
+
+. . .
+
+u21v11
+u22v11
+
+. . .
+
+u2N v11 u2N v12
+
+. . . u2N v1N
+
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎟⎠
+⎞⎟⎟⎠
+⎞⎟⎟⎠ = g21u2vT
+
+1
+
+u2N g21v11 u2N g21v12
+
+How do we choose matrices hc and hr?
+
+There are various options for the choice of matrices hc and hr, according to what we wish to
+achieve. For example, we may choose them so that the transformed image may be represented
+by fewer bits than the original one, or we may choose them so that truncation of the expansion
+of the original image smooths it by omitting its high frequency components, or optimally
+approximates it according to some predetermined criterion. It is often convenient to choose
+matrices hc and hr to be unitary so that the transform is easily invertible. If matrices hc
+and hr are chosen to be unitary, equation (2.3) represents a unitary transform of f, and
+g is termed the unitary transform domain of image f.
+
+50
+
+Image Processing: The Fundamentals
+
+What is a unitary matrix?
+
+A matrix U is called unitary if its inverse is the complex conjugate of its transpose, ie
+
+(2.10)
+where I is the unit matrix. We sometimes write superscript “H” instead of “T∗” and call
+U T∗ ≡ U H the Hermitian transpose or conjugate transpose of matrix U.
+If the elements of the matrix are real numbers, we use the term orthogonal instead of
+unitary.
+
+U U T∗ = I
+
+What is the inverse of a unitary transform?
+
+If matrices hc and hr in (2.3) are unitary, then the inverse of it is:
+
+For simplicity, from now and on we shall write U instead of hc and V instead of hr, so
+
+that the expansion of an image f in terms of vector outer products may be written as:
+
+f = h∗cghH
+r
+
+(2.11)
+
+f = U∗gV H
+
+(2.12)
+
+How can we construct a unitary matrix?
+
+If we consider equation (2.10), we see that for matrix U to be unitary, the requirement is that
+the dot product of any of its columns with the complex conjugate of any other column must
+be zero, while the magnitude of any of its column vectors must be 1. In other words, U is
+unitary if its columns form a set of orthonormal vectors.
+
+How should we choose matrices U and V so that g can be represented by fewer
+bits than f?
+
+If we want to represent image f with fewer than N 2 number of elements, we may choose
+matrices U and V so that the transformed image g is a diagonal matrix. Then we could
+represent image f with the help of equation (2.9) using only the N nonzero elements of g.
+This can be achieved with a process called matrix diagonalisation and it is called Singular
+Value Decomposition (SVD) of the image.
+
+What is matrix diagonalisation?
+
+Diagonalisation of a matrix A is the process by which we identify two matrices Au and Av so
+that matrix AuAAv ≡ J is diagonal.
+Can we diagonalise any matrix?
+
+In general no. For a start, a matrix has to be square in order to be diagonalisable. If a matrix
+is square and symmetric, then we can always diagonalise it.
+
+Singular value decomposition
+
+51
+
+2.1 Singular value decomposition
+
+How can we diagonalise an image?
+An image is not always square and almost never symmetric. We cannot, therefore, apply
+matrix diagonalisation directly. What we do is to create a symmetric matrix from it, which
+is then diagonalised. The symmetric matrix we create out of an image g is ggT (see example
+2.2). The matrices, which help us then express an image as the sum of vector outer products,
+are constructed from matrix ggT , rather than from the image itself directly. This is the
+process of Singular Value Decomposition (SVD). It can be shown then (see Box 2.1),
+that if ggT is a matrix of rank r, matrix g can be written as
+
+g = UΛ 1
+
+2 V T
+
+(2.13)
+
+where U and V are orthogonal matrices of size N × r and Λ 1
+
+2 is a diagonal r × r matrix.
+
+Example 2.2
+
+You are given an image which is represented by a matrix g. Show that
+matrix ggT is symmetric.
+
+A matrix is symmetric when it is equal to its transpose. Therefore, we must show that
+the transpose of ggT is equal to ggT . Consider the transpose of ggT :
+
+(ggT )T = (gT )T
+
+gT = ggT
+
+(2.14)
+
+Example B2.3
+If Λ is a diagonal 2 × 2 matrix and Λm is deﬁned by putting all nonzero
+elements of Λ to the power of m, show that:
+
+Λ− 1
+
+2 ΛΛ− 1
+
+2 = I
+
+and
+
+Indeed:
+
+Λ− 1
+
+2 Λ 1
+
+2 = I.
+
+Λ− 1
+
+2 ΛΛ− 1
+
+2
+
+1
+0
+
+2 = =λ− 1
+= =λ− 1
+
+1
+0
+
+2
+
+2
+
+0
+
+2 >3λ1
+2 >=λ
+
+0
+λ− 1
+0
+λ− 1
+
+1
+2
+1
+0
+
+2
+
+2
+
+0
+
+1
+0
+
+0
+λ− 1
+
+2 >
+λ24=λ− 1
+2> =31 0
+0 14
+
+0
+λ
+
+1
+2
+
+2
+
+This also shows that Λ− 1
+
+2 Λ 1
+
+2 = I.
+
+(2.15)
+
+(2.16)
+
+52
+
+Image Processing: The Fundamentals
+
+Example B2.4
+Assume that H is a 3 × 3 matrix and partition it into a 2 × 3 submatrix H1
+and a 1 × 3 submatrix H2. Show that:
+
+H T H = H T
+
+1 H1 + H T
+
+2 H2
+
+H1 ≡3h11 h12 h13
+h21 h22 h234 ,
+
+(2.17)
+
+and H2 ≡6˜h31
+
+˜h32
+
+˜h337
+
+(2.18)
+
+Let us say that:
+
+H =⎛⎝
+
+h11 h12 h13
+h21 h22 h23
+˜h31
+˜h33
+
+˜h32
+
+⎞⎠ ,
+H T H =⎛⎝
+
+We start by computing the left-hand side of (2.17):
+
+h11 h21
+h12 h22
+h13 h23
+
+˜h31
+˜h32
+˜h33
+
+⎞⎠⎛⎝
+
+h11 h12 h13
+h21 h22 h23
+˜h33
+˜h31
+
+˜h32
+
+⎞⎠ =
+
+⎛⎝
+
+11 + h2
+h2
+
+21 + ˜h2
+
+31
+
+h12h11 + h22h21 + ˜h32˜h31
+h13h11 + h23h21 + ˜h33˜h31 h13h12 + h23h22 + ˜h33˜h32
+
+12 + h2
+h2
+
+h11h12 + h21h22 + ˜h31˜h32 h11h13 + h21h23 + ˜h31˜h33
+h12h13 + h22h23 + ˜h32˜h33
+
+22 + ˜h2
+
+32
+
+13 + h2
+h2
+
+23 + ˜h2
+
+33
+
+Next, we compute the right-hand side of (2.17), by computing each term separately:
+
+⎞⎠(2.19)
+
+H T
+
+1 H1 = ⎛⎝
+= ⎛⎝
+2 H2 = ⎛⎝
+
+H T
+
+h11 h21
+h12 h22
+h13 h23
+
+⎞⎠3h11 h12 h13
+h21 h22 h234
+
+11 + h2
+h2
+21
+
+h12h11 + h22h21
+h13h11 + h23h21 h13h12 + h23h22
+
+12 + h2
+h2
+22
+
+h11h12 + h21h22 h11h13 + h21h23
+h12h13 + h22h23
+
+13 + h2
+h2
+23
+
+˜h31
+˜h32
+˜h33
+
+⎞⎠6˜h31
+
+˜h32
+
+˜h337 =⎛⎝
+
+31
+
+˜h2
+˜h32˜h31
+˜h33˜h31
+
+˜h31˜h32
+˜h2
+˜h33˜h32
+
+32
+
+˜h31˜h33
+˜h32˜h33
+˜h2
+
+33
+
+⎞⎠ (2.20)
+⎞⎠ (2.21)
+
+Adding H T
+culating the left-hand side of equation (2.17) directly.
+
+1 H1 and H T
+
+2 H2 we obtain the same answer as the one we obtained by cal-
+
+Singular value decomposition
+
+53
+
+Example B2.5
+Show that if we partition an N × N matrix S into an r × N submatrix S1
+and an (N − r) × N submatrix S2, equation
+
+SAST =⎛⎝
+
+S1AST
+S1AST
+2
+1
+− − − − − | − − − − −
+S2AST
+S2AST
+2
+1
+
+|
+|
+
+is correct, with A being an N × N matrix.
+Trivially:
+
+1
+
+S1
+
+1
+
+...
+...
+...
+
+. . . . . .
+
+| ST
+
+| ST
+
+. . . . . .
+. . . . . .
+
+⎞⎠ A6ST
+SAST =⎛⎝
+− − −S2
+Consider the multiplication of A with6ST
+27. Schematically:
+with the columns of6ST
+⎛⎜⎜⎜⎝
+⎛⎜⎜⎝
+⎞⎟⎟⎠
+...
+...
+...
+...
+...
+...
+...
+...
+...
+Then it becomes clear that the result will be 6AST
+⎞⎠ with 6AST
+multiplication of ⎛⎝
+| AST
+− − −S2
+27. Schematically:
+tiply the columns of6AST
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+
+− − − − −
+
+| AST
+
+. . . . . .
+. . . . . .
+
+. . . . . .
+. . . . . .
+
+...
+...
+...
+...
+...
+...
+
+...
+...
+...
+...
+...
+...
+
+. . . . . .
+
+. . . . . .
+
+S1
+
+1
+
+1
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+Then the result is obvious.
+
+⎞⎠
+
+(2.22)
+
+(2.23)
+
+1
+
+| ST
+
+27
+
+|
+|
+|
+
+...
+...
+...
+
+27. The rows of A will be multiplied
+⎞⎟⎟⎟⎠
+...
+...
+...
+27. The rows of ⎛⎝
+
+27. Next we consider the
+⎞⎠ will mul-
+
+− − −S2
+
+| AST
+
+(2.24)
+
+S1
+
+1
+
+...
+...
+...
+...
+...
+...
+
+...
+...
+...
+...
+...
+...
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(2.25)
+
+|
+|
+|
+|
+|
+|
+
+54
+
+Image Processing: The Fundamentals
+
+Example B2.6
+Show that if AggT AT = 0 then Ag = 0, where A and g are an r × N and an
+N × N real matrix, respectively.
+We may write
+
+AggT AT = Ag(Ag)T = 0
+
+(2.26)
+
+Ag is an r × N matrix. Let us call it B. We have, therefore, BBT = 0:
+
+. . .
+. . .
+
+b12
+b1r
+b11
+b21
+b22
+b2r
+. . .
+. . .
+. . .
+br2
+brr
+br1
+11 + b2
+12 + . . . + b2
+b2
+1r
+
+. . .
+
+⎞⎟⎟⎠
+
+b11
+b12
+. . .
+b1r
+
+⎛⎜⎜⎝
+
+b21
+b22
+. . .
+b2r
+
+. . .
+. . .
+
+. . .
+
+br1
+br2
+. . .
+brr
+
+⎞⎟⎟⎠ =⎛⎜⎜⎝
+
+0
+0
+. . .
+0
+
+21 + b2
+b2
+
+22 + . . . + b2
+2r
+
+. . .
+
+. . .
+. . .
+
+. . .
+. . .
+. . .
+. . .
+
+0
+0
+. . .
+0
+
+. . .
+. . .
+
+. . .
+
+0
+0
+. . .
+0
+
+. . .
+. . .
+. . .
+
+⎞⎟⎟⎠ ⇒
+⎞⎟⎟⎠
+
+r1 + b2
+b2
+
+r2 + . . . + b2
+rr
+
+⎛⎜⎜⎝
+⎛⎜⎜⎝
+=⎛⎜⎜⎝
+
+. . .
+. . .
+. . .
+0
+0
+. . .
+0
+
+. . .
+. . .
+
+. . .
+
+0
+0
+. . .
+0
+
+0
+0
+. . .
+0
+
+⎞⎟⎟⎠
+
+(2.27)
+
+(2.28)
+
+Equating the corresponding elements, we obtain, for example:
+
+11 + b2
+b2
+
+12 + . . . + b2
+
+1r = 0
+
+The only way that the sum of the squares of r real numbers can be 0 is if each one of
+them is 0. Similarly for all other diagonal elements of BBT . This means that B = 0,
+ie that Ag = 0.
+
+Box 2.1. Can we expand in vector outer products any image?
+Yes. Consider an image g and its transpose gT . Matrix ggT is real and symmetric (see
+example 2.2) and let us say that it has r nonzero eigenvalues. Let λi be its ith eigenvalue.
+Then it is known, from linear algebra, that there exists an orthogonal matrix S (made
+up from the eigenvectors of ggT ) such that:
+
+Singular value decomposition
+
+55
+
+SggT ST =
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+. . .
+
+. . .
+. . .
+
+. . .
+. . .
+
+0
+0
+...
+0
+
+0
+0
+...
+0
+
+0
+λ2
+...
+0
+
+0
+0
+...
+. . . λ r
+
+0
+λ1
+0
+0
+...
+...
+0
+0
+− − − − − − − − −
+0
+0
+0
+0
+...
+...
+0
+0
+. . .
+Λ | 0
+− − −
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+0
+0
+...
+0
+
+0
+0
+...
+0
+
+0
+0
+...
+0
+
+0
+0
+...
+0
+
+. . .
+. . .
+
+. . .
+. . .
+
+. . .
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+= ⎛⎝
+
+0 | 0⎞⎠
+
+S =⎛⎝
+
+S1
+
+−S2
+
+⎞⎠
+
+(2.29)
+
+(2.30)
+
+(2.31)
+
+(2.32)
+
+(2.33)
+
+(2.34)
+
+where Λ and 0 represent the partitions of the diagonal matrix above. Similarly, we can
+partition matrix S to an r × N matrix S1 and an (N − r) × N matrix S2:
+
+Because S is orthogonal, and by using the result of example 2.4, we have:
+
+ST S = I ⇒ ST
+2 S2 ⇒ ST
+
+1 S1 + ST
+1 S1g = g − ST
+
+2 S2 = I ⇒
+2 S2g
+
+1 S1 = I − ST
+ST
+
+From (2.29) and examples 2.5 and 2.6 we clearly have:
+
+S2ggT ST
+
+S1ggT ST
+
+1 =Λ
+2 = 0 ⇒ S2g = 0
+
+Using (2.33) into (2.31) we have:
+
+1 S1g = g
+ST
+
+This means that ST
+equation (2.32) from left and right with Λ− 1
+
+2 to get:
+
+1 S1 = I, ie S1 is an orthogonal matrix. We multiply both sides of
+
+Λ− 1
+
+2 S1ggT ST
+
+1 Λ− 1
+
+2 =Λ − 1
+
+2 ΛΛ− 1
+
+2 = I
+
+(2.35)
+
+Since Λ− 1
+
+2 is diagonal, Λ− 1
+
+2 = (Λ − 1
+
+2 )T . So the above equation may be rewritten as:
+
+Λ− 1
+
+2 S1g(Λ− 1
+
+2 S1g)T = I
+
+(2.36)
+
+56
+
+Image Processing: The Fundamentals
+
+Therefore, there exists a matrix q ≡ Λ− 1
+is orthogonal). We may express matrix S1g as Λ 1
+
+2 S1g, the inverse of which is its transpose (ie it
+2 q and substitute in (2.34) to obtain:
+
+1 Λ 1
+ST
+
+2 q = g
+
+or
+
+g = ST
+
+1 Λ 1
+2 q
+
+(2.37)
+
+In other words, g is expressed as a diagonal matrix Λ 1
+2 made up from the square roots of
+the nonzero eigenvalues of ggT , multiplied from left and right with the two orthogonal
+matrices S1 and q. This result expresses the diagonalisation of image g.
+
+How can we compute matrices U, V and Λ 1
+
+2 needed for image diagonalisation?
+
+We know, from linear algebra, that matrix diagonalisation means that a real square matrix A
+may be written as UΛU T , where U is made up from the eigenvectors of A written as columns,
+and Λ is a diagonal matrix made up from the eigenvalues of A written along the diagonal in
+the order corresponding to the eigenvectors that make up the columns of U. We need this
+information in the proof that follows.
+
+If we take the transpose of (2.13) we have:
+
+gT = V Λ 1
+Multiply (2.13) with (2.38) by parts, to obtain:
+
+2 U T
+
+(2.38)
+
+ggT = UΛ 1
+
+2 V T V Λ 1
+
+2 U T = UΛ 1
+
+2 Λ 1
+
+(2.39)
+This shows that matrix Λ consists of the r nonzero eigenvalues of matrix ggT while U is made
+up from the eigenvectors of the same matrix.
+
+2 U T = UΛU T
+
+2 U T = UΛ 1
+
+2 IΛ 1
+
+Similarly, if we multiply (2.38) with (2.13) by parts, we get:
+
+This shows that matrix V is made up from the eigenvectors of matrix gT g.
+
+gT g = V ΛV T
+
+(2.40)
+
+Box 2.2. What happens if the eigenvalues of matrix ggT are negative?
+
+We shall show that the eigenvalues of ggT are always non-negative numbers. Let us
+assume that λ is an eigenvalue of matrix ggT and u is the corresponding eigenvector.
+We have then:
+
+ggT u = λu
+
+Multiply both sides with uT from the left:
+
+uT ggT u = uT λu
+
+(2.41)
+
+(2.42)
+
+Singular value decomposition
+
+57
+
+Since λ is a scalar, it can change position on the right-hand side of the equation. Also,
+because of the associativity of matrix multiplication, we may write:
+
+Since u is an eigenvector, uT u = 1. Therefore:
+
+(uT g)(gT u) = λuT u
+
+(gT u)T (gT u) = λ
+
+(2.43)
+
+(2.44)
+
+gT u is some vector y. Then we have: λ = yT y which means that λ is non-negative
+since yT y is the square magnitude of vector y.
+
+Example 2.7
+
+If λi are the eigenvalues of ggT and ui the corresponding eigenvectors, show
+that gT g has the same eigenvalues, with the corresponding eigenvectors
+given by vi = gT ui.
+
+By deﬁnition:
+
+Multiply both sides from the left with gT :
+
+ggT ui = λiui
+
+gT ggT ui = gT λiui
+
+(2.45)
+
+(2.46)
+
+As λi is a scalar, it may change position with respect to the other factors on the
+right-hand side of (2.46). Also, by the associativity of matrix multiplication:
+
+gT g(gT ui) = λi(gT ui)
+
+(2.47)
+
+This identiﬁes gT ui as an eigenvector of gT g with λi the corresponding eigenvalue.
+
+Example 2.8
+
+You are given an image: g =⎛⎝
+
+ggT and vi of gT g.
+
+1
+2
+0
+
+0 0
+1 1
+
+0 1⎞⎠. Compute the eigenvectors ui of
+
+The transpose of g is:
+
+58
+
+Image Processing: The Fundamentals
+
+1 2 0
+0 1 0
+
+gT =⎛⎝
+0 0 1⎞⎠⎛⎝
+
+0 1 1⎞⎠
+0 1 1⎞⎠ =⎛⎝
+
+1 0 0
+2 1 1
+
+1 2 0
+0 1 0
+
+1 2 0
+2 6 1
+
+0 1 1⎞⎠
+
+(2.48)
+
+(2.49)
+
+We start by computing ﬁrst ggT :
+
+ggT = ⎛⎝
+1 − λ??????
+
+0
+1
+
+1 − λ
+2
+0
+
+2
+6 − λ
+1
+
+??????
+
+The eigenvalues of ggT will be computed from its characteristic equation:
+
+= 0 ⇒ (1 − λ)[(6 − λ)(1 − λ) − 1] − 2[2(1 − λ)] = 0
+
+⇒ (1 − λ)[(6 − λ)(1 − λ) − 1 − 4] = 0 (2.50)
+
+One eigenvalue is λ = 1. The other two are the roots of:
+
+6 − 6λ − λ + λ2 − 5 = 0 ⇒ λ2 − 7λ + 1 = 0 ⇒ λ =
+
+7 ± √49 − 4
+
+2
+
+=
+
+7 ± 6.7
+
+2
+
+In descending order, the eigenvalues are:
+
+λ1 = 6.854, λ2 = 1, λ3 = 0.146
+
+(2.52)
+
+⇒ λ = 6.854 or λ = 0.146 (2.51)
+
+x1
+x2
+x3
+
+Let ui =⎛⎝
+⎛⎝
+
+⎞⎠ be the eigenvector which corresponds to eigenvalue λi. Then:
+0 1 1⎞⎠⎛⎝
+
+x1 + 2x2 = λix1
+2x1 + 6x2 + x3 = λix2
+x2 + x3 = λix3
+
+⎞⎠ = λi⎛⎝
+
+⎞⎠ ⇒
+
+1 2 0
+2 6 1
+
+x1
+x2
+x3
+
+x1
+x2
+x3
+
+For λi = 6.854
+
+2x2 − 5.854x1 = 0
+2x1 − 0.854x2 + x3 = 0
+x2 − 5.854x3 = 0
+
+Multiply (2.55) with 5.854 and add equation (2.56) to get:
+
+11.7x1 − 4x2 = 0
+
+(2.53)
+
+(2.54)
+(2.55)
+(2.56)
+
+(2.57)
+
+Singular value decomposition
+
+59
+
+Equation (2.57) is the same as (2.54). So we have really only two independent equa-
+tions for the three unknowns. We choose the value of x1 to be 1. Then:
+
+x2 = 2.927 and from (2.55) x3 = −2 + 0.85 × 2.925 = −2 + 2.5 = 0.5
+
+Thus, the ﬁrst eigenvector is
+
+1
+
+2.927
+
+⎛⎝
+0.5 ⎞⎠
+u1 =⎛⎝
+0.160⎞⎠
+
+0.319
+0.934
+
+(2.58)
+
+(2.59)
+
+(2.60)
+
+and after normalisation, ie division with@12 + 2.9272 + 0.52 = 3.133, we obtain:
+
+For λi = 1, the system of linear equations we have to solve is:
+
+x1 + 2x2 = x1 ⇒ x2 = 0
+2x1 + x3 = 0 ⇒ x3 = −2x1
+(2.61)
+Choose x1 = 1. Then x3 = −2. Since x2 = 0, we must divide all components with
+√12 + 22 = √5 for the eigenvector to have unit length:
+
+u2 =⎛⎝
+
+0
+
+0.447
+
+−0.894⎞⎠
+
+For λi = 0.146, the system of linear equations we have to solve is:
+
+(2.62)
+
+0.854x1 + 2x2 = 0
+2x1 + 5.854x2 + x3 = 0
+x2 + 0.854x3 = 0
+
+(2.63)
+0.854 = 0.5. Therefore, the
+
+Choose x1 = 1. Then x2 = − 0.854
+third eigenvector is:
+
+2 = −0.427 and x3 = − 0.427
+
+and after division with@1 + 0.4272 + 0.52 = 1.197 we obtain:
+
+1
+
+−0.427
+
+⎛⎝
+u3 =⎛⎝
+
+0.5 ⎞⎠ ,
+0.418 ⎞⎠
+
+0.835
+−0.357
+
+(2.64)
+
+(2.65)
+
+60
+
+Image Processing: The Fundamentals
+
+The corresponding eigenvectors of gT g are given by gT ui; ie the ﬁrst one is:
+
+We normalise it by dividing with@2.1872 + 0.9342 + 1.0942 = 2.618, to obtain:
+
+2.187
+0.934
+
+1.094⎞⎠
+
+0
+
+0.447
+
+−0.894⎞⎠ ,
+0.061 ⎞⎠
+
+0.121
+−0.357
+
+0.835
+0.357
+
+0.447
+
+0
+
+⎛⎝
+
+0.319
+0.934
+
+1 2 0
+0 1 0
+
+0 1 1⎞⎠⎛⎝
+0.160⎞⎠ =⎛⎝
+v1 =⎛⎝
+0.418⎞⎠
+v2 =⎛⎝
+0 1 1 ⎞⎠⎛⎝
+−0.894⎞⎠ =⎛⎝
+0.418 ⎞⎠ =⎛⎝
+⎛⎝
+0 1 1 ⎞⎠⎛⎝
+v3 =⎛⎝
+0.160 ⎞⎠
+
+0.835
+−0.357
+
+0.319
+−0.934
+
+1 2 0
+0 1 0
+
+1 2 0
+0 1 0
+
+(2.66)
+
+(2.67)
+
+(2.68)
+
+(2.69)
+
+(2.70)
+
+Similarly
+
+while the third eigenvector is
+
+which after normalisation becomes:
+
+What is the singular value decomposition of an image?
+
+The Singular Value Decomposition (SVD) of an image f is its expansion in terms of vector
+outer products, where the vectors used are the eigenvectors of f f T and f Tf, and the coef-
+ﬁcients of the expansion are the eigenvalues of these matrices. In that case, equation (2.9)
+may be written as
+
+f =
+
+r+i=1
+
+1
+2
+
+i uivT
+i
+
+λ
+
+(2.71)
+
+since the only nonzero terms are those with i = j. Elementary images uivT
+eigenimages of image f.
+
+i are known as the
+
+Singular value decomposition
+
+61
+
+Can we analyse an eigenimage into eigenimages?
+No. An eigenimage N × N may be written as the outer product of two vectors, say vectors
+u and v:
+
+uvT =⎛⎜⎜⎜⎝
+
+u1
+u2
+...
+uN
+
+⎞⎟⎟⎟⎠6v1
+
+v2
+
+. . .
+
+vN7 =⎛⎜⎜⎝
+
+u1v1
+u1v2
+u2v1
+u2v2
+. . .
+. . .
+uN v1 uN v2
+
+. . .
+u1vN
+. . .
+u2vN
+. . .
+. . .
+. . . uN vN
+
+⎞⎟⎟⎠
+
+(2.72)
+
+Any row of the outer product of two vectors may be written as the linear function of any
+other row. For example, we can see from (2.72) row number 1 is row number 2 times u1/u2.
+So, an eigenimage is a matrix with rank 1, ie it has only one nonzero eigenvalue and only one
+eigenvector: it cannot be analysed any further.
+
+Example 2.9
+Consider a 2 × 2 image that can be written as the outer product of two
+vectors. Show that it has only one nonzero eigenvalue and that the corre-
+sponding eigenvector is parallel to the ﬁrst of the two vectors, the outer
+product of which makes the image.
+
+Let us say that the image can be written as the outer product of vectors aT = (a1, a2)
+and bT = (b1, b2):
+
+We solve the characteristic equation of this matrix to work out its eigenvalues:
+
+(2.74)
+So, only one eigenvalue is diﬀerent from zero. The corresponding eigenvector (x1, x2)T
+is the solution of:
+
+λ = a2b2 + a1b1
+
+abT =3a1
+
+a246b1
+????
+
+b27 =3a1b1 a1b2
+a2b1 a2b24
+a2b2 − λ ???? = 0
+
+a1b1 − λa 1b2
+a2b1
+
+⇒ (a1b1 − λ)(a2b2 − λ) − a1b2a2b1 = 0
+a1b2a2b1 − λa2b2 − λa1b1 + λ2 − a1b2a2b1 = 0
+λ(λ − a2b2 − a1b1) = 0
+or λ = 0
+
+a1b1x1 + a1b2x2 = (a2b2 + a1b1)x1
+
+3a1b1 a1b2
+x24 = (a2b2 + a1b1)3x1
+x24 ⇒
+a2b1 a2b243x1
+a2b1x1 + a2b2x2 = (a2b2 + a1b1)x2 ???? ⇒
+a2x1 = a1x2 ???? ⇒
+
+a1x2 = a2x1
+
+x2 = a2
+a1
+
+x1
+
+(2.73)
+
+(2.75)
+
+62
+
+Image Processing: The Fundamentals
+
+Choose x1 = a1. Then x2 = a2, and the eigenvector is (a1, a2)T times a constant that
+will make sure its length is normalised to 1. So, the eigenvector is parallel to vector a
+since they only diﬀer by a multiplicative constant.
+
+How can we approximate an image using SVD?
+
+If in equation (2.71) we decide to keep only k < r terms, we shall reproduce an approximated
+version of the image:
+
+fk =
+
+1
+2
+
+i uivT
+i
+
+λ
+
+k+i=1
+
+(2.76)
+
+Example 2.10
+A 256×256 grey image with 256 grey levels is to be transmitted. How many
+terms can be kept in its SVD before the transmission of the transformed
+image becomes too ineﬃcient in comparison with the transmission of the
+original image? (Assume that real numbers require 32 bits each.)
+
+1
+2
+i
+
+is incorporated into one of the vectors ui or vi in equation (2.76).
+Assume that λ
+When we transmit term i of the SVD expansion of the image, we must transmit the two
+vectors ui and vi, that are made up from 256 elements each, which are real numbers.
+We must, therefore, transmit
+
+2 × 32 × 256 bits per term.
+
+If we want to transmit the full image, we shall have to transmit 256 × 256 × 8 bits
+(since each pixel requires 8 bits). Then the maximum number of terms transmitted
+before the SVD becomes uneconomical is:
+
+k =
+
+256 × 256 × 8
+2 × 32 × 256
+
+=
+
+256
+8
+
+= 32
+
+(2.77)
+
+Box 2.3. What is the intuitive explanation of SVD?
+
+Let us consider a 2 × 3 matrix (an image) A. Matrix AT A is a 3 × 3 matrix. Let us
+consider its eﬀect on a 3 × 1 vector u: AT Au = AT (Au). When matrix A operates on
+vector u, it produces 2 × 1 vector ˜u:
+
+Singular value decomposition
+
+63
+
+˜u ≡ Au ⇒
+a21 a22 a23 4⎛⎝
+˜u2 4 = 3 a11 a12 a13
+3 ˜u1
+
+u1
+u2
+u3
+
+⎞⎠
+
+This is nothing else than a projection of vector u from a 3D space to a 2D space. Next,
+let us consider the eﬀect of AT on this vector:
+
+(2.78)
+
+(2.79)
+
+AT (Au) = AT ˜u ⇒
+ˆu1
+ˆu2
+ˆu3
+
+⎞⎠3 ˜u1
+˜u2 4 ≡ ⎛⎝
+
+⎞⎠
+
+⎛⎝
+
+a11 a21
+a12 a22
+a13 a23
+
+This is nothing else than an upsampling and embedding of vector ˜u from a 2D space
+into a 3D space. Now, if vector u is an eigenvector of matrix AT A, the result of this
+operation, namely projecting it on a lower dimensionality space and then embedding
+it back into the high dimensionality space we started from, will produce a vector that
+has the same orientation as the original vector u, and magnitude λ times the original
+magnitude: AT Au = λu, where λ is the corresponding eigenvalue of matrix AT A.
+When λ is large (λ> 1), this process, of projecting the vector in a low dimensionality
+space and upsampling it again back to its original space, will make the vector larger and
+“stronger”, while if λ is small (λ< 1), the vector will shrink because of this process.
+We may think of this operation as a “resonance”: eigenvectors with large eigenvalues
+gain energy from this process and emerge λ times stronger, as if they resonate with the
+matrix. So, when we compute the eigenimages of matrix A, as the outer products of the
+eigenvectors that resonate with matrix AT A (or AAT ), and arrange them in order of
+decreasing corresponding eigenvectors, eﬀectively we ﬁnd the modes of the image: those
+components that contain the most energy and “resonate” best with the image when the
+image is seen as an operator that projects a vector to a lower dimensionality space and
+then embeds it back to its original space.
+
+What is the error of the approximation of an image by SVD?
+
+The diﬀerence between the original and the approximated image is:
+
+D ≡ f − fk =
+
+1
+2
+
+i uivT
+i
+
+λ
+
+r+i=k+1
+
+(2.80)
+
+We may calculate how big this error is by calculating the norm of matrix D, ie the sum
+of the squares of its elements. From (2.80) it is obvious that, if uim is the mth element of
+vector ui and vin is the nth element of vector vi, the mnth element of D is:
+
+64
+
+Image Processing: The Fundamentals
+
+d2
+
+dmn =
+
+λ
+
+r+i=k+1
+mn = = r+i=k+1
+r+i=k+1
+
+=
+
+1
+2
+
+i uimvin ⇒
+
+1
+2
+
+i uimvin>2
+
+λ
+
+λiu2
+
+imv2
+
+in + 2
+
+The norm of matrix D will be the sum of the squares of all its elements:
+
+r+i=k+1
+
+r+j=k+1,j̸=i
+
+1
+2
+i λ
+
+1
+2
+j uimvinujmvjn
+
+λ
+
+(2.81)
+
+However, ui, vi are eigenvectors and therefore they form an orthonormal set. So
+
+d2
+mn
+
+||D|| = +m +n
+= +m +n
+r+i=k+1
+
+=
+
+1
+2
+
+λ
+
+u2
+
+1
+2
+i λ
+
+λiu2
+
+imv2
+
+in + 2
+v2
+
+im+n
+
+r+i=k+1
+λi+m
+
+r+j=k+1,j̸=i
+j +m
+
+r+i=k+1
+in + 2+m +n
+r+i=k+1
+r+j=k+1,j̸=i
+im = 1, +n
++m
+vinvjn = 0 and +m
+uimujm = 0 for i ̸= j
+j = 0 for i ̸= j. Then:
+r+i=k+1
+
+||D|| =
+
+in = 1,
+v2
+
+u2
+
+λi
+
++n
+
+since uiuT
+
+j = 0 and vivT
+
+1
+2
+i λ
+
+1
+2
+j uimvinujmvjn
+
+λ
+
+uimujm+n
+
+vinvjn(2.82)
+
+(2.83)
+
+(2.84)
+
+Therefore, the square error of the approximate reconstruction of the image using equation
+
+(2.76) is equal to the sum of the omitted eigenvalues.
+
+Example 2.11
+For a 3 × 3 matrix D show that its norm, deﬁned as the trace of DT D, is
+equal to the sum of the squares of its elements.
+
+Let us assume that:
+
+D ≡ ⎛⎝
+
+d11
+d21
+d31
+
+d12
+d22
+d32
+
+d13
+d23
+d33
+
+⎞⎠
+
+(2.85)
+
+Singular value decomposition
+
+65
+
+Then:
+
+DT D =⎛⎝
+
+d11
+d12
+d13
+
+d21
+d22
+d23
+
+d31
+d32
+d33
+
+⎞⎠⎛⎝
+
+d11
+d21
+d31
+
+d12
+d22
+d32
+
+d13
+d23
+d33
+
+⎞⎠ =
+
+11 + d2
+d2
+
+21 + d2
+31
+
+d12d11 + d22d21 + d32d31
+d13d11 + d23d21 + d33d31
+
+⎛⎝
+
+Finally:
+
+d11d12 + d21d22 + d31d32
+
+12 + d2
+d2
+
+22 + d2
+32
+
+d13d12 + d23d22 + d33d32
+
+d11d13 + d21d23 + d31d33
+d12d13 + d22d23 + d32d33
+
+13 + d2
+d2
+
+23 + d2
+33
+
+⎞⎠ (2.86)
+
+trace[DT D] = (d2
+
+11 + d2
+
+21 + d2
+
+31) + (d2
+
+12 + d2
+
+22 + d2
+
+32) + (d2
+
+13 + d2
+
+23 + d2
+
+33)
+
+= sum of all elements of D squared.
+
+(2.87)
+
+How can we minimise the error of the reconstruction?
+
+If we arrange the eigenvalues λi of matrices f T f and f f T in decreasing order and truncate
+the expansion at some integer k < r, where r is the rank of these matrices, we approximate
+the image f by fk, which is the least square error approximation. This is because the sum of
+the squares of the elements of the diﬀerence matrix is minimal, since it is equal to the sum
+of the unused eigenvalues which have been chosen to be the smallest ones.
+
+Notice that the singular value decomposition of an image is optimal in the least square
+error sense but the basis images (eigenimages), with respect to which we expanded the image,
+are determined by the image itself. (They are determined by the eigenvectors of f T f and
+f f T .)
+
+Example 2.12
+In the singular value decomposition of the image of example 2.8, only
+the ﬁrst term is kept while the others are set to zero. Verify that the
+square error of the reconstructed image is equal to the sum of the omitted
+eigenvalues.
+
+If we keep only the ﬁrst eigenvalue, the image is approximated by the ﬁrst eigenimage
+only, weighted by the square root of the corresponding eigenvalue:
+
+66
+
+Image Processing: The Fundamentals
+
+0.835
+2.444
+
+1 = √6.85⎛⎝
+g1 = @λ1u1vT
+= ⎛⎝
+0.419⎞⎠60.835
+g − g1 =⎛⎝
+
+0.319
+0.934
+
+0.160⎞⎠60.835 0.357 0.4187
+0.357 0.4187 =⎛⎝
+
+0.697 0.298 0.349
+2.041 0.873 1.022
+
+0.350 0.150 0.175⎞⎠ (2.88)
+0.825 ⎞⎠
+
+(2.89)
+
+0.303 −0.298 −0.349
+−0.041
+0.127 −0.022
+−0.350 −0.150
+
+The error of the reconstruction is given by the diﬀerence between g1 and the original
+image:
+
+The sum of the squares of the errors is:
+
+0.3032 + 0.2982 + 0.3492 + 0.0412 + 0.1272 + 0.0222 + 0.3502 + 0.1502 + 0.8252
+
+= 1.146 (2.90)
+
+This is exactly equal to the sum of the two omitted eigenvalues λ2 and λ3.
+
+Example 2.13
+
+Perform the singular value decomposition (SVD) of the following image:
+
+1 0 1
+0 1 0
+
+g =⎛⎝
+1 0 1⎞⎠
+
+Thus, identify the eigenimages of the above image.
+
+We start by computing ggT :
+
+1 0 1
+0 1 0
+
+1 0 1⎞⎠ =⎛⎝
+
+2 0 2
+0 1 0
+
+2 0 2⎞⎠
+
+The eigenvalues of ggT are the solutions of:
+
+ggT =⎛⎝
+
+0
+1 − λ
+0
+
+2 − λ
+0
+2
+
+??????
+
+1 0 1
+0 1 0
+
+1 0 1⎞⎠⎛⎝
+2 − λ??????
+
+2
+0
+
+= 0 ⇒ (2 − λ)2(1 − λ) − 4(1 − λ) = 0
+⇒ (1 − λ)(λ − 4)λ = 0
+
+(2.91)
+
+(2.92)
+
+(2.93)
+
+Singular value decomposition
+
+67
+
+The eigenvalues are: λ1 = 4, λ2 = 1, λ3 = 0. The ﬁrst corresponding eigenvector is
+the solution of the system of equations:
+
+2x1 + 2x3 = 4x1
+x2 = 4x2
+2x1 + 2x3 = 4x3
+
+x1 = x3
+x2 = 0
+
+⇒
+
+(2.94)
+
+??????
+
+2 0 2
+0 1 0
+
+2 0 2⎞⎠⎛⎝
+
+x1
+x2
+x3
+
+⎞⎠ = 4⎛⎝
+
+x1
+x2
+x3
+
+⎞⎠ ⇒
+
+We choose x1 = x3 = 1√2
+uT
+
+0
+
+⎛⎝
+1 =A 1√2
+⎛⎝
+
+2 0
+0 1
+2 0
+
+so that the eigenvector has unit length. Thus,
+
+2
+0
+
+1√2B. For the second eigenvalue, we have:
+??????
+2⎞⎠⎛⎝
+
+2x1 + 2x3 = x1
+x2 = x2
+2x1 + 2x3 = x3
+
+⎞⎠ =⎛⎝
+
+⎞⎠ ⇒
+
+x1
+x2
+x3
+
+x1
+x2
+x3
+
+⇒
+
+x1 = −2x3
+x2 = x2
+x3 = −2x1
+
+(2.95)
+
+The second of the above equations conveys no information, giving us the option to
+choose whatever value of x2 we want. However, we cannot choose x2 = 0, because the
+ﬁrst and the third equations appear to be incompatible, unless x1 = x3 = 0. If x2 were
+0 too, we would have the trivial solution which does not represent an eigenvector.
+So, the above three equations are satisﬁed if x1 = x3 = 0 and x2 is anything apart from
+0. Then x2 is chosen to be 1 so that u2 has also unit length. Thus, uT
+Because g is symmetric, ggT = gT g and the eigenvectors of ggT are the same as the
+eigenvectors of gT g. Then the SVD of g is:
+
+2 =60 1 07.
+
+g =@λ1u1uT
+
+1 +@λ2u2uT
+
+2 = 2⎛⎝
+
+1√2
+0
+1√2
+
+0
+1
+
+0⎞⎠60 1 07
+
+0
+
+1√2B +⎛⎝
+⎞⎠A 1√2
+=⎛⎝
+1 0 1⎞⎠ +⎛⎝
+
+1 0 1
+0 0 0
+
+0
+0
+0
+
+0 0
+1 0
+
+0 0⎞⎠ (2.96)
+
+These two matrices are the eigenimages of g.
+
+Example 2.14
+
+Perform the singular value decomposition of the following image and iden-
+tify its eigenimages:
+
+0 1 0
+1 0 1
+
+g =⎛⎝
+0 1 0⎞⎠
+
+(2.97)
+
+68
+
+Image Processing: The Fundamentals
+
+Start by computing ggT :
+
+0 1 0
+1 0 1
+
+0 1 0⎞⎠ =⎛⎝
+
+1 0 1
+0 2 0
+
+1 0 1⎞⎠
+
+ggT =⎛⎝
+
+0 1 0
+1 0 1
+
+0 1 0⎞⎠⎛⎝
+1 − λ??????
+
+1
+0
+
+The eigenvalues of this matrix are the solutions of:
+
+So, λ1 = 2, λ2 = 2, λ3 = 0.
+The ﬁrst eigenvector is:
+
+0
+2 − λ
+0
+
+1 − λ
+0
+1
+
+??????
+= 0 ⇒ (1 − λ)2(2 − λ) − (2 − λ) = 0
+⇒ (2 − λ)C(1 − λ)2 − 1D = 0 ⇒ (2 − λ)(1 − λ − 1)(1 − λ + 1) = 0
+⎛⎝
+1 0 1⎞⎠⎛⎝
+
+x1 + x3 = 2x1
+2x2 = 2x2
+x1 + x3 = 2x3
+
+x1 = x3
+x2 any value
+
+⎞⎠ ⇒
+
+⎞⎠ = 2⎛⎝
+and x2 = 0, so u1 =A 1√2
+
+??????
+, 0, 1√2BT
+
+1 0 1
+0 2 0
+
+x1
+x2
+x3
+
+x1
+x2
+x3
+
+⇒
+
+.
+
+Choose x1 = x3 = 1√2
+
+to u1. Therefore:
+
+(2.98)
+
+(2.99)
+
+(2.100)
+
+The second eigenvector must satisfy the same constraints and must be orthogonal
+
+(2.101)
+Because g is symmetric, ggT = gT g and the eigenvectors of ggT are the same as the
+eigenvectors of gT g. Then the SVD of g is:
+
+u2 = (0, 1, 0)T
+
+2
+
+1√2
+0
+1√2
+0
+0
+0
+
+g = @λ1u1vT
+= √2⎛⎝
+= √2⎛⎝
+= ⎛⎝
+0 1 0⎞⎠ +⎛⎝
+
+1 +@λ2u2vT
+⎞⎠60 1 07 + √2⎛⎝
+0⎞⎠ + √2⎛⎝
+0 0 0⎞⎠
+
+1√2
+0
+1√2
+0 1 0
+0 0 0
+
+0 0 0
+1 0 1
+
+0
+1√2
+0
+
+0
+0
+
+0
+1
+
+0⎞⎠A 1√2
+0 ⎞⎠
+
+0
+1√2
+
+0
+0
+0
+
+0
+
+1√2B
+
+(2.102)
+
+These two matrices are the eigenimages of g. Note that the answer would not have
+changed if we exchanged the deﬁnitions of u1 and u2, the order of which is meaningless,
+since they both correspond to the same eigenvalue with multiplicity 2 (ie it is 2-fold
+degenerate).
+
+Singular value decomposition
+
+69
+
+Example 2.15
+
+Show the diﬀerent stages of the SVD of the following image:
+
+g =
+
+255 255
+255 255
+255 255
+255 255
+255 255
+255 255
+255 255
+50
+50
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+255 255 255 255 255 255
+255 100 100 100 255 255
+100 150 150 150 100 255
+100 150 200 150 100 255
+100 150 150 150 100 255
+255 100 100 100 255 255
+50
+255 255
+255 255 255
+50
+50
+255 255 255 255
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(2.103)
+
+The ggT matrix is:
+
+ggT=
+
+520200
+401625
+360825
+373575
+360825
+401625
+467925
+311100
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+401625 360825 373575 360825 401625
+355125 291075 296075 291075 355125
+291075 282575 290075 282575 291075
+296075 290075 300075 290075 296075
+291075 282575 290075 282575 291075
+355125 291075 296075 291075 355125
+381125 330075 332575 330075 381125
+224300 205025 217775 205025 224300
+
+467925 311100
+381125 224300
+330075 205025
+332575 217775
+330075 205025
+381125 224300
+457675 258825
+258825 270100
+
+(2.104)
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+Its eigenvalues sorted in decreasing order are:
+
+2593416.500
+11882.712
+
+111621.508 71738.313
+
+34790.875
+
+0.009 0.001 0.000
+
+The last three eigenvalues are practically 0, so we compute only the eigenvectors that
+correspond to the ﬁrst ﬁve eigenvalues. These eigenvectors are the columns of the
+following matrix:
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0.441 −0.167 −0.080 −0.388
+0.764
+0.446
+0.359
+0.040
+0.252 −0.328
+0.034 −0.201
+0.321
+0.086
+0.440
+0.329
+0.107
+0.093
+0.503
+0.003
+0.321
+0.035 −0.202
+0.086
+0.440
+0.359
+0.040
+0.446
+0.252 −0.328
+0.173 −0.341 −0.630 −0.504
+0.407
+0.261 −0.895 −0.150
+0.209 −0.256
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(2.105)
+
+The vi eigenvectors, computed as gT ui, turn out to be the columns of the following
+
+70
+
+matrix:
+
+Image Processing: The Fundamentals
+
+⎛⎜⎜⎜⎜⎜⎜⎜⎜⎜⎜⎝
+
+0.264
+0.264
+
+0.410
+0.389
+0.106 −0.012
+0.410
+0.389
+0.106 −0.012
+0.316
+0.308 −0.537 −0.029
+0.408
+0.277
+0.100
+0.101 −0.727
+0.158
+0.220
+0.341
+0.269 −0.555
+0.675
+0.311 −0.449 −0.014 −0.497 −0.323
+0.200 −0.074
+0.349 −0.241 −0.651
+0.149
+0.443 −0.160
+0.336 −0.493
+
+⎞⎟⎟⎟⎟⎟⎟⎟⎟⎟⎟⎠
+
+(2.106)
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+Figure 2.1: The original image and its ﬁve eigenimages, each scaled independently to
+have values from 0 to 255.
+
+Singular value decomposition
+
+71
+
+In ﬁgure 2.1 the original image and its ﬁve eigenimages are shown. Each eigenimage
+has been scaled so that its grey values vary between 0 and 255. These eigenimages have
+to be weighted by the square root of the appropriate eigenvalue and added to produce
+the original image. The ﬁve images shown in ﬁgure 2.2 are the reconstructed images
+when one, two,. . ., ﬁve eigenvalues were used for the reconstruction.
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+Figure 2.2: Image reconstruction using one, two,. . ., ﬁve eigenimages from top right
+to bottom left sequentially, with the original image shown in (f).
+
+Then we calculate the sum of the squared errors for each reconstructed image according
+to the formula:
+
+(reconstructed pixel − original pixel)2
+
+(2.107)
+
++all pixels
+
+72
+
+Image Processing: The Fundamentals
+
+We obtain:
+
+Square error for image 2.2a:
+Square error for image 2.2b:
+Square error for image 2.2c:
+Square error for image 2.2d:
+Square error for image 2.2e:
+
+230033.32
+118412.02
+46673.53
+11882.65
+
+0
+
+(λ2 + λ3 + λ4 + λ5 = 230033.41)
+(λ3 + λ4 + λ5 = 118411.90)
+(λ4 + λ5 = 46673.59)
+(λ5 = 11882.71)
+
+We see that the sum of the omitted eigenvalues agrees very well with the value of the
+square error for each reconstructed image.
+
+Are there any sets of elementary images in terms of which any image may be
+expanded?
+
+Yes. They are deﬁned in terms of complete and orthonormal sets of discrete valued discrete
+functions.
+
+What is a complete and orthonormal set of functions?
+
+A set of functions Sn(t), where n is an integer, is said to be orthogonal over an interval
+[0, T ] with weight function w(t), if:
+
+- T
+
+0
+
+w(t)Sn(t)Sm(t)dt = , k ̸= 0
+
+0
+
+if n = m
+if n ̸= m
+
+(2.108)
+
+In other words, the set of functions Sn(t), for n an integer index identifying the individual
+functions, is orthogonal when the integral of the product of any two of these functions over
+a certain interval, possibly weighted by a function w(t), is zero, unless the two functions are
+the same function, in which case the result is equal to a nonzero constant k. The set is called
+orthonormal, if k = 1. Note that from an orthogonal set of functions we can easily create
+an orthonormal set by a simple scaling of the functions. The set is called complete, if we
+cannot ﬁnd any other function which is orthogonal to the set and does not belong to the set.
+An example of a complete and orthogonal set is the set of functions Sn(t) ≡ ejnt, which are
+used as the basis functions of the Fourier transform.
+
+Example 2.16
+
+Show that the columns of an orthogonal matrix form a set of orthonormal
+vectors.
+
+Let us say that A is an N × N orthogonal matrix (ie AT = A−1), and let us consider
+its column vectors u1, u2, . . . , uN. We obviously have:
+
+Singular value decomposition
+
+73
+
+A−1A = I ⇒ AT A = I ⇒
+
+u1
+u2
+
+uN
+
+u1
+u2
+
+T u1
+T u1
+...
+T u1 uN
+
+T u2
+T u2
+...
+T u2
+
+⎛⎜⎜⎜⎝
+
+T
+
+T
+
+T
+
+u1
+u2
+...
+uN
+
+⎛⎜⎜⎜⎝
+
+. . . u1
+. . . u2
+
+. . . uN
+
+⎞⎟⎟⎟⎠6u1 u2
+=⎛⎜⎜⎜⎝
+⎞⎟⎟⎟⎠
+
+T uN
+T uN
+...
+T uN
+
+. . . uN7 = I ⇒
+⎞⎟⎟⎟⎠
+
+1 0 . . . 0
+0 1 . . . 0
+...
+...
+0 0 . . . 1
+
+...
+
+(2.109)
+
+This proves that the columns of A form an orthonormal set of vectors, since uT
+for i ̸= j and uT
+
+i ui = 1 for every i.
+
+i uj = 0
+
+Example 2.17
+
+Show that the inverse of an orthogonal matrix is also orthogonal.
+
+An orthogonal matrix is deﬁned as:
+
+AT = A−1
+
+(2.110)
+
+To prove that A−1 is also orthogonal, it is enough to prove that (A−1)T = (A−1)−1.
+This is equivalent to (A−1)T = A, which is readily derived if we take the transpose of
+equation (2.110).
+
+Example 2.18
+
+Show that the rows of an orthogonal matrix also form a set of orthonormal
+vectors.
+
+Since A is an orthogonal matrix, so is A−1 (see example 2.17). The columns of an
+orthogonal matrix form a set of orthonormal vectors (see example 2.16). Therefore,
+the columns of A−1, which are the rows of A, form a set of orthonormal vectors.
+
+Are there any complete sets of orthonormal discrete valued functions?
+Yes. There is, for example, the set of Haar functions, which take values from the set
+, for p = 1, 2, 3, . . .} and the set of Walsh functions, which take
+
+of numbers {0,±1,±√2p
+values from the set of numbers {+1,−1}.
+
+74
+
+Image Processing: The Fundamentals
+
+2.2 Haar, Walsh and Hadamard trans-
+forms
+
+How are the Haar functions deﬁned?
+
+They are deﬁned recursively by equations
+
+2
+
+H0(t) ≡ 1 for 0 ≤ t < 1
+H1(t) ≡ , 1 if 0 ≤ t < 1
+2 ≤ t < 1
+for n
+for n+0.5
+elsewhere
+
+−1 if 1
+√2p
+−√2p
+
+H2p+n(t) ≡ ⎧⎪⎪⎨⎪⎪⎩
+
+0
+
+2p
+
+2p ≤ t < n+0.5
+2p ≤ t < n+1
+
+2p
+
+where p = 1, 2, 3, . . . and n = 0, 1, . . . , 2p − 1.
+How are the Walsh functions deﬁned?
+
+(2.111)
+
+They are deﬁned in various ways, all of which can be shown to be equivalent. We use here
+the deﬁnition from the recursive equation
+
+W2j+q(t) ≡ (−1)⌊ j
+
+2⌋+q{Wj(2t) + (−1)j+qWj(2t − 1)}
+
+whereH j
+
+and:
+
+2I means the largest integer which is smaller or equal to j
+
+(2.112)
+2, q = 0 or 1, j = 0, 1, 2, . . .
+
+Diﬀerent deﬁnitions (eg see Box 2.4) deﬁne these functions in diﬀerent orders (see Box
+
+2.5).
+
+W0(t) ≡, 1
+
+0
+
+for 0 ≤ t < 1
+elsewhere
+
+(2.113)
+
+Box 2.4. Deﬁnition of Walsh functions in terms of the Rademacher functions
+
+A Rademacher function of order n (n ̸= 0) is deﬁned as:
+
+Rn(t) ≡ sign [sin (2nπt)]
+
+for 0 ≤ t ≤ 1
+
+For n = 0:
+
+R0(t) ≡ 1
+
+for 0 ≤ t ≤ 1
+
+(2.114)
+
+(2.115)
+
+Haar, Walsh and Hadamard transforms
+
+75
+
+These functions look like square pulse versions of the sine function. The Walsh functions
+in terms of them are deﬁned as
+
+˜Wn(t) ≡
+
+m+1Ji=1,bi̸=0
+
+Ri(t)
+
+where bi are the digits of n when expressed as a binary number:
+n = bm+12m + bm2m−1 + ··· + b221 + b120
+
+(2.116)
+
+(2.117)
+
+For example, the binary expression for n when n = 4 is 100. This means that m = 2,
+b3 = 1 and b2 = b1 = 0. Then:
+
+˜W4(t) = R3(t) = sign [sin (8πt)]
+
+(2.118)
+
+Figure 2.3 shows sin(8πt), R3(t) and ˜W4(t).
+
+sin(8   t)
+
+π
+
+1
+
+0
+
+−1
+
+R  (t), W  (t)
+
+4
+
+3
+
+1
+
+0
+
+−1
+
+1
+
+1
+
+t
+
+t
+
+Figure 2.3: The sine function used to deﬁne the corresponding Rademacher function,
+which is Walsh function ˜W4(t).
+
+How can we use the Haar or Walsh functions to create image bases?
+
+We saw that a unitary matrix has its columns forming an orthonormal set of vectors (=discrete
+functions). We can use the discretised Walsh or Haar functions as vectors that constitute such
+an orthonormal set. In other words, we can create transformation matrices that are made up
+from Walsh or Haar functions of diﬀerent orders.
+
+
