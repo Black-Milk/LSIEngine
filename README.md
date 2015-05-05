@@ -11,7 +11,7 @@ REQUIREMENTS:
 	
 4. LSIscript.py is meant to be invoked in terminal via $ python LSIscript.py 
 
-		try $ python LSIscript.py -h to see how it works. The help summary is given below.
+		$ python LSIscript.py -h to see how it works. The help summary is given below.
 		
 SCRIPT HELP SUMMARY:
 usage: LSIscript.py [-h] [-o OUTPUTPATH] docsetpath stopwordspath
