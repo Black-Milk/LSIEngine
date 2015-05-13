@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import argparse, os, re
-import LSItools as LS
+import LSIEngine as LS
 import matplotlib.pyplot as plt
 
 
